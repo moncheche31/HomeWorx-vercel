@@ -88,7 +88,7 @@ export function saveRecentCustomer(customer: SavedCustomer): void {
     (c) => c.name.toLowerCase() !== customer.name.toLowerCase() ||
            c.phone !== customer.phone
   );
-  const updated = [{ ...customer, lastUsed: new Date().toISOString() }, ...existing].slice(0, 8);
+  const updated = [{ ...customer, lastUsed: new Date().toISOString() }, ...existing];
   save(CUSTOMERS_KEY, updated);
 }
 
