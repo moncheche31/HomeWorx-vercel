@@ -1,0 +1,268 @@
+import { Language } from "@/types";
+
+const translations = {
+  en: {
+    // Nav
+    appName: "HomeWorx",
+    dashboard: "My Estimates",
+    newEstimate: "New Estimate",
+    settings: "Settings",
+
+    // Dashboard
+    noEstimates: "No estimates yet",
+    noEstimatesHint: "Tap 'New Estimate' to create your first quote.",
+    draft: "Draft",
+    sent: "Sent",
+    accepted: "Accepted",
+    declined: "Declined",
+    total: "Total",
+    viewEdit: "View / Edit",
+    deleteEstimate: "Delete",
+    confirmDelete: "Delete this estimate?",
+
+    // Steps
+    step1: "Trade & Customer",
+    step2: "Describe the Job",
+    step3: "Photos",
+    step4: "Review Estimate",
+    next: "Next",
+    back: "Back",
+    finish: "Finish",
+
+    // Trade selector
+    selectTrade: "What type of work?",
+    remodeling: "Remodeling",
+    painting: "Painting",
+    roofing: "Roofing",
+    siding: "Siding",
+    doorsWindows: "Doors & Windows",
+    plumbing: "Plumbing",
+    electrical: "Electrical",
+    drywall: "Drywall",
+
+    // Customer form
+    customerName: "Customer Name",
+    customerPhone: "Customer Phone",
+    customerEmail: "Customer Email (optional)",
+    jobAddress: "Job Address",
+    jobCity: "City",
+    jobState: "State",
+    jobZip: "ZIP Code",
+
+    // Voice input
+    describeJob: "Describe the Job",
+    describeJobHint: "Tap and hold the microphone button and describe what needs to be done. Include dimensions, materials, and any special details.",
+    tapToSpeak: "Tap to Speak",
+    listening: "Listening...",
+    stopListening: "Tap to Stop",
+    orTypeBelow: "— or type below —",
+    jobDescription: "Job Description",
+    jobDescriptionPlaceholder: "Describe the work to be done, dimensions, materials needed...",
+
+    // Photos
+    addPhotos: "Add Photos",
+    addPhotosHint: "Take photos or upload images to help generate a more accurate estimate.",
+    takePhoto: "Take Photo",
+    choosePhoto: "Choose from Gallery",
+    photosAdded: "photos added",
+    skipPhotos: "Skip — no photos",
+    removePhoto: "Remove",
+
+    // Estimate review
+    reviewEstimate: "Review Estimate",
+    generateEstimate: "Generate AI Estimate",
+    generating: "Generating estimate...",
+    addLineItem: "Add Line Item",
+    description: "Description",
+    qty: "Qty",
+    unit: "Unit",
+    unitPrice: "Unit Price",
+    lineTotal: "Total",
+    subtotal: "Subtotal",
+    tax: "Tax",
+    taxRate: "Tax Rate (%)",
+    estimateTotal: "TOTAL",
+    notes: "Notes",
+    terms: "Terms & Conditions",
+    validFor: "Valid for (days)",
+    removeItem: "Remove",
+
+    // PDF
+    downloadPdf: "Download PDF",
+    printEstimate: "Print",
+    shareEstimate: "Share",
+    estimateFor: "Estimate For",
+    estimateNumber: "Estimate #",
+    date: "Date",
+    validUntil: "Valid Until",
+    preparedBy: "Prepared By",
+    licenseNo: "License No.",
+    signatureLabel: "Customer Signature",
+    dateLabel: "Date",
+    acceptanceText: "Acceptance of Estimate",
+
+    // Settings
+    contractorProfile: "Contractor Profile",
+    yourName: "Your Name",
+    companyName: "Company Name",
+    phoneNumber: "Phone Number",
+    emailAddress: "Email Address",
+    address: "Address",
+    city: "City",
+    state: "State",
+    zip: "ZIP",
+    licenseNumber: "License Number",
+    saveProfile: "Save Profile",
+    priceTables: "Price Tables",
+    laborRate: "Hourly Labor Rate ($)",
+    addItem: "Add Item",
+    pricePerUnit: "Price per unit",
+    itemDescription: "Item description",
+    unitLabel: "Unit (sq ft, hr, each...)",
+    saveTable: "Save Table",
+    profileSaved: "Profile saved!",
+    tableSaved: "Price table saved!",
+    language: "Language",
+    english: "English",
+    spanish: "Spanish",
+    uploadLogo: "Upload Logo",
+    removeLogo: "Remove Logo",
+    logoHint: "Logo appears on PDF estimates (PNG, JPG, max 1MB)",
+  },
+
+  es: {
+    // Nav
+    appName: "HomeWorx",
+    dashboard: "Mis Estimaciones",
+    newEstimate: "Nueva Estimación",
+    settings: "Configuración",
+
+    // Dashboard
+    noEstimates: "Sin estimaciones",
+    noEstimatesHint: "Toca 'Nueva Estimación' para crear tu primera cotización.",
+    draft: "Borrador",
+    sent: "Enviada",
+    accepted: "Aceptada",
+    declined: "Rechazada",
+    total: "Total",
+    viewEdit: "Ver / Editar",
+    deleteEstimate: "Eliminar",
+    confirmDelete: "¿Eliminar esta estimación?",
+
+    // Steps
+    step1: "Oficio y Cliente",
+    step2: "Describir el Trabajo",
+    step3: "Fotos",
+    step4: "Revisar Estimación",
+    next: "Siguiente",
+    back: "Atrás",
+    finish: "Finalizar",
+
+    // Trade selector
+    selectTrade: "¿Tipo de trabajo?",
+    remodeling: "Remodelación",
+    painting: "Pintura",
+    roofing: "Techado",
+    siding: "Revestimiento",
+    doorsWindows: "Puertas y Ventanas",
+    plumbing: "Plomería",
+    electrical: "Electricidad",
+    drywall: "Tablaroca",
+
+    // Customer form
+    customerName: "Nombre del Cliente",
+    customerPhone: "Teléfono del Cliente",
+    customerEmail: "Email del Cliente (opcional)",
+    jobAddress: "Dirección del Trabajo",
+    jobCity: "Ciudad",
+    jobState: "Estado",
+    jobZip: "Código Postal",
+
+    // Voice input
+    describeJob: "Describir el Trabajo",
+    describeJobHint: "Toca y mantén presionado el micrófono y describe el trabajo. Incluye dimensiones, materiales y detalles especiales.",
+    tapToSpeak: "Toca para Hablar",
+    listening: "Escuchando...",
+    stopListening: "Toca para Parar",
+    orTypeBelow: "— o escribe abajo —",
+    jobDescription: "Descripción del Trabajo",
+    jobDescriptionPlaceholder: "Describe el trabajo a realizar, dimensiones, materiales necesarios...",
+
+    // Photos
+    addPhotos: "Agregar Fotos",
+    addPhotosHint: "Toma fotos o sube imágenes para una estimación más precisa.",
+    takePhoto: "Tomar Foto",
+    choosePhoto: "Elegir de Galería",
+    photosAdded: "fotos agregadas",
+    skipPhotos: "Omitir — sin fotos",
+    removePhoto: "Eliminar",
+
+    // Estimate review
+    reviewEstimate: "Revisar Estimación",
+    generateEstimate: "Generar Estimación con IA",
+    generating: "Generando estimación...",
+    addLineItem: "Agregar Artículo",
+    description: "Descripción",
+    qty: "Cant.",
+    unit: "Unidad",
+    unitPrice: "Precio/Unidad",
+    lineTotal: "Total",
+    subtotal: "Subtotal",
+    tax: "Impuesto",
+    taxRate: "Tasa de Impuesto (%)",
+    estimateTotal: "TOTAL",
+    notes: "Notas",
+    terms: "Términos y Condiciones",
+    validFor: "Válido por (días)",
+    removeItem: "Eliminar",
+
+    // PDF
+    downloadPdf: "Descargar PDF",
+    printEstimate: "Imprimir",
+    shareEstimate: "Compartir",
+    estimateFor: "Estimación Para",
+    estimateNumber: "Estimación #",
+    date: "Fecha",
+    validUntil: "Válido Hasta",
+    preparedBy: "Preparado Por",
+    licenseNo: "Licencia No.",
+    signatureLabel: "Firma del Cliente",
+    dateLabel: "Fecha",
+    acceptanceText: "Aceptación de Estimación",
+
+    // Settings
+    contractorProfile: "Perfil del Contratista",
+    yourName: "Tu Nombre",
+    companyName: "Nombre de la Empresa",
+    phoneNumber: "Número de Teléfono",
+    emailAddress: "Correo Electrónico",
+    address: "Dirección",
+    city: "Ciudad",
+    state: "Estado",
+    zip: "Código Postal",
+    licenseNumber: "Número de Licencia",
+    saveProfile: "Guardar Perfil",
+    priceTables: "Tablas de Precios",
+    laborRate: "Tarifa por Hora ($)",
+    addItem: "Agregar Artículo",
+    pricePerUnit: "Precio por unidad",
+    itemDescription: "Descripción del artículo",
+    unitLabel: "Unidad (pie², hr, c/u...)",
+    saveTable: "Guardar Tabla",
+    profileSaved: "¡Perfil guardado!",
+    tableSaved: "¡Tabla de precios guardada!",
+    language: "Idioma",
+    english: "Inglés",
+    spanish: "Español",
+    uploadLogo: "Subir Logo",
+    removeLogo: "Eliminar Logo",
+    logoHint: "El logo aparece en las estimaciones PDF (PNG, JPG, máx 1MB)",
+  },
+};
+
+export function useT(lang: Language) {
+  return translations[lang];
+}
+
+export type Translations = typeof translations.en;
+export default translations;
