@@ -11,8 +11,9 @@ import PhotoUpload from "@/components/PhotoUpload";
 import LineItemEditor from "@/components/LineItemEditor";
 import { useLang } from "@/lib/context";
 import { useT } from "@/lib/translations";
-import { saveEstimate, loadContractor, nextEstimateNumber } from "@/lib/storage";
+import { saveEstimate, loadContractor, nextEstimateNumber, saveRecentCustomer } from "@/lib/storage";
 import { TradeType, LineItem, Estimate } from "@/types";
+import RecentCustomers from "@/components/RecentCustomers";
 
 const TOTAL_STEPS = 4;
 
@@ -111,6 +112,14 @@ export default function NewEstimatePage() {
   const total = subtotal + taxAmount;
 
   const handleFinish = () => {
+    // Save customer for quick re-use next time
+    if (customerName.trim()) {
+      saveRecentCustomer({
+        name: customerName, phone: customerPhone, email: customerEmail,
+        address: jobAddress, city: jobCity, state: jobState, zip: jobZip,
+        lastUsed: new Date().toISOString(),
+      });
+    }
     const contractor = loadContractor();
     const estimate: Estimate = {
       id: uuidv4(),
@@ -186,6 +195,21 @@ export default function NewEstimatePage() {
 
             <div className="card space-y-3">
               <p className="section-title">{lang === "es" ? "Información del Cliente" : "Customer Info"}</p>
+
+              {/* Quick-fill from recent customers */}
+              <RecentCustomers
+                lang={lang}
+                onSelect={(c) => {
+                  setCustomerName(c.name);
+                  setCustomerPhone(c.phone);
+                  setCustomerEmail(c.email);
+                  setJobAddress(c.address);
+                  setJobCity(c.city);
+                  setJobState(c.state);
+                  setJobZip(c.zip);
+                }}
+              />
+
               <div>
                 <label className="label">{t.customerName} *</label>
                 <input className="input" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="John Smith" />

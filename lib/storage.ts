@@ -3,8 +3,9 @@
 import { Estimate, AppSettings, TradePriceTable, ContractorProfile, Language } from "@/types";
 import { DEFAULT_PRICE_TABLES } from "./pricing";
 
-const ESTIMATES_KEY = "homeworx_estimates";
-const SETTINGS_KEY = "homeworx_settings";
+const ESTIMATES_KEY    = "homeworx_estimates";
+const SETTINGS_KEY     = "homeworx_settings";
+const CUSTOMERS_KEY    = "homeworx_recent_customers";
 
 export const DEFAULT_CONTRACTOR: ContractorProfile = {
   name: "",
@@ -63,6 +64,39 @@ export function saveEstimate(estimate: Estimate): void {
 export function deleteEstimate(id: string): void {
   const estimates = loadEstimates().filter((e) => e.id !== id);
   save(ESTIMATES_KEY, estimates);
+}
+
+// Recent customers
+
+export interface SavedCustomer {
+  name: string;
+  phone: string;
+  email: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  lastUsed: string;
+}
+
+export function loadRecentCustomers(): SavedCustomer[] {
+  return load<SavedCustomer[]>(CUSTOMERS_KEY, []);
+}
+
+export function saveRecentCustomer(customer: SavedCustomer): void {
+  const existing = loadRecentCustomers().filter(
+    (c) => c.name.toLowerCase() !== customer.name.toLowerCase() ||
+           c.phone !== customer.phone
+  );
+  const updated = [{ ...customer, lastUsed: new Date().toISOString() }, ...existing].slice(0, 8);
+  save(CUSTOMERS_KEY, updated);
+}
+
+export function deleteRecentCustomer(name: string, phone: string): void {
+  const updated = loadRecentCustomers().filter(
+    (c) => !(c.name.toLowerCase() === name.toLowerCase() && c.phone === phone)
+  );
+  save(CUSTOMERS_KEY, updated);
 }
 
 // Settings
