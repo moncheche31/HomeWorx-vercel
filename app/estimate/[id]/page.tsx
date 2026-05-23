@@ -30,6 +30,7 @@ export default function EstimateDetailPage() {
 
   // Editable copies
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
+  const [scopeOfWork, setScopeOfWork] = useState("");
   const [taxRate, setTaxRate] = useState(8);
   const [notes, setNotes] = useState("");
   const [terms, setTerms] = useState("");
@@ -39,6 +40,7 @@ export default function EstimateDetailPage() {
     if (!e) { router.push("/"); return; }
     setEstimate(e);
     setLineItems(e.lineItems);
+    setScopeOfWork(e.scopeOfWork ?? e.jobDescription ?? "");
     setTaxRate(Math.round(e.taxRate * 100 * 10) / 10);
     setNotes(e.notes);
     setTerms(e.terms);
@@ -64,6 +66,7 @@ export default function EstimateDetailPage() {
     const updated: Estimate = {
       ...estimate,
       lineItems,
+      scopeOfWork,
       subtotal,
       taxRate: taxRate / 100,
       taxAmount,
@@ -225,13 +228,47 @@ export default function EstimateDetailPage() {
           </div>
         </div>
 
-        {/* Job description */}
-        {estimate.jobDescription && (
-          <div className="card mb-4">
-            <p className="text-xs text-slate-500 mb-1 font-semibold uppercase tracking-wide">
-              {lang === "es" ? "Descripción del Trabajo" : "Scope of Work"}
+        {/* Scope of work — professional version shown to customer */}
+        <div className="card mb-4">
+          <p className="text-xs text-slate-500 mb-1 font-semibold uppercase tracking-wide">
+            {lang === "es" ? "Alcance del Trabajo" : "Scope of Work"}
+          </p>
+          {editing ? (
+            <textarea
+              className="input resize-none min-h-[80px] text-sm"
+              value={scopeOfWork}
+              onChange={(e) => setScopeOfWork(e.target.value)}
+            />
+          ) : (
+            <p className="text-sm text-slate-700 leading-relaxed">
+              {scopeOfWork || estimate.jobDescription}
             </p>
-            <p className="text-sm text-slate-700 leading-relaxed">{estimate.jobDescription}</p>
+          )}
+        </div>
+
+        {/* Contractor-only time estimates */}
+        {(estimate.totalEstimatedHours ?? 0) > 0 && (
+          <div className="card mb-4 bg-amber-50 border-amber-200">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-lg">⏱️</span>
+              <p className="font-bold text-amber-800 text-sm">
+                {lang === "es" ? "SOLO PARA EL CONTRATISTA — Tiempo Estimado" : "CONTRACTOR ONLY — Time Estimate"}
+              </p>
+            </div>
+            <p className="text-2xl font-bold text-amber-700">
+              {estimate.totalEstimatedHours}h {lang === "es" ? "en total" : "total"}
+            </p>
+            <p className="text-xs text-amber-600 mt-1 mb-2">
+              {lang === "es" ? "No aparece en el PDF del cliente." : "Does not appear on the customer PDF."}
+            </p>
+            <div className="space-y-1">
+              {lineItems.filter(i => (i.estimatedHours ?? 0) > 0).map(item => (
+                <div key={item.id} className="flex justify-between text-sm text-amber-800">
+                  <span className="truncate flex-1 mr-2">{item.description}</span>
+                  <span className="font-semibold flex-shrink-0">{item.estimatedHours}h</span>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

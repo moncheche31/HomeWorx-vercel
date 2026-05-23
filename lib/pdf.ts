@@ -141,18 +141,19 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
     y += 13;
   }
 
-  // Job description
-  if (estimate.jobDescription) {
+  // Scope of work — always use the professional rewrite, never the raw transcript
+  const scopeText = estimate.scopeOfWork || estimate.jobDescription;
+  if (scopeText) {
     doc.setTextColor(...BLUE);
     doc.setFontSize(9);
     doc.setFont("helvetica", "bold");
-    doc.text(lang === "es" ? "DESCRIPCIÓN DEL TRABAJO:" : "SCOPE OF WORK:", 10, y);
+    doc.text(lang === "es" ? "ALCANCE DEL TRABAJO:" : "SCOPE OF WORK:", 10, y);
     y += 5;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(9);
     doc.setTextColor(...BLACK);
-    const descLines = doc.splitTextToSize(estimate.jobDescription, W - 20);
-    const maxDescLines = Math.min(descLines.length, 4);
+    const descLines = doc.splitTextToSize(scopeText, W - 20);
+    const maxDescLines = Math.min(descLines.length, 6);
     doc.text(descLines.slice(0, maxDescLines), 10, y);
     y += maxDescLines * 5 + 4;
   }

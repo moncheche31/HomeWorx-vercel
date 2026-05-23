@@ -41,6 +41,7 @@ export interface LineItem {
   unit: string;
   unitPrice: number;
   total: number;
+  estimatedHours?: number; // contractor-only, never printed
 }
 
 export interface JobLocation {
@@ -58,7 +59,9 @@ export interface Estimate {
   trade: TradeType;
   contractor: ContractorProfile;
   customer: CustomerInfo;
-  jobDescription: string;
+  jobDescription: string;   // raw voice transcript — stored, never shown to customer
+  scopeOfWork: string;      // AI-rewritten professional version — shown on PDF
+  totalEstimatedHours?: number; // contractor-only
   jobAddress: string;
   location: JobLocation;
   photos: string[];

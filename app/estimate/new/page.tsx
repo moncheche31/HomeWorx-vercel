@@ -57,6 +57,8 @@ export default function NewEstimatePage() {
 
   // Step 4 — Estimate
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
+  const [scopeOfWork, setScopeOfWork] = useState("");
+  const [totalEstimatedHours, setTotalEstimatedHours] = useState(0);
   const [taxRate, setTaxRate] = useState(8);
   const [notes, setNotes] = useState("");
   const [terms, setTerms] = useState("");
@@ -97,6 +99,8 @@ export default function NewEstimatePage() {
         (item: Omit<LineItem, "id">) => ({ ...item, id: uuidv4() })
       );
       setLineItems(items);
+      setScopeOfWork(data.scopeOfWork ?? "");
+      setTotalEstimatedHours(data.totalEstimatedHours ?? 0);
       setTaxRate(Math.round((data.taxRate ?? 0.08) * 100 * 10) / 10);
       setNotes(data.notes ?? "");
       setGenerated(true);
@@ -139,6 +143,8 @@ export default function NewEstimatePage() {
         zip: jobZip,
       },
       jobDescription: description,
+      scopeOfWork,
+      totalEstimatedHours,
       jobAddress: [jobAddress, jobCity, jobState, jobZip].filter(Boolean).join(", "),
       location: { city: jobCity, state: jobState, zip: jobZip },
       photos,
@@ -325,6 +331,50 @@ export default function NewEstimatePage() {
             {/* Line items */}
             {(generated || lineItems.length > 0) && (
               <>
+                {/* Scope of work — professional version */}
+                <div className="card">
+                  <p className="section-title">{lang === "es" ? "Alcance del Trabajo (para el cliente)" : "Scope of Work (shown to customer)"}</p>
+                  <p className="text-xs text-slate-500 mb-2">
+                    {lang === "es"
+                      ? "Texto profesional reescrito por IA. Edita si es necesario."
+                      : "Professionally rewritten by AI from your voice description. Edit if needed."}
+                  </p>
+                  <textarea
+                    className="input resize-none min-h-[100px]"
+                    value={scopeOfWork}
+                    onChange={(e) => setScopeOfWork(e.target.value)}
+                    placeholder={lang === "es" ? "Descripción profesional del trabajo..." : "Professional scope of work..."}
+                  />
+                </div>
+
+                {/* Contractor-only time estimate */}
+                {totalEstimatedHours > 0 && (
+                  <div className="card bg-amber-50 border-amber-200">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-lg">⏱️</span>
+                      <p className="font-bold text-amber-800">
+                        {lang === "es" ? "Tiempo Estimado (solo para ti)" : "Time Estimate (Contractor Eyes Only)"}
+                      </p>
+                    </div>
+                    <p className="text-2xl font-bold text-amber-700 mb-1">
+                      {totalEstimatedHours} {lang === "es" ? "horas en total" : "hours total"}
+                    </p>
+                    <p className="text-xs text-amber-600">
+                      {lang === "es"
+                        ? "Este tiempo NO aparece en la estimación del cliente. Úsalo para planificar tu agenda."
+                        : "This time does NOT appear on the customer estimate. Use it to plan your schedule."}
+                    </p>
+                    <div className="mt-3 space-y-1">
+                      {lineItems.filter(i => (i.estimatedHours ?? 0) > 0).map(item => (
+                        <div key={item.id} className="flex justify-between text-sm text-amber-800">
+                          <span className="truncate flex-1 mr-2">{item.description}</span>
+                          <span className="font-semibold flex-shrink-0">{item.estimatedHours}h</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="card">
                   <p className="section-title">{lang === "es" ? "Líneas de la Estimación" : "Line Items"}</p>
                   <LineItemEditor items={lineItems} onChange={setLineItems} t={t} />

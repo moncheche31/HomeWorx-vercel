@@ -7,7 +7,7 @@ interface GenerateBody {
   state: string;
   zip: string;
   language: "en" | "es";
-  photos?: string[]; // base64 data URLs
+  photos?: string[];
 }
 
 interface LineItemResult {
@@ -16,10 +16,13 @@ interface LineItemResult {
   unit: string;
   unitPrice: number;
   total: number;
+  estimatedHours: number;
 }
 
 interface EstimateResult {
+  scopeOfWork: string;
   lineItems: LineItemResult[];
+  totalEstimatedHours: number;
   notes: string;
   taxRate: number;
   estimateSummary: string;
@@ -32,7 +35,6 @@ export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
 
   if (!apiKey) {
-    // Return a helpful demo response so the app is usable without a key
     return NextResponse.json(buildDemoResponse(trade, language));
   }
 
@@ -40,78 +42,84 @@ export async function POST(req: NextRequest) {
   const tradeName = TRADE_NAMES[trade] ?? trade;
 
   const systemPrompt = language === "es"
-    ? `Eres un experto estimador de contratistas. Generas estimaciones detalladas con precios de mercado locales para trabajos de construcción y remodelación en los EE.UU. Siempre respondes con JSON válido únicamente, sin texto adicional.`
-    : `You are an expert contractor estimating assistant. You generate detailed estimates with local market pricing for construction and remodeling work across the US. You always respond with valid JSON only, no additional text.`;
+    ? `Eres un estimador experto de contratistas. Siempre respondes con JSON válido únicamente, sin texto adicional. Escribes en lenguaje profesional de contratista.`
+    : `You are an expert contractor estimating assistant. You always respond with valid JSON only, no additional text. You write in professional contractor language.`;
 
   const userPrompt = language === "es"
-    ? `Un contratista de ${tradeName} necesita una estimación para un trabajo en ${location}.
+    ? `Un contratista de ${tradeName} describió verbalmente este trabajo en ${location}:
 
-Descripción del trabajo: ${description}
+"${description}"
 
-Basándote en los precios típicos del mercado para ${location || "los EE.UU."}, crea una estimación detallada por líneas de artículo.
+Tu tarea:
+1. Reescribe la descripción como un alcance de trabajo PROFESIONAL (sin "um", "uh", ni lenguaje informal. Usa terminología técnica de contratista. Escríbelo en tercera persona, como aparecería en un contrato formal.)
+2. Crea líneas de artículo detalladas con precios típicos del mercado para ${location || "EE.UU."}
+3. Incluye estimación de horas por tarea (SOLO para el contratista, no se mostrará al cliente)
 
-Responde SOLO con un objeto JSON válido con esta estructura exacta:
+Responde SOLO con JSON válido con esta estructura exacta:
 {
+  "scopeOfWork": "Alcance de trabajo profesional reescrito aquí...",
   "lineItems": [
     {
-      "description": "string",
+      "description": "Descripción profesional del artículo",
       "quantity": number,
       "unit": "string (ej: pie², pie lineal, c/u, hora)",
       "unitPrice": number,
-      "total": number
+      "total": number,
+      "estimatedHours": number
     }
   ],
-  "notes": "string con notas importantes",
-  "taxRate": number (tasa de impuesto típica para el área, entre 0 y 1, por ejemplo 0.08 para 8%),
-  "estimateSummary": "string con resumen breve"
+  "totalEstimatedHours": number,
+  "notes": "Notas importantes para el cliente",
+  "taxRate": number,
+  "estimateSummary": "Resumen breve"
 }`
-    : `A ${tradeName} contractor needs an estimate for a job in ${location}.
+    : `A ${tradeName} contractor verbally described this job in ${location}:
 
-Job description: ${description}
+"${description}"
 
-Based on typical market rates for ${location || "the US"}, create a detailed line-item estimate.
+Your tasks:
+1. Rewrite the description as a PROFESSIONAL scope of work. Remove all filler words (um, uh, gonna, kinda, etc.), casual speech, and first-person language. Use formal contractor/construction terminology. Write in third person as it would appear in a professional contract or proposal.
+2. Create detailed line items with typical market pricing for ${location || "the US"}.
+3. Include an estimated number of hours per line item (for the CONTRACTOR's internal reference only — never shown to the customer).
 
 Respond ONLY with a valid JSON object with this exact structure:
 {
+  "scopeOfWork": "Professional rewritten scope of work here...",
   "lineItems": [
     {
-      "description": "string",
+      "description": "Professional item description",
       "quantity": number,
       "unit": "string (e.g. sq ft, linear ft, each, hour)",
       "unitPrice": number,
-      "total": number
+      "total": number,
+      "estimatedHours": number
     }
   ],
-  "notes": "string with any important notes",
-  "taxRate": number (typical sales tax for the area, 0-1, e.g. 0.08 for 8%),
-  "estimateSummary": "string with brief summary"
+  "totalEstimatedHours": number,
+  "notes": "Important notes for the customer",
+  "taxRate": number,
+  "estimateSummary": "Brief summary"
 }`;
 
-  // Build message content (with photos if available)
   type ContentBlock =
     | { type: "text"; text: string }
     | { type: "image"; source: { type: "base64"; media_type: string; data: string } };
 
   const content: ContentBlock[] = [];
 
-  // Add photos as vision inputs (max 3 to keep tokens reasonable)
   if (photos && photos.length > 0) {
-    const photoSlice = photos.slice(0, 3);
-    for (const dataUrl of photoSlice) {
+    for (const dataUrl of photos.slice(0, 3)) {
       const match = dataUrl.match(/^data:(image\/[a-z]+);base64,(.+)$/);
       if (match) {
         const mediaType = match[1] as "image/jpeg" | "image/png" | "image/gif" | "image/webp";
-        content.push({
-          type: "image",
-          source: { type: "base64", media_type: mediaType, data: match[2] },
-        });
+        content.push({ type: "image", source: { type: "base64", media_type: mediaType, data: match[2] } });
       }
     }
     content.push({
       type: "text",
       text: (language === "es"
-        ? "Las imágenes de arriba muestran el área de trabajo. "
-        : "The images above show the work area. ") + userPrompt,
+        ? "Las imágenes muestran el área de trabajo. "
+        : "The images show the work area. ") + userPrompt,
     });
   } else {
     content.push({ type: "text", text: userPrompt });
@@ -127,26 +135,21 @@ Respond ONLY with a valid JSON object with this exact structure:
       },
       body: JSON.stringify({
         model: "claude-sonnet-4-6",
-        max_tokens: 2048,
+        max_tokens: 3000,
         system: systemPrompt,
         messages: [{ role: "user", content }],
       }),
     });
 
     if (!response.ok) {
-      const err = await response.text();
-      console.error("Anthropic API error:", err);
+      console.error("Anthropic API error:", await response.text());
       return NextResponse.json(buildDemoResponse(trade, language));
     }
 
     const data = await response.json();
     const text: string = data.content?.[0]?.text ?? "";
-
-    // Extract JSON from the response
     const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) {
-      return NextResponse.json(buildDemoResponse(trade, language));
-    }
+    if (!jsonMatch) return NextResponse.json(buildDemoResponse(trade, language));
 
     const result: EstimateResult = JSON.parse(jsonMatch[0]);
     return NextResponse.json(result);
@@ -168,43 +171,49 @@ const TRADE_NAMES: Record<string, string> = {
 };
 
 function buildDemoResponse(trade: string, language: "en" | "es"): EstimateResult {
+  const isEs = language === "es";
+
   const demoItems: Record<string, LineItemResult[]> = {
     painting: [
-      { description: language === "es" ? "Pintura de paredes interiores" : "Interior wall painting", quantity: 500, unit: "sq ft", unitPrice: 2.50, total: 1250 },
-      { description: language === "es" ? "Pintura de cielo raso" : "Ceiling painting", quantity: 200, unit: "sq ft", unitPrice: 2.75, total: 550 },
-      { description: language === "es" ? "Pintura de molduras" : "Trim painting", quantity: 80, unit: "linear ft", unitPrice: 3.00, total: 240 },
+      { description: isEs ? "Aplicación de pintura en paredes interiores" : "Application of interior wall paint — two coats", quantity: 500, unit: "sq ft", unitPrice: 2.50, total: 1250, estimatedHours: 8 },
+      { description: isEs ? "Pintura de cielo raso" : "Ceiling paint application — two coats", quantity: 200, unit: "sq ft", unitPrice: 2.75, total: 550, estimatedHours: 3 },
+      { description: isEs ? "Pintura de molduras y zócalos" : "Trim and baseboard painting", quantity: 80, unit: "linear ft", unitPrice: 3.00, total: 240, estimatedHours: 2 },
     ],
     roofing: [
-      { description: language === "es" ? "Retiro e instalación de tejas" : "Shingle tear-off & replacement", quantity: 18, unit: "square", unitPrice: 350, total: 6300 },
-      { description: language === "es" ? "Canaletas nuevas" : "New gutters (5\" aluminum)", quantity: 120, unit: "linear ft", unitPrice: 12, total: 1440 },
+      { description: isEs ? "Retiro e instalación de tejas de asfalto" : "Removal and replacement of asphalt shingles", quantity: 18, unit: "square", unitPrice: 350, total: 6300, estimatedHours: 16 },
+      { description: isEs ? "Instalación de canaletas de aluminio de 5\"" : "Installation of 5\" aluminum gutters", quantity: 120, unit: "linear ft", unitPrice: 12, total: 1440, estimatedHours: 4 },
     ],
     plumbing: [
-      { description: language === "es" ? "Instalación de accesorios" : "Fixture installation", quantity: 2, unit: "each", unitPrice: 225, total: 450 },
-      { description: language === "es" ? "Mano de obra" : "Labor", quantity: 4, unit: "hour", unitPrice: 95, total: 380 },
+      { description: isEs ? "Instalación de accesorios de plomería" : "Plumbing fixture installation", quantity: 2, unit: "each", unitPrice: 225, total: 450, estimatedHours: 3 },
+      { description: isEs ? "Mano de obra — plomero licenciado" : "Licensed plumber labor", quantity: 4, unit: "hour", unitPrice: 95, total: 380, estimatedHours: 4 },
     ],
     electrical: [
-      { description: language === "es" ? "Instalación de tomacorrientes" : "Outlet installation", quantity: 6, unit: "each", unitPrice: 150, total: 900 },
-      { description: language === "es" ? "Instalación de luminarias" : "Light fixture installation", quantity: 4, unit: "each", unitPrice: 125, total: 500 },
+      { description: isEs ? "Instalación de tomacorrientes estándar" : "Standard electrical outlet installation", quantity: 6, unit: "each", unitPrice: 150, total: 900, estimatedHours: 3 },
+      { description: isEs ? "Instalación de luminarias" : "Light fixture installation", quantity: 4, unit: "each", unitPrice: 125, total: 500, estimatedHours: 2 },
     ],
     drywall: [
-      { description: language === "es" ? "Instalación de tablaroca" : "Drywall installation", quantity: 400, unit: "sq ft", unitPrice: 1.75, total: 700 },
-      { description: language === "es" ? "Acabado (cinta y masa)" : "Finishing (tape & mud)", quantity: 400, unit: "sq ft", unitPrice: 1.50, total: 600 },
+      { description: isEs ? "Instalación de tablaroca 1/2\"" : "Installation of 1/2\" drywall panels", quantity: 400, unit: "sq ft", unitPrice: 1.75, total: 700, estimatedHours: 8 },
+      { description: isEs ? "Acabado — cinta, masilla y lijado" : "Finishing — tape, mud, and sanding", quantity: 400, unit: "sq ft", unitPrice: 1.50, total: 600, estimatedHours: 6 },
     ],
   };
 
   const lineItems = demoItems[trade] ?? [
-    { description: language === "es" ? "Mano de obra" : "Labor", quantity: 8, unit: "hour", unitPrice: 75, total: 600 },
-    { description: language === "es" ? "Materiales" : "Materials", quantity: 1, unit: "lot", unitPrice: 350, total: 350 },
+    { description: isEs ? "Mano de obra — contratista licenciado" : "Labor — licensed contractor", quantity: 8, unit: "hour", unitPrice: 75, total: 600, estimatedHours: 8 },
+    { description: isEs ? "Materiales y suministros" : "Materials and supplies", quantity: 1, unit: "lot", unitPrice: 350, total: 350, estimatedHours: 0 },
   ];
 
+  const totalEstimatedHours = lineItems.reduce((s, i) => s + i.estimatedHours, 0);
+
   return {
+    scopeOfWork: isEs
+      ? "⚠️ Estimación de demostración. Agrega tu clave API de Anthropic para obtener un alcance de trabajo profesional generado por IA."
+      : "⚠️ Demo estimate. Add your Anthropic API key to get a professionally written AI-generated scope of work.",
     lineItems,
-    notes: language === "es"
-      ? "⚠️ Esta es una estimación de demostración. Agrega tu clave API de Anthropic para estimaciones precisas basadas en IA y datos del mercado local."
-      : "⚠️ This is a demo estimate. Add your Anthropic API key to get accurate AI-powered estimates based on local market data.",
+    totalEstimatedHours,
+    notes: isEs
+      ? "⚠️ Esta es una estimación de demostración. Agrega tu clave API de Anthropic para estimaciones precisas."
+      : "⚠️ This is a demo estimate. Add your Anthropic API key for accurate AI-powered estimates.",
     taxRate: 0.08,
-    estimateSummary: language === "es"
-      ? "Estimación de demostración generada sin clave API."
-      : "Demo estimate generated without API key.",
+    estimateSummary: isEs ? "Estimación de demostración." : "Demo estimate.",
   };
 }
