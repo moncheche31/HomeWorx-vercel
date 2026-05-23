@@ -12,7 +12,7 @@ interface Props {
   stopListening: string;
 }
 
-const MAX_SECONDS = 60; // hard stop after 60 seconds
+const MAX_SECONDS = 99999; // no hard stop — user controls when to stop
 
 export default function VoiceInput({ lang, onTranscript, tapToSpeak, listening, stopListening }: Props) {
   const [isListening, setIsListening]   = useState(false);
@@ -176,9 +176,9 @@ export default function VoiceInput({ lang, onTranscript, tapToSpeak, listening, 
         </button>
       </div>
 
-      {/* Label + timer */}
+      {/* Label + elapsed time */}
       <p className={`text-sm font-semibold ${isListening ? "text-red-500" : "text-slate-500"}`}>
-        {isListening ? `${listening} (${remaining}s)` : tapToSpeak}
+        {isListening ? `${listening} (${seconds}s)` : tapToSpeak}
       </p>
 
       {/* Always-visible STOP button while listening — extra escape hatch */}

@@ -147,12 +147,13 @@ export default function NewEstimatePage() {
     router.push(`/estimate/${estimate.id}`);
   };
 
-  const next = () => {
+  const next = async () => {
     if (step === TOTAL_STEPS) {
       handleFinish();
     } else {
+      // Wait for estimate to finish before advancing to step 4
       if (step === 3 && lineItems.length === 0) {
-        generateEstimate();
+        await generateEstimate();
       }
       setStep((s) => Math.min(s + 1, TOTAL_STEPS));
     }
@@ -387,28 +388,28 @@ export default function NewEstimatePage() {
           )}
           {step === 3 && (
             <button
-              onClick={() => {
-                generateEstimate();
+              onClick={async () => {
+                await generateEstimate();
                 setStep(4);
               }}
+              disabled={generating}
               className="btn-secondary"
             >
-              <SkipForward size={16} />
+              {generating ? <Loader2 size={16} className="animate-spin" /> : <SkipForward size={16} />}
               {t.skipPhotos}
             </button>
           )}
           <button
             onClick={next}
-            disabled={!canAdvance() || (step === 4 && generating)}
+            disabled={!canAdvance() || generating}
             className="btn-primary flex-1"
           >
-            {step === TOTAL_STEPS ? (
+            {generating ? (
+              <><Loader2 size={18} className="animate-spin" />{t.generating}</>
+            ) : step === TOTAL_STEPS ? (
               lang === "es" ? "Guardar Estimación" : "Save Estimate"
             ) : (
-              <>
-                {t.next}
-                <ChevronRight size={18} />
-              </>
+              <>{t.next}<ChevronRight size={18} /></>
             )}
           </button>
         </div>
