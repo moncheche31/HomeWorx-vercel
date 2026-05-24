@@ -15,6 +15,7 @@ import { saveEstimate, loadContractor, nextEstimateNumber, saveRecentCustomer } 
 import { TradeType, LineItem, Estimate, DisplayMode } from "@/types";
 import RecentCustomers from "@/components/RecentCustomers";
 import DisplayModePicker from "@/components/DisplayModePicker";
+import { compressPhoto } from "@/lib/compress";
 
 const TOTAL_STEPS = 4;
 
@@ -67,6 +68,7 @@ export default function NewEstimatePage() {
   const [validDays, setValidDays] = useState(30);
   const [generating, setGenerating] = useState(false);
   const [generated, setGenerated] = useState(false);
+  const [generateError, setGenerateError] = useState("");
 
   const handleTranscript = useCallback((text: string) => {
     setDescription(text);
@@ -82,9 +84,18 @@ export default function NewEstimatePage() {
   const generateEstimate = async () => {
     if (!trade) return;
     setGenerating(true);
+    setGenerateError("");
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 45_000); // 45s hard timeout
+
     try {
+      // Compress photos before sending — phone photos are 4-5MB each and will freeze the request
+      const compressed = await Promise.all(photos.slice(0, 3).map(compressPhoto));
+
       const res = await fetch("/api/estimate/generate", {
         method: "POST",
+        signal: controller.signal,
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           trade,
@@ -93,9 +104,11 @@ export default function NewEstimatePage() {
           state: jobState,
           zip: jobZip,
           language: lang,
-          photos: photos.slice(0, 3),
+          photos: compressed,
         }),
       });
+
+      if (!res.ok) throw new Error(`Server error: ${res.status}`);
       const data = await res.json();
 
       const items: LineItem[] = (data.lineItems ?? []).map(
@@ -108,8 +121,13 @@ export default function NewEstimatePage() {
       setNotes(data.notes ?? "");
       setGenerated(true);
     } catch (err) {
+      const msg = err instanceof Error && err.name === "AbortError"
+        ? (lang === "es" ? "Tiempo de espera agotado. Intenta de nuevo." : "Request timed out. Please try again.")
+        : (lang === "es" ? "Error al generar. Intenta de nuevo." : "Generation failed. Please try again.");
+      setGenerateError(msg);
       console.error(err);
     } finally {
+      clearTimeout(timeout);
       setGenerating(false);
     }
   };
@@ -341,12 +359,17 @@ export default function NewEstimatePage() {
             {/* Generate button if not yet generated */}
             {!generated && lineItems.length === 0 && (
               <div className="card text-center py-6">
-                <div className="text-4xl mb-3">🤖</div>
+                <div className="text-4xl mb-3">{generating ? "⏳" : "🤖"}</div>
                 <p className="text-slate-600 text-sm mb-4">
-                  {lang === "es"
-                    ? "Genera una estimación con IA basada en la descripción del trabajo y la ubicación."
-                    : "Generate an AI estimate based on the job description and location."}
+                  {generating
+                    ? (lang === "es" ? "Generando tu estimación… puede tomar hasta 30 segundos." : "Generating your estimate… this can take up to 30 seconds.")
+                    : (lang === "es" ? "Genera una estimación con IA basada en tu descripción y ubicación." : "Generate an AI estimate based on your description and location.")}
                 </p>
+                {generateError && (
+                  <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm font-medium">
+                    ⚠️ {generateError}
+                  </div>
+                )}
                 <button
                   onClick={generateEstimate}
                   disabled={generating}
@@ -355,7 +378,7 @@ export default function NewEstimatePage() {
                   {generating ? (
                     <><Loader2 size={18} className="animate-spin" />{t.generating}</>
                   ) : (
-                    <><Sparkles size={18} />{t.generateEstimate}</>
+                    <><Sparkles size={18} />{generateError ? (lang === "es" ? "Intentar de nuevo" : "Try Again") : t.generateEstimate}</>
                   )}
                 </button>
               </div>

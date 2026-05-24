@@ -87,9 +87,14 @@ export default function EstimateDetailPage() {
 
   const handleRegenerate = async () => {
     setGenerating(true);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 45_000);
     try {
+      const { compressPhoto } = await import("@/lib/compress");
+      const compressed = await Promise.all((estimate.photos ?? []).slice(0, 3).map(compressPhoto));
       const res = await fetch("/api/estimate/generate", {
         method: "POST",
+        signal: controller.signal,
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           trade: estimate.trade,
@@ -98,7 +103,7 @@ export default function EstimateDetailPage() {
           state: estimate.location.state,
           zip: estimate.location.zip,
           language: lang,
-          photos: estimate.photos?.slice(0, 3) ?? [],
+          photos: compressed,
         }),
       });
       const data = await res.json();
@@ -107,12 +112,15 @@ export default function EstimateDetailPage() {
         (item: Omit<LineItem, "id">) => ({ ...item, id: uuidv4() })
       );
       setLineItems(items);
+      setScopeOfWork(data.scopeOfWork ?? "");
       setTaxRate(Math.round((data.taxRate ?? 0.08) * 100 * 10) / 10);
       setNotes(data.notes ?? "");
       setEditing(true);
     } catch (err) {
       console.error(err);
+      alert(lang === "es" ? "Error al regenerar. Intenta de nuevo." : "Re-generation failed. Please try again.");
     } finally {
+      clearTimeout(timeout);
       setGenerating(false);
     }
   };
