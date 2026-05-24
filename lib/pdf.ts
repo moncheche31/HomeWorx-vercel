@@ -2,6 +2,7 @@
 
 import { Estimate } from "@/types";
 import { TRADE_LABELS } from "./pricing";
+import { groupLineItems } from "./grouping";
 
 export async function generatePdf(estimate: Estimate): Promise<void> {
   // Dynamic import to avoid SSR issues
@@ -158,42 +159,81 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
     y += maxDescLines * 5 + 4;
   }
 
-  // Line items table
-  const tableHead = [
-    [
+  // Line items table — rendered based on displayMode
+  const mode = estimate.displayMode ?? "total-only";
+
+  if (mode === "itemized") {
+    const tableHead = [[
       lang === "es" ? "Descripción" : "Description",
       lang === "es" ? "Cant." : "Qty",
       lang === "es" ? "Unidad" : "Unit",
       lang === "es" ? "Precio Unit." : "Unit Price",
       "Total",
-    ],
-  ];
-
-  const tableBody = estimate.lineItems.map((item) => [
-    item.description,
-    item.quantity.toString(),
-    item.unit,
-    `$${item.unitPrice.toFixed(2)}`,
-    `$${item.total.toFixed(2)}`,
-  ]);
-
-  autoTable(doc, {
-    startY: y,
-    head: tableHead,
-    body: tableBody,
-    theme: "striped",
-    headStyles: { fillColor: BLUE, textColor: [255, 255, 255], fontStyle: "bold", fontSize: 9 },
-    bodyStyles: { fontSize: 9, textColor: BLACK },
-    columnStyles: {
-      0: { cellWidth: "auto" },
-      1: { cellWidth: 18, halign: "center" },
-      2: { cellWidth: 22, halign: "center" },
-      3: { cellWidth: 28, halign: "right" },
-      4: { cellWidth: 28, halign: "right" },
-    },
-    alternateRowStyles: { fillColor: [248, 250, 252] },
-    margin: { left: 10, right: 10 },
-  });
+    ]];
+    const tableBody = estimate.lineItems.map((item) => [
+      item.description,
+      item.quantity.toString(),
+      item.unit,
+      `$${item.unitPrice.toFixed(2)}`,
+      `$${item.total.toFixed(2)}`,
+    ]);
+    autoTable(doc, {
+      startY: y,
+      head: tableHead,
+      body: tableBody,
+      theme: "striped",
+      headStyles: { fillColor: BLUE, textColor: [255, 255, 255], fontStyle: "bold", fontSize: 9 },
+      bodyStyles: { fontSize: 9, textColor: BLACK },
+      columnStyles: {
+        0: { cellWidth: "auto" },
+        1: { cellWidth: 18, halign: "center" },
+        2: { cellWidth: 22, halign: "center" },
+        3: { cellWidth: 28, halign: "right" },
+        4: { cellWidth: 28, halign: "right" },
+      },
+      alternateRowStyles: { fillColor: [248, 250, 252] },
+      margin: { left: 10, right: 10 },
+    });
+  } else if (mode === "grouped") {
+    const { laborTotal, materialsTotal } = groupLineItems(estimate.lineItems);
+    const tableHead = [[
+      lang === "es" ? "Descripción" : "Description",
+      "Total",
+    ]];
+    const tableBody = [
+      [lang === "es" ? "Mano de obra" : "Labor", `$${laborTotal.toFixed(2)}`],
+      [lang === "es" ? "Materiales y suministros" : "Materials & Supplies", `$${materialsTotal.toFixed(2)}`],
+    ];
+    autoTable(doc, {
+      startY: y,
+      head: tableHead,
+      body: tableBody,
+      theme: "striped",
+      headStyles: { fillColor: BLUE, textColor: [255, 255, 255], fontStyle: "bold", fontSize: 10 },
+      bodyStyles: { fontSize: 10, textColor: BLACK },
+      columnStyles: {
+        0: { cellWidth: "auto" },
+        1: { cellWidth: 40, halign: "right" },
+      },
+      alternateRowStyles: { fillColor: [248, 250, 252] },
+      margin: { left: 10, right: 10 },
+    });
+  } else {
+    // total-only — no table, just a clean "Services Rendered" line
+    autoTable(doc, {
+      startY: y,
+      head: [[lang === "es" ? "Servicios" : "Services", ""]],
+      body: [[
+        lang === "es" ? "Servicios de contratista según el alcance del trabajo descrito" : "Contractor services per scope of work described above",
+        "",
+      ]],
+      theme: "striped",
+      headStyles: { fillColor: BLUE, textColor: [255, 255, 255], fontStyle: "bold", fontSize: 10 },
+      bodyStyles: { fontSize: 10, textColor: BLACK },
+      columnStyles: { 0: { cellWidth: "auto" }, 1: { cellWidth: 10 } },
+      margin: { left: 10, right: 10 },
+    });
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   y = (doc as any).lastAutoTable.finalY + 6;

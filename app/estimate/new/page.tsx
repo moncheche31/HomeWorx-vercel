@@ -12,8 +12,9 @@ import LineItemEditor from "@/components/LineItemEditor";
 import { useLang } from "@/lib/context";
 import { useT } from "@/lib/translations";
 import { saveEstimate, loadContractor, nextEstimateNumber, saveRecentCustomer } from "@/lib/storage";
-import { TradeType, LineItem, Estimate } from "@/types";
+import { TradeType, LineItem, Estimate, DisplayMode } from "@/types";
 import RecentCustomers from "@/components/RecentCustomers";
+import DisplayModePicker from "@/components/DisplayModePicker";
 
 const TOTAL_STEPS = 4;
 
@@ -57,6 +58,7 @@ export default function NewEstimatePage() {
 
   // Step 4 — Estimate
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
+  const [displayMode, setDisplayMode] = useState<DisplayMode>("total-only");
   const [scopeOfWork, setScopeOfWork] = useState("");
   const [totalEstimatedHours, setTotalEstimatedHours] = useState(0);
   const [taxRate, setTaxRate] = useState(8);
@@ -145,6 +147,7 @@ export default function NewEstimatePage() {
       jobDescription: description,
       scopeOfWork,
       totalEstimatedHours,
+      displayMode,
       jobAddress: [jobAddress, jobCity, jobState, jobZip].filter(Boolean).join(", "),
       location: { city: jobCity, state: jobState, zip: jobZip },
       photos,
@@ -375,8 +378,13 @@ export default function NewEstimatePage() {
                   </div>
                 )}
 
+                {/* Display mode — what customer sees */}
                 <div className="card">
-                  <p className="section-title">{lang === "es" ? "Líneas de la Estimación" : "Line Items"}</p>
+                  <DisplayModePicker value={displayMode} onChange={setDisplayMode} lang={lang} />
+                </div>
+
+                <div className="card">
+                  <p className="section-title">{lang === "es" ? "Líneas de la Estimación (solo para ti)" : "Line Items (your eyes only)"}</p>
                   <LineItemEditor items={lineItems} onChange={setLineItems} t={t} />
                 </div>
 

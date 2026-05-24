@@ -10,6 +10,7 @@ export type TradeType =
 
 export type Language = "en" | "es";
 export type EstimateStatus = "draft" | "sent" | "accepted" | "declined";
+export type DisplayMode = "total-only" | "grouped" | "itemized";
 
 export interface ContractorProfile {
   name: string;
@@ -74,6 +75,7 @@ export interface Estimate {
   terms: string;
   validDays: number;
   language: Language;
+  displayMode: DisplayMode;
 }
 
 export interface PriceTableItem {

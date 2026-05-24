@@ -8,10 +8,11 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import LineItemEditor from "@/components/LineItemEditor";
+import DisplayModePicker from "@/components/DisplayModePicker";
 import { useLang } from "@/lib/context";
 import { useT } from "@/lib/translations";
 import { loadEstimate, saveEstimate } from "@/lib/storage";
-import { Estimate, EstimateStatus, LineItem } from "@/types";
+import { Estimate, EstimateStatus, LineItem, DisplayMode } from "@/types";
 import { TRADE_LABELS } from "@/lib/pricing";
 import { generatePdf } from "@/lib/pdf";
 
@@ -30,6 +31,7 @@ export default function EstimateDetailPage() {
 
   // Editable copies
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
+  const [displayMode, setDisplayMode] = useState<DisplayMode>("total-only");
   const [scopeOfWork, setScopeOfWork] = useState("");
   const [taxRate, setTaxRate] = useState(8);
   const [notes, setNotes] = useState("");
@@ -40,6 +42,7 @@ export default function EstimateDetailPage() {
     if (!e) { router.push("/"); return; }
     setEstimate(e);
     setLineItems(e.lineItems);
+    setDisplayMode(e.displayMode ?? "total-only");
     setScopeOfWork(e.scopeOfWork ?? e.jobDescription ?? "");
     setTaxRate(Math.round(e.taxRate * 100 * 10) / 10);
     setNotes(e.notes);
@@ -66,6 +69,7 @@ export default function EstimateDetailPage() {
     const updated: Estimate = {
       ...estimate,
       lineItems,
+      displayMode,
       scopeOfWork,
       subtotal,
       taxRate: taxRate / 100,
@@ -117,6 +121,8 @@ export default function EstimateDetailPage() {
     const pdfEstimate: Estimate = {
       ...estimate,
       lineItems,
+      displayMode,
+      scopeOfWork,
       subtotal,
       taxRate: taxRate / 100,
       taxAmount,
@@ -291,8 +297,13 @@ export default function EstimateDetailPage() {
 
         {/* Line items */}
         <div className="card mb-4">
+          <div className="mb-4">
+            <DisplayModePicker value={displayMode} onChange={setDisplayMode} lang={lang} />
+          </div>
           <div className="flex items-center justify-between mb-3">
-            <p className="section-title mb-0">{lang === "es" ? "Líneas de la Estimación" : "Line Items"}</p>
+            <p className="section-title mb-0">
+              {lang === "es" ? "Líneas (solo para ti)" : "Line Items (your eyes only)"}
+            </p>
             <div className="flex gap-2">
               <button
                 onClick={handleRegenerate}
