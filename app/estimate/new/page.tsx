@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronLeft, ChevronRight, Loader2, Sparkles, SkipForward } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader2, Sparkles } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
 import Navbar from "@/components/Navbar";
 import TradeSelector from "@/components/TradeSelector";
@@ -74,7 +74,8 @@ export default function NewEstimatePage() {
 
   const canAdvance = () => {
     if (step === 1) return trade !== null && customerName.trim() !== "";
-    if (step === 2) return description.trim().length > 5;
+    if (step === 2) return true; // photos are optional
+    if (step === 3) return description.trim().length > 5;
     return true;
   };
 
@@ -169,7 +170,7 @@ export default function NewEstimatePage() {
     if (step === TOTAL_STEPS) {
       handleFinish();
     } else {
-      // Wait for estimate to finish before advancing to step 4
+      // Step 3 is now "Describe Job" — generate before showing step 4
       if (step === 3 && lineItems.length === 0) {
         await generateEstimate();
       }
@@ -179,7 +180,8 @@ export default function NewEstimatePage() {
 
   const back = () => setStep((s) => Math.max(s - 1, 1));
 
-  const stepLabel = [t.step1, t.step2, t.step3, t.step4][step - 1];
+  // Step order: 1=Trade&Customer  2=Photos  3=Describe  4=Review
+  const stepLabel = [t.step1, t.step3, t.step2, t.step4][step - 1];
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
@@ -255,11 +257,62 @@ export default function NewEstimatePage() {
           </div>
         )}
 
-        {/* STEP 2: Voice / Text description */}
+        {/* STEP 2: Photos first — take them before describing the job */}
         {step === 2 && (
-          <div className="space-y-5 fade-in">
+          <div className="space-y-4 fade-in">
             <div className="card">
-              <p className="text-sm text-slate-500 mb-4">{t.describeJobHint}</p>
+              <p className="text-sm text-slate-500 mb-4">
+                {lang === "es"
+                  ? "Toma fotos del área de trabajo ahora. Podrás verlas en la siguiente pantalla mientras describes el trabajo."
+                  : "Take photos of the work area first. You'll see them on the next screen while you describe the job."}
+              </p>
+              <PhotoUpload
+                photos={photos}
+                onAdd={(url) => setPhotos((p) => [...p, url])}
+                onRemove={(i) => setPhotos((p) => p.filter((_, idx) => idx !== i))}
+                lang={lang}
+                takePhoto={t.takePhoto}
+                choosePhoto={t.choosePhoto}
+                removePhoto={t.removePhoto}
+              />
+              {photos.length > 0 && (
+                <p className="text-sm text-green-600 font-semibold text-center mt-3">
+                  ✓ {photos.length} {t.photosAdded}
+                </p>
+              )}
+            </div>
+            <p className="text-xs text-slate-400 text-center">
+              {lang === "es" ? "Las fotos son opcionales — toca Siguiente para continuar" : "Photos are optional — tap Next to continue"}
+            </p>
+          </div>
+        )}
+
+        {/* STEP 3: Describe the job — photos shown above mic for reference */}
+        {step === 3 && (
+          <div className="space-y-4 fade-in">
+            {/* Photo reference strip */}
+            {photos.length > 0 && (
+              <div className="card">
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">
+                  {lang === "es" ? "Fotos de referencia" : "Reference Photos"}
+                </p>
+                <div className="flex gap-2 overflow-x-auto pb-1">
+                  {photos.map((src, i) => (
+                    <div key={i} className="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden border border-slate-200">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={src} alt="" className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="card">
+              <p className="text-sm text-slate-500 mb-4">
+                {lang === "es"
+                  ? "Mira las fotos y describe el trabajo. Menciona dimensiones, materiales y detalles."
+                  : "Look at your photos and describe the job. Mention dimensions, materials, and any details."}
+              </p>
               <VoiceInput
                 lang={lang}
                 onTranscript={handleTranscript}
@@ -278,29 +331,6 @@ export default function NewEstimatePage() {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
-            </div>
-          </div>
-        )}
-
-        {/* STEP 3: Photos */}
-        {step === 3 && (
-          <div className="space-y-4 fade-in">
-            <div className="card">
-              <p className="text-sm text-slate-500 mb-4">{t.addPhotosHint}</p>
-              <PhotoUpload
-                photos={photos}
-                onAdd={(url) => setPhotos((p) => [...p, url])}
-                onRemove={(i) => setPhotos((p) => p.filter((_, idx) => idx !== i))}
-                lang={lang}
-                takePhoto={t.takePhoto}
-                choosePhoto={t.choosePhoto}
-                removePhoto={t.removePhoto}
-              />
-              {photos.length > 0 && (
-                <p className="text-sm text-slate-500 text-center mt-3">
-                  {photos.length} {t.photosAdded}
-                </p>
-              )}
             </div>
           </div>
         )}
@@ -466,19 +496,6 @@ export default function NewEstimatePage() {
             <button onClick={back} className="btn-secondary flex-1">
               <ChevronLeft size={18} />
               {t.back}
-            </button>
-          )}
-          {step === 3 && (
-            <button
-              onClick={async () => {
-                await generateEstimate();
-                setStep(4);
-              }}
-              disabled={generating}
-              className="btn-secondary"
-            >
-              {generating ? <Loader2 size={16} className="animate-spin" /> : <SkipForward size={16} />}
-              {t.skipPhotos}
             </button>
           )}
           <button
