@@ -6,7 +6,7 @@ import { PlusCircle, TrendingUp, FileText, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import EstimateCard from "@/components/EstimateCard";
 import { Estimate } from "@/types";
-import { loadEstimates, deleteEstimate } from "@/lib/storage";
+import { loadEstimates, deleteEstimate, duplicateEstimate } from "@/lib/storage";
 import { useLang } from "@/lib/context";
 import { useT } from "@/lib/translations";
 
@@ -22,6 +22,11 @@ export default function DashboardPage() {
   const handleDelete = (id: string) => {
     deleteEstimate(id);
     setEstimates((prev) => prev.filter((e) => e.id !== id));
+  };
+
+  const handleDuplicate = (id: string) => {
+    const copy = duplicateEstimate(id);
+    if (copy) setEstimates((prev) => [copy, ...prev]);
   };
 
   const totalRevenue = estimates
@@ -90,6 +95,7 @@ export default function DashboardPage() {
                 key={estimate.id}
                 estimate={estimate}
                 onDelete={handleDelete}
+                onDuplicate={handleDuplicate}
               />
             ))}
           </div>

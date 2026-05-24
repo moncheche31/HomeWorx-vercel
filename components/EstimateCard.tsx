@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Trash2, FileText, ChevronRight } from "lucide-react";
+import { Trash2, Copy, ChevronRight } from "lucide-react";
 import { Estimate } from "@/types";
 import { TRADE_LABELS } from "@/lib/pricing";
 import { useT } from "@/lib/translations";
@@ -17,9 +17,10 @@ const STATUS_STYLES: Record<Estimate["status"], string> = {
 interface Props {
   estimate: Estimate;
   onDelete: (id: string) => void;
+  onDuplicate: (id: string) => void;
 }
 
-export default function EstimateCard({ estimate, onDelete }: Props) {
+export default function EstimateCard({ estimate, onDelete, onDuplicate }: Props) {
   const { lang } = useLang();
   const t = useT(lang);
   const tradeMeta = TRADE_LABELS[estimate.trade];
@@ -28,6 +29,11 @@ export default function EstimateCard({ estimate, onDelete }: Props) {
   const handleDelete = (e: React.MouseEvent) => {
     e.preventDefault();
     if (confirm(t.confirmDelete)) onDelete(estimate.id);
+  };
+
+  const handleDuplicate = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onDuplicate(estimate.id);
   };
 
   const createdDate = new Date(estimate.createdAt).toLocaleDateString(
@@ -67,6 +73,13 @@ export default function EstimateCard({ estimate, onDelete }: Props) {
           ${estimate.total.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
         </span>
         <div className="flex items-center gap-1">
+          <button
+            onClick={handleDuplicate}
+            className="p-1.5 rounded-lg text-slate-400 hover:text-blue-500 hover:bg-blue-50 transition-colors"
+            aria-label={lang === "es" ? "Duplicar estimación" : "Duplicate estimate"}
+          >
+            <Copy size={16} />
+          </button>
           <button
             onClick={handleDelete}
             className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors"

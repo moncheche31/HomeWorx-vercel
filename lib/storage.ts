@@ -1,5 +1,6 @@
 "use client";
 
+import { v4 as uuidv4 } from "uuid";
 import { Estimate, AppSettings, TradePriceTable, ContractorProfile, Language } from "@/types";
 import { DEFAULT_PRICE_TABLES } from "./pricing";
 
@@ -64,6 +65,22 @@ export function saveEstimate(estimate: Estimate): void {
 export function deleteEstimate(id: string): void {
   const estimates = loadEstimates().filter((e) => e.id !== id);
   save(ESTIMATES_KEY, estimates);
+}
+
+export function duplicateEstimate(id: string): Estimate | null {
+  const source = loadEstimate(id);
+  if (!source) return null;
+  const now = new Date().toISOString();
+  const copy: Estimate = {
+    ...source,
+    id: uuidv4(),
+    estimateNumber: nextEstimateNumber(),
+    status: "draft",
+    createdAt: now,
+    updatedAt: now,
+  };
+  saveEstimate(copy);
+  return copy;
 }
 
 // Recent customers

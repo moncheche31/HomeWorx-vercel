@@ -3,6 +3,7 @@
 import { Estimate } from "@/types";
 import { TRADE_LABELS } from "./pricing";
 import { groupLineItems } from "./grouping";
+import { compressPhoto } from "./compress";
 
 export async function generatePdf(estimate: Estimate): Promise<void> {
   // Dynamic import to avoid SSR issues
@@ -157,6 +158,35 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
     const maxDescLines = Math.min(descLines.length, 6);
     doc.text(descLines.slice(0, maxDescLines), 10, y);
     y += maxDescLines * 5 + 4;
+  }
+
+  // Photos — shown after scope of work, before pricing
+  if (estimate.photos && estimate.photos.length > 0) {
+    const photosToShow = estimate.photos.slice(0, 3);
+    const gap = 4;
+    const photoW = Math.floor((W - 20 - gap * (photosToShow.length - 1)) / photosToShow.length);
+    const photoH = Math.floor(photoW * 0.72);
+    const totalRowW = photosToShow.length * photoW + gap * (photosToShow.length - 1);
+    const startX = (W - totalRowW) / 2;
+
+    if (y + photoH + 14 > 260) { doc.addPage(); y = 20; }
+
+    doc.setTextColor(...BLUE);
+    doc.setFontSize(9);
+    doc.setFont("helvetica", "bold");
+    doc.text(lang === "es" ? "FOTOS DEL TRABAJO:" : "JOB PHOTOS:", 10, y);
+    y += 5;
+
+    for (let i = 0; i < photosToShow.length; i++) {
+      try {
+        const compressed = await compressPhoto(photosToShow[i]);
+        const fmt = compressed.startsWith("data:image/png") ? "PNG" : "JPEG";
+        doc.addImage(compressed, fmt, startX + i * (photoW + gap), y, photoW, photoH);
+      } catch {
+        // skip photos that can't be embedded
+      }
+    }
+    y += photoH + 8;
   }
 
   // Line items table — rendered based on displayMode
