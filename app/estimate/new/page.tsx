@@ -108,7 +108,10 @@ export default function NewEstimatePage() {
         }),
       });
 
-      if (!res.ok) throw new Error(`Server error: ${res.status}`);
+      if (!res.ok) {
+        const errBody = await res.json().catch(() => ({}));
+        throw new Error(errBody?.error ?? `Server error: ${res.status}`);
+      }
       const data = await res.json();
 
       const items: LineItem[] = (data.lineItems ?? []).map(
@@ -121,9 +124,14 @@ export default function NewEstimatePage() {
       setNotes(data.notes ?? "");
       setGenerated(true);
     } catch (err) {
-      const msg = err instanceof Error && err.name === "AbortError"
-        ? (lang === "es" ? "Tiempo de espera agotado. Intenta de nuevo." : "Request timed out. Please try again.")
-        : (lang === "es" ? "Error al generar. Intenta de nuevo." : "Generation failed. Please try again.");
+      let msg: string;
+      if (err instanceof Error && err.name === "AbortError") {
+        msg = lang === "es" ? "Tiempo de espera agotado. Intenta de nuevo." : "Request timed out. Please try again.";
+      } else if (err instanceof Error && err.message) {
+        msg = err.message;
+      } else {
+        msg = lang === "es" ? "Error al generar. Intenta de nuevo." : "Generation failed. Please try again.";
+      }
       setGenerateError(msg);
       console.error(err);
     } finally {

@@ -142,20 +142,32 @@ Respond ONLY with a valid JSON object with this exact structure:
     });
 
     if (!response.ok) {
-      console.error("Anthropic API error:", await response.text());
-      return NextResponse.json(buildDemoResponse(trade, language));
+      const errorBody = await response.text();
+      console.error("Anthropic API error:", response.status, errorBody);
+      let detail = `API error ${response.status}`;
+      try {
+        const parsed = JSON.parse(errorBody);
+        detail = parsed?.error?.message ?? detail;
+      } catch {}
+      return NextResponse.json({ error: detail }, { status: 502 });
     }
 
     const data = await response.json();
     const text: string = data.content?.[0]?.text ?? "";
     const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) return NextResponse.json(buildDemoResponse(trade, language));
+    if (!jsonMatch) {
+      console.error("No JSON in API response:", text);
+      return NextResponse.json({ error: "Model returned an unexpected response. Please try again." }, { status: 502 });
+    }
 
     const result: EstimateResult = JSON.parse(jsonMatch[0]);
     return NextResponse.json(result);
   } catch (err) {
     console.error("Estimate generation error:", err);
-    return NextResponse.json(buildDemoResponse(trade, language));
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : "Unknown error" },
+      { status: 500 }
+    );
   }
 }
 
