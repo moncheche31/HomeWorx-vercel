@@ -28,7 +28,7 @@ export default function DashboardPage() {
     .filter((e) => e.status === "accepted")
     .reduce((sum, e) => sum + e.total, 0);
 
-  const sentCount = estimates.filter((e) => e.status === "sent").length;
+  const sentCount  = estimates.filter((e) => e.status === "sent").length;
   const draftCount = estimates.filter((e) => e.status === "draft").length;
 
   return (
@@ -40,7 +40,7 @@ export default function DashboardPage() {
         <div className="grid grid-cols-3 gap-3 mb-5">
           <div className="card text-center p-3">
             <div className="flex justify-center mb-1">
-              <TrendingUp size={20} className="text-green-600" />
+              <TrendingUp size={20} className="text-accent-500" />
             </div>
             <div className="text-lg font-bold text-slate-800">
               ${totalRevenue.toLocaleString("en-US", { maximumFractionDigits: 0 })}
@@ -51,7 +51,7 @@ export default function DashboardPage() {
           </div>
           <div className="card text-center p-3">
             <div className="flex justify-center mb-1">
-              <Clock size={20} className="text-blue-600" />
+              <Clock size={20} className="text-brand-600" />
             </div>
             <div className="text-lg font-bold text-slate-800">{sentCount}</div>
             <div className="text-xs text-slate-500">{t.sent}</div>

@@ -29,12 +29,12 @@ export default function TradeSelector({ selected, onSelect, lang, label }: Props
               onClick={() => onSelect(trade)}
               className={`flex flex-col items-center justify-center gap-1.5 p-4 rounded-2xl border-2 transition-all duration-150 active:scale-95 ${
                 isSelected
-                  ? "border-blue-600 bg-blue-50 shadow-md"
-                  : "border-slate-200 bg-white hover:border-blue-300 hover:bg-slate-50"
+                  ? "border-brand-600 bg-brand-50 shadow-md"
+                  : "border-slate-200 bg-white hover:border-brand-300 hover:bg-slate-50"
               }`}
             >
               <span className="text-3xl">{meta.icon}</span>
-              <span className={`text-sm font-semibold text-center leading-tight ${isSelected ? "text-blue-700" : "text-slate-700"}`}>
+              <span className={`text-sm font-semibold text-center leading-tight ${isSelected ? "text-brand-700" : "text-slate-700"}`}>
                 {meta[lang]}
               </span>
             </button>

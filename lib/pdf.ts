@@ -5,7 +5,6 @@ import { TRADE_LABELS } from "./pricing";
 import { groupLineItems } from "./grouping";
 
 export async function generatePdf(estimate: Estimate): Promise<void> {
-  // Dynamic import to avoid SSR issues
   const { default: jsPDF } = await import("jspdf");
   const { default: autoTable } = await import("jspdf-autotable");
 
@@ -13,42 +12,54 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
   const lang = estimate.language;
   const W = 215.9;
 
-  // Colors
-  const BLUE  = [30, 64, 175] as [number, number, number];
-  const ORANGE = [249, 115, 22] as [number, number, number];
-  const GRAY  = [100, 116, 139] as [number, number, number];
-  const LIGHT = [241, 245, 249] as [number, number, number];
-  const BLACK = [15, 23, 42] as [number, number, number];
+  // HomeWorx 360 Brand Colors
+  const NAVY   = [11, 60, 93]    as [number, number, number]; // #0B3C5D Corporate Navy
+  const GREEN  = [65, 173, 73]   as [number, number, number]; // #41AD49 Accent Green
+  const GRAY   = [100, 116, 139] as [number, number, number]; // Slate-500
+  const LIGHT  = [248, 250, 252] as [number, number, number]; // Slate-50
+  const BLACK  = [15, 23, 42]    as [number, number, number]; // Slate-950
+  const WHITE  = [255, 255, 255] as [number, number, number];
 
   let y = 10;
 
-  // Header bar
-  doc.setFillColor(...BLUE);
-  doc.rect(0, 0, W, 38, "F");
+  // ── Header bar (navy gradient simulation with solid fill) ──────────────────
+  doc.setFillColor(...NAVY);
+  doc.rect(0, 0, W, 40, "F");
 
-  // Logo (if any)
+  // Accent green stripe at bottom of header
+  doc.setFillColor(...GREEN);
+  doc.rect(0, 38, W, 2, "F");
+
+  // Logo (if contractor uploaded one)
   if (estimate.contractor.logoDataUrl) {
     try {
-      doc.addImage(estimate.contractor.logoDataUrl, "JPEG", 12, 6, 26, 26);
+      doc.addImage(estimate.contractor.logoDataUrl, "JPEG", 12, 7, 24, 24);
     } catch {
       // skip bad logo
     }
   }
 
-  // Company name & contact
-  doc.setTextColor(255, 255, 255);
+  const logoOffset = estimate.contractor.logoDataUrl ? 42 : 14;
+
+  // Company name
+  doc.setTextColor(...WHITE);
   doc.setFontSize(18);
   doc.setFont("helvetica", "bold");
-  doc.text(estimate.contractor.company || estimate.contractor.name || "Your Company", estimate.contractor.logoDataUrl ? 44 : 14, 16);
+  const companyName = estimate.contractor.company || estimate.contractor.name || "Your Company";
+  doc.text(companyName, logoOffset, 16);
 
+  // Contact line
   doc.setFontSize(9);
   doc.setFont("helvetica", "normal");
+  doc.setTextColor(196, 224, 234); // light brand blue
   const contactParts = [
     estimate.contractor.phone,
     estimate.contractor.email,
-    estimate.contractor.license ? `${lang === "es" ? "Lic." : "Lic."} ${estimate.contractor.license}` : "",
+    estimate.contractor.license ? `Lic. ${estimate.contractor.license}` : "",
   ].filter(Boolean);
-  doc.text(contactParts.join("   |   "), estimate.contractor.logoDataUrl ? 44 : 14, 24);
+  if (contactParts.length > 0) {
+    doc.text(contactParts.join("   |   "), logoOffset, 24);
+  }
 
   const contractorAddr = [
     estimate.contractor.address,
@@ -57,37 +68,43 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
     estimate.contractor.zip,
   ].filter(Boolean).join(", ");
   if (contractorAddr) {
-    doc.text(contractorAddr, estimate.contractor.logoDataUrl ? 44 : 14, 30);
+    doc.text(contractorAddr, logoOffset, 31);
   }
 
-  // "ESTIMATE" badge top-right
-  doc.setFillColor(...ORANGE);
-  doc.roundedRect(W - 58, 6, 46, 26, 3, 3, "F");
-  doc.setTextColor(255, 255, 255);
+  // "ESTIMATE" / "COTIZACIÓN" badge — accent green
+  doc.setFillColor(...GREEN);
+  doc.roundedRect(W - 58, 7, 46, 26, 3, 3, "F");
+  doc.setTextColor(...WHITE);
   doc.setFontSize(13);
   doc.setFont("helvetica", "bold");
-  doc.text(lang === "es" ? "COTIZACIÓN" : "ESTIMATE", W - 55, 17, { maxWidth: 40 });
+  doc.text(lang === "es" ? "COTIZACIÓN" : "ESTIMATE", W - 35, 18, { align: "center" });
   doc.setFontSize(9);
   doc.setFont("helvetica", "normal");
-  doc.text(`#${estimate.estimateNumber}`, W - 55, 25);
+  doc.text(`#${estimate.estimateNumber}`, W - 35, 26, { align: "center" });
 
-  y = 46;
+  y = 48;
 
-  // Estimate meta row
+  // ── Meta row ──────────────────────────────────────────────────────────────
   doc.setFillColor(...LIGHT);
   doc.rect(10, y, W - 20, 20, "F");
+  doc.setDrawColor(...NAVY);
+  doc.setLineWidth(0.2);
+  doc.rect(10, y, W - 20, 20, "S");
+
   doc.setTextColor(...GRAY);
-  doc.setFontSize(8);
+  doc.setFontSize(7.5);
   doc.setFont("helvetica", "bold");
   doc.text(lang === "es" ? "FECHA" : "DATE", 16, y + 7);
   doc.text(lang === "es" ? "VÁLIDO HASTA" : "VALID UNTIL", 65, y + 7);
-  doc.text(lang === "es" ? "TIPO DE TRABAJO" : "TRADE", 125, y + 7);
+  doc.text(lang === "es" ? "TIPO DE TRABAJO" : "TRADE", 130, y + 7);
 
   const createdDate = new Date(estimate.createdAt);
   const validDate = new Date(createdDate);
   validDate.setDate(validDate.getDate() + (estimate.validDays ?? 30));
   const fmtDate = (d: Date) =>
-    d.toLocaleDateString(lang === "es" ? "es-US" : "en-US", { year: "numeric", month: "short", day: "numeric" });
+    d.toLocaleDateString(lang === "es" ? "es-US" : "en-US", {
+      year: "numeric", month: "short", day: "numeric",
+    });
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
@@ -95,13 +112,13 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
   doc.text(fmtDate(createdDate), 16, y + 15);
   doc.text(fmtDate(validDate), 65, y + 15);
   const tradeLabel = TRADE_LABELS[estimate.trade]?.[lang] ?? estimate.trade;
-  doc.text(tradeLabel, 125, y + 15);
+  doc.text(tradeLabel, 130, y + 15);
   y += 26;
 
-  // FROM / TO
+  // ── FROM / TO ──────────────────────────────────────────────────────────────
   const col2X = W / 2 + 5;
-  doc.setTextColor(...BLUE);
-  doc.setFontSize(9);
+  doc.setTextColor(...NAVY);
+  doc.setFontSize(8);
   doc.setFont("helvetica", "bold");
   doc.text(lang === "es" ? "PREPARADO POR:" : "PREPARED BY:", 10, y);
   doc.text(lang === "es" ? "ESTIMACIÓN PARA:" : "ESTIMATE FOR:", col2X, y);
@@ -131,58 +148,72 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
 
   // Job address
   if (estimate.jobAddress) {
-    doc.setTextColor(...BLUE);
-    doc.setFontSize(9);
+    doc.setTextColor(...NAVY);
+    doc.setFontSize(8);
     doc.setFont("helvetica", "bold");
     doc.text(lang === "es" ? "DIRECCIÓN DEL TRABAJO:" : "JOB ADDRESS:", 10, y);
     doc.setFont("helvetica", "normal");
     doc.setTextColor(...BLACK);
     doc.setFontSize(10);
     doc.text(estimate.jobAddress, 10, y + 5);
-    y += 13;
+    y += 14;
   }
 
-  // Scope of work — always use the professional rewrite, never the raw transcript
+  // ── Scope of Work ──────────────────────────────────────────────────────────
   const scopeText = estimate.scopeOfWork || estimate.jobDescription;
   if (scopeText) {
-    doc.setTextColor(...BLUE);
-    doc.setFontSize(9);
+    doc.setFillColor(...LIGHT);
+    const scopeLines = doc.splitTextToSize(scopeText, W - 24);
+    const maxScopeLines = Math.min(scopeLines.length, 7);
+    const scopeBlockH = maxScopeLines * 5 + 10;
+    doc.roundedRect(10, y - 2, W - 20, scopeBlockH, 2, 2, "F");
+
+    doc.setTextColor(...NAVY);
+    doc.setFontSize(8);
     doc.setFont("helvetica", "bold");
-    doc.text(lang === "es" ? "ALCANCE DEL TRABAJO:" : "SCOPE OF WORK:", 10, y);
-    y += 5;
+    doc.text(lang === "es" ? "ALCANCE DEL TRABAJO:" : "SCOPE OF WORK:", 14, y + 4);
+    y += 9;
+
     doc.setFont("helvetica", "normal");
     doc.setFontSize(9);
     doc.setTextColor(...BLACK);
-    const descLines = doc.splitTextToSize(scopeText, W - 20);
-    const maxDescLines = Math.min(descLines.length, 6);
-    doc.text(descLines.slice(0, maxDescLines), 10, y);
-    y += maxDescLines * 5 + 4;
+    doc.text(scopeLines.slice(0, maxScopeLines), 14, y);
+    y += maxScopeLines * 5 + 4;
   }
 
-  // Line items table — rendered based on displayMode
+  y += 2;
+
+  // ── Line items table ───────────────────────────────────────────────────────
   const mode = estimate.displayMode ?? "total-only";
 
+  const headStyles = {
+    fillColor: NAVY,
+    textColor: WHITE,
+    fontStyle: "bold" as const,
+    fontSize: 9,
+  };
+  const altRowStyles = { fillColor: LIGHT };
+  const tableMargin = { left: 10, right: 10 };
+
   if (mode === "itemized") {
-    const tableHead = [[
-      lang === "es" ? "Descripción" : "Description",
-      lang === "es" ? "Cant." : "Qty",
-      lang === "es" ? "Unidad" : "Unit",
-      lang === "es" ? "Precio Unit." : "Unit Price",
-      "Total",
-    ]];
-    const tableBody = estimate.lineItems.map((item) => [
-      item.description,
-      item.quantity.toString(),
-      item.unit,
-      `$${item.unitPrice.toFixed(2)}`,
-      `$${item.total.toFixed(2)}`,
-    ]);
     autoTable(doc, {
       startY: y,
-      head: tableHead,
-      body: tableBody,
+      head: [[
+        lang === "es" ? "Descripción" : "Description",
+        lang === "es" ? "Cant." : "Qty",
+        lang === "es" ? "Unidad" : "Unit",
+        lang === "es" ? "Precio Unit." : "Unit Price",
+        "Total",
+      ]],
+      body: estimate.lineItems.map((item) => [
+        item.description,
+        item.quantity.toString(),
+        item.unit,
+        `$${item.unitPrice.toFixed(2)}`,
+        `$${item.total.toFixed(2)}`,
+      ]),
       theme: "striped",
-      headStyles: { fillColor: BLUE, textColor: [255, 255, 255], fontStyle: "bold", fontSize: 9 },
+      headStyles,
       bodyStyles: { fontSize: 9, textColor: BLACK },
       columnStyles: {
         0: { cellWidth: "auto" },
@@ -191,93 +222,85 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
         3: { cellWidth: 28, halign: "right" },
         4: { cellWidth: 28, halign: "right" },
       },
-      alternateRowStyles: { fillColor: [248, 250, 252] },
-      margin: { left: 10, right: 10 },
+      alternateRowStyles: altRowStyles,
+      margin: tableMargin,
     });
   } else if (mode === "grouped") {
     const { laborTotal, materialsTotal } = groupLineItems(estimate.lineItems);
-    const tableHead = [[
-      lang === "es" ? "Descripción" : "Description",
-      "Total",
-    ]];
-    const tableBody = [
-      [lang === "es" ? "Mano de obra" : "Labor", `$${laborTotal.toFixed(2)}`],
-      [lang === "es" ? "Materiales y suministros" : "Materials & Supplies", `$${materialsTotal.toFixed(2)}`],
-    ];
     autoTable(doc, {
       startY: y,
-      head: tableHead,
-      body: tableBody,
+      head: [[lang === "es" ? "Categoría" : "Category", "Total"]],
+      body: [
+        [lang === "es" ? "Mano de obra" : "Labor", `$${laborTotal.toFixed(2)}`],
+        [lang === "es" ? "Materiales y suministros" : "Materials & Supplies", `$${materialsTotal.toFixed(2)}`],
+      ],
       theme: "striped",
-      headStyles: { fillColor: BLUE, textColor: [255, 255, 255], fontStyle: "bold", fontSize: 10 },
+      headStyles,
       bodyStyles: { fontSize: 10, textColor: BLACK },
       columnStyles: {
         0: { cellWidth: "auto" },
         1: { cellWidth: 40, halign: "right" },
       },
-      alternateRowStyles: { fillColor: [248, 250, 252] },
-      margin: { left: 10, right: 10 },
+      alternateRowStyles: altRowStyles,
+      margin: tableMargin,
     });
   } else {
-    // total-only — no table, just a clean "Services Rendered" line
+    // total-only
     autoTable(doc, {
       startY: y,
       head: [[lang === "es" ? "Servicios" : "Services", ""]],
       body: [[
-        lang === "es" ? "Servicios de contratista según el alcance del trabajo descrito" : "Contractor services per scope of work described above",
+        lang === "es"
+          ? "Servicios de contratista según el alcance del trabajo descrito anteriormente"
+          : "Contractor services per scope of work described above",
         "",
       ]],
       theme: "striped",
-      headStyles: { fillColor: BLUE, textColor: [255, 255, 255], fontStyle: "bold", fontSize: 10 },
+      headStyles,
       bodyStyles: { fontSize: 10, textColor: BLACK },
       columnStyles: { 0: { cellWidth: "auto" }, 1: { cellWidth: 10 } },
-      margin: { left: 10, right: 10 },
+      margin: tableMargin,
     });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   y = (doc as any).lastAutoTable.finalY + 6;
 
-  // Totals
-  const totalsX = W - 80;
-  const totalsLabelX = totalsX;
-  const totalsValueX = W - 10;
+  // ── Totals ─────────────────────────────────────────────────────────────────
+  const totalsX = W - 82;
+  const valX = W - 10;
 
   doc.setFontSize(9);
-
-  // Subtotal
   doc.setTextColor(...GRAY);
   doc.setFont("helvetica", "normal");
-  doc.text(lang === "es" ? "Subtotal:" : "Subtotal:", totalsLabelX, y);
-  doc.text(`$${estimate.subtotal.toFixed(2)}`, totalsValueX, y, { align: "right" });
+  doc.text(lang === "es" ? "Subtotal:" : "Subtotal:", totalsX, y);
+  doc.text(`$${estimate.subtotal.toFixed(2)}`, valX, y, { align: "right" });
   y += 7;
 
-  // Tax
   const taxPct = (estimate.taxRate * 100).toFixed(1);
-  doc.text(`${lang === "es" ? "Impuesto" : "Tax"} (${taxPct}%):`, totalsLabelX, y);
-  doc.text(`$${estimate.taxAmount.toFixed(2)}`, totalsValueX, y, { align: "right" });
+  doc.text(`${lang === "es" ? "Impuesto" : "Tax"} (${taxPct}%):`, totalsX, y);
+  doc.text(`$${estimate.taxAmount.toFixed(2)}`, valX, y, { align: "right" });
   y += 5;
 
-  // Divider
-  doc.setDrawColor(...BLUE);
-  doc.setLineWidth(0.5);
+  doc.setDrawColor(...NAVY);
+  doc.setLineWidth(0.4);
   doc.line(totalsX, y, W - 10, y);
   y += 5;
 
-  // Total
-  doc.setFillColor(...BLUE);
+  // TOTAL badge
+  doc.setFillColor(...NAVY);
   doc.roundedRect(totalsX - 4, y - 5, W - totalsX + 4, 12, 2, 2, "F");
-  doc.setTextColor(255, 255, 255);
+  doc.setTextColor(...WHITE);
   doc.setFontSize(11);
   doc.setFont("helvetica", "bold");
-  doc.text(lang === "es" ? "TOTAL:" : "TOTAL:", totalsLabelX, y + 3);
-  doc.text(`$${estimate.total.toFixed(2)}`, totalsValueX, y + 3, { align: "right" });
+  doc.text(lang === "es" ? "TOTAL:" : "TOTAL:", totalsX, y + 3);
+  doc.text(`$${estimate.total.toFixed(2)}`, valX, y + 3, { align: "right" });
   y += 18;
 
-  // Notes
+  // ── Notes ──────────────────────────────────────────────────────────────────
   if (estimate.notes) {
-    doc.setTextColor(...BLUE);
-    doc.setFontSize(9);
+    doc.setTextColor(...NAVY);
+    doc.setFontSize(8.5);
     doc.setFont("helvetica", "bold");
     doc.text(lang === "es" ? "NOTAS:" : "NOTES:", 10, y);
     y += 5;
@@ -288,10 +311,10 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
     y += Math.min(noteLines.length, 6) * 5 + 4;
   }
 
-  // Terms
+  // ── Terms ──────────────────────────────────────────────────────────────────
   const terms = estimate.terms || defaultTerms(lang);
-  doc.setTextColor(...BLUE);
-  doc.setFontSize(9);
+  doc.setTextColor(...NAVY);
+  doc.setFontSize(8.5);
   doc.setFont("helvetica", "bold");
   doc.text(lang === "es" ? "TÉRMINOS Y CONDICIONES:" : "TERMS & CONDITIONS:", 10, y);
   y += 5;
@@ -302,11 +325,8 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
   doc.text(termLines.slice(0, 6), 10, y);
   y += Math.min(termLines.length, 6) * 4 + 8;
 
-  // Signature area
-  if (y > 240) {
-    doc.addPage();
-    y = 20;
-  }
+  // ── Signature lines ─────────────────────────────────────────────────────────
+  if (y > 240) { doc.addPage(); y = 20; }
   doc.setDrawColor(...GRAY);
   doc.setLineWidth(0.3);
   doc.line(10, y + 15, 95, y + 15);
@@ -316,22 +336,25 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
   doc.text(lang === "es" ? "Firma del Cliente" : "Customer Signature", 10, y + 20);
   doc.text(lang === "es" ? "Fecha" : "Date", 115, y + 20);
 
-  // Footer
+  // ── Footer ─────────────────────────────────────────────────────────────────
   const totalPages = doc.getNumberOfPages();
   for (let i = 1; i <= totalPages; i++) {
     doc.setPage(i);
     doc.setFontSize(7);
     doc.setTextColor(...GRAY);
     doc.text(
-      `${lang === "es" ? "Generado con HomeWorx" : "Generated with HomeWorx"} • ${lang === "es" ? "Página" : "Page"} ${i} ${lang === "es" ? "de" : "of"} ${totalPages}`,
+      `HomeWorx 360 Estimator  •  ${lang === "es" ? "Página" : "Page"} ${i} ${lang === "es" ? "de" : "of"} ${totalPages}`,
       W / 2,
       205,
-      { align: "center" }
+      { align: "center" },
     );
+    // Bottom accent line
+    doc.setFillColor(...GREEN);
+    doc.rect(0, 208, W, 1.5, "F");
   }
 
-  const fileName = `Estimate-${estimate.estimateNumber}-${estimate.customer.name.replace(/\s+/g, "_") || "Customer"}.pdf`;
-  doc.save(fileName);
+  const safeCustomer = estimate.customer.name.replace(/\s+/g, "_") || "Customer";
+  doc.save(`Estimate-${estimate.estimateNumber}-${safeCustomer}.pdf`);
 }
 
 function defaultTerms(lang: "en" | "es"): string {

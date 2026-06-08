@@ -108,8 +108,8 @@ export default function SettingsPage() {
                 onClick={() => setLang(l)}
                 className={`py-3 rounded-xl border-2 font-semibold transition-all ${
                   lang === l
-                    ? "border-blue-600 bg-blue-50 text-blue-700"
-                    : "border-slate-200 bg-white text-slate-600 hover:border-blue-300"
+                    ? "border-brand-600 bg-brand-50 text-brand-700"
+                    : "border-slate-200 bg-white text-slate-600 hover:border-brand-300"
                 }`}
               >
                 {l === "en" ? `🇺🇸 ${t.english}` : `🇲🇽 ${t.spanish}`}
@@ -215,7 +215,7 @@ export default function SettingsPage() {
                 onClick={() => setActiveTrade(trade)}
                 className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
                   activeTrade === trade
-                    ? "bg-blue-700 text-white"
+                    ? "bg-brand-700 text-white"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
@@ -278,7 +278,7 @@ export default function SettingsPage() {
 
           <button
             onClick={addItem}
-            className="w-full flex items-center justify-center gap-2 py-2.5 mt-3 rounded-xl border-2 border-dashed border-blue-300 text-blue-600 font-semibold hover:bg-blue-50 transition-colors text-sm"
+            className="w-full flex items-center justify-center gap-2 py-2.5 mt-3 rounded-xl border-2 border-dashed border-brand-300 text-brand-600 font-semibold hover:bg-brand-50 transition-colors text-sm"
           >
             <Plus size={16} />
             {t.addItem}

@@ -26,7 +26,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
         <div
           key={i}
           className={`h-2 rounded-full transition-all duration-300 ${
-            i < current ? "bg-blue-700 w-6" : i === current - 1 ? "bg-blue-500 w-8" : "bg-slate-300 w-3"
+            i < current ? "bg-brand-700 w-6" : i === current - 1 ? "bg-brand-500 w-8" : "bg-slate-300 w-3"
           }`}
         />
       ))}
@@ -469,7 +469,7 @@ export default function NewEstimatePage() {
                       <span>${taxAmount.toFixed(2)}</span>
                     </div>
                     <div className="h-px bg-slate-200" />
-                    <div className="flex justify-between font-bold text-lg text-blue-700">
+                    <div className="flex justify-between font-bold text-lg text-brand-700">
                       <span>{t.estimateTotal}</span>
                       <span>${total.toFixed(2)}</span>
                     </div>
