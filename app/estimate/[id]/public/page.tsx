@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { Download } from "lucide-react";
-import { loadEstimate } from "@/lib/storage";
+import { loadEstimate, loadContractor } from "@/lib/storage";
 import { generatePdf } from "@/lib/pdf";
 import { groupLineItems } from "@/lib/grouping";
 import { Estimate } from "@/types";
@@ -21,7 +21,31 @@ export default function PublicEstimatePage() {
   useEffect(() => {
     const e = loadEstimate(params.id as string);
     if (!e) { setNotFound(true); return; }
-    setEstimate(e);
+
+    // The estimate carries a contractor snapshot taken at creation time.
+    // If the contractor completed or updated their profile after creating the
+    // estimate, those fields will be blank in the snapshot.  Supplement any
+    // empty snapshot fields with the current local profile so the header
+    // always shows up-to-date contractor branding on their own device.
+    // (When Supabase auth is wired up this merge is replaced by a DB fetch.)
+    const current = loadContractor();
+    const snap    = e.contractor;
+    setEstimate({
+      ...e,
+      contractor: {
+        name:        snap.name        || current.name,
+        company:     snap.company     || current.company,
+        phone:       snap.phone       || current.phone,
+        email:       snap.email       || current.email,
+        website:     snap.website     || current.website,
+        address:     snap.address     || current.address,
+        city:        snap.city        || current.city,
+        state:       snap.state       || current.state,
+        zip:         snap.zip         || current.zip,
+        license:     snap.license     || current.license,
+        logoDataUrl: snap.logoDataUrl || current.logoDataUrl,
+      },
+    });
   }, [params.id]);
 
   if (notFound) {
@@ -65,27 +89,42 @@ export default function PublicEstimatePage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* ── Contractor header — contractor branding only ── */}
+      {/* ── Contractor header ─────────────────────────────────────────────────
+           Everything here comes from estimate.contractor (profile snapshot
+           merged with current local settings). No HomeWorx 360 info here.
+      ── */}
       <div className="bg-[#0B3C5D] text-white">
         <div className="max-w-2xl mx-auto px-5 py-5 flex items-start gap-4">
 
-          {/* Logo */}
-          {contractor.logoDataUrl && (
+          {/* Logo — or initials avatar when no logo uploaded */}
+          {contractor.logoDataUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={contractor.logoDataUrl}
               alt={companyName}
-              className="h-14 w-14 object-contain rounded-xl bg-white p-1 flex-shrink-0"
+              className="h-16 w-16 object-contain rounded-xl bg-white p-1 flex-shrink-0"
             />
-          )}
+          ) : companyName ? (
+            <div className="h-16 w-16 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+              <span className="text-2xl font-bold text-white select-none">
+                {companyName.charAt(0).toUpperCase()}
+              </span>
+            </div>
+          ) : null}
 
-          {/* Company info */}
+          {/* Company info — name is larger when no logo to compensate */}
           <div className="flex-1 min-w-0">
             {companyName && (
-              <h1 className="text-xl font-bold leading-tight">{companyName}</h1>
+              <h1
+                className={`font-bold leading-tight ${
+                  contractor.logoDataUrl ? "text-xl" : "text-2xl"
+                }`}
+              >
+                {companyName}
+              </h1>
             )}
             {contactParts.length > 0 && (
-              <p className="text-sm text-blue-200 mt-0.5 leading-snug">
+              <p className="text-sm text-blue-200 mt-1 leading-snug">
                 {contactParts.join("  ·  ")}
               </p>
             )}
@@ -311,19 +350,21 @@ export default function PublicEstimatePage() {
         </button>
       </main>
 
-      {/* ── "Powered by" footer — only HomeWorx branding allowed here ── */}
+      {/* ── Passive SaaS marketing footer ─────────────────────────────────────
+           Intentionally tiny and light so it markets to homeowners who view
+           this page without distracting from the contractor's branding above.
+      ── */}
       <footer className="text-center py-8 border-t border-slate-100 mt-4">
-        <p className="text-xs text-slate-400">
-          {lang === "es" ? "Creado con" : "Powered by"}{" "}
-          <a
-            href="https://homeworx360.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-slate-500 hover:text-[#0B3C5D] transition-colors"
-          >
-            HomeWorx 360
-          </a>
-        </p>
+        <a
+          href="https://homeworx360.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-slate-400 hover:text-slate-500 transition-colors"
+        >
+          {lang === "es"
+            ? "Con tecnología de HomeWorx 360 | Genera cotizaciones con voz al instante"
+            : "Powered by HomeWorx 360 | Create instant voice estimates"}
+        </a>
       </footer>
     </div>
   );
