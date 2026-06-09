@@ -1,3 +1,5 @@
+import { getLocalizedPrices } from "./materials";
+
 /**
  * Retail Material Price Lookup
  *
@@ -56,7 +58,6 @@ async function searchBigBox(
   url.searchParams.set("sort_by", "best_match");
 
   const res = await fetch(url.toString(), {
-    next: { revalidate: 3600 }, // cache 1 hour
     signal: AbortSignal.timeout(8000),
   });
 
@@ -107,7 +108,6 @@ async function searchSerpAPI(
   url.searchParams.set("api_key", apiKey);
 
   const res = await fetch(url.toString(), {
-    next: { revalidate: 3600 },
     signal: AbortSignal.timeout(8000),
   });
 
@@ -142,8 +142,6 @@ async function searchSerpAPI(
 
 // ── Simulated fallback ───────────────────────────────────────────────────────
 async function searchSimulated(term: string, zip: string): Promise<RetailProduct[]> {
-  const { getLocalizedPrices } = await import("./materials");
-  // Find by first keyword
   const keyword = term.split(" ")[0].toLowerCase();
   const matches = getLocalizedPrices(zip, keyword).slice(0, 3);
   return matches.map((m) => ({

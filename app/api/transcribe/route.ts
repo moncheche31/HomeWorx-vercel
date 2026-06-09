@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Explicit runtime declaration — ensures full Node.js APIs (FormData, Blob, etc.)
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   const openAiKey = process.env.OPENAI_API_KEY;
 
@@ -10,32 +14,33 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // Parse multipart form data
   let formData: FormData;
   try {
     formData = await req.formData();
-  } catch {
-    return NextResponse.json({ error: "Invalid form data" }, { status: 400 });
+  } catch (err) {
+    console.error("[transcribe] formData parse error:", err);
+    return NextResponse.json({ error: "Could not parse audio upload" }, { status: 400 });
   }
 
   const audioFile = formData.get("audio") as File | null;
-  const language  = (formData.get("language") as string | null) ?? "en";
+  const language  = ((formData.get("language") as string | null) ?? "en").toLowerCase();
 
   if (!audioFile || audioFile.size === 0) {
-    return NextResponse.json({ error: "No audio file provided" }, { status: 400 });
+    return NextResponse.json({ error: "No audio data received" }, { status: 400 });
   }
 
-  // Whisper requires the filename to have the correct extension for format detection
+  // Determine correct file extension for Whisper format detection
   const mimeType = audioFile.type || "audio/webm";
-  const ext = mimeType.includes("mp4") || mimeType.includes("m4a")
-    ? ".mp4"
-    : mimeType.includes("wav")
-    ? ".wav"
-    : ".webm";
+  const ext =
+    mimeType.includes("mp4") || mimeType.includes("m4a") ? ".mp4" :
+    mimeType.includes("wav")                              ? ".wav" :
+                                                            ".webm";
 
+  // Build the multipart request for OpenAI Whisper
   const whisperForm = new FormData();
   whisperForm.append("file", audioFile, `recording${ext}`);
   whisperForm.append("model", "whisper-1");
-  // Map language codes: "en" → "en", "es" → "es"
   whisperForm.append("language", language === "es" ? "es" : "en");
   whisperForm.append("response_format", "text");
 
@@ -47,18 +52,18 @@ export async function POST(req: NextRequest) {
     });
 
     if (!res.ok) {
-      const err = await res.text();
-      console.error("Whisper API error:", err);
+      const errText = await res.text().catch(() => "unknown error");
+      console.error("[transcribe] Whisper API error:", res.status, errText);
       return NextResponse.json(
-        { error: "Whisper transcription failed", detail: err },
+        { error: "Whisper transcription failed", detail: errText },
         { status: 502 },
       );
     }
 
-    const transcript = await res.text(); // response_format=text returns plain text
+    const transcript = await res.text();
     return NextResponse.json({ transcript: transcript.trim() });
   } catch (err) {
-    console.error("Transcription error:", err);
-    return NextResponse.json({ error: "Transcription request failed" }, { status: 500 });
+    console.error("[transcribe] fetch error:", err);
+    return NextResponse.json({ error: "Network error reaching Whisper API" }, { status: 500 });
   }
 }

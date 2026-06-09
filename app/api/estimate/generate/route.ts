@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { lookupTradeMaterials, formatMaterialContext } from "@/lib/bigbox";
 import { getLaborRate, formatLaborContext } from "@/lib/labor-rates";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 interface GenerateBody {
   trade: string;
   description: string;
@@ -31,7 +34,12 @@ interface EstimateResult {
 }
 
 export async function POST(req: NextRequest) {
-  const body: GenerateBody = await req.json();
+  let body: GenerateBody;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON in request body" }, { status: 400 });
+  }
   const { trade, description, city, state, zip, language, photos } = body;
 
   const openAiKey    = process.env.OPENAI_API_KEY;
