@@ -183,21 +183,13 @@ export default function NewEstimatePage() {
     // Save locally first — works offline, zero network dependency.
     saveEstimate(estimate);
 
-    // Sync to server. The API always returns 200 with { success, savedLocally, data }.
-    // If it returns the estimate back (savedLocally: true), refresh localStorage with
-    // the canonical copy. Any network failure is silently caught — localStorage wins.
+    // Background cloud sync — always returns 200 JSON, never blocks navigation.
+    // localStorage save above is the source of truth; this is best-effort Supabase sync.
     fetch("/api/estimates", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(estimate),
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((payload) => {
-        if (payload?.savedLocally && payload?.data) {
-          saveEstimate(payload.data as Estimate);
-        }
-      })
-      .catch(() => {});
+    }).catch(() => {});
 
     router.push(`/estimate/${estimate.id}`);
   };

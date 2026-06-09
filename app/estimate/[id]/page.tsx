@@ -108,20 +108,12 @@ export default function EstimateDetailPage() {
     setEstimate(updated);
     saveEstimate(updated);
 
-    // Sync to server; refresh localStorage if server echoes the canonical copy.
+    // Background cloud sync — fire and forget.
     fetch("/api/estimates", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updated),
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((payload) => {
-        if (payload?.savedLocally && payload?.data) {
-          saveEstimate(payload.data as Estimate);
-          setEstimate(payload.data as Estimate);
-        }
-      })
-      .catch(() => {});
+    }).catch(() => {});
 
     setEditing(false);
     setSaving(false);
