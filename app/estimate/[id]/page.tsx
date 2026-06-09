@@ -104,16 +104,24 @@ export default function EstimateDetailPage() {
       updatedAt: new Date().toISOString(),
     };
 
-    // Always persist locally first.
+    // Save locally first — zero network dependency.
     setEstimate(updated);
     saveEstimate(updated);
 
-    // Best-effort cloud sync — never blocks the UI.
+    // Sync to server; refresh localStorage if server echoes the canonical copy.
     fetch("/api/estimates", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updated),
-    }).catch(() => {});
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((payload) => {
+        if (payload?.savedLocally && payload?.data) {
+          saveEstimate(payload.data as Estimate);
+          setEstimate(payload.data as Estimate);
+        }
+      })
+      .catch(() => {});
 
     setEditing(false);
     setSaving(false);
@@ -141,9 +149,8 @@ export default function EstimateDetailPage() {
         }),
       });
       const data = await res.json();
-      const { v4: uuidv4 } = await import("uuid");
       const items: LineItem[] = (data.lineItems ?? []).map(
-        (item: Omit<LineItem, "id">) => ({ ...item, id: uuidv4() }),
+        (item: Omit<LineItem, "id">) => ({ ...item, id: crypto.randomUUID() }),
       );
       setLineItems(items);
       setScopeOfWork(data.scopeOfWork ?? "");

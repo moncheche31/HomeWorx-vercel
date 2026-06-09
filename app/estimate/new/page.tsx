@@ -3,7 +3,6 @@
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, Loader2, Sparkles } from "lucide-react";
-import { v4 as uuidv4 } from "uuid";
 import Navbar from "@/components/Navbar";
 import TradeSelector from "@/components/TradeSelector";
 import VoiceInput from "@/components/VoiceInput";
@@ -112,7 +111,7 @@ export default function NewEstimatePage() {
       const data = await res.json();
 
       const items: LineItem[] = (data.lineItems ?? []).map(
-        (item: Omit<LineItem, "id">) => ({ ...item, id: uuidv4() })
+        (item: Omit<LineItem, "id">) => ({ ...item, id: crypto.randomUUID() })
       );
       setLineItems(items);
       setScopeOfWork(data.scopeOfWork ?? "");
@@ -147,7 +146,7 @@ export default function NewEstimatePage() {
     }
     const contractor = loadContractor();
     const estimate: Estimate = {
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       estimateNumber: nextEstimateNumber(),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -181,16 +180,24 @@ export default function NewEstimatePage() {
       language: lang,
     };
 
-    // Always save locally first — works offline, no network dependency.
+    // Save locally first — works offline, zero network dependency.
     saveEstimate(estimate);
 
-    // Best-effort cloud sync — fire and forget so saving never blocks navigation.
-    // If Supabase isn't configured or the request fails, localStorage is the source of truth.
+    // Sync to server. The API always returns 200 with { success, savedLocally, data }.
+    // If it returns the estimate back (savedLocally: true), refresh localStorage with
+    // the canonical copy. Any network failure is silently caught — localStorage wins.
     fetch("/api/estimates", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(estimate),
-    }).catch(() => {});
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((payload) => {
+        if (payload?.savedLocally && payload?.data) {
+          saveEstimate(payload.data as Estimate);
+        }
+      })
+      .catch(() => {});
 
     router.push(`/estimate/${estimate.id}`);
   };

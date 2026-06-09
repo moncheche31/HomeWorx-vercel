@@ -59,10 +59,15 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Supabase not configured, user unauthenticated, or any failure —
-  // the client already saved to localStorage; return success so the
-  // user can proceed to view/print their estimate.
-  return NextResponse.json({ success: true, storage: "local", id: estimate.id });
+  // Supabase not configured, user unauthenticated, or any failure.
+  // Echo the estimate back so the client can confirm its localStorage copy
+  // matches the canonical server-side data.
+  return NextResponse.json({
+    success:     true,
+    savedLocally: true,
+    id:          estimate.id,
+    data:        estimate,
+  });
 }
 
 // ── Map client Estimate → Supabase row ────────────────────────────────────────

@@ -15,7 +15,6 @@ import {
 } from "@/lib/storage";
 import { ContractorProfile, TradeType, TradePriceTable, PriceTableItem } from "@/types";
 import { TRADE_LABELS, DEFAULT_PRICE_TABLES } from "@/lib/pricing";
-import { v4 as uuidv4 } from "uuid";
 
 type Tab = "profile" | "rates" | "integrations";
 
@@ -97,7 +96,7 @@ export default function SettingsPage() {
   const addItem = () => {
     setPriceTable((pt) => ({
       ...pt,
-      items: [...pt.items, { id: uuidv4(), description: "", unit: "sq ft", price: 0 }],
+      items: [...pt.items, { id: crypto.randomUUID(), description: "", unit: "sq ft", price: 0 }],
     }));
   };
 
