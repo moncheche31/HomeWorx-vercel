@@ -180,7 +180,18 @@ export default function NewEstimatePage() {
       validDays,
       language: lang,
     };
+
+    // Always save locally first — works offline, no network dependency.
     saveEstimate(estimate);
+
+    // Best-effort cloud sync — fire and forget so saving never blocks navigation.
+    // If Supabase isn't configured or the request fails, localStorage is the source of truth.
+    fetch("/api/estimates", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(estimate),
+    }).catch(() => {});
+
     router.push(`/estimate/${estimate.id}`);
   };
 

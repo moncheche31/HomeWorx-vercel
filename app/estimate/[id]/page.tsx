@@ -103,8 +103,18 @@ export default function EstimateDetailPage() {
       laborRate,
       updatedAt: new Date().toISOString(),
     };
+
+    // Always persist locally first.
     setEstimate(updated);
     saveEstimate(updated);
+
+    // Best-effort cloud sync — never blocks the UI.
+    fetch("/api/estimates", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(updated),
+    }).catch(() => {});
+
     setEditing(false);
     setSaving(false);
   };
