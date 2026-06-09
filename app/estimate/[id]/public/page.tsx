@@ -29,21 +29,22 @@ export default function PublicEstimatePage() {
     // always shows up-to-date contractor branding on their own device.
     // (When Supabase auth is wired up this merge is replaced by a DB fetch.)
     const current = loadContractor();
-    const snap    = e.contractor;
+    // Guard: older estimates may have null/undefined contractor field
+    const snap = e.contractor ?? {};
     setEstimate({
       ...e,
       contractor: {
-        name:        snap.name        || current.name,
-        company:     snap.company     || current.company,
-        phone:       snap.phone       || current.phone,
-        email:       snap.email       || current.email,
-        website:     snap.website     || current.website,
-        address:     snap.address     || current.address,
-        city:        snap.city        || current.city,
-        state:       snap.state       || current.state,
-        zip:         snap.zip         || current.zip,
-        license:     snap.license     || current.license,
-        logoDataUrl: snap.logoDataUrl || current.logoDataUrl,
+        name:        snap.name        || current.name        || "",
+        company:     snap.company     || current.company     || "",
+        phone:       snap.phone       || current.phone       || "",
+        email:       snap.email       || current.email       || "",
+        website:     snap.website     || current.website     || "",
+        address:     snap.address     || current.address     || "",
+        city:        snap.city        || current.city        || "",
+        state:       snap.state       || current.state       || "",
+        zip:         snap.zip         || current.zip         || "",
+        license:     snap.license     || current.license     || "",
+        logoDataUrl: snap.logoDataUrl || current.logoDataUrl || "",
       },
     });
   }, [params.id]);
@@ -63,19 +64,37 @@ export default function PublicEstimatePage() {
     );
   }
 
-  if (!estimate) return null;
+  // Show a spinner while localStorage loads (avoids a blank white flash on mobile)
+  if (!estimate) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="text-center">
+          <div className="w-8 h-8 border-2 border-[#0B3C5D] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+          <p className="text-sm text-slate-500">Loading estimate…</p>
+        </div>
+      </div>
+    );
+  }
 
-  const lang       = estimate.language;
-  const contractor = estimate.contractor;
-  const tradeMeta  = TRADE_LABELS[estimate.trade];
+  // Safe fallbacks for fields that may be missing on older saved estimates
+  const lang       = (estimate.language || "en") as "en" | "es";
+  const contractor = estimate.contractor ?? {};
+  const tradeMeta  = TRADE_LABELS[estimate.trade] ?? TRADE_LABELS.remodeling;
   const mode       = estimate.displayMode ?? "total-only";
+  const lineItems  = estimate.lineItems  ?? [];
+  const customer   = estimate.customer   ?? { name: "", phone: "", email: "", address: "", city: "", state: "", zip: "" };
+
+  const subtotal  = estimate.subtotal  ?? 0;
+  const taxRate   = estimate.taxRate   ?? 0;
+  const taxAmount = estimate.taxAmount ?? 0;
+  const total     = estimate.total     ?? 0;
 
   const companyName    = contractor.company || contractor.name || "";
   const contactParts   = [contractor.phone, contractor.email, contractor.website].filter(Boolean);
   const contractorAddr = [contractor.address, contractor.city, contractor.state, contractor.zip]
     .filter(Boolean).join(", ");
 
-  const createdDate = new Date(estimate.createdAt);
+  const createdDate = new Date(estimate.createdAt || Date.now());
   const validDate   = new Date(createdDate);
   validDate.setDate(validDate.getDate() + (estimate.validDays ?? 30));
   const fmtDate = (d: Date) =>
@@ -83,8 +102,8 @@ export default function PublicEstimatePage() {
       year: "numeric", month: "long", day: "numeric",
     });
 
-  const taxPct = (estimate.taxRate * 100).toFixed(1);
-  const { laborTotal, materialsTotal } = groupLineItems(estimate.lineItems);
+  const taxPct = (taxRate * 100).toFixed(1);
+  const { laborTotal, materialsTotal } = groupLineItems(lineItems);
 
   return (
     <div className="min-h-screen bg-white">
@@ -194,12 +213,12 @@ export default function PublicEstimatePage() {
             <p className="text-xs font-bold text-[#0B3C5D] uppercase tracking-wide mb-1">
               {lang === "es" ? "Estimación para:" : "Estimate For:"}
             </p>
-            <p className="font-semibold text-slate-800">{estimate.customer.name}</p>
-            {estimate.customer.phone && (
-              <p className="text-sm text-slate-600">{estimate.customer.phone}</p>
+            <p className="font-semibold text-slate-800">{customer.name || "—"}</p>
+            {customer.phone && (
+              <p className="text-sm text-slate-600">{customer.phone}</p>
             )}
-            {estimate.customer.email && (
-              <p className="text-sm text-slate-600">{estimate.customer.email}</p>
+            {customer.email && (
+              <p className="text-sm text-slate-600">{customer.email}</p>
             )}
             {estimate.jobAddress && (
               <p className="text-xs text-slate-500 leading-snug mt-0.5">{estimate.jobAddress}</p>
@@ -234,7 +253,7 @@ export default function PublicEstimatePage() {
                 <div className="col-span-2 text-center">{lang === "es" ? "Unidad" : "Unit"}</div>
                 <div className="col-span-2 text-right">Total</div>
               </div>
-              {estimate.lineItems.map((item, i) => (
+              {lineItems.map((item, i) => (
                 <div
                   key={item.id}
                   className={`grid grid-cols-12 gap-2 px-3 py-2.5 text-sm border-b border-slate-100 last:border-0 ${
@@ -291,17 +310,17 @@ export default function PublicEstimatePage() {
         <div className="flex flex-col items-end gap-1.5 pt-1">
           <div className="flex justify-between w-full max-w-xs text-sm text-slate-600">
             <span>{lang === "es" ? "Subtotal" : "Subtotal"}</span>
-            <span className="font-medium">${estimate.subtotal.toFixed(2)}</span>
+            <span className="font-medium">${subtotal.toFixed(2)}</span>
           </div>
           <div className="flex justify-between w-full max-w-xs text-sm text-slate-600">
             <span>{lang === "es" ? `Impuesto (${taxPct}%)` : `Tax (${taxPct}%)`}</span>
-            <span>${estimate.taxAmount.toFixed(2)}</span>
+            <span>${taxAmount.toFixed(2)}</span>
           </div>
           <div className="h-px bg-slate-200 w-full max-w-xs" />
           <div className="flex justify-between w-full max-w-xs bg-[#0B3C5D] text-white rounded-2xl px-4 py-3">
             <span className="font-bold text-base">{lang === "es" ? "TOTAL" : "TOTAL"}</span>
             <span className="font-bold text-base">
-              ${estimate.total.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              ${total.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </span>
           </div>
         </div>
