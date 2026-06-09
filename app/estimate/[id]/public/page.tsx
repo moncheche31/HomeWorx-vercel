@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { Download } from "lucide-react";
 import { loadEstimate, loadContractor } from "@/lib/storage";
+import { ContractorProfile } from "@/types";
 import { generatePdf } from "@/lib/pdf";
 import { groupLineItems } from "@/lib/grouping";
 import { Estimate } from "@/types";
@@ -19,34 +20,42 @@ export default function PublicEstimatePage() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
+    const mergeContractor = (snap: Partial<ContractorProfile>, current: ContractorProfile) => ({
+      name:        snap.name        || current.name        || "",
+      company:     snap.company     || current.company     || "",
+      phone:       snap.phone       || current.phone       || "",
+      email:       snap.email       || current.email       || "",
+      website:     snap.website     || current.website     || "",
+      address:     snap.address     || current.address     || "",
+      city:        snap.city        || current.city        || "",
+      state:       snap.state       || current.state       || "",
+      zip:         snap.zip         || current.zip         || "",
+      license:     snap.license     || current.license     || "",
+      logoDataUrl: snap.logoDataUrl || current.logoDataUrl || "",
+    });
+
+    // Priority 1: URL-encoded estimate — self-contained, works on any device
+    const urlParams = new URLSearchParams(window.location.search);
+    const raw = urlParams.get("d");
+    if (raw) {
+      try {
+        const padded = raw + "==".slice(0, (4 - (raw.length % 4)) % 4);
+        const standard = padded.replace(/-/g, "+").replace(/_/g, "/");
+        const decoded: Estimate = JSON.parse(decodeURIComponent(escape(atob(standard))));
+        const current = loadContractor();
+        setEstimate({ ...decoded, contractor: mergeContractor(decoded.contractor ?? {}, current) });
+        return;
+      } catch {
+        // Corrupted URL data — fall through to localStorage
+      }
+    }
+
+    // Priority 2: localStorage — works on the device where estimate was created
     const e = loadEstimate(params.id as string);
     if (!e) { setNotFound(true); return; }
 
-    // The estimate carries a contractor snapshot taken at creation time.
-    // If the contractor completed or updated their profile after creating the
-    // estimate, those fields will be blank in the snapshot.  Supplement any
-    // empty snapshot fields with the current local profile so the header
-    // always shows up-to-date contractor branding on their own device.
-    // (When Supabase auth is wired up this merge is replaced by a DB fetch.)
     const current = loadContractor();
-    // Guard: older estimates may have null/undefined contractor field
-    const snap = e.contractor ?? {};
-    setEstimate({
-      ...e,
-      contractor: {
-        name:        snap.name        || current.name        || "",
-        company:     snap.company     || current.company     || "",
-        phone:       snap.phone       || current.phone       || "",
-        email:       snap.email       || current.email       || "",
-        website:     snap.website     || current.website     || "",
-        address:     snap.address     || current.address     || "",
-        city:        snap.city        || current.city        || "",
-        state:       snap.state       || current.state       || "",
-        zip:         snap.zip         || current.zip         || "",
-        license:     snap.license     || current.license     || "",
-        logoDataUrl: snap.logoDataUrl || current.logoDataUrl || "",
-      },
-    });
+    setEstimate({ ...e, contractor: mergeContractor(e.contractor ?? {}, current) });
   }, [params.id]);
 
   if (notFound) {

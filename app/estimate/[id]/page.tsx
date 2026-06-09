@@ -179,8 +179,34 @@ export default function EstimateDetailPage() {
     await generatePdf(pdfEstimate);
   };
 
+  // Build a shareable public URL with the estimate data embedded as base64.
+  // Strips photos and logo (base64 images are too large for a URL).
+  const getPublicUrl = () => {
+    const slim = {
+      ...estimate,
+      lineItems,
+      displayMode,
+      scopeOfWork,
+      subtotal,
+      taxRate: taxRate / 100,
+      taxAmount,
+      total,
+      notes,
+      terms,
+      photos: [],
+      contractor: { ...(estimate.contractor ?? {}), logoDataUrl: "" },
+    };
+    try {
+      const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(slim))))
+        .replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+      return `${window.location.origin}/estimate/${estimate.id}/public?d=${encoded}`;
+    } catch {
+      return `${window.location.origin}/estimate/${estimate.id}/public`;
+    }
+  };
+
   const handleShare = async () => {
-    const publicUrl = `${window.location.origin}/estimate/${estimate.id}/public`;
+    const publicUrl = getPublicUrl();
     if (navigator.share) {
       await navigator.share({
         title: `${estimate.contractor.company || estimate.contractor.name} — Estimate #${estimate.estimateNumber}`,
@@ -254,7 +280,7 @@ export default function EstimateDetailPage() {
             <span className="text-xs">{lang === "es" ? "Imprimir" : "Print"}</span>
           </button>
           <button
-            onClick={() => router.push(`/estimate/${estimate.id}/public`)}
+            onClick={() => router.push(getPublicUrl())}
             className="btn-secondary text-sm py-2.5 flex-col gap-1"
           >
             <Eye size={18} />
