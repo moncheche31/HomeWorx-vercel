@@ -55,6 +55,7 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
   const contactParts = [
     estimate.contractor.phone,
     estimate.contractor.email,
+    estimate.contractor.website,
     estimate.contractor.license ? `Lic. ${estimate.contractor.license}` : "",
   ].filter(Boolean);
   if (contactParts.length > 0) {

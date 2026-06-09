@@ -12,6 +12,7 @@ export const DEFAULT_CONTRACTOR: ContractorProfile = {
   company: "",
   phone: "",
   email: "",
+  website: "",
   address: "",
   city: "",
   state: "",

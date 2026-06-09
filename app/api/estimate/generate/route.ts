@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { lookupTradeMaterials, formatMaterialContext } from "@/lib/bigbox";
+import { getLaborRate, formatLaborContext } from "@/lib/labor-rates";
 
 interface GenerateBody {
   trade: string;
@@ -35,7 +37,6 @@ export async function POST(req: NextRequest) {
   const openAiKey    = process.env.OPENAI_API_KEY;
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
 
-  // No keys configured → return demo data immediately
   if (!openAiKey && !anthropicKey) {
     return NextResponse.json(buildDemoResponse(trade, language));
   }
@@ -43,25 +44,48 @@ export async function POST(req: NextRequest) {
   const location = [city, state, zip].filter(Boolean).join(", ");
   const tradeName = TRADE_NAMES[trade] ?? trade;
 
+  // ── Pre-fetch live material prices + regional labor rate in parallel ──────
+  // Both run concurrently; if either fails the error is swallowed and the
+  // estimate generates without that context (graceful degradation).
+  const [materialCtx, laborCtx] = await Promise.all([
+    (async () => {
+      try {
+        const bigboxKey  = process.env.BIGBOX_API_KEY;
+        const serpapiKey = process.env.SERPAPI_KEY;
+        const results = await lookupTradeMaterials(trade, zip || "00000", bigboxKey, serpapiKey);
+        return formatMaterialContext(results, language);
+      } catch {
+        return "";
+      }
+    })(),
+    (async () => {
+      try {
+        const rate = getLaborRate(trade, zip || "00000");
+        return formatLaborContext(rate, language);
+      } catch {
+        return "";
+      }
+    })(),
+  ]);
+
   const systemPrompt = language === "es"
     ? "Eres un estimador experto de contratistas en EE.UU. Siempre respondes con JSON válido únicamente, sin texto adicional. Escribes en lenguaje profesional de contratista."
     : "You are an expert US contractor estimating assistant. You always respond with valid JSON only, no additional text. You write in professional contractor language.";
 
-  const userPrompt = buildUserPrompt(tradeName, description, location, language);
+  const userPrompt = buildUserPrompt(tradeName, description, location, language, materialCtx, laborCtx);
 
-  // ── Try OpenAI GPT-4o first ──────────────────────────────────────────────
+  // ── Try OpenAI GPT-4o first ────────────────────────────────────────────
   if (openAiKey) {
     try {
       const result = await callOpenAI(openAiKey, systemPrompt, userPrompt, photos ?? [], language);
       return NextResponse.json(result);
     } catch (err) {
       console.error("OpenAI GPT-4o error:", err);
-      // Fall through to Claude if available
       if (!anthropicKey) return NextResponse.json(buildDemoResponse(trade, language));
     }
   }
 
-  // ── Fall back to Claude ──────────────────────────────────────────────────
+  // ── Fall back to Claude ────────────────────────────────────────────────
   if (anthropicKey) {
     try {
       const result = await callClaude(anthropicKey, systemPrompt, userPrompt, photos ?? []);
@@ -75,7 +99,7 @@ export async function POST(req: NextRequest) {
   return NextResponse.json(buildDemoResponse(trade, language));
 }
 
-// ── OpenAI GPT-4o (with vision support) ────────────────────────────────────
+// ── OpenAI GPT-4o (with vision) ────────────────────────────────────────────
 async function callOpenAI(
   apiKey: string,
   system: string,
@@ -88,8 +112,6 @@ async function callOpenAI(
     | { type: "image_url"; image_url: { url: string; detail: "low" | "high" } };
 
   const content: ContentPart[] = [];
-
-  // Add up to 3 photos for vision analysis
   for (const dataUrl of photos.slice(0, 3)) {
     if (dataUrl.startsWith("data:image/")) {
       content.push({ type: "image_url", image_url: { url: dataUrl, detail: "low" } });
@@ -99,10 +121,7 @@ async function callOpenAI(
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
+    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       model: "gpt-4o",
       max_tokens: 3000,
@@ -114,18 +133,12 @@ async function callOpenAI(
     }),
   });
 
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`OpenAI API error ${res.status}: ${err}`);
-  }
-
+  if (!res.ok) throw new Error(`OpenAI ${res.status}: ${await res.text()}`);
   const data = await res.json();
-  const text: string = data.choices?.[0]?.message?.content ?? "";
-  const parsed = JSON.parse(text) as EstimateResult;
-  return parsed;
+  return JSON.parse(data.choices?.[0]?.message?.content ?? "{}") as EstimateResult;
 }
 
-// ── Anthropic Claude (with vision support) ──────────────────────────────────
+// ── Anthropic Claude (with vision) ─────────────────────────────────────────
 async function callClaude(
   apiKey: string,
   system: string,
@@ -137,15 +150,9 @@ async function callClaude(
     | { type: "image"; source: { type: "base64"; media_type: string; data: string } };
 
   const content: ContentBlock[] = [];
-
   for (const dataUrl of photos.slice(0, 3)) {
     const match = dataUrl.match(/^data:(image\/[a-z]+);base64,(.+)$/);
-    if (match) {
-      content.push({
-        type: "image",
-        source: { type: "base64", media_type: match[1], data: match[2] },
-      });
-    }
+    if (match) content.push({ type: "image", source: { type: "base64", media_type: match[1], data: match[2] } });
   }
   content.push({ type: "text", text: userPrompt });
 
@@ -156,18 +163,10 @@ async function callClaude(
       "anthropic-version": "2023-06-01",
       "content-type": "application/json",
     },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-6",
-      max_tokens: 3000,
-      system,
-      messages: [{ role: "user", content }],
-    }),
+    body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 3000, system, messages: [{ role: "user", content }] }),
   });
 
-  if (!res.ok) {
-    throw new Error(`Anthropic API error ${res.status}: ${await res.text()}`);
-  }
-
+  if (!res.ok) throw new Error(`Anthropic ${res.status}: ${await res.text()}`);
   const data = await res.json();
   const text: string = data.content?.[0]?.text ?? "";
   const jsonMatch = text.match(/\{[\s\S]*\}/);
@@ -175,24 +174,25 @@ async function callClaude(
   return JSON.parse(jsonMatch[0]) as EstimateResult;
 }
 
-// ── Prompt builder ─────────────────────────────────────────────────────────
+// ── Prompt builder (includes live price & labor context) ───────────────────
 function buildUserPrompt(
   tradeName: string,
   description: string,
   location: string,
   language: "en" | "es",
+  materialCtx: string,
+  laborCtx: string,
 ): string {
   if (language === "es") {
     return `Un contratista de ${tradeName} describió verbalmente este trabajo${location ? ` en ${location}` : ""}:
 
 "${description}"
-
-${location ? `Usa precios actuales del mercado para ${location}.` : ""}
+${materialCtx}${laborCtx}
 
 Tu tarea:
-1. Reescribe la descripción como un alcance de trabajo PROFESIONAL (sin "um", "uh", ni lenguaje informal. Usa terminología técnica. Escribe en tercera persona.)
-2. Crea líneas de artículo detalladas con precios típicos del mercado local.
-3. Incluye estimación de horas por tarea (SOLO para el contratista — nunca visible al cliente).
+1. Reescribe la descripción como un alcance de trabajo PROFESIONAL (sin "um", "uh", ni lenguaje informal. Usa terminología técnica. Escribe en tercera persona como en un contrato formal.)
+2. Crea líneas de artículo detalladas. DEBES usar los precios de materiales y la tarifa de mano de obra provista arriba cuando estén disponibles. Si no están disponibles, usa precios típicos del mercado para ${location || "EE.UU."}.
+3. Incluye estimación de horas por tarea (SOLO para el contratista — NUNCA visible al cliente).
 
 Responde SOLO con JSON válido con esta estructura exacta:
 {
@@ -210,12 +210,11 @@ Responde SOLO con JSON válido con esta estructura exacta:
   return `A ${tradeName} contractor verbally described this job${location ? ` in ${location}` : ""}:
 
 "${description}"
-
-${location ? `Use current local market pricing for ${location}.` : ""}
+${materialCtx}${laborCtx}
 
 Your tasks:
-1. Rewrite the description as a PROFESSIONAL scope of work. Remove filler words (um, uh, gonna, etc.), casual speech, and first-person language. Use formal contractor/construction terminology in third person as it would appear in a signed proposal.
-2. Create detailed line items with typical local market pricing. Be specific with quantities and units.
+1. Rewrite the description as a PROFESSIONAL scope of work. Remove all filler words (um, uh, gonna, etc.), casual speech, and first-person language. Use formal contractor/construction terminology in third person as it would appear in a signed proposal.
+2. Create detailed line items. You MUST use the material prices and labor rates provided above when available. If not available, use current market pricing for ${location || "the US"}.
 3. Include estimated hours per line item for the CONTRACTOR'S internal reference only (never shown to the customer).
 
 Respond ONLY with a valid JSON object with this exact structure:
@@ -231,6 +230,7 @@ Respond ONLY with a valid JSON object with this exact structure:
 }`;
 }
 
+// ── Trade name map ─────────────────────────────────────────────────────────
 const TRADE_NAMES: Record<string, string> = {
   remodeling:      "remodeling",
   painting:        "painting",
@@ -242,10 +242,9 @@ const TRADE_NAMES: Record<string, string> = {
   drywall:         "drywall",
 };
 
-// ── Demo / fallback response ────────────────────────────────────────────────
+// ── Demo fallback ──────────────────────────────────────────────────────────
 function buildDemoResponse(trade: string, language: "en" | "es"): EstimateResult {
   const isEs = language === "es";
-
   const demoItems: Record<string, LineItemResult[]> = {
     painting: [
       { description: isEs ? "Aplicación de pintura en paredes interiores — dos capas" : "Interior wall paint application — two coats", quantity: 500, unit: "sq ft", unitPrice: 2.50, total: 1250, estimatedHours: 8 },
@@ -276,16 +275,15 @@ function buildDemoResponse(trade: string, language: "en" | "es"): EstimateResult
   ];
 
   const totalEstimatedHours = lineItems.reduce((s, i) => s + i.estimatedHours, 0);
-
   return {
     scopeOfWork: isEs
-      ? "⚠️ Estimación de demostración. Configura OPENAI_API_KEY o ANTHROPIC_API_KEY en tu entorno para obtener un alcance de trabajo generado por IA."
-      : "⚠️ Demo estimate. Configure OPENAI_API_KEY or ANTHROPIC_API_KEY in your environment to get an AI-generated scope of work.",
+      ? "⚠️ Estimación de demostración. Configura OPENAI_API_KEY o ANTHROPIC_API_KEY para estimaciones con IA."
+      : "⚠️ Demo estimate. Configure OPENAI_API_KEY or ANTHROPIC_API_KEY for AI-powered estimates.",
     lineItems,
     totalEstimatedHours,
     notes: isEs
-      ? "⚠️ Esta es una estimación de demostración. Configura tu clave API para estimaciones precisas."
-      : "⚠️ This is a demo estimate. Configure your API key for accurate AI-powered estimates.",
+      ? "⚠️ Esta es una estimación de demostración."
+      : "⚠️ This is a demo estimate.",
     taxRate: 0.08,
     estimateSummary: isEs ? "Estimación de demostración." : "Demo estimate.",
   };

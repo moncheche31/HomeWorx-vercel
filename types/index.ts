@@ -17,6 +17,7 @@ export interface ContractorProfile {
   company: string;
   phone: string;
   email: string;
+  website: string;
   address: string;
   city: string;
   state: string;
