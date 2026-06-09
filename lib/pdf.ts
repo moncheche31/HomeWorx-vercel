@@ -344,7 +344,7 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
     doc.setFontSize(7);
     doc.setTextColor(...GRAY);
     doc.text(
-      `HomeWorx 360 Estimator  •  ${lang === "es" ? "Página" : "Page"} ${i} ${lang === "es" ? "de" : "of"} ${totalPages}`,
+      `${lang === "es" ? "Con tecnología de" : "Powered by"} HomeWorx 360  •  ${lang === "es" ? "Página" : "Page"} ${i} ${lang === "es" ? "de" : "of"} ${totalPages}`,
       W / 2,
       205,
       { align: "center" },

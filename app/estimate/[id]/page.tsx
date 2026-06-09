@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import {
   ChevronLeft, Download, Printer, Share2, Loader2,
-  Edit3, Check, Sparkles, Send, DollarSign, Lock, ChevronDown, ChevronUp,
+  Edit3, Check, Sparkles, Send, DollarSign, Lock, ChevronDown, ChevronUp, Eye,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import LineItemEditor from "@/components/LineItemEditor";
@@ -180,13 +180,20 @@ export default function EstimateDetailPage() {
   };
 
   const handleShare = async () => {
+    const publicUrl = `${window.location.origin}/estimate/${estimate.id}/public`;
     if (navigator.share) {
       await navigator.share({
-        title: `${t.estimateNumber}${estimate.estimateNumber}`,
+        title: `${estimate.contractor.company || estimate.contractor.name} — Estimate #${estimate.estimateNumber}`,
         text: `${tradeMeta[lang]} estimate for ${estimate.customer.name}: $${total.toFixed(2)}`,
-      });
+        url: publicUrl,
+      }).catch(() => {});
     } else {
-      await handleDownloadPdf();
+      try {
+        await navigator.clipboard.writeText(publicUrl);
+        alert(lang === "es" ? "Enlace copiado al portapapeles" : "Link copied to clipboard");
+      } catch {
+        await handleDownloadPdf();
+      }
     }
   };
 
@@ -232,19 +239,26 @@ export default function EstimateDetailPage() {
           </button>
         </div>
 
-        {/* Action buttons */}
-        <div className="grid grid-cols-3 gap-2 mb-4">
+        {/* Action buttons — 2×2 grid */}
+        <div className="grid grid-cols-2 gap-2 mb-4">
           <button onClick={handleDownloadPdf} className="btn-secondary text-sm py-2.5 flex-col gap-1">
             <Download size={18} />
             <span className="text-xs">{lang === "es" ? "Descargar" : "Download"}</span>
+          </button>
+          <button onClick={handleShare} className="btn-secondary text-sm py-2.5 flex-col gap-1">
+            <Share2 size={18} />
+            <span className="text-xs">{lang === "es" ? "Compartir" : "Share"}</span>
           </button>
           <button onClick={handleDownloadPdf} className="btn-secondary text-sm py-2.5 flex-col gap-1">
             <Printer size={18} />
             <span className="text-xs">{lang === "es" ? "Imprimir" : "Print"}</span>
           </button>
-          <button onClick={handleShare} className="btn-secondary text-sm py-2.5 flex-col gap-1">
-            <Share2 size={18} />
-            <span className="text-xs">{lang === "es" ? "Compartir" : "Share"}</span>
+          <button
+            onClick={() => router.push(`/estimate/${estimate.id}/public`)}
+            className="btn-secondary text-sm py-2.5 flex-col gap-1"
+          >
+            <Eye size={18} />
+            <span className="text-xs">{lang === "es" ? "Vista Cliente" : "Client View"}</span>
           </button>
         </div>
 
