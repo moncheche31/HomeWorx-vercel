@@ -179,9 +179,9 @@ export default function EstimateDetailPage() {
     await generatePdf(pdfEstimate);
   };
 
-  // Build a shareable public URL with the estimate data embedded as base64.
-  // Strips photos and logo (base64 images are too large for a URL).
-  const getPublicUrl = () => {
+  // Build the relative path for the public client view with estimate data
+  // embedded as URL-safe base64. Strips photos and logo (too large for a URL).
+  const getSharePath = (): string => {
     const slim = {
       ...estimate,
       lineItems,
@@ -197,25 +197,28 @@ export default function EstimateDetailPage() {
       contractor: { ...(estimate.contractor ?? {}), logoDataUrl: "" },
     };
     try {
-      const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(slim))))
+      // btoa(encodeURIComponent(...)) converts any Unicode to safe ASCII before
+      // base64-encoding. decodeURIComponent(atob(...)) reverses it on the other end.
+      const encoded = btoa(encodeURIComponent(JSON.stringify(slim)))
         .replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
-      return `${window.location.origin}/estimate/${estimate.id}/public?d=${encoded}`;
+      return `/estimate/${estimate.id}/public?d=${encoded}`;
     } catch {
-      return `${window.location.origin}/estimate/${estimate.id}/public`;
+      return `/estimate/${estimate.id}/public`;
     }
   };
 
   const handleShare = async () => {
-    const publicUrl = getPublicUrl();
+    const path = getSharePath();
+    const fullUrl = `${window.location.origin}${path}`;
     if (navigator.share) {
       await navigator.share({
         title: `${estimate.contractor.company || estimate.contractor.name} — Estimate #${estimate.estimateNumber}`,
         text: `${tradeMeta[lang]} estimate for ${estimate.customer.name}: $${total.toFixed(2)}`,
-        url: publicUrl,
+        url: fullUrl,
       }).catch(() => {});
     } else {
       try {
-        await navigator.clipboard.writeText(publicUrl);
+        await navigator.clipboard.writeText(fullUrl);
         alert(lang === "es" ? "Enlace copiado al portapapeles" : "Link copied to clipboard");
       } catch {
         await handleDownloadPdf();
@@ -280,7 +283,7 @@ export default function EstimateDetailPage() {
             <span className="text-xs">{lang === "es" ? "Imprimir" : "Print"}</span>
           </button>
           <button
-            onClick={() => router.push(getPublicUrl())}
+            onClick={() => router.push(getSharePath())}
             className="btn-secondary text-sm py-2.5 flex-col gap-1"
           >
             <Eye size={18} />

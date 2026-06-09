@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { Download } from "lucide-react";
 import { loadEstimate, loadContractor } from "@/lib/storage";
-import { ContractorProfile } from "@/types";
+import { Estimate, ContractorProfile } from "@/types";
 import { generatePdf } from "@/lib/pdf";
 import { groupLineItems } from "@/lib/grouping";
-import { Estimate } from "@/types";
 import { TRADE_LABELS } from "@/lib/pricing";
 
 // ── Public client-facing estimate view ────────────────────────────────────────
@@ -42,7 +41,8 @@ export default function PublicEstimatePage() {
         try {
           const padded = raw + "==".slice(0, (4 - (raw.length % 4)) % 4);
           const standard = padded.replace(/-/g, "+").replace(/_/g, "/");
-          const decoded: Estimate = JSON.parse(decodeURIComponent(escape(atob(standard))));
+          // Mirrors the btoa(encodeURIComponent(...)) encoding in the detail page
+          const decoded: Estimate = JSON.parse(decodeURIComponent(atob(standard)));
           const current = loadContractor();
           setEstimate({ ...decoded, contractor: mergeContractor(decoded.contractor ?? {}, current) });
           return;
