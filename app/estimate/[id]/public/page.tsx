@@ -34,28 +34,34 @@ export default function PublicEstimatePage() {
       logoDataUrl: snap.logoDataUrl || current.logoDataUrl || "",
     });
 
-    // Priority 1: URL-encoded estimate — self-contained, works on any device
-    const urlParams = new URLSearchParams(window.location.search);
-    const raw = urlParams.get("d");
-    if (raw) {
-      try {
-        const padded = raw + "==".slice(0, (4 - (raw.length % 4)) % 4);
-        const standard = padded.replace(/-/g, "+").replace(/_/g, "/");
-        const decoded: Estimate = JSON.parse(decodeURIComponent(escape(atob(standard))));
-        const current = loadContractor();
-        setEstimate({ ...decoded, contractor: mergeContractor(decoded.contractor ?? {}, current) });
-        return;
-      } catch {
-        // Corrupted URL data — fall through to localStorage
+    try {
+      // Priority 1: URL-encoded estimate — self-contained, works on any device
+      const urlParams = new URLSearchParams(window.location.search);
+      const raw = urlParams.get("d");
+      if (raw) {
+        try {
+          const padded = raw + "==".slice(0, (4 - (raw.length % 4)) % 4);
+          const standard = padded.replace(/-/g, "+").replace(/_/g, "/");
+          const decoded: Estimate = JSON.parse(decodeURIComponent(escape(atob(standard))));
+          const current = loadContractor();
+          setEstimate({ ...decoded, contractor: mergeContractor(decoded.contractor ?? {}, current) });
+          return;
+        } catch {
+          // Corrupted URL data — fall through to localStorage
+        }
       }
+
+      // Priority 2: localStorage — works on the device where estimate was created
+      const e = loadEstimate(params.id as string);
+      if (!e) { setNotFound(true); return; }
+
+      const current = loadContractor();
+      setEstimate({ ...e, contractor: mergeContractor(e.contractor ?? {}, current) });
+    } catch {
+      // Any unexpected runtime error (e.g. storage restricted by browser security policy)
+      // → show not-found rather than leaving the spinner frozen forever
+      setNotFound(true);
     }
-
-    // Priority 2: localStorage — works on the device where estimate was created
-    const e = loadEstimate(params.id as string);
-    if (!e) { setNotFound(true); return; }
-
-    const current = loadContractor();
-    setEstimate({ ...e, contractor: mergeContractor(e.contractor ?? {}, current) });
   }, [params.id]);
 
   if (notFound) {
