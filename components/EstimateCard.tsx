@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Trash2, FileText, ChevronRight } from "lucide-react";
+import { Trash2, ChevronRight } from "lucide-react";
 import { Estimate } from "@/types";
 import { TRADE_LABELS } from "@/lib/pricing";
 import { useT } from "@/lib/translations";
@@ -9,8 +9,8 @@ import { useLang } from "@/lib/context";
 
 const STATUS_STYLES: Record<Estimate["status"], string> = {
   draft:    "bg-slate-100 text-slate-600",
-  sent:     "bg-blue-100 text-blue-700",
-  accepted: "bg-green-100 text-green-700",
+  sent:     "bg-brand-100 text-brand-700",
+  accepted: "bg-accent-100 text-accent-700",
   declined: "bg-red-100 text-red-600",
 };
 
@@ -32,7 +32,7 @@ export default function EstimateCard({ estimate, onDelete }: Props) {
 
   const createdDate = new Date(estimate.createdAt).toLocaleDateString(
     lang === "es" ? "es-US" : "en-US",
-    { month: "short", day: "numeric", year: "numeric" }
+    { month: "short", day: "numeric", year: "numeric" },
   );
 
   return (
@@ -41,7 +41,7 @@ export default function EstimateCard({ estimate, onDelete }: Props) {
       className="card flex items-center gap-3 hover:shadow-md transition-shadow active:scale-[0.99] no-underline"
     >
       {/* Trade icon */}
-      <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-2xl flex-shrink-0">
+      <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-2xl flex-shrink-0">
         {tradeMeta?.icon ?? "🏠"}
       </div>
 
@@ -63,7 +63,7 @@ export default function EstimateCard({ estimate, onDelete }: Props) {
 
       {/* Total + actions */}
       <div className="flex flex-col items-end gap-2 flex-shrink-0">
-        <span className="font-bold text-blue-700 text-base">
+        <span className="font-bold text-brand-700 text-base">
           ${estimate.total.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
         </span>
         <div className="flex items-center gap-1">

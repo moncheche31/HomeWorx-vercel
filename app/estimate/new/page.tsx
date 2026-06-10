@@ -3,7 +3,6 @@
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, Loader2, Sparkles } from "lucide-react";
-import { v4 as uuidv4 } from "uuid";
 import Navbar from "@/components/Navbar";
 import TradeSelector from "@/components/TradeSelector";
 import VoiceInput from "@/components/VoiceInput";
@@ -26,7 +25,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
         <div
           key={i}
           className={`h-2 rounded-full transition-all duration-300 ${
-            i < current ? "bg-blue-700 w-6" : i === current - 1 ? "bg-blue-500 w-8" : "bg-slate-300 w-3"
+            i < current ? "bg-brand-700 w-6" : i === current - 1 ? "bg-brand-500 w-8" : "bg-slate-300 w-3"
           }`}
         />
       ))}
@@ -112,7 +111,7 @@ export default function NewEstimatePage() {
       const data = await res.json();
 
       const items: LineItem[] = (data.lineItems ?? []).map(
-        (item: Omit<LineItem, "id">) => ({ ...item, id: uuidv4() })
+        (item: Omit<LineItem, "id">) => ({ ...item, id: crypto.randomUUID() })
       );
       setLineItems(items);
       setScopeOfWork(data.scopeOfWork ?? "");
@@ -147,7 +146,7 @@ export default function NewEstimatePage() {
     }
     const contractor = loadContractor();
     const estimate: Estimate = {
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       estimateNumber: nextEstimateNumber(),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -180,7 +179,18 @@ export default function NewEstimatePage() {
       validDays,
       language: lang,
     };
+
+    // Save locally first — works offline, zero network dependency.
     saveEstimate(estimate);
+
+    // Background cloud sync — always returns 200 JSON, never blocks navigation.
+    // localStorage save above is the source of truth; this is best-effort Supabase sync.
+    fetch("/api/estimates", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(estimate),
+    }).catch(() => {});
+
     router.push(`/estimate/${estimate.id}`);
   };
 
@@ -469,7 +479,7 @@ export default function NewEstimatePage() {
                       <span>${taxAmount.toFixed(2)}</span>
                     </div>
                     <div className="h-px bg-slate-200" />
-                    <div className="flex justify-between font-bold text-lg text-blue-700">
+                    <div className="flex justify-between font-bold text-lg text-brand-700">
                       <span>{t.estimateTotal}</span>
                       <span>${total.toFixed(2)}</span>
                     </div>

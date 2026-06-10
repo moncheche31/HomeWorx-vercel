@@ -12,6 +12,7 @@ export const DEFAULT_CONTRACTOR: ContractorProfile = {
   company: "",
   phone: "",
   email: "",
+  website: "",
   address: "",
   city: "",
   state: "",
@@ -51,6 +52,7 @@ export function loadEstimate(id: string): Estimate | null {
 }
 
 export function saveEstimate(estimate: Estimate): void {
+  if (typeof window === "undefined") return;
   const estimates = loadEstimates();
   const idx = estimates.findIndex((e) => e.id === estimate.id);
   if (idx >= 0) {
@@ -58,7 +60,18 @@ export function saveEstimate(estimate: Estimate): void {
   } else {
     estimates.unshift(estimate);
   }
-  save(ESTIMATES_KEY, estimates);
+  try {
+    localStorage.setItem(ESTIMATES_KEY, JSON.stringify(estimates));
+  } catch {
+    // Quota exceeded (common on mobile with photo-heavy estimates).
+    // Retry without photo data so the estimate text is always retrievable.
+    const stripped = estimates.map((e) => ({ ...e, photos: [] }));
+    try {
+      localStorage.setItem(ESTIMATES_KEY, JSON.stringify(stripped));
+    } catch {
+      // Storage completely full — nothing more we can do
+    }
+  }
 }
 
 export function deleteEstimate(id: string): void {

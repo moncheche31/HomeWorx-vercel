@@ -17,6 +17,7 @@ export interface ContractorProfile {
   company: string;
   phone: string;
   email: string;
+  website: string;
   address: string;
   city: string;
   state: string;
@@ -42,7 +43,7 @@ export interface LineItem {
   unit: string;
   unitPrice: number;
   total: number;
-  estimatedHours?: number; // contractor-only, never printed
+  estimatedHours?: number; // contractor-only, never printed on client PDF
 }
 
 export interface JobLocation {
@@ -63,6 +64,7 @@ export interface Estimate {
   jobDescription: string;   // raw voice transcript — stored, never shown to customer
   scopeOfWork: string;      // AI-rewritten professional version — shown on PDF
   totalEstimatedHours?: number; // contractor-only
+  laborRate?: number;           // contractor's hourly rate (default: from price table)
   jobAddress: string;
   location: JobLocation;
   photos: string[];
