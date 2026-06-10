@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 // Explicit runtime declaration — ensures full Node.js APIs (FormData, Blob, etc.)
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
   const openAiKey = process.env.OPENAI_API_KEY;
