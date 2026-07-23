@@ -3,7 +3,7 @@ import { Language } from "@/types";
 const translations = {
   en: {
     // Nav
-    appName: "HomeWorx",
+    appName: "VisionWorx",
     dashboard: "My Estimates",
     newEstimate: "New Estimate",
     settings: "Settings",
@@ -132,7 +132,7 @@ const translations = {
 
   es: {
     // Nav
-    appName: "HomeWorx",
+    appName: "VisionWorx",
     dashboard: "Mis Estimaciones",
     newEstimate: "Nueva Estimación",
     settings: "Configuración",

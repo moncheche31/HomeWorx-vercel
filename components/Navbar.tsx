@@ -19,14 +19,14 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top bar — HomeWorx 360 Corporate Navy */}
+      {/* Top bar — VisionWorx 360 Corporate Navy */}
       <header className="sticky top-0 z-50 shadow-md" style={{ background: "linear-gradient(135deg, #0B3C5D 0%, #083048 100%)" }}>
         <div className="max-w-lg mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             {/* Green accent swoosh dot */}
             <div className="w-2 h-2 rounded-full bg-accent-500" />
             <span className="font-bold text-xl tracking-tight text-white">
-              HomeWorx <span className="text-accent-400">360</span>
+              VisionWorx <span className="text-accent-400">360</span>
             </span>
             <span className="text-brand-200 text-xs font-medium hidden sm:inline">Estimator</span>
           </div>

@@ -1,5 +1,5 @@
 -- ============================================================
--- HomeWorx 360 Estimator — Initial Database Schema
+-- VisionWorx 360 Estimator — Initial Database Schema
 -- Migration: 001_initial.sql
 --
 -- Usage:

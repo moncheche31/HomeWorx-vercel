@@ -3,13 +3,13 @@ import "./globals.css";
 import { LangProvider } from "@/lib/context";
 
 export const metadata: Metadata = {
-  title: "HomeWorx 360 Estimator",
+  title: "VisionWorx 360 Estimator",
   description: "Professional on-site estimating tool for contractors. Voice input, AI-powered pricing, and beautiful PDF proposals — in English and Spanish.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "HomeWorx 360",
+    title: "VisionWorx 360",
   },
   icons: {
     apple: "/icon-192.png",
