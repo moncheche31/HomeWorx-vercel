@@ -1,6 +1,6 @@
 {
-  "name": "HomeWorx 360 Estimator",
-  "short_name": "HomeWorx 360",
+  "name": "VisionWorx 360 Estimator",
+  "short_name": "VisionWorx 360",
   "description": "Professional on-site estimating tool for contractors",
   "start_url": "/",
   "display": "standalone",

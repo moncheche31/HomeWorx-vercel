@@ -12,7 +12,7 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
   const lang = estimate.language;
   const W = 215.9;
 
-  // HomeWorx 360 Brand Colors
+  // VisionWorx 360 Brand Colors
   const NAVY   = [11, 60, 93]    as [number, number, number]; // #0B3C5D Corporate Navy
   const GREEN  = [65, 173, 73]   as [number, number, number]; // #41AD49 Accent Green
   const GRAY   = [100, 116, 139] as [number, number, number]; // Slate-500
@@ -344,7 +344,7 @@ export async function generatePdf(estimate: Estimate): Promise<void> {
     doc.setFontSize(7);
     doc.setTextColor(...GRAY);
     doc.text(
-      `${lang === "es" ? "Con tecnología de" : "Powered by"} HomeWorx 360  •  ${lang === "es" ? "Página" : "Page"} ${i} ${lang === "es" ? "de" : "of"} ${totalPages}`,
+      `${lang === "es" ? "Con tecnología de" : "Powered by"} VisionWorx 360  •  ${lang === "es" ? "Página" : "Page"} ${i} ${lang === "es" ? "de" : "of"} ${totalPages}`,
       W / 2,
       205,
       { align: "center" },

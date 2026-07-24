@@ -10,7 +10,7 @@ import { groupLineItems } from "@/lib/grouping";
 import { TRADE_LABELS } from "@/lib/pricing";
 
 // ── Public client-facing estimate view ────────────────────────────────────────
-// Shows the contractor's branding only. HomeWorx 360 appears only as a small
+// Shows the contractor's branding only. VisionWorx 360 appears only as a small
 // "Powered by" credit in the footer. Internal fields (hours, rates, margins)
 // are never rendered here.
 export default function PublicEstimatePage() {
@@ -125,7 +125,7 @@ export default function PublicEstimatePage() {
 
       {/* ── Contractor header ─────────────────────────────────────────────────
            Everything here comes from estimate.contractor (profile snapshot
-           merged with current local settings). No HomeWorx 360 info here.
+           merged with current local settings). No VisionWorx 360 info here.
       ── */}
       <div className="bg-[#0B3C5D] text-white">
         <div className="max-w-2xl mx-auto px-5 py-5 flex items-start gap-4">
@@ -389,16 +389,11 @@ export default function PublicEstimatePage() {
            this page without distracting from the contractor's branding above.
       ── */}
       <footer className="text-center py-8 border-t border-slate-100 mt-4">
-        <a
-          href="https://homeworx360.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-slate-400 hover:text-slate-500 transition-colors"
-        >
+        <span className="text-xs text-slate-400">
           {lang === "es"
-            ? "Con tecnología de HomeWorx 360 | Genera cotizaciones con voz al instante"
-            : "Powered by HomeWorx 360 | Create instant voice estimates"}
-        </a>
+            ? "Con tecnología de VisionWorx 360 | Genera cotizaciones con voz al instante"
+            : "Powered by VisionWorx 360 | Create instant voice estimates"}
+        </span>
       </footer>
     </div>
   );

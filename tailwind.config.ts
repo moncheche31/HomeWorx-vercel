@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // HomeWorx 360 Corporate Navy — #0B3C5D
+        // VisionWorx 360 Corporate Navy — #0B3C5D
         brand: {
           50:  "#EBF2F8",
           100: "#C5D9EA",
@@ -22,7 +22,7 @@ const config: Config = {
           800: "#083048",
           900: "#042030",
         },
-        // HomeWorx 360 Accent Green — #41AD49
+        // VisionWorx 360 Accent Green — #41AD49
         accent: {
           50:  "#EAF6EB",
           100: "#C4E8C7",
