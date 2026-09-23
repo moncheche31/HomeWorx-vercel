@@ -625,6 +625,28 @@ describe("D. Post-creation protection (pricing_settings_locked_at + preserve tri
     expect.soft(after.lines.map((l) => [n(l.overhead_pct), n(l.profit_pct)])).toEqual(before.lines.map((l) => [n(l.overhead_pct), n(l.profit_pct)]));
   });
 
+  liveIt("D5 BEFORE INSERT order is explicit: org defaults -> method normalization -> lock stamp on the FINAL snapshot", () => {
+    /* Postgres fires same-event row triggers in name order. Identify the three
+       pricing triggers by the FUNCTION they run, not by their names. */
+    const rows = h.sql<{ tgname: string; fn: string }>(
+      `select t.tgname, p.proname as fn
+         from pg_trigger t join pg_proc p on p.oid = t.tgfoid
+        where t.tgrelid = 'public.estimates'::regclass and not t.tgisinternal
+          and (t.tgtype & 1) = 1      -- ROW
+          and (t.tgtype & 2) = 2      -- BEFORE
+          and (t.tgtype & 4) = 4      -- INSERT
+        order by t.tgname`,
+    );
+    const order = rows.map((r) => r.fn);
+    console.log(`[D5] BEFORE INSERT firing order: ${rows.map((r) => `${r.tgname}(${r.fn})`).join(" -> ")}`);
+    const at = (fn: string) => order.indexOf(fn);
+    expect(at("apply_org_pricing_method_defaults"), "defaults trigger present").toBeGreaterThanOrEqual(0);
+    expect(at("enforce_estimate_pricing_mutex"), "mutex trigger present").toBeGreaterThanOrEqual(0);
+    expect(at("lock_explicit_estimate_pricing"), "lock trigger present").toBeGreaterThanOrEqual(0);
+    expect(at("apply_org_pricing_method_defaults"), "defaults fire before normalization").toBeLessThan(at("enforce_estimate_pricing_mutex"));
+    expect(at("enforce_estimate_pricing_mutex"), "normalization fires before the lock stamp").toBeLessThan(at("lock_explicit_estimate_pricing"));
+  });
+
   liveIt("D4 a lock stamp on a DERIVED estimate protects the source's values, not values the derivation invented", async () => {
     const src = await h.readEvidence(t, id);
     const rev = await h.readEvidence(t, await h.createRevision(t, id));

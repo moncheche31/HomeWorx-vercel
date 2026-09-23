@@ -1,0 +1,532 @@
+[
+  {
+    "label": "A1 create_estimate_from_scope",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 40,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 3233,
+    "sell_ts": 3233
+  },
+  {
+    "label": "target_gross_margin provenance",
+    "recorded": {
+      "source": "organization_defaults",
+      "applied": {
+        "tax_rate": 0,
+        "pricing_method": "target_gross_margin",
+        "default_labor_rate": 85,
+        "default_profit_pct": 0,
+        "default_overhead_pct": 0,
+        "default_contingency_pct": 0,
+        "target_gross_margin_pct": 40
+      },
+      "not_applicable": [
+        "default_overhead_pct",
+        "default_profit_pct"
+      ],
+      "labor_rate_role": "estimate_default_for_manual_and_unrated_lines",
+      "organization_id": "79ddffed-dda0-42ed-a8a4-107510597eb4",
+      "organization_configured": {
+        "tax_rate": 0,
+        "pricing_method": "target_gross_margin",
+        "default_labor_rate": 85,
+        "default_profit_pct": 12,
+        "default_overhead_pct": 15,
+        "target_gross_margin_pct": 40
+      }
+    },
+    "misstatements": []
+  },
+  {
+    "label": "A2 create_estimate_revision",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 40,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 3233,
+    "sell_ts": 3233,
+    "method_only_sell": 3233
+  },
+  {
+    "label": "A3 create_estimate_version",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 40,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 3233,
+    "sell_ts": 3233,
+    "method_only_sell": 3233
+  },
+  {
+    "label": "A4 copy (pricing+markup)",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 40,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 3233,
+    "sell_ts": 3233,
+    "method_only_sell": 3233
+  },
+  {
+    "label": "A5 copy (pricing, no markup)",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 40,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 3233,
+    "sell_ts": 3233
+  },
+  {
+    "label": "A7 revision after org change",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 40,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 3233,
+    "sell_ts": 3233,
+    "method_only_sell": 3233
+  },
+  {
+    "label": "A8 revision of explicit 35%",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 35,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 2985,
+    "sell_ts": 2985,
+    "method_only_sell": 2985
+  },
+  {
+    "label": "A9 intake re-approval revision",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 40,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 3233,
+    "sell_ts": 3233,
+    "method_only_sell": 3233
+  },
+  {
+    "label": "A10 revise-and-sync",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 40,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 3233,
+    "sell_ts": 3233,
+    "method_only_sell": 3233
+  },
+  {
+    "label": "B1 create_estimate_from_scope",
+    "pricing_method": "overhead_profit",
+    "target_gross_margin_pct": 0,
+    "default_overhead_pct": 15,
+    "default_profit_pct": 12,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        15,
+        12
+      ],
+      [
+        15,
+        12
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 2499,
+    "sell_ts": 2499
+  },
+  {
+    "label": "overhead_profit provenance",
+    "recorded": {
+      "source": "organization_defaults",
+      "applied": {
+        "tax_rate": 0,
+        "pricing_method": "overhead_profit",
+        "default_labor_rate": 85,
+        "default_profit_pct": 12,
+        "default_overhead_pct": 15,
+        "default_contingency_pct": 0,
+        "target_gross_margin_pct": 0
+      },
+      "not_applicable": [
+        "target_gross_margin_pct"
+      ],
+      "labor_rate_role": "estimate_default_for_manual_and_unrated_lines",
+      "organization_id": "f5e35dba-fba0-47d9-ad68-9921b311a5f7",
+      "organization_configured": {
+        "tax_rate": 0,
+        "pricing_method": "overhead_profit",
+        "default_labor_rate": 85,
+        "default_profit_pct": 12,
+        "default_overhead_pct": 15,
+        "target_gross_margin_pct": 33
+      }
+    },
+    "misstatements": []
+  },
+  {
+    "label": "B2 create_estimate_revision",
+    "pricing_method": "overhead_profit",
+    "target_gross_margin_pct": 0,
+    "default_overhead_pct": 15,
+    "default_profit_pct": 12,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        15,
+        12
+      ],
+      [
+        15,
+        12
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 2499,
+    "sell_ts": 2499,
+    "method_only_sell": 2499
+  },
+  {
+    "label": "B3 create_estimate_version",
+    "pricing_method": "overhead_profit",
+    "target_gross_margin_pct": 0,
+    "default_overhead_pct": 15,
+    "default_profit_pct": 12,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        15,
+        12
+      ],
+      [
+        15,
+        12
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 2499,
+    "sell_ts": 2499,
+    "method_only_sell": 2499
+  },
+  {
+    "label": "B4 copy (pricing+markup)",
+    "pricing_method": "overhead_profit",
+    "target_gross_margin_pct": 0,
+    "default_overhead_pct": 15,
+    "default_profit_pct": 12,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        15,
+        12
+      ],
+      [
+        15,
+        12
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 2499,
+    "sell_ts": 2499,
+    "method_only_sell": 2499
+  },
+  {
+    "label": "B5 copy (pricing, no markup)",
+    "pricing_method": "overhead_profit",
+    "target_gross_margin_pct": 0,
+    "default_overhead_pct": 15,
+    "default_profit_pct": 12,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        15,
+        12
+      ],
+      [
+        15,
+        12
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 2499,
+    "sell_ts": 2499
+  },
+  {
+    "label": "B6 revision of explicit 0% overhead",
+    "pricing_method": "overhead_profit",
+    "target_gross_margin_pct": 0,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 12,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        12
+      ],
+      [
+        0,
+        12
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 2173,
+    "sell_ts": 2173,
+    "method_only_sell": 2173
+  },
+  {
+    "label": "B7 revision after org change",
+    "pricing_method": "overhead_profit",
+    "target_gross_margin_pct": 0,
+    "default_overhead_pct": 15,
+    "default_profit_pct": 12,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        15,
+        12
+      ],
+      [
+        15,
+        12
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 2499,
+    "sell_ts": 2499,
+    "method_only_sell": 2499
+  },
+  {
+    "label": "C1 insert without method (TGM org)",
+    "row": {
+      "pricing_method": "target_gross_margin",
+      "target": 40,
+      "oh": 0,
+      "p": 0,
+      "locked": true
+    }
+  },
+  {
+    "label": "C2 insert without method (OHP org)",
+    "row": {
+      "pricing_method": "overhead_profit",
+      "target": 0,
+      "oh": 15,
+      "p": 12,
+      "labor": 85
+    }
+  },
+  {
+    "label": "C5 explicit 0% overhead insert",
+    "row": {
+      "oh": 0,
+      "p": 8
+    }
+  },
+  {
+    "label": "D4 revision lock check",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 30,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 2771,
+    "sell_ts": 2771
+  },
+  {
+    "label": "E3 revision parity",
+    "pricing_method": "target_gross_margin",
+    "target_gross_margin_pct": 40,
+    "default_overhead_pct": 0,
+    "default_profit_pct": 0,
+    "default_labor_rate": 85,
+    "pricing_settings_locked_at": "set",
+    "line_overhead_profit": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "lines_resolved": 2,
+    "lines_total": 2,
+    "job_cost_db": 1940,
+    "sell_db": 3233,
+    "sell_ts": 3233
+  }
+]

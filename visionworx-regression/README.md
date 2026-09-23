@@ -69,7 +69,16 @@ database / PostgREST is unreachable, every test FAILS with a message starting
 `twoProjectsOneProperty.integration.test.ts` skips its 4 tests when the
 service-role key is missing, and vitest reports that file as passed.)
 
-## Results at commit 989b399 (2026-09-23)
+## Results
 
-35 tests: 14 passed, 21 failed, 0 skipped. The failures are the defect: see
-`results/step1b-evidence.json` and the Step 1B report.
+Step 1B, at commit 989b399 (unfixed): 35 tests, 14 passed, 21 failed, 0 skipped.
+See `results/step1b-*`.
+
+Step 1C, with the repair migration (`../visionworx-fix/supabase/migrations/`)
+added to the checkout: 36 tests (35 + D5 trigger-order test), 36 passed.
+Before the migration the same 36 give 14 passed / 22 failed. See
+`results/step1c-*`.
+
+To test the repair, copy the migration into the checkout's
+`supabase/migrations/` before running `harness/run.sh`; the harness replays
+whatever migrations the checkout contains.

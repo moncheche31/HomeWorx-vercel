@@ -1,0 +1,4 @@
+Step 1B suite BEFORE fix (989b399 + D5): tests=36 passed=14 failed=22 skipped=0
+Step 1B suite AFTER fix (989b399 + 20260923140000_pricing_inheritance_repair.sql): tests=36 passed=36 failed=0 skipped=0
+Full VisionWorx suite AFTER fix, live DB configured: files=245 tests=3024 passed=3020 failed=0 skipped=4
+  4 skipped = pre-existing twoProjectsOneProperty.integration.test.ts: even with SUPABASE_URL + service-role key supplied, its setup calls repair_estimate_pricing, which raises not_authorised for a service-role caller (function unchanged by this fix), so the test self-skips.

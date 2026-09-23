@@ -1,0 +1,37 @@
+BEFORE	AFTER	TEST
+PASSED	PASSED	A1 create_estimate_from_scope stores the organization's method, target and labor rate, and locks them
+PASSED	PASSED	A1 math: selling price = job cost / (1 - 40%) in the database AND the TypeScript canonical path
+PASSED	PASSED	A1 provenance: values applied to the estimate are recorded accurately
+FAILED	PASSED	A1 provenance: a record labelled organization_defaults does not misstate the organization's settings
+FAILED	PASSED	A2 create_estimate_revision carries the source's target_gross_margin pricing
+FAILED	PASSED	A3 create_estimate_version carries the source's target_gross_margin pricing
+FAILED	PASSED	A4 copy_estimate_to_project WITH pricing + markup (production copyEstimateToProjectImpl) carries the source's pricing
+FAILED	PASSED	A5 copy_estimate_to_project WITHOUT markup takes the ORGANIZATION's pricing, not hard-coded 10/10
+PASSED	PASSED	A6 an organization settings change AFTER creation does not reprice the original estimate
+FAILED	PASSED	A7 a revision made AFTER an organization settings change still carries the SOURCE estimate's pricing
+FAILED	PASSED	A8 a contractor's explicit 35% target on the source survives create_estimate_revision
+FAILED	PASSED	A9 intake re-approval of an ISSUED estimate (production commitApprovedEstimateImpl -> revision + sync) keeps target_gross_margin
+FAILED	PASSED	A10 revise-and-sync (reviseAndSyncEstimate: revision RPC then sync_estimate_from_scope) keeps target_gross_margin
+PASSED	PASSED	B1 create_estimate_from_scope stores the organization's 15% / 12% (not 10/10) and locks them
+PASSED	PASSED	B1 math: overhead 15% of direct, profit 12% of (direct + overhead), per line, in the database AND TypeScript
+PASSED	PASSED	B1 provenance: values applied to the estimate are recorded accurately
+FAILED	PASSED	B1 provenance: a record labelled organization_defaults does not misstate the organization's settings
+FAILED	PASSED	B2 create_estimate_revision carries the source's overhead_profit pricing
+FAILED	PASSED	B3 create_estimate_version carries the source's overhead_profit pricing
+FAILED	PASSED	B4 copy_estimate_to_project WITH pricing + markup carries the source's overhead_profit pricing
+FAILED	PASSED	B5 copy_estimate_to_project WITHOUT markup takes the ORGANIZATION's 15% / 12%, not hard-coded 10/10
+FAILED	PASSED	B6 a contractor's explicit 0% overhead on the source survives create_estimate_revision
+FAILED	PASSED	B7 an organization settings change AFTER creation neither reprices the estimate nor leaks into its revision
+FAILED	PASSED	C1 an insert that does not choose a method inherits the target_gross_margin organization's 40% (ADR-061)
+FAILED	PASSED	C2 an insert that does not choose a method inherits the overhead_profit organization's 15% / 12% (not 10/10)
+PASSED	PASSED	C3 an explicit target_gross_margin 35% is kept as chosen
+PASSED	PASSED	C4 an explicit overhead_profit 12% / 8% is kept as chosen
+FAILED	PASSED	C5 an explicit overhead_profit with 0% overhead keeps 0% (0 is a choice, not 'unset')
+PASSED	PASSED	D1 an UPDATE that changes pricing WITHOUT a new explicit save stamp is reverted by the preserve trigger
+PASSED	PASSED	D2 an explicit contractor save (new pricing_settings_locked_at) is persisted and re-stamped
+PASSED	PASSED	D3 the open-estimate repair pass (repair_estimate_pricing) does not change pricing settings or line overhead/profit
+FAILED	PASSED	D5 BEFORE INSERT order is explicit: org defaults -> method normalization -> lock stamp on the FINAL snapshot
+FAILED	PASSED	D4 a lock stamp on a DERIVED estimate protects the source's values, not values the derivation invented
+PASSED	PASSED	E1 target_gross_margin estimate: identical selling price
+PASSED	PASSED	E2 overhead_profit estimate: identical selling price
+FAILED	PASSED	E3 a revision's lines: database and TypeScript agree on the selling price
