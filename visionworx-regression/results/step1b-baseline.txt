@@ -1,0 +1,5 @@
+Baseline (existing suite, before new tests): files=244 tests=2988 passed=2984 failed=0 skipped=4
+  skipped: two projects at one property price independently > derives paint and baseboard quantities from the measured project only
+  skipped: two projects at one property price independently > does not leak the neighbour project's geometry into the unmeasured project
+  skipped: two projects at one property price independently > writes permits as a zero-labor direct fee and infers trades from wording
+  skipped: two projects at one property price independently > rebuilds the preliminary band from the same invariant cost and pricing settings
