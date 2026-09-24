@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { assertBackendAllowed } from "@/lib/config/backendSafety";
 import type { ToolContext } from "@lovable.dev/mcp-js";
 
 type RuntimeGlobals = typeof globalThis & {
@@ -19,9 +20,19 @@ function configuredEnv(names: readonly string[]): string | undefined {
   return undefined;
 }
 
+function configuredEnvSource(): Record<string, string | undefined> {
+  return {
+    VITE_APP_ENV: runtimeEnv("VITE_APP_ENV"),
+    APP_ENV: runtimeEnv("APP_ENV"),
+    VITEST: runtimeEnv("VITEST"),
+    NODE_ENV: runtimeEnv("NODE_ENV"),
+  };
+}
+
 function supabaseProjectUrl(): string {
   const url = configuredEnv(["SUPABASE_URL", "VITE_SUPABASE_URL"]);
   if (!url) throw new Error("SUPABASE_URL (or VITE_SUPABASE_URL) is required");
+  assertBackendAllowed(url, configuredEnvSource());
   return url;
 }
 

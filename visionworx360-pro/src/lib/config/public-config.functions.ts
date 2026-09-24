@@ -1,5 +1,4 @@
 import { createServerFn } from "@tanstack/react-start";
-import { readManagedPublicConfig } from "./managed-public-config";
 
 export interface RuntimePublicConfig extends Record<string, string | undefined> {
   VITE_SUPABASE_URL?: string;
@@ -22,17 +21,14 @@ export interface RuntimePublicConfig extends Record<string, string | undefined> 
  * external artifact always ships a valid configuration.
  *
  * Only public values are exposed here (project URL + publishable key). No
- * service role key, no secrets.
+ * service role key, no secrets. Nothing is hardcoded: when the server
+ * environment is unset the browser receives no values and fails closed.
  */
 export const getRuntimePublicConfig = createServerFn({ method: "GET" }).handler(
   async (): Promise<RuntimePublicConfig> => {
     const pick = (...keys: string[]): string | undefined => {
       for (const key of keys) {
         const value = process.env[key];
-        if (typeof value === "string" && value.length > 0) return value;
-      }
-      for (const key of keys) {
-        const value = readManagedPublicConfig(key);
         if (typeof value === "string" && value.length > 0) return value;
       }
       return undefined;

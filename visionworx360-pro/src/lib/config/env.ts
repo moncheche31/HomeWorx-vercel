@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { readManagedPublicConfig } from "./managed-public-config";
+import { isTestRuntime, legacyProductionBlockReason } from "./backendSafety";
 
 const envSchema = z.object({
   VITE_SUPABASE_URL: z.string().url(),
@@ -26,6 +26,9 @@ export type EnvValidationResult =
  * as a fallback for keys that build-time replacement did not inline (which is
  * the case for externally served build artifacts produced without VITE_*
  * values). They are never read from `process.env` in the browser.
+ *
+ * There is deliberately no third, hardcoded fallback: missing configuration
+ * fails closed instead of silently selecting a backend.
  */
 let runtimeFallback: Record<string, string | undefined> = {};
 
@@ -38,14 +41,12 @@ function coalesce(buildTime: unknown, key: string, fallback?: string): string | 
   if (typeof buildTime === "string" && buildTime.length > 0) return buildTime;
   const runtime = runtimeFallback[key];
   if (typeof runtime === "string" && runtime.length > 0) return runtime;
-  const managed = readManagedPublicConfig(key);
-  if (typeof managed === "string" && managed.length > 0) return managed;
   return fallback;
 }
 
 export function readBrowserPublicEnv(): Record<string, string | undefined> {
   return {
-    // These must remain direct property reads. Vite and the managed preview
+    // These must remain direct property reads. Vite (and the legacy Lovable preview)
     // replace direct import.meta.env constants in browser assets at build time.
     VITE_SUPABASE_URL: coalesce(import.meta.env.VITE_SUPABASE_URL, "VITE_SUPABASE_URL"),
     VITE_SUPABASE_PUBLISHABLE_KEY: coalesce(
@@ -65,12 +66,19 @@ export function readBrowserPublicEnv(): Record<string, string | undefined> {
 
 export function validateEnv(
   raw: Record<string, string | undefined> = readBrowserPublicEnv(),
+  isTestRun: boolean = isTestRuntime(),
 ): EnvValidationResult {
   const parsed = envSchema.safeParse(raw);
   if (!parsed.success) {
     const missing = [...new Set(parsed.error.issues.map((i) => i.path.join(".")))];
     return { ok: false, missing, message: "Application configuration is invalid." };
   }
+  const blocked = legacyProductionBlockReason({
+    url: parsed.data.VITE_SUPABASE_URL,
+    appEnv: parsed.data.VITE_APP_ENV,
+    isTestRun,
+  });
+  if (blocked) return { ok: false, missing: ["VITE_SUPABASE_URL"], message: blocked };
   return { ok: true, env: parsed.data };
 }
 
@@ -96,8 +104,9 @@ export function resolvePublicConfig(
 
   if (!result.ok) {
     console.error("[public-config] resolved", {
-      source: "vite-import-meta-env+ssr-runtime-config+managed-public-config",
+      source: "vite-import-meta-env+ssr-runtime-config",
       presence,
+      reason: result.message,
       state: "failed",
       fingerprint: configFingerprint,
     });
@@ -105,7 +114,7 @@ export function resolvePublicConfig(
   }
 
   console.info("[public-config] resolved", {
-    source: "vite-import-meta-env+ssr-runtime-config+managed-public-config",
+    source: "vite-import-meta-env+ssr-runtime-config",
     presence,
     state: "ready",
     fingerprint: configFingerprint,

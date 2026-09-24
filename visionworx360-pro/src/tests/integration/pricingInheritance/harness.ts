@@ -10,7 +10,7 @@
  *     -> estimates / estimate_line_items / estimate_audit_events
  *
  * Postgres is a Supabase Postgres 17 image with every VisionWorx migration
- * replayed (see visionworx-regression/harness). Privileged SQL (psql) is used
+ * replayed (see scripts/integration-harness). Privileged SQL (psql) is used
  * ONLY to create the auth.users row GoTrue would create at sign-up and to read
  * pg_catalog; it never writes pricing data.
  *
@@ -32,6 +32,7 @@ import { pricingSnapshotFromStrategy } from "@/domains/estimating/ballparkCostBa
 import { pricingStrategyOf } from "@/domains/estimating/pricingStrategy";
 import { buildProjectPricing } from "@/features/estimating/services/estimateCommit.server";
 import { saveMyOrganization } from "@/features/workspace/services/organization.server";
+import { assertLocalTestDatabase } from "../testDatabaseGuard";
 
 /* ------------------------------------------------------------------ *
  * Configuration — all required, never defaulted to a skip.
@@ -79,9 +80,10 @@ async function requireLiveBoundary(): Promise<void> {
   if (missing.length) {
     throw new Error(
       `BLOCKED: real database boundary not configured (missing ${missing.join(", ")}). ` +
-        "Run visionworx-regression/harness/run.sh. This suite never skips silently.",
+        "Run `bun run test:integration` (scripts/integration-harness/run.sh). This suite never skips silently.",
     );
   }
+  assertLocalTestDatabase({ VW_IT_POSTGREST_URL: ENV.postgrestUrl, VW_IT_PG_URL: ENV.pgUrl });
   try {
     execFileSync("psql", ["--version"], { stdio: "ignore" });
   } catch {

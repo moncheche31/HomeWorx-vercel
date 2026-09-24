@@ -12,11 +12,11 @@
 
 ## Setup
 1. Copy `.env.example` → `.env.local`.
-2. Fill in your Supabase project URL and anon key.
+2. Fill in your DEVELOPMENT Supabase project URL and publishable key (never production).
 3. Restart the dev server.
 
 ## Validation
-Environment variables are validated before Vite compilation and again at startup using Zod. A build missing either required public backend variable fails instead of publishing broken assets. Missing runtime configuration renders `ConfigurationErrorPage` before auth initializes.
+`.env.example` is the complete, classified list of variables. `bun dev` refuses to start without the public Supabase variables (and refuses the legacy Lovable production project outside `VITE_APP_ENV=production`). `vite build` succeeds without them but compiles in no backend; the deployment supplies configuration at runtime. Missing runtime configuration renders `ConfigurationErrorPage` before auth initializes. See `docs/DEVELOPMENT.md`.
 
 ## Notes
 - Never place service-role keys in `.env*` files consumed by the browser build.

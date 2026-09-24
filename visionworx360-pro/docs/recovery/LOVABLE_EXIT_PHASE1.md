@@ -1,5 +1,13 @@
 # Lovable Exit — Phase 1: source extraction and reconstruction
 
+> **Phase 2A update:** dependency #1 below (the hardcoded production fallback)
+> has been removed and configuration now fails closed. `README.md`,
+> `AGENTS.md`, `.gitignore`, `.env.example`, `package.json` and
+> `supabase/config.toml` were rewritten for standalone use, so their hashes no
+> longer match `fidelity_manifest.tsv`, which still records the Phase 1
+> reconstruction. See `docs/LOVABLE_DEPENDENCIES.md` for the current
+> boundary.
+
 Assessment date: 2026-09-24.
 Source: Lovable project `507194e1-0cf8-43e2-8e7c-f20f13933958`, reference commit
 `989b3994e3e2e78d7d4c2ee8f10b8e80211c62d1` (the commit every earlier recovery

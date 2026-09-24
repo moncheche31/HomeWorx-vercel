@@ -1,3 +1,18 @@
+# Dependencies
+node_modules
+
+# Build output / framework caches (generated)
+dist
+dist-ssr
+.output
+.vinxi
+.tanstack/**
+.nitro
+.wrangler/
+.vercel
+*.tsbuildinfo
+coverage
+
 # Logs
 logs
 *.log
@@ -6,21 +21,29 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+bun-debug.log*
 
-node_modules
-dist
-dist-ssr
-.output
-.vinxi
-.tanstack/**
-.nitro
-*.local
-
-# Wrangler / Cloudflare
-.wrangler/
+# Environment and secrets — only the template is tracked
+.env
+.env.*
+!.env.example
 .dev.vars
+.dev.vars.*
+*.local
+*.pem
+*.key
+*.p12
+service-account*.json
 
-# Editor directories and files
+# Supabase CLI local state
+supabase/.temp/
+supabase/.branches/
+.supabase/
+
+# Integration-test evidence written by local runs (committed evidence lives in docs/recovery/results)
+evidence-*.json
+
+# Editor / OS
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -31,7 +54,5 @@ dist-ssr
 *.sln
 *.sw?
 
-# Env files
-.env
-.env.*
-!.env.example
+# Claude Code local settings
+.claude/settings.local.json
