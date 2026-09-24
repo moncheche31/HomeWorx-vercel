@@ -1,0 +1,29 @@
+{
+  "docTitle": "System status · VisionWorx360 Pro",
+  "title": "System status",
+  "description": "Non-sensitive runtime information for this deployment.",
+  "rows": {
+    "application": "Application",
+    "version": "Version",
+    "environment": "Environment",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "network": "Network",
+    "build": "Build"
+  },
+  "values": {
+    "operational": "Operational",
+    "connected": "Connected",
+    "notConfigured": "Not configured",
+    "unavailable": "Unavailable"
+  },
+  "network": {
+    "online": "Online",
+    "offline": "Offline",
+    "reconnecting": "Reconnecting…",
+    "unknown": "Unknown"
+  },
+  "offline": {
+    "banner": "You're offline. Some actions are unavailable until you reconnect."
+  }
+}

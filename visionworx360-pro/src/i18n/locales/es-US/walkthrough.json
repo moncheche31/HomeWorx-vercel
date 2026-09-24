@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "title": "Presupuesto en la Propiedad",
+    "subtitle": "Elige un proyecto, elige un área, habla, responde unas preguntas y aprueba."
+  },
+  "cta": {
+    "start": "Recorrido en la Propiedad",
+    "resume": "Continuar Recorrido en la Propiedad",
+    "description": "Recorre la propiedad mientras VisionWorx360 Pro crea tu presupuesto."
+  },
+  "progress": {
+    "counter": "Paso {{current}} de {{total}}",
+    "label": "Progreso del recorrido"
+  },
+  "steps": {
+    "project": {
+      "title": "Elige un proyecto",
+      "hint": "Selecciona la obra que estás recorriendo."
+    },
+    "room": {
+      "title": "Elige un área",
+      "hint": "¿Dónde estás parado?"
+    },
+    "capture": {
+      "title": "Describe el trabajo",
+      "hint": "Habla con naturalidad. Puedes pausar cuando quieras."
+    },
+    "questions": {
+      "title": "Unas preguntas",
+      "hint": "Solo lo que no pudimos determinar."
+    },
+    "review": {
+      "title": "Revisa el trabajo detectado",
+      "hint": "Aprueba lo correcto y edita lo demás."
+    },
+    "summary": {
+      "title": "Área completada",
+      "hint": "Continúa con otra área o finaliza."
+    },
+    "intake": {
+      "title": "Captura este proyecto",
+      "hint": "Video, fotos, descripción y medidas — antes de cualquier pregunta."
+    }
+  },
+  "common": {
+    "loading": "Cargando…",
+    "loadFailed": "No pudimos cargar esto. Inténtalo de nuevo.",
+    "back": "Atrás",
+    "next": "Continuar",
+    "exit": "Salir del recorrido",
+    "advancedEdit": "Edición avanzada",
+    "resumeBanner": "Tienes un recorrido sin terminar.",
+    "resumeAction": "Reanudar",
+    "discard": "Comenzar de nuevo"
+  },
+  "project": {
+    "searchPlaceholder": "Buscar proyectos",
+    "empty": "Aún no hay proyectos. Crea uno para iniciar el recorrido.",
+    "create": "Crear proyecto",
+    "selected": "Seleccionado"
+  },
+  "room": {
+    "empty": "Aún no hay áreas. Agrega la primera ubicación.",
+    "create": "Agregar área o ubicación"
+  },
+  "capture": {
+    "status": {
+      "idle": "Listo",
+      "recording": "Grabando",
+      "paused": "En pausa"
+    },
+    "detected": "{{count}} detectados",
+    "unresolved": "{{count}} preguntas",
+    "savedLocally": "Guardado en este dispositivo",
+    "changeRoom": "Cambiar de área",
+    "transcript": "Transcripción",
+    "transcriptPlaceholder": "Habla o escribe lo que ves en la obra…",
+    "unsupportedTitle": "Reconocimiento de voz no disponible",
+    "unsupportedBody": "Este navegador no puede escuchar ahora. Escribe el recorrido abajo; todo lo demás funciona igual.",
+    "language": {
+      "legend": "Idioma de captura",
+      "english": "Inglés",
+      "spanish": "Español"
+    },
+    "controls": {
+      "start": "Iniciar grabación",
+      "pause": "Pausar",
+      "resume": "Reanudar",
+      "finishRoom": "Terminar área",
+      "photo": "Agregar foto",
+      "undo": "Deshacer último"
+    }
+  },
+  "questions": {
+    "progress": "{{answered}} de {{total}} respondidas",
+    "progressLabel": "Progreso de preguntas",
+    "allDone": "No hay preguntas pendientes.",
+    "continue": "Continuar a la revisión",
+    "reviewNow": "Revisar ahora",
+    "skip": "Omitir",
+    "notSure": "No estoy seguro",
+    "later": "Revisar después",
+    "save": "Guardar",
+    "prompts": {
+      "quantity": "¿Cuántos?",
+      "size": "¿Qué medida?",
+      "room": "¿Cuál área?",
+      "action": "¿Quitar y reemplazar o instalar nuevo?",
+      "laborScope": "¿Solo mano de obra o mano de obra y materiales?",
+      "allowance": "¿Este producto es una asignación?",
+      "match": "¿Cuál coincidencia es correcta?"
+    },
+    "placeholders": {
+      "quantity": "Escribe un número",
+      "size": "Escribe la medida",
+      "room": "Nombre del área",
+      "action": "Describe el trabajo",
+      "laborScope": "Describe el alcance",
+      "allowance": "Monto de la asignación",
+      "match": "Describe la partida"
+    },
+    "options": {
+      "action": {
+        "replace": "Quitar y reemplazar",
+        "install": "Instalar nuevo",
+        "remove": "Solo quitar",
+        "repair": "Reparar"
+      },
+      "laborScope": {
+        "labor_only": "Solo mano de obra",
+        "labor_materials": "Mano de obra y materiales"
+      },
+      "allowance": {
+        "yes": "Sí",
+        "no": "No"
+      }
+    }
+  },
+  "review": {
+    "approveAllHigh": "Aprobar todo de confianza alta",
+    "reviewUncertain": "Revisar dudosos ({{count}})",
+    "approve": "Aprobar",
+    "edit": "Editar detalles",
+    "delete": "Eliminar",
+    "markNeedsReview": "Marcar para revisión",
+    "addApproved": "Agregar {{count}} aprobados al alcance",
+    "adding": "Agregando…",
+    "empty": "Aún no se detectó trabajo. Regresa y describe el área.",
+    "noRoom": "Sin área",
+    "fields": {
+      "title": "Partida",
+      "quantity": "Cantidad",
+      "unit": "Unidad",
+      "room": "Área",
+      "none": "Ninguna"
+    }
+  },
+  "summary": {
+    "added": "{{count}} partidas agregadas",
+    "hint": "Ya están en el alcance y el estimado del proyecto.",
+    "itemCount": "{{count}} partidas",
+    "anotherRoom": "Recorrer otra área",
+    "finish": "Finalizar y ver el proyecto",
+    "advancedEdit": "Abrir edición avanzada"
+  },
+  "toast": {
+    "committed": "{{count}} partidas agregadas",
+    "failed": "No se pudieron agregar. Inténtalo de nuevo."
+  },
+  "intake": {
+    "title": "Captura este proyecto",
+    "freshProject": "Proyecto nuevo — aún no hay nada capturado. Empieza mostrando o contando el trabajo.",
+    "video": {
+      "title": "Video del recorrido",
+      "record": "Grabar recorrido en vivo",
+      "upload": "Subir video existente"
+    },
+    "describe": {
+      "title": "Habla o escribe la descripción del proyecto",
+      "hint": "Toca grabar y recorre el trabajo hablando normal, o escríbelo abajo.",
+      "record": "Hablar / grabar descripción",
+      "stop": "Detener grabación",
+      "transcribing": "Transcribiendo…",
+      "heard": "Lo que escuchamos",
+      "placeholder": "Describe el trabajo: cuartos, qué se reemplaza, acabados, algo fuera de lo común.",
+      "unsupportedTitle": "La captura de voz no está disponible en este dispositivo",
+      "unsupportedBody": "Escribe la descripción del proyecto — todo lo demás funciona igual.",
+      "micBlockedTitle": "Micrófono bloqueado",
+      "micBlockedBody": "Permite el acceso al micrófono para este sitio y toca grabar de nuevo. Tu texto se conserva.",
+      "errorTitle": "No pudimos transcribir eso",
+      "errorBody": "Intenta grabar otra vez o escribe la descripción. No se perdió nada de lo escrito."
+    },
+    "measure": {
+      "title": "Medidas aproximadas",
+      "length": "Largo (pies)",
+      "width": "Ancho (pies)",
+      "height": "Alto (pies)",
+      "add": "Agregar a la descripción"
+    },
+    "photos": "Agregar fotos",
+    "save": "Guardar descripción",
+    "saving": "Guardando…",
+    "saved": "Descripción guardada en este proyecto.",
+    "saveFailed": "No pudimos guardar. Tu texto sigue aquí — intenta de nuevo.",
+    "analyze": "Analizar recorrido"
+  }
+}

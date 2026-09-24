@@ -1,0 +1,46 @@
+{
+  "referenceLabel": "Reference ID",
+  "referenceShort": "Reference",
+  "boundary": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. You can try again or return to the homepage."
+  },
+  "route": {
+    "title": "This page didn't load",
+    "description": "Something went wrong on our end. You can try refreshing or head back home."
+  },
+  "configuration": {
+    "title": "Configuration required",
+    "descriptionWithKeys": "The application is missing required configuration keys: {{keys}}. Contact your administrator.",
+    "descriptionGeneric": "The application is not configured correctly. Contact your administrator.",
+    "componentTitle": "Configuration required",
+    "componentDescription": "The application is missing required configuration. Contact your administrator."
+  },
+  "permissionDenied": {
+    "title": "Permission needed",
+    "description": "You don't have access to this feature. Ask your administrator for the required permission."
+  },
+  "retry": {
+    "title": "Something went wrong",
+    "description": "We couldn't complete that request. Please try again.",
+    "action": "Try again"
+  },
+  "inline": {
+    "invalidJob": "Enter a valid job number."
+  },
+  "categories": {
+    "configuration_error": "The application is not configured correctly.",
+    "unauthorized": "You need to sign in to continue.",
+    "forbidden": "You do not have permission to perform this action.",
+    "not_found": "We couldn't find what you were looking for.",
+    "validation_error": "Some of the information provided was invalid.",
+    "conflict": "This action conflicts with the current state.",
+    "rate_limited": "Too many requests. Please wait a moment and try again.",
+    "offline": "You're offline. Reconnect to continue.",
+    "timeout": "The request took too long. Please try again.",
+    "service_unavailable": "The service is temporarily unavailable.",
+    "unknown": "Something went wrong. Please try again.",
+    "permission_denied": "You do not have permission to perform this action.",
+    "retry_failed": "We tried several times but couldn't complete that request."
+  }
+}

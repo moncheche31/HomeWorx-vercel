@@ -1,0 +1,17 @@
+{
+  "landing": {
+    "title": "VisionWorx360 Pro",
+    "srTitle": "VisionWorx360 Pro",
+    "description": "Crea presupuestos, organiza proyectos y prepara propuestas profesionales en un solo espacio de trabajo.",
+    "viewDesignSystem": "Ver sistema de diseño",
+    "systemStatus": "Estado del sistema",
+    "envBadge": "{{env}} · v{{version}}"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o fue movida.",
+    "return": "Volver a la página de inicio",
+    "docTitle": "Página no encontrada · VisionWorx360 Pro"
+  }
+}

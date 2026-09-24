@@ -1,0 +1,168 @@
+{
+  "tab": "Scope of Work",
+  "title": "Scope of Work",
+  "subtitle": "Plain-language summary of the work. Pricing happens behind the scenes.",
+  "empty": {
+    "title": "No scope yet",
+    "body": "Start a walkthrough and describe the job out loud. We'll write the scope for you."
+  },
+  "approved": "Approved {{date}}",
+  "pendingChanges": "The scope changed since you approved it.",
+  "actions": {
+    "approve": "Approve Scope",
+    "approved": "Approved",
+    "edit": "Edit Wording",
+    "questions": "Answer Questions",
+    "questionsCount": "Answer Questions ({{count}})",
+    "questionsNew": "Answer {{count}} New Questions",
+    "questionsReview": "Review / Revise Answers",
+    "regenerate": "Regenerate",
+    "estimate": "Create Estimate",
+    "advanced": "Advanced Scope Editor",
+    "simple": "Back to Scope of Work",
+    "save": "Save wording",
+    "cancel": "Cancel",
+    "proposal": "Proposal",
+    "advancedHint": "Build detailed scope sections, line items, and templates.",
+    "editDescription": "Edit Project Description",
+    "editScope": "Edit Scope of Work",
+    "approveUpdated": "Approve Updated Scope",
+    "viewEstimate": "View Estimate",
+    "moreOptions": "More Options",
+    "rooms": "Rooms & Areas",
+    "notes": "Project Notes",
+    "backToScope": "Back to Scope of Work",
+    "history": "Decision History"
+  },
+  "editor": {
+    "title": "Edit wording",
+    "hint": "Write it the way you'd say it to the customer. Regenerating replaces your edits."
+  },
+  "questions": {
+    "title": "A few questions",
+    "hint": "Answer only what's missing. Skip anything you're not sure about.",
+    "none": "The scope has enough information to proceed — nothing else to ask.",
+    "newTitle": "{{count}} new questions",
+    "reviewTitle": "Review your answers",
+    "reviewHint": "Everything is answered. Change anything that no longer matches the job.",
+    "answeredTitle": "Previously answered",
+    "placeholder": "Your answer",
+    "skip": "Skip",
+    "save": "Save answers",
+    "prompt": {
+      "decision": "What did the customer decide about {{subject}}?",
+      "garage_door_disposition": "Are the existing garage doors staying, being removed and framed in, or replaced with a window?",
+      "bath_fixture_type": "Is the new bathroom a shower only, or a tub and shower?",
+      "hvac_strategy": "Are you extending the existing heating system into the new space, or adding a separate unit?",
+      "opening_disposition": "Are the existing windows being reused, replaced, or relocated?",
+      "structural_wall": "Is this a load-bearing wall? If so, a structural beam/header will need to be included.",
+      "electrical_service": "Will the new circuits run off the existing panel, a new subpanel, or a service upgrade?",
+      "interior_door_style": "Should the new bedroom entry door match the existing interior doors?",
+      "bath_exhaust_venting": "Is the bathroom exhaust fan venting through the wall or the roof?",
+      "flooring_selection": "What flooring do you want in the finished space?",
+      "finish_level": "What finish level should we price — builder, standard, or premium?"
+    },
+    "options": {
+      "garage_door_disposition": {
+        "keep": "Staying",
+        "remove_infill": "Removed and framed in",
+        "replace_with_window": "Replaced with a window"
+      },
+      "bath_fixture_type": {
+        "shower_only": "Shower only",
+        "tub_shower": "Tub and shower",
+        "no_bath": "No bathroom"
+      },
+      "hvac_strategy": {
+        "extend_existing": "Extend existing system",
+        "mini_split": "Mini-split",
+        "separate_system": "Separate system"
+      },
+      "opening_disposition": {
+        "reuse": "Reused",
+        "replace": "Replaced",
+        "relocate": "Relocated"
+      },
+      "structural_wall": {
+        "load_bearing": "Load-bearing",
+        "non_load_bearing": "Not load-bearing",
+        "unknown": "Not sure yet"
+      },
+      "electrical_service": {
+        "existing_panel": "Existing panel",
+        "subpanel": "New subpanel",
+        "service_upgrade": "Service upgrade",
+        "unknown": "Not sure yet"
+      },
+      "interior_door_style": {
+        "yes": "Yes, match existing",
+        "no": "No, new style"
+      },
+      "bath_exhaust_venting": {
+        "wall": "Through the wall",
+        "roof": "Through the roof",
+        "soffit": "Through the soffit"
+      },
+      "flooring_selection": {
+        "hardwood": "Hardwood",
+        "lvp": "Luxury vinyl plank",
+        "tile": "Tile",
+        "carpet": "Carpet"
+      },
+      "finish_level": {
+        "builder": "Builder grade",
+        "standard": "Standard",
+        "premium": "Premium"
+      }
+    }
+  },
+  "proposal": {
+    "title": "Proposal Scope of Work",
+    "subtitle": "Exactly what the customer sees. No estimating terminology.",
+    "notApproved": "Approve the scope to generate the proposal.",
+    "picker": "Choose a project",
+    "empty": "No projects yet."
+  },
+  "toast": {
+    "approved": "Scope approved",
+    "regenerated": "Scope regenerated",
+    "saved": "Wording saved",
+    "answers": "Answers saved",
+    "scopeUpdated": "Scope updated ({{count}} changes)",
+    "validationBlocked": "Resolve the flagged scope items before approving."
+  },
+  "capturedDescription": {
+    "title": "Captured Project Description",
+    "hint": "Exactly as captured by the contractor.",
+    "noStructured": "Structured scope items haven't been created yet."
+  },
+  "approvedBanner": {
+    "title": "Scope approved",
+    "body": "This scope of work is approved and current.",
+    "bodyDated": "Approved {{date}} — this scope of work is current."
+  },
+  "review": {
+    "title": "Review scope changes",
+    "subtitle": "Your wording changed the work. Confirm what should change in the scope — nothing is applied until you do.",
+    "added": "Added to scope",
+    "changed": "Changed",
+    "removed": "Removed from scope",
+    "needsPricing": "Needs pricing",
+    "removeHint": "Will be excluded, not deleted",
+    "apply": "Apply {{count}} changes",
+    "cancel": "Keep scope as is",
+    "removedNote": "Confirmed removals are excluded from the estimate and kept in history. Nothing is deleted."
+  },
+  "needsApproval": "Needs approval",
+  "history": {
+    "title": "Decision history",
+    "summary": "Additional questions reviewed: {{accepted}} accepted, {{removed}} removed.",
+    "empty": "No clarifications or review decisions recorded yet.",
+    "decisions": "Estimate review decisions",
+    "clarifications": "Clarification answers",
+    "status": {
+      "accepted": "Accepted",
+      "removed": "Removed"
+    }
+  }
+}

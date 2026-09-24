@@ -1,0 +1,11 @@
+import { createClient } from "@supabase/supabase-js";
+const admin = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, { auth: { persistSession: false } });
+const { data: u } = await admin.auth.admin.getUserById("13dfca9d-d3d4-4d68-a580-8fceb22e7cd3");
+const email = u.user?.email!;
+const link = await admin.auth.admin.generateLink({ type: "magiclink", email });
+if (link.error) throw link.error;
+const hashed = link.data.properties.hashed_token;
+const anon = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_PUBLISHABLE_KEY!, { auth: { persistSession: false } });
+const v = await anon.auth.verifyOtp({ type: "magiclink", token_hash: hashed });
+if (v.error) throw v.error;
+console.log("TOKEN=" + v.data.session!.access_token);

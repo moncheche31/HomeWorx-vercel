@@ -1,0 +1,180 @@
+{
+  "docTitle": "Design system · VisionWorx360 Pro",
+  "eyebrow": "Design system",
+  "title": "VisionWorx360 Pro components",
+  "description": "Shared visual language, semantic tokens, and reusable components — built mobile-first for contractors in the field.",
+  "backHome": "← Home",
+  "sections": {
+    "brand": {
+      "title": "Brand",
+      "description": "Full marketing logo is used sparingly. In-app chrome uses the compact identity.",
+      "fullLogo": "Full logo — VisionWorx360",
+      "compact": "Compact identity (in-app)",
+      "ecosystem": "Ecosystem reference — HomeWorx360",
+      "ecosystemNote": "Shown for token-swap demonstration only. This app renders the VisionWorx360 identity.",
+      "swap": "Same components — HomeWorx360 accent token",
+      "accentButton": "Accent button",
+      "swapNote": "swap only — no components rebuilt."
+    },
+    "typography": { "title": "Typography" },
+    "colors": {
+      "title": "Colors",
+      "groups": {
+        "surfaces": "Surfaces",
+        "brand": "Brand",
+        "status": "Status",
+        "confidence": "Confidence"
+      },
+      "swatches": {
+        "background": "Background",
+        "surface": "Surface",
+        "surfaceMuted": "Surface muted",
+        "surfaceElevated": "Surface elevated",
+        "primary": "Primary (Navy)",
+        "accent": "Accent (Gold)",
+        "secondary": "Secondary",
+        "border": "Border",
+        "success": "Success",
+        "warning": "Warning",
+        "danger": "Danger",
+        "information": "Information",
+        "verified": "Verified",
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low",
+        "needsConfirmation": "Needs confirmation"
+      }
+    },
+    "spacing": { "title": "Spacing scale" },
+    "buttons": {
+      "title": "Buttons",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "destructive": "Destructive",
+      "outline": "Outline",
+      "ghost": "Ghost",
+      "record": "Record",
+      "disabled": "Disabled"
+    },
+    "forms": {
+      "title": "Form controls",
+      "jobName": "Job name",
+      "jobPlaceholder": "Kitchen remodel",
+      "helper": "Helper text goes here.",
+      "notes": "Notes",
+      "notesPlaceholder": "Describe the scope…",
+      "trade": "Trade",
+      "choose": "Choose trade",
+      "plumbing": "Plumbing",
+      "electrical": "Electrical",
+      "framing": "Framing",
+      "search": "Search",
+      "searchPlaceholder": "Search jobs…",
+      "includeTax": "Include tax",
+      "offlineMode": "Offline mode",
+      "priority": "Priority",
+      "low": "Low",
+      "normal": "Normal",
+      "high": "High",
+      "filterChips": "Filter chips",
+      "chips": { "open": "Open", "inReview": "In review", "approved": "Approved" }
+    },
+    "cards": {
+      "title": "Cards & badges",
+      "estimateNumber": "Estimate #1024",
+      "estimateDesc": "Alvarez residence · Kitchen remodel",
+      "draft": "Draft",
+      "confidenceSignals": "Confidence signals"
+    },
+    "alerts": {
+      "title": "Alerts & notices",
+      "successTitle": "Estimate sent",
+      "successDesc": "The customer will receive it shortly.",
+      "warningTitle": "Missing measurements",
+      "warningDesc": "Two rooms are missing dimensions.",
+      "dangerTitle": "Sync failed",
+      "dangerDesc": "Retry when back online.",
+      "infoTitle": "Field tip",
+      "infoDesc": "Speak naturally — pause to review."
+    },
+    "overlays": {
+      "title": "Toasts, dialogs & drawers",
+      "showToast": "Show toast",
+      "toastTitle": "Saved locally",
+      "toastDesc": "Will sync when online.",
+      "openDialog": "Open dialog",
+      "dialogTitle": "Confirm sign-out",
+      "dialogDesc": "Any unsynced changes will remain on this device.",
+      "openDrawer": "Open bottom drawer",
+      "drawerTitle": "Room details",
+      "drawerDesc": "Adjust dimensions and finishes.",
+      "drawerBody": "Drawer body content."
+    },
+    "tabs": {
+      "title": "Tabs, progress & skeletons",
+      "scope": "Scope",
+      "pricing": "Pricing",
+      "review": "Review",
+      "scopeBody": "Scope content.",
+      "pricingBody": "Pricing content.",
+      "reviewBody": "Review content.",
+      "fetching": "Fetching data"
+    },
+    "feedback": {
+      "title": "Feedback states",
+      "emptyTitle": "No estimates yet",
+      "emptyDesc": "Start a new walkthrough to capture your first scope.",
+      "newWalkthrough": "New walkthrough",
+      "retryDesc": "We couldn't load the property list.",
+      "retrying": "Retrying…",
+      "syncedTitle": "Everything synced",
+      "fullPagePreview": "Full page error (preview)",
+      "fullPageTitle": "This page didn't load",
+      "fullPageDesc": "Try again in a moment."
+    },
+    "voice": {
+      "title": "Voice action button",
+      "description": "Visual states only — microphone, transcription, and storage are out of scope for this prompt."
+    },
+    "confidence": { "title": "Confidence badges" },
+    "data": {
+      "title": "Data display",
+      "total": "Total",
+      "margin": "Margin",
+      "area": "Area",
+      "areaUnit": "sq ft",
+      "walkthrough": "Walkthrough"
+    },
+    "rows": {
+      "title": "Data list rows",
+      "alvarez": { "name": "Alvarez residence", "meta": "3 rooms · Kitchen" },
+      "nguyen": { "name": "Nguyen remodel", "meta": "5 rooms · Full home" },
+      "baker": { "name": "Baker addition", "meta": "1 room · Sunroom" }
+    },
+    "nav": {
+      "title": "Navigation shells",
+      "description": "Desktop uses a persistent sidebar; mobile uses a compact top bar with a bottom tab bar.",
+      "desktopHeader": "Desktop header",
+      "estimates": "Estimates",
+      "settings": "Settings"
+    },
+    "localization": {
+      "title": "Localization",
+      "description": "Bilingual foundation — English and U.S. Spanish. Switch languages to see every component update.",
+      "standard": "Standard switcher",
+      "compact": "Compact switcher",
+      "currentLanguage": "Current language",
+      "formatting": "Locale-aware formatting",
+      "currency": "Currency",
+      "number": "Number",
+      "percent": "Percentage",
+      "date": "Date",
+      "time": "Time",
+      "measurement": "Measurement",
+      "longLabel": "Long Spanish label example",
+      "longLabelSample": "Confirmar la instalación completa del calentador de agua sin tanque",
+      "voiceStates": "Localized voice states",
+      "confidenceStates": "Localized confidence states"
+    }
+  }
+}

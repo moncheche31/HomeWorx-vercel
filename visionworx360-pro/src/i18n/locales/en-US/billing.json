@@ -1,0 +1,48 @@
+{
+  "title": "Billing & subscription",
+  "description": "Your plan, trial status and payment details.",
+  "plan": {
+    "name": "VisionWorx360 Pro — Contractor Edition",
+    "summary": "Full contractor workspace: clients, properties, projects, scope capture, ballpark and detailed estimates, and customer-facing proposals.",
+    "pricingNote": "Pricing and billing interval are set in your payment provider and shown at checkout."
+  },
+  "status": {
+    "none": "No subscription",
+    "trialing": "Free trial",
+    "active": "Active",
+    "past_due": "Payment due",
+    "canceled": "Cancelled",
+    "incomplete": "Awaiting payment",
+    "incomplete_expired": "Checkout expired",
+    "unpaid": "Unpaid",
+    "paused": "Paused"
+  },
+  "fields": {
+    "trial": "Trial",
+    "trialLength": "{{days}}-day free trial available",
+    "renews": "Renews on"
+  },
+  "actions": {
+    "startTrial": "Start free trial",
+    "changePlan": "Update subscription",
+    "manage": "Manage billing"
+  },
+  "notices": {
+    "cancelling": "Your subscription is set to end at the close of the current period.",
+    "pastDue": "We could not process your last payment. Update your payment method to keep access."
+  },
+  "notConfigured": {
+    "title": "Payments are not connected yet",
+    "body": "Subscriptions are turned off until the payment provider and plan price are configured for this workspace. Nothing is charged and no trial is started in this state."
+  },
+  "errors": {
+    "notConfigured": "Payments are not configured for this workspace yet.",
+    "noCustomer": "There is no billing account yet. Start a subscription first.",
+    "generic": "We could not open billing. Please try again."
+  },
+  "noAccess": {
+    "title": "Access unavailable",
+    "description": "Your organization does not have an active Contractor Edition subscription or trial. Start a trial or update billing to restore access.",
+    "action": "Go to billing"
+  }
+}

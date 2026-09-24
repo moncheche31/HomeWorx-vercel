@@ -1,0 +1,144 @@
+Live run (real DB boundary, commit 989b399): tests=35 passed=14 failed=21 skipped=0
+PASSED	A1 create_estimate_from_scope stores the organization's method, target and labor rate, and locks them
+PASSED	A1 math: selling price = job cost / (1 - 40%) in the database AND the TypeScript canonical path
+PASSED	A1 provenance: values applied to the estimate are recorded accurately
+FAILED	A1 provenance: a record labelled organization_defaults does not misstate the organization's settings
+	  AssertionError: provenance misstatements: ["default_overhead_pct: recorded 0 as organization_defaults, organization has 15","default_profit_pct: recorded 0 as organization_defaults, organization has 12"]: expected [ …(2) ] to deeply equal []
+FAILED	A2 create_estimate_revision carries the source's target_gross_margin pricing
+	  AssertionError: A2 revision: pricing_method: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: A2 revision: target_gross_margin_pct: expected +0 to be 40 // Object.is equality
+	  AssertionError: A2 revision: default_overhead_pct: expected 15 to be +0 // Object.is equality
+	  AssertionError: A2 revision: default_profit_pct: expected 12 to be +0 // Object.is equality
+	  AssertionError: A2 revision: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: A2 revision: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: A2 revision: selling price (database invariant cost): expected +0 to be 3233 // Object.is equality
+	  AssertionError: A2 revision: selling price (TypeScript canonical path): expected 1178 to be 3233 // Object.is equality
+	  AssertionError: A2 revision: price of the SOURCE lines under the derived estimate's stored method: expected 1940 to be 3233 // Object.is equality
+	  AssertionError: A2 revision: creation audit event records pricing provenance: expected null not to be null
+FAILED	A3 create_estimate_version carries the source's target_gross_margin pricing
+	  AssertionError: A3 version: pricing_method: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: A3 version: target_gross_margin_pct: expected +0 to be 40 // Object.is equality
+	  AssertionError: A3 version: default_overhead_pct: expected 15 to be +0 // Object.is equality
+	  AssertionError: A3 version: default_profit_pct: expected 12 to be +0 // Object.is equality
+	  AssertionError: A3 version: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: A3 version: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: A3 version: selling price (database invariant cost): expected +0 to be 3233 // Object.is equality
+	  AssertionError: A3 version: selling price (TypeScript canonical path): expected 1178 to be 3233 // Object.is equality
+	  AssertionError: A3 version: price of the SOURCE lines under the derived estimate's stored method: expected 1940 to be 3233 // Object.is equality
+	  AssertionError: A3 version: creation audit event records pricing provenance: expected null not to be null
+FAILED	A4 copy_estimate_to_project WITH pricing + markup (production copyEstimateToProjectImpl) carries the source's pricing
+	  AssertionError: A4 copy with markup: pricing_method: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: A4 copy with markup: target_gross_margin_pct: expected +0 to be 40 // Object.is equality
+	  AssertionError: A4 copy with markup: default_overhead_pct: expected 15 to be +0 // Object.is equality
+	  AssertionError: A4 copy with markup: default_profit_pct: expected 12 to be +0 // Object.is equality
+	  AssertionError: A4 copy with markup: selling price (database invariant cost): expected 1940 to be 3233 // Object.is equality
+	  AssertionError: A4 copy with markup: selling price (TypeScript canonical path): expected 1940 to be 3233 // Object.is equality
+	  AssertionError: A4 copy with markup: price of the SOURCE lines under the derived estimate's stored method: expected 1940 to be 3233 // Object.is equality
+	  AssertionError: A4 copy with markup: creation audit event records pricing provenance: expected null not to be null
+FAILED	A5 copy_estimate_to_project WITHOUT markup takes the ORGANIZATION's pricing, not hard-coded 10/10
+	  AssertionError: A5: method from organization: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: A5: target from organization: expected +0 to be 40 // Object.is equality
+	  AssertionError: A5: no overhead under a margin target: expected 10 to be +0 // Object.is equality
+	  AssertionError: A5: no profit under a margin target: expected 10 to be +0 // Object.is equality
+	  AssertionError: A5: line overhead/profit: expected [ [ 10, 10 ], [ 10, 10 ] ] to deeply equal [ [ +0, +0 ], [ +0, +0 ] ]
+	  AssertionError: A5 copy without markup: creation audit event records pricing provenance: expected null not to be null
+PASSED	A6 an organization settings change AFTER creation does not reprice the original estimate
+FAILED	A7 a revision made AFTER an organization settings change still carries the SOURCE estimate's pricing
+	  AssertionError: A7 revision after org change: pricing_method: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: A7 revision after org change: target_gross_margin_pct: expected +0 to be 40 // Object.is equality
+	  AssertionError: A7 revision after org change: default_overhead_pct: expected 18 to be +0 // Object.is equality
+	  AssertionError: A7 revision after org change: default_profit_pct: expected 9 to be +0 // Object.is equality
+	  AssertionError: A7 revision after org change: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: A7 revision after org change: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: A7 revision after org change: selling price (database invariant cost): expected +0 to be 3233 // Object.is equality
+	  AssertionError: A7 revision after org change: selling price (TypeScript canonical path): expected 1178 to be 3233 // Object.is equality
+	  AssertionError: A7 revision after org change: price of the SOURCE lines under the derived estimate's stored method: expected 1940 to be 3233 // Object.is equality
+FAILED	A8 a contractor's explicit 35% target on the source survives create_estimate_revision
+	  AssertionError: A8 revision of explicit 35%: pricing_method: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: A8 revision of explicit 35%: target_gross_margin_pct: expected +0 to be 35 // Object.is equality
+	  AssertionError: A8 revision of explicit 35%: default_overhead_pct: expected 15 to be +0 // Object.is equality
+	  AssertionError: A8 revision of explicit 35%: default_profit_pct: expected 12 to be +0 // Object.is equality
+	  AssertionError: A8 revision of explicit 35%: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: A8 revision of explicit 35%: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: A8 revision of explicit 35%: selling price (database invariant cost): expected +0 to be 2985 // Object.is equality
+	  AssertionError: A8 revision of explicit 35%: selling price (TypeScript canonical path): expected 1178 to be 2985 // Object.is equality
+	  AssertionError: A8 revision of explicit 35%: price of the SOURCE lines under the derived estimate's stored method: expected 1940 to be 2985 // Object.is equality
+FAILED	A9 intake re-approval of an ISSUED estimate (production commitApprovedEstimateImpl -> revision + sync) keeps target_gross_margin
+	  AssertionError: A9 intake re-approval: pricing_method: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: A9 intake re-approval: target_gross_margin_pct: expected +0 to be 40 // Object.is equality
+	  AssertionError: A9 intake re-approval: default_overhead_pct: expected 15 to be +0 // Object.is equality
+	  AssertionError: A9 intake re-approval: default_profit_pct: expected 12 to be +0 // Object.is equality
+	  AssertionError: A9 intake re-approval: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: A9 intake re-approval: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: A9 intake re-approval: selling price (database invariant cost): expected +0 to be 3233 // Object.is equality
+	  AssertionError: A9 intake re-approval: selling price (TypeScript canonical path): expected 1178 to be 3233 // Object.is equality
+	  AssertionError: A9 intake re-approval: price of the SOURCE lines under the derived estimate's stored method: expected 1940 to be 3233 // Object.is equality
+FAILED	A10 revise-and-sync (reviseAndSyncEstimate: revision RPC then sync_estimate_from_scope) keeps target_gross_margin
+	  AssertionError: A10 revise-and-sync: pricing_method: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: A10 revise-and-sync: target_gross_margin_pct: expected +0 to be 40 // Object.is equality
+	  AssertionError: A10 revise-and-sync: default_overhead_pct: expected 15 to be +0 // Object.is equality
+	  AssertionError: A10 revise-and-sync: default_profit_pct: expected 12 to be +0 // Object.is equality
+	  AssertionError: A10 revise-and-sync: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: A10 revise-and-sync: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: A10 revise-and-sync: selling price (database invariant cost): expected +0 to be 3233 // Object.is equality
+	  AssertionError: A10 revise-and-sync: selling price (TypeScript canonical path): expected 1178 to be 3233 // Object.is equality
+	  AssertionError: A10 revise-and-sync: price of the SOURCE lines under the derived estimate's stored method: expected 1940 to be 3233 // Object.is equality
+PASSED	B1 create_estimate_from_scope stores the organization's 15% / 12% (not 10/10) and locks them
+PASSED	B1 math: overhead 15% of direct, profit 12% of (direct + overhead), per line, in the database AND TypeScript
+PASSED	B1 provenance: values applied to the estimate are recorded accurately
+FAILED	B1 provenance: a record labelled organization_defaults does not misstate the organization's settings
+	  AssertionError: provenance misstatements: ["target_gross_margin_pct: recorded 0 as organization_defaults, organization has 33"]: expected [ Array(1) ] to deeply equal []
+FAILED	B2 create_estimate_revision carries the source's overhead_profit pricing
+	  AssertionError: B2 revision: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: B2 revision: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: B2 revision: selling price (database invariant cost): expected +0 to be 2499 // Object.is equality
+	  AssertionError: B2 revision: selling price (TypeScript canonical path): expected 1517 to be 2499 // Object.is equality
+	  AssertionError: B2 revision: creation audit event records pricing provenance: expected null not to be null
+FAILED	B3 create_estimate_version carries the source's overhead_profit pricing
+	  AssertionError: B3 version: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: B3 version: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: B3 version: selling price (database invariant cost): expected +0 to be 2499 // Object.is equality
+	  AssertionError: B3 version: selling price (TypeScript canonical path): expected 1517 to be 2499 // Object.is equality
+	  AssertionError: B3 version: creation audit event records pricing provenance: expected null not to be null
+FAILED	B4 copy_estimate_to_project WITH pricing + markup carries the source's overhead_profit pricing
+	  AssertionError: B4 copy with markup: creation audit event records pricing provenance: expected null not to be null
+FAILED	B5 copy_estimate_to_project WITHOUT markup takes the ORGANIZATION's 15% / 12%, not hard-coded 10/10
+	  AssertionError: B5: overhead from organization: expected 10 to be 15 // Object.is equality
+	  AssertionError: B5: profit from organization: expected 10 to be 12 // Object.is equality
+	  AssertionError: B5: line overhead/profit from organization: expected [ [ 10, 10 ], [ 10, 10 ] ] to deeply equal [ [ 15, 12 ], [ 15, 12 ] ]
+	  AssertionError: B5 copy without markup: creation audit event records pricing provenance: expected null not to be null
+FAILED	B6 a contractor's explicit 0% overhead on the source survives create_estimate_revision
+	  AssertionError: B6 revision of explicit 0% overhead: default_overhead_pct: expected 15 to be +0 // Object.is equality
+	  AssertionError: B6 revision of explicit 0% overhead: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: B6 revision of explicit 0% overhead: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: B6 revision of explicit 0% overhead: selling price (database invariant cost): expected +0 to be 2173 // Object.is equality
+	  AssertionError: B6 revision of explicit 0% overhead: selling price (TypeScript canonical path): expected 1319 to be 2173 // Object.is equality
+FAILED	B7 an organization settings change AFTER creation neither reprices the estimate nor leaks into its revision
+	  AssertionError: B7 revision after org change: contractor-priced lines stay priced: expected +0 to be 2 // Object.is equality
+	  AssertionError: B7 revision after org change: job cost (database): expected +0 to be 1940 // Object.is equality
+	  AssertionError: B7 revision after org change: selling price (database invariant cost): expected +0 to be 2499 // Object.is equality
+	  AssertionError: B7 revision after org change: selling price (TypeScript canonical path): expected 1517 to be 2499 // Object.is equality
+FAILED	C1 an insert that does not choose a method inherits the target_gross_margin organization's 40% (ADR-061)
+	  AssertionError: C1: method: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: C1: target: expected +0 to be 40 // Object.is equality
+	  AssertionError: C1: overhead: expected 10 to be +0 // Object.is equality
+	  AssertionError: C1: profit: expected 10 to be +0 // Object.is equality
+	  AssertionError: C1: labor rate from organization: expected 65 to be 85 // Object.is equality
+FAILED	C2 an insert that does not choose a method inherits the overhead_profit organization's 15% / 12% (not 10/10)
+	  AssertionError: C2: overhead: expected 10 to be 15 // Object.is equality
+	  AssertionError: C2: profit: expected 10 to be 12 // Object.is equality
+	  AssertionError: C2: labor rate from organization: expected 65 to be 85 // Object.is equality
+PASSED	C3 an explicit target_gross_margin 35% is kept as chosen
+PASSED	C4 an explicit overhead_profit 12% / 8% is kept as chosen
+FAILED	C5 an explicit overhead_profit with 0% overhead keeps 0% (0 is a choice, not 'unset')
+	  AssertionError: expected 15 to be +0 // Object.is equality
+PASSED	D1 an UPDATE that changes pricing WITHOUT a new explicit save stamp is reverted by the preserve trigger
+PASSED	D2 an explicit contractor save (new pricing_settings_locked_at) is persisted and re-stamped
+PASSED	D3 the open-estimate repair pass (repair_estimate_pricing) does not change pricing settings or line overhead/profit
+FAILED	D4 a lock stamp on a DERIVED estimate protects the source's values, not values the derivation invented
+	  AssertionError: D4: locked method equals the source's: expected 'overhead_profit' to be 'target_gross_margin' // Object.is equality
+	  AssertionError: D4: locked target equals the source's: expected +0 to be 30 // Object.is equality
+PASSED	E1 target_gross_margin estimate: identical selling price
+PASSED	E2 overhead_profit estimate: identical selling price
+FAILED	E3 a revision's lines: database and TypeScript agree on the selling price
+	  AssertionError: expected 1178 to be +0 // Object.is equality

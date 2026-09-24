@@ -1,0 +1,175 @@
+{
+  "tabs": {
+    "overview": "Resumen",
+    "rooms": "Habitaciones",
+    "photos": "Fotos",
+    "documents": "Documentos",
+    "activity": "Actividad"
+  },
+  "rooms": {
+    "title": "Habitaciones",
+    "add": "Agregar habitación",
+    "edit": "Editar habitación",
+    "empty": "Aún no hay habitaciones",
+    "emptyDescription": "Agrega habitaciones para organizar notas y fotos por espacio.",
+    "name": "Nombre",
+    "roomType": "Tipo",
+    "floorLevel": "Piso / nivel",
+    "description": "Descripción",
+    "openRoom": "Abrir habitación",
+    "archived": "Archivada",
+    "showArchived": "Mostrar archivadas",
+    "toasts": {
+      "created": "Habitación agregada",
+      "updated": "Habitación actualizada",
+      "archived": "Habitación archivada",
+      "restored": "Habitación restaurada"
+    },
+    "types": {
+      "kitchen": "Cocina",
+      "bathroom": "Baño",
+      "bedroom": "Dormitorio",
+      "living_room": "Sala",
+      "dining_room": "Comedor",
+      "basement": "Sótano",
+      "garage": "Garaje",
+      "exterior": "Exterior",
+      "roof": "Techo",
+      "addition": "Ampliación",
+      "whole_house": "Toda la casa",
+      "other": "Otro"
+    }
+  },
+  "notes": {
+    "title": "Notas",
+    "add": "Agregar nota",
+    "edit": "Editar nota",
+    "empty": "Aún no hay notas",
+    "emptyDescription": "Registra decisiones, observaciones y seguimientos.",
+    "body": "Nota",
+    "noteType": "Tipo",
+    "isInternal": "Solo interna",
+    "types": {
+      "general": "General",
+      "field": "Campo",
+      "followup": "Seguimiento",
+      "decision": "Decisión",
+      "issue": "Problema",
+      "project_description": "Descripción del proyecto"
+    },
+    "toasts": {
+      "created": "Nota guardada",
+      "updated": "Nota actualizada",
+      "archived": "Nota archivada"
+    }
+  },
+  "photos": {
+    "title": "Fotos",
+    "add": "Agregar fotos",
+    "empty": "Aún no hay fotos",
+    "emptyDescription": "Sube fotos para documentar condiciones y avance.",
+    "caption": "Descripción",
+    "altText": "Texto alternativo",
+    "photoType": "Tipo",
+    "assignRoom": "Habitación",
+    "unassigned": "Sin asignar",
+    "uploading": "Subiendo…",
+    "uploadFailed": "Error al subir",
+    "types": {
+      "existing": "Existente",
+      "design": "Diseño",
+      "rendering": "Renderizado",
+      "progress": "Progreso",
+      "completed": "Completado",
+      "damage": "Daño",
+      "inspiration": "Inspiración",
+      "other": "Otro"
+    },
+    "toasts": {
+      "uploaded": "{{count}} foto(s) subidas",
+      "archived": "Foto archivada"
+    },
+    "chooseFiles": "Elegir fotos",
+    "takePhoto": "Tomar foto",
+    "noFilesSelected": "Aún no has elegido fotos"
+  },
+  "documents": {
+    "title": "Documentos",
+    "add": "Agregar documento",
+    "empty": "Aún no hay documentos",
+    "emptyDescription": "Adjunta contratos, permisos, planos e inspecciones.",
+    "description": "Descripción",
+    "documentType": "Tipo",
+    "download": "Descargar",
+    "uploadFailed": "Error al subir",
+    "types": {
+      "pdf": "PDF",
+      "plan": "Plano",
+      "contract": "Contrato",
+      "permit": "Permiso",
+      "inspection": "Inspección",
+      "survey": "Levantamiento",
+      "specification": "Especificación",
+      "image": "Imagen",
+      "other": "Otro"
+    },
+    "toasts": {
+      "uploaded": "Documento subido",
+      "archived": "Documento archivado"
+    }
+  },
+  "activity": {
+    "title": "Actividad",
+    "empty": "Aún no hay actividad",
+    "emptyDescription": "Las acciones del proyecto aparecerán aquí.",
+    "types": {
+      "created": "creó",
+      "updated": "actualizó",
+      "status_changed": "cambió el estado de",
+      "archived": "archivó",
+      "restored": "restauró",
+      "uploaded": "subió",
+      "reordered": "reordenó"
+    },
+    "entities": {
+      "project": "proyecto",
+      "room": "habitación",
+      "note": "nota",
+      "photo": "foto",
+      "document": "documento"
+    },
+    "unknownActor": "Sistema"
+  },
+  "actions": {
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Archivar",
+    "restore": "Restaurar",
+    "close": "Cerrar"
+  },
+  "errors": {
+    "generic": "Algo salió mal. Inténtalo de nuevo.",
+    "fileTooLarge": "Archivo demasiado grande",
+    "unsupportedType": "Tipo de archivo no compatible"
+  },
+  "nav": {
+    "backToProject": "Volver al proyecto",
+    "backToProjects": "Volver a proyectos"
+  },
+  "cover": {
+    "set": "Usar como portada del proyecto",
+    "remove": "Quitar portada del proyecto",
+    "current": "Portada del proyecto",
+    "badge": "PORTADA DEL PROYECTO",
+    "isCover": "Portada del proyecto (seleccionada)",
+    "noPhoto": "Sin foto del proyecto",
+    "toastUpdated": "Portada actualizada",
+    "toastRemoved": "Portada eliminada",
+    "imageUnavailable": "Imagen no disponible"
+  },
+  "analysis": {
+    "title": "Análisis de fotos",
+    "description": "Mira lo que la app reconoció en estas fotos, etiqueta objetos y revisa el alcance corroborado.",
+    "open": "Ver análisis de fotos"
+  }
+}

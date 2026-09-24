@@ -1,0 +1,79 @@
+{
+  "title": "Configuración",
+  "description": "Preferencias personales sobre cómo se ve y se siente VisionWorx360 Pro en tu dispositivo.",
+  "display": {
+    "title": "Accesibilidad y pantalla",
+    "description": "Haz que el texto sea más fácil de leer y los controles más fáciles de tocar. Estos ajustes siguen a tu cuenta.",
+    "quickToggle": {
+      "label": "Texto más grande",
+      "hint": "Cambio rápido entre texto Estándar y Grande."
+    },
+    "textSize": {
+      "label": "Tamaño del texto",
+      "options": {
+        "standard": {
+          "label": "Estándar",
+          "description": "Tamaño de texto predeterminado."
+        },
+        "large": {
+          "label": "Grande",
+          "description": "Alrededor de 15% más grande en toda la aplicación."
+        },
+        "xlarge": {
+          "label": "Extra grande",
+          "description": "Alrededor de 30% más grande para máxima legibilidad."
+        }
+      }
+    },
+    "density": {
+      "label": "Densidad de pantalla",
+      "options": {
+        "compact": {
+          "label": "Compacta",
+          "description": "Más información en pantalla. Los controles mantienen al menos 44 píxeles."
+        },
+        "comfortable": {
+          "label": "Cómoda",
+          "description": "Espaciado equilibrado. Recomendado para la mayoría."
+        },
+        "spacious": {
+          "label": "Amplia",
+          "description": "Filas, botones y menús más grandes para guantes o luz solar intensa."
+        }
+      }
+    },
+    "deviceTextSize": {
+      "label": "Usar el tamaño de texto del dispositivo",
+      "hint": "Sigue el ajuste de tamaño de texto de tu teléfono o navegador además de la opción anterior."
+    },
+    "preview": {
+      "title": "Vista previa",
+      "body": "Así se verán el texto, la ayuda y los botones con tus ajustes actuales.",
+      "action": "Botón de ejemplo"
+    },
+    "persistence": {
+      "server": "Guardado en tu cuenta. Estos ajustes te siguen en todos tus dispositivos.",
+      "local": "Guardado en este dispositivo. Inicia sesión para sincronizar."
+    },
+    "reset": "Restablecer valores predeterminados"
+  },
+  "materialPricing": {
+    "title": "Precios de materiales en tiempo real",
+    "description": "Opcionalmente obtenga costos de materiales desde una API de precios en tiempo real en lugar del catálogo manual. Las claves se guardan de forma segura en el servidor y no se vuelven a mostrar.",
+    "apiKey": "Clave de API",
+    "keyPlaceholder": "Pegue su clave de API",
+    "keyStored": "Hay una clave guardada — pegue una nueva para reemplazarla",
+    "configured": "Configurado",
+    "notConfigured": "Sin configurar",
+    "saveKey": "Guardar clave",
+    "testConnection": "Probar conexión",
+    "remove": "Quitar",
+    "saved": "Clave de API guardada.",
+    "removed": "Proveedor eliminado.",
+    "verifyOk": "Conexión verificada.",
+    "verifyFailed": "La prueba de conexión falló.",
+    "lastVerifyOk": "Última verificación {{when}} — correcta",
+    "lastVerifyFailed": "Última verificación {{when}} — falló: {{reason}}",
+    "fallbackNote": "Si no hay proveedor configurado, o si una consulta falla, los costos de materiales vuelven automáticamente al catálogo. Los estimados nunca se bloquean por una consulta de precios."
+  }
+}

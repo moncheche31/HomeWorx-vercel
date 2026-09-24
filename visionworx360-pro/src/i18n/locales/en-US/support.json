@@ -1,0 +1,36 @@
+{
+  "title": "Support & feedback",
+  "description": "Report a problem, ask a question, or tell us what would make the app better.",
+  "form": {
+    "title": "Send a message",
+    "category": "What is this about?",
+    "message": "Description (optional)",
+    "messagePlaceholder": "What happened, and what were you trying to do?",
+    "contactPreference": "How should we reply?",
+    "contactValue": "Email or phone",
+    "submit": "Send to support",
+    "referenceAttached": "Error reference {{reference}} will be attached to this report.",
+    "privacyNote": "We attach the page you were on, the app version and the error reference. We never send passwords, sign-in tokens or your customers' private records.",
+    "directContact": "You can also reach support directly at {{contact}}."
+  },
+  "category": {
+    "problem": "Report a problem",
+    "question": "Ask a question",
+    "feedback": "Share feedback"
+  },
+  "contact": {
+    "email": "Email",
+    "phone": "Phone",
+    "none": "No reply needed"
+  },
+  "sent": {
+    "title": "Thanks — we have it",
+    "body": "Your reference is {{reference}}. Keep it handy if you follow up."
+  },
+  "errors": {
+    "submit": "We could not send that report. Please try again."
+  },
+  "actions": {
+    "report": "Report a problem"
+  }
+}

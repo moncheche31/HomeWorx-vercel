@@ -1,0 +1,797 @@
+{
+  "meta": {
+    "title": "Quick Ballpark",
+    "subtitle": "A short spoken interview. No sketch, no tape measure on every wall."
+  },
+  "schema": {
+    "quickBallpark": "Quick Ballpark",
+    "photoBallpark": "Ballpark from photos",
+    "descriptionBallpark": "Ballpark from a description"
+  },
+  "chooser": {
+    "title": "How do you want to estimate this job?",
+    "quick": "Quick Ballpark",
+    "quickHint": "About a dozen spoken questions. Get a preliminary range in a few minutes.",
+    "detailed": "Detailed Walkthrough",
+    "detailedHint": "Walk room by room, describe the work and approve every scope item.",
+    "quickCta": "Start Quick Ballpark",
+    "detailedCta": "Start Detailed Walkthrough"
+  },
+  "progress": {
+    "counter": "Question {{current}} of {{total}}"
+  },
+  "persistence": {
+    "saving": "Saving…",
+    "saved": "Saved",
+    "offline": "Offline draft",
+    "error": "Could not save interview progress. Your offline draft is retained."
+  },
+  "draft": {
+    "preview": "Draft preview — not saved",
+    "continue": "Continue refinement",
+    "discard": "Discard draft"
+  },
+  "voice": {
+    "start": "Hold to speak",
+    "stop": "Stop",
+    "listening": "Listening…",
+    "transcript": "What we heard",
+    "transcriptHint": "Edit this if we heard it wrong.",
+    "unsupported": "Voice input is not available on this browser. Type your answer instead.",
+    "notUnderstood": "We could not read that answer. Say it again or type it.",
+    "cannotRead": {
+      "dimension": "We could not read a measurement there. Try \"18 feet\", \"18 ft\" or \"18 by 16\".",
+      "count": "We could not read a number there. Try \"2\" or \"two doors\".",
+      "choice": "That answer did not match any of the choices above. Tap a choice or rephrase.",
+      "text": "Please type or say a short description."
+    }
+  },
+  "actions": {
+    "next": "Next",
+    "back": "Back",
+    "unknown": "I don't know yet",
+    "skip": "Skip",
+    "finish": "See ballpark range",
+    "recalculate": "Recalculate",
+    "save": "Save",
+    "exit": "Exit"
+  },
+  "q": {
+    "lengthFt": {
+      "prompt": "How long is the space?",
+      "hint": "You can say \"sixteen by eighteen\" and we'll fill in both."
+    },
+    "widthFt": {
+      "prompt": "How wide is it?",
+      "hint": "Overall width, wall to wall."
+    },
+    "ceilingHeightFt": {
+      "prompt": "How high is the ceiling?",
+      "hint": "Finished ceiling height."
+    },
+    "useOfSpace": {
+      "prompt": "What is the space becoming?",
+      "hint": "Guest suite, office, studio apartment…"
+    },
+    "bathroom": {
+      "prompt": "Is there a bathroom?"
+    },
+    "closet": {
+      "prompt": "Any closet or storage?"
+    },
+    "partitions": {
+      "prompt": "How many new interior walls?",
+      "hint": "A rough sense is enough — we'll show the allowance we use."
+    },
+    "partitionLfKnown": {
+      "prompt": "If you know the partition length, say it",
+      "hint": "Leave this blank to use our allowance."
+    },
+    "raisedFloor": {
+      "prompt": "Does the floor need to be framed up?",
+      "hint": "Common over a sloped garage slab."
+    },
+    "insulationWalls": {
+      "prompt": "Insulate the exterior walls?"
+    },
+    "insulationCeiling": {
+      "prompt": "Insulate the ceiling?"
+    },
+    "insulationFloor": {
+      "prompt": "Insulate the floor?"
+    },
+    "drywall": {
+      "prompt": "How much drywall?"
+    },
+    "flooringQuality": {
+      "prompt": "What level of flooring?"
+    },
+    "plumbing": {
+      "prompt": "How far is the plumbing moving?",
+      "hint": "Distance to the nearest existing drain."
+    },
+    "electrical": {
+      "prompt": "How much electrical work?"
+    },
+    "newDoors": {
+      "prompt": "How many new doors?"
+    },
+    "newWindows": {
+      "prompt": "How many new windows?"
+    },
+    "finishLevel": {
+      "prompt": "What finish level?"
+    },
+    "roomType": {
+      "prompt": "What kind of space is this?"
+    },
+    "sizeClass": {
+      "prompt": "Roughly how big is it?",
+      "hint": "A size class only — we'll show the footprint we assume."
+    },
+    "scopeType": {
+      "prompt": "What kind of work is it?"
+    },
+    "layoutChange": {
+      "prompt": "Any major layout change?",
+      "hint": "Moving walls, doors or the room's function."
+    },
+    "plumbingRelocation": {
+      "prompt": "Does plumbing need to move?"
+    },
+    "wallRemoval": {
+      "prompt": "Is any wall coming out?",
+      "hint": "Load-bearing walls change the number a lot."
+    },
+    "cabinets": {
+      "prompt": "Cabinets: replace, reface, or keep?"
+    },
+    "optionalDimension": {
+      "hint": "Optional. Skip it and we'll use the size-class allowance."
+    },
+    "plantingStockSize": {
+      "prompt": "What size is the plant stock?",
+      "hint": "Container size or balled-and-burlapped."
+    },
+    "plantingAccess": {
+      "prompt": "How do crews reach the planting area?",
+      "hint": "Machine access changes the labor a lot."
+    },
+    "soilConditions": {
+      "prompt": "What are the soil conditions?"
+    },
+    "proximityRisk": {
+      "prompt": "Is the work near a structure, footing or buried utility?",
+      "hint": "This may require locates and hand digging."
+    },
+    "spoilsDisposal": {
+      "prompt": "Do spoils or debris need to be hauled away?"
+    },
+    "beamSpanFt": {
+      "prompt": "How long is the clear span?",
+      "hint": "Measured between supports."
+    },
+    "bearingCondition": {
+      "prompt": "Is the load path to the foundation confirmed?"
+    },
+    "temporaryShoring": {
+      "prompt": "Is temporary support needed during the work?"
+    },
+    "beamFinishMethod": {
+      "prompt": "How should the beam and posts be finished?"
+    },
+    "demoExtent": {
+      "prompt": "How much demolition is involved?"
+    },
+    "patchScope": {
+      "prompt": "How much drywall patching is involved?"
+    },
+    "builtInLengthFt": {
+      "prompt": "How long is the built-in work?",
+      "hint": "Total finished linear feet."
+    },
+    "builtInMaterial": {
+      "prompt": "Paint grade or stain grade?"
+    },
+    "cabinetRunFt": {
+      "prompt": "How long is the cabinet run?",
+      "hint": "Total linear feet of cabinets."
+    },
+    "counterMaterial": {
+      "prompt": "What countertop material?"
+    },
+    "bathFixtureScope": {
+      "prompt": "Do fixtures stay in place or move?"
+    },
+    "showerWaterproofing": {
+      "prompt": "Does the wet area need waterproofing?"
+    },
+    "ventilation": {
+      "prompt": "Is new exhaust ventilation included?"
+    }
+  },
+  "options": {
+    "yes": "Yes",
+    "no": "No",
+    "unsure": "Not sure",
+    "none": "None",
+    "light": "Light",
+    "moderate": "Moderate",
+    "extensive": "Extensive",
+    "shoring": {
+      "allowance": "Include an allowance"
+    },
+    "beamFinish": {
+      "drywall": "Drywall, painted",
+      "paintGrade": "Paint-grade wrap",
+      "stainGrade": "Stain-grade wood",
+      "exposed": "Leave exposed",
+      "allowance": "Unknown — include allowance"
+    },
+    "bath": {
+      "none": "No bathroom",
+      "half": "Half bath",
+      "full": "Full bath"
+    },
+    "closet": {
+      "none": "None",
+      "small": "Small",
+      "standard": "Standard",
+      "large": "Large"
+    },
+    "drywall": {
+      "wallsAndCeiling": "Walls and ceiling",
+      "wallsOnly": "Walls only",
+      "none": "None"
+    },
+    "quality": {
+      "basic": "Basic",
+      "mid": "Mid-range",
+      "standard": "Standard",
+      "premium": "Premium",
+      "noFlooring": "Keep existing"
+    },
+    "plumbing": {
+      "none": "None",
+      "nearby": "Nearby",
+      "moderate": "Moderate",
+      "major": "Major"
+    },
+    "electrical": {
+      "basic": "Basic extension",
+      "moderate": "New circuits",
+      "panel": "Panel or sub-panel"
+    },
+    "unclear": "Can't tell",
+    "roomType": {
+      "kitchen": "Kitchen",
+      "bathroom": "Bathroom",
+      "bedroom": "Bedroom",
+      "living": "Living area",
+      "garage": "Garage",
+      "basement": "Basement",
+      "other": "Other"
+    },
+    "sizeClass": {
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large",
+      "xlarge": "Extra large"
+    },
+    "scopeType": {
+      "cosmetic": "Cosmetic refresh",
+      "full": "Full remodel",
+      "conversion": "Conversion or addition"
+    },
+    "cabinets": {
+      "none": "Keep existing",
+      "reface": "Reface",
+      "replace": "Replace"
+    },
+    "plantingStock": {
+      "small": "Small (up to 5 gal)",
+      "medium": "Medium (15 gal)",
+      "large": "Large (boxed or B&B)"
+    },
+    "access": {
+      "machine": "Machine access",
+      "limited": "Limited access",
+      "hand": "Hand carry only"
+    },
+    "soil": {
+      "loam": "Normal soil",
+      "clay": "Heavy clay",
+      "rocky": "Rocky"
+    },
+    "bearing": {
+      "verified": "Verified",
+      "assumed": "Assumed",
+      "unknown": "Unknown"
+    },
+    "builtIn": {
+      "paintGrade": "Paint grade",
+      "stainGrade": "Stain grade"
+    },
+    "counter": {
+      "laminate": "Laminate",
+      "quartz": "Quartz",
+      "granite": "Granite"
+    },
+    "bathFixture": {
+      "sameLocation": "Same location",
+      "relocated": "Relocated"
+    }
+  },
+  "assumption": {
+    "dimensions": "Overall size",
+    "ceilingHeight": "Ceiling height",
+    "floorArea": "Floor area",
+    "perimeter": "Perimeter",
+    "wallArea": "Wall area",
+    "partitions": "New interior walls",
+    "bathroom": "Bathroom",
+    "closet": "Closet",
+    "openings": "Doors and windows",
+    "finishLevel": "Finish level"
+  },
+  "item": {
+    "partitionWall": "New partition walls",
+    "raisedFloor": "Framed floor",
+    "insulationWalls": "Wall insulation",
+    "insulationCeiling": "Ceiling insulation",
+    "insulationFloor": "Floor insulation",
+    "drywall": "Drywall hang and finish",
+    "paint": "Paint",
+    "flooring": "Flooring",
+    "trim": "Baseboard and trim",
+    "doors": "Interior doors",
+    "windows": "Windows",
+    "electrical": "Electrical",
+    "plumbing": "Plumbing",
+    "bathFixtures": "Bathroom fixtures",
+    "closetShelving": "Closet shelving"
+  },
+  "group": {
+    "framing": "Framing",
+    "insulation": "Insulation",
+    "drywall": "Drywall",
+    "finishes": "Finishes",
+    "openings": "Doors and windows",
+    "systems": "Systems",
+    "other": "Other"
+  },
+  "result": {
+    "title": "Preliminary range",
+    "low": "Low",
+    "expected": "Recommended",
+    "high": "High",
+    "confidence": "Confidence",
+    "confidenceLevel": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "assumptions": "Assumptions we used",
+    "unknowns": "Still unknown",
+    "unknownsHint": "These widen the range by {{pct}}%.",
+    "quantities": "Preliminary quantities",
+    "source": {
+      "answered": "You told us",
+      "assumed": "Assumed",
+      "derived": "Calculated"
+    },
+    "preliminary": "This is a preliminary range, not a fixed price.",
+    "widenSummary": "The band is widened {{total}}% overall, including {{source}}% for what this intake path cannot verify.",
+    "previewTitle": "Refined preview — not applied yet",
+    "previewNote": "Your current saved range is {{low}}–{{high}}. This preview replaces it only when you tap \"Use this ballpark\".",
+    "savedTitle": "Current saved range",
+    "positionGroupLabel": "Select where in the range you are selling this job",
+    "positionHint": "Same scope and pricing settings — only the selling position inside the preliminary range changes.",
+    "selectedBadge": "Selected",
+    "unpriced": "Not priced",
+    "invalidTitle": "Pricing incomplete — this is not a $0 quote",
+    "invalidBody": "This project has real scope, but none of it could be priced yet, so no range can be shown. Resolve the items below (usually a missing measurement or an unmatched task) and recalculate.",
+    "invalidUnresolved": "{{count}} item(s) could not be priced."
+  },
+
+  "warning": {
+    "sampleData": "Pricing uses illustrative sample data, not market rates. Replace it with your own costs before quoting.",
+    "noDimensions": "Without length and width we cannot derive quantities.",
+    "noLines": "No priceable work yet — answer a few more questions.",
+    "assumedFootprint": "The room size is an allowance, not a measurement. Add dimensions to tighten the range.",
+    "photoInference": "Photo-based inputs are limited to what a person confirmed from the images.",
+    "inferredFootprint": "Room size was inferred from photo scale references, not measured."
+  },
+  "after": {
+    "use": "Use this ballpark",
+    "refine": "Refine assumptions",
+    "continue": "Continue to detailed walkthrough",
+    "later": "Add sketch or exact measurements later",
+    "laterHint": "Your answers stay on the project. Exact measurements will replace the assumptions without restarting."
+  },
+  "toast": {
+    "saved": "Ballpark saved to the project.",
+    "applied": "Ballpark measurements saved. Refine them any time.",
+    "failed": "We could not save that. Try again.",
+    "noChanges": "No changes — your estimate is unchanged"
+  },
+  "empty": {
+    "noProject": "Choose a project first."
+  },
+  "intake": {
+    "title": "How are you estimating this job?",
+    "subtitle": "All three paths use the same ballpark engine and show the same assumptions.",
+    "onsite": {
+      "title": "On-site walkthrough",
+      "hint": "You're at the property: spoken questions, rough dimensions, what you can see.",
+      "cta": "Start on site"
+    },
+    "photos": {
+      "title": "Estimate from photos",
+      "hint": "Remote estimates when you have photos but limited measurements.",
+      "cta": "Use photos",
+      "help": "Works for anything photo-first — a homeowner's phone pictures, an insurance packet or a realtor package."
+    },
+    "description": {
+      "title": "Describe your project",
+      "hint": "Voice or typing only. No photos or measurements needed.",
+      "cta": "Describe it"
+    }
+  },
+  "photos": {
+    "title": "Add photos",
+    "hint": "Add whatever you have. Photos set the context — we only record what you confirm.",
+    "add": "Add photos",
+    "alt": "Uploaded photo {{name}}",
+    "remove": "Remove photo",
+    "noMeasurements": "We never read dimensions off a photo. Anything size-related comes from you or from a labeled allowance.",
+    "continue": "Continue to questions",
+    "continueWithout": "Continue without photos",
+    "kindLabel": "What is this image?",
+    "previewLost": "Re-add",
+    "kind": {
+      "room_photo": "Whole room / overall area",
+      "sketch_plan": "Sketch / plan",
+      "rendering": "Rendering / inspiration",
+      "detail_photo": "Detail / close-up",
+      "unknown": "Not sure",
+      "exterior": "Exterior",
+      "damage_photo": "Existing condition / problem area"
+    },
+    "moveUp": "Move photo up",
+    "moveDown": "Move photo down"
+  },
+  "describe": {
+    "title": "Describe your project",
+    "hint": "Say or type what you want done. A few short questions follow.",
+    "placeholder": "Example: convert the two-car garage into a studio with a full bathroom…",
+    "continue": "Continue to questions"
+  },
+  "obs": {
+    "cabinetsPresent": "Are there cabinets in the photo?",
+    "plumbingFixturesVisible": "Are plumbing fixtures visible?",
+    "flooringToReplace": "Is the flooring being replaced?",
+    "wallsFinished": "Are the walls already finished?",
+    "ceilingFinished": "Is the ceiling already finished?",
+    "visibleDamage": "Any visible damage or water staining?",
+    "windowsInView": "Are there windows in view?"
+  },
+  "ledger": {
+    "title": "What this number rests on",
+    "completeness": "Input completeness",
+    "completenessHint": "How much of the high-impact information we have. Not a claim about market accuracy.",
+    "measured": "Measurements you gave",
+    "known": "Facts you told us",
+    "observed": "From the photos (you confirmed)",
+    "assumed": "Our assumptions",
+    "unknown": "Still unknown",
+    "risks": "High-impact price risks",
+    "editAssumptions": "Edit assumptions",
+    "category": {
+      "known": "Known",
+      "measured": "Measured",
+      "observed": "Observed",
+      "assumed": "Assumed",
+      "unknown": "Unknown",
+      "risk": "Risk",
+      "inferred": "Inferred"
+    },
+    "impact": {
+      "high": "High impact",
+      "medium": "Medium impact",
+      "low": "Low impact"
+    },
+    "inferred": "Inferred from photos"
+  },
+  "risk": {
+    "plumbingRelocation": "Moving plumbing",
+    "plumbingRelocationNote": "Drain lines and venting can swing the price once the floor or wall is opened.",
+    "structural": "Structural work",
+    "structuralNote": "Removing a wall may need a beam, an engineer's letter and a permit.",
+    "concealedConditions": "Concealed conditions",
+    "concealedConditionsNote": "Nothing behind the finishes has been verified on this path.",
+    "electricalService": "Electrical service",
+    "electricalServiceNote": "A panel or service upgrade is a large, separate cost.",
+    "permits": "Permits and code",
+    "permitsNote": "Permit fees, inspections and code upgrades vary by jurisdiction.",
+    "selections": "Material selections",
+    "selectionsNote": "Finish choices can move the total substantially in either direction.",
+    "access": "Site access",
+    "accessNote": "Parking, stairs, elevators and working hours affect labor.",
+    "assumedFootprint": "Assumed room size",
+    "assumedFootprintNote": "No verified dimensions yet — the footprint comes from the size class you chose.",
+    "inferredFootprint": "Room size inferred from photos",
+    "inferredFootprintNote": "Dimensions were scaled from standard objects in the photos. Onsite measurement can move the price."
+  },
+  "disclaimer": {
+    "counselReview": "Template wording only. Have business counsel review the production disclaimer before launch.",
+    "preliminary": {
+      "title": "Preliminary estimate — not a quote",
+      "body": "This is a preliminary ballpark range based on the information available so far. It is not a bid, a contract, or a guaranteed price. The final price depends on:"
+    },
+    "rendering": {
+      "title": "Renderings are conceptual",
+      "body": "Any rendering shown with this range is a concept image. It does not represent verified dimensions, actual products, or the finished result, and pricing shown alongside it remains preliminary."
+    },
+    "factor": {
+      "siteVisit": "A site visit",
+      "measurements": "Verified measurements",
+      "contractorReview": "Contractor review",
+      "selections": "Final material selections",
+      "permits": "Permits and code requirements",
+      "structural": "Structural conditions",
+      "concealed": "Concealed conditions",
+      "utilities": "Utilities and service capacity",
+      "access": "Site access",
+      "market": "Current market pricing"
+    }
+  },
+  "history": {
+    "title": "Refinement history",
+    "changed": "{{count}} input updated",
+    "changed_other": "{{count}} inputs updated",
+    "kind": {
+      "answers": "Answers updated",
+      "measurements": "Measurements added",
+      "observations": "Photo observations updated",
+      "selections": "Selections updated",
+      "sketch": "Sketch added"
+    }
+  },
+  "scale": {
+    "title": "Size the room from what you can see",
+    "hint": "Pick an object in the photo and tell us how many of them fit across. Standard objects make good rulers.",
+    "pickReference": "Choose a reference object",
+    "spans": "{{count}} across",
+    "approx": "about {{feet}} ft",
+    "more": "Add one",
+    "less": "Remove one",
+    "clear": "Clear",
+    "disclaimer": "These are approximations from standard object sizes, not measurements.",
+    "showAdvanced": "Advanced calibration (optional)",
+    "hideAdvanced": "Hide advanced calibration",
+    "allowCrossAxis": "This photo's perspective supports using this object across the other direction",
+    "spansAxis": {
+      "horizontal": "{{count}} across",
+      "vertical": "{{count}} tall"
+    },
+    "axisGuide": {
+      "roomLengthFt": "Count across the floor, left to right along the longer wall. Only floor-level objects count.",
+      "roomWidthFt": "Count across the floor, wall to wall on the shorter side. Only floor-level objects count.",
+      "ceilingHeightFt": "Count upward, floor to ceiling. Heights only — a door height works here.",
+      "cabinetRunLf": "Count along the front of the cabinet run, left to right."
+    }
+  },
+  "scaleRef": {
+    "dishwasher": "Dishwasher (24 in)",
+    "range": "Range / stove (30 in)",
+    "refrigerator": "Refrigerator (30–36 in)",
+    "overRangeMicrowave": "Over-range microwave (30 in)",
+    "baseCabinetDepth": "Base cabinet depth (24 in)",
+    "baseCabinetWidth": "Base cabinet width (12–36 in)",
+    "counterHeight": "Countertop height (36 in)",
+    "wallCabinetHeight": "Wall cabinet height (30–42 in)",
+    "backsplashGap": "Backsplash gap (18 in)",
+    "bathtub": "Standard tub (60 in)",
+    "toilet": "Toilet (28 in)",
+    "vanity": "Vanity (24–60 in)",
+    "showerBase": "Shower base (32–60 in)",
+    "interiorDoorWidth": "Interior door width (32 in)",
+    "doorHeight": "Door height (80 in)",
+    "windowWidth": "Window width (24–72 in)",
+    "outletHeight": "Outlet height (15 in)",
+    "switchHeight": "Switch height (48 in)",
+    "floorPlank": "Floor plank (36–60 in)",
+    "tile12": "12 in tile",
+    "tile24": "24 in tile",
+    "ceilingTile": "Ceiling tile (24 in)"
+  },
+  "inference": {
+    "title": "Photo inference summary",
+    "roomType": "Room type",
+    "unknownRoomType": "Not identified yet",
+    "confidence": "Confidence",
+    "detectedReferences": "Scale references used",
+    "confirm": "Looks right",
+    "adjust": "Adjust",
+    "save": "Save",
+    "continue": "Continue",
+    "disclaimer": "Preliminary only. Sizes are approximated from standard objects and must be verified by onsite measurement.",
+    "source": {
+      "inferred": "Inferred",
+      "assumed": "Assumed",
+      "user_entered": "You entered",
+      "confirmed": "Confirmed"
+    },
+    "target": {
+      "roomLengthFt": "Room length",
+      "roomWidthFt": "Room width",
+      "ceilingHeightFt": "Ceiling height",
+      "cabinetRunLf": "Cabinet run",
+      "floorAreaSf": "Floor area",
+      "perimeterLf": "Perimeter",
+      "wallAreaSf": "Wall area",
+      "backsplashAreaSf": "Backsplash area"
+    },
+    "basis": {
+      "sizeClass": "From the size class allowance",
+      "standardCeiling": "Standard 8 ft ceiling allowance",
+      "lengthTimesWidth": "Length × width",
+      "perimeter": "2 × (length + width)",
+      "perimeterTimesHeight": "Perimeter × ceiling height",
+      "backsplash": "Cabinet run × 18 in",
+      "userEntered": "You entered this value"
+    },
+    "rejectedTitle": "Not used, and why",
+    "group": {
+      "known": "Known",
+      "inferred": "Inferred from photos",
+      "assumed": "Assumed allowance"
+    },
+    "rejected": {
+      "unknownReference": "That reference object is not in our catalog.",
+      "invalidSpans": "We need a count greater than zero.",
+      "elevationCrossAxis": "A height off the floor (a door, a switch, a countertop) cannot tell us how wide or long a room is. Use a floor-level object instead.",
+      "axisMismatch": "That object measures the other direction. Pick one on the same axis, or confirm the perspective under Advanced.",
+      "notAPhotograph": "Object-scale calibration only works on a room photograph, not on a sketch or rendering.",
+      "cabinetsNotConfirmed": "Confirm that cabinets exist before sizing a cabinet run.",
+      "implausibleResult": "That result is outside a plausible room size, so we set it aside."
+    },
+    "warning": {
+      "elevationCrossAxis": "A vertical reference was used across the floor. Those values were rejected and confidence is set to low.",
+      "sketchNoObjectScale": "Object-scale calibration was skipped because these images are a sketch or rendering.",
+      "implausibleDimension": "A calculated dimension fell outside a plausible range and was replaced with a documented allowance.",
+      "tinyFloorArea": "This floor area is too small for the room type. Something is off — confirm the dimensions before using this range.",
+      "doorHeightCalibration": "Length and width both came out near a standard door height, which usually means a vertical reference was used across the floor. Confidence is low."
+    }
+  },
+  "confidence": {
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+  "analysis": {
+    "title": "What we can say from these images",
+    "note": {
+      "noVisionProvider": "No image-analysis service is connected, so nothing here was read from the pixels. We use the image kind you pick, your answers and documented size allowances — never invented dimensions.",
+      "noPhotos": "No images yet. You can still continue: the range will come from your answers and broad size classes.",
+      "sketch": "This looks like a sketch or floor plan, so object-scale calibration is switched off. Tell us the overall dimensions if the drawing shows them.",
+      "rendering": "A rendering is a design image, not a measurement. We will use broad size classes instead of object scale.",
+      "detail": "These look like detail shots. They are good for materials and damage, but they cannot establish room size.",
+      "unknownKind": "We could not tell what these images are. Set the image kind so we treat them correctly.",
+      "unresolved": "Some high-impact basics are still unknown, so the range stays wide until you answer them.",
+      "exterior": "These are exterior shots — they say little about interior finishes or room sizes.",
+      "damage": "Existing-condition shots flag problem areas; they do not size the room."
+    },
+    "summaryTitle": "Photo analysis summary",
+    "photoCount": "{{count}} image",
+    "photoCount_plural": "{{count}} images",
+    "confidenceValue": "{{value}}% sure",
+    "fromImages": "from {{count}} image",
+    "fromImages_plural": "from {{count}} images",
+    "correct": "Correct",
+    "continue": "Continue to questions",
+    "nothingYet": "Nothing to summarize yet — answer a few questions and this fills in.",
+    "unknownValue": "Not established",
+    "questionsAhead": "{{count}} question left worth asking.",
+    "questionsAhead_plural": "{{count}} questions left worth asking.",
+    "scopeTitle": "Likely scope categories",
+    "condition": {
+      "unfinished": "Existing condition: unfinished",
+      "finished": "Existing condition: finished",
+      "damage": "Existing condition: visible damage",
+      "unknown": "Existing condition: not established"
+    },
+    "source": {
+      "photo_inferred": "Photo-inferred",
+      "sketch_inferred": "From the sketch",
+      "user_confirmed": "You confirmed",
+      "user_selected": "You selected"
+    },
+    "fact": {
+      "photoKind": "What these images are",
+      "roomType": "Room or project type",
+      "sizeClass": "Size class",
+      "floorAreaSf": "Approximate floor area",
+      "scopeType": "Scope of work",
+      "finishLevel": "Finish level"
+    },
+    "basis": {
+      "kindSelected": "Based on the image kinds you picked",
+      "answered": "Based on your answer",
+      "dimensions": "Length times width",
+      "sizeAllowance": "Documented size-class allowance, not a measurement",
+      "confirmedInPhoto": "You confirmed this is visible"
+    },
+    "scope": {
+      "finishes": "Finishes",
+      "paint": "Paint",
+      "demolition": "Demolition",
+      "framing": "Framing",
+      "electrical": "Electrical",
+      "insulation": "Insulation",
+      "mechanical": "Mechanical",
+      "plumbing": "Plumbing",
+      "cabinetry": "Cabinetry",
+      "flooring": "Flooring",
+      "repairs": "Repairs"
+    },
+    "confirmedTitle": "Confirmed observations",
+    "confirmedEmpty": "Nothing confirmed yet.",
+    "uncertainTitle": "Uncertain",
+    "uncertainEmpty": "Nothing outstanding.",
+    "knownTitle": "Known measurements",
+    "knownEmpty": "No measurements yet.",
+    "unknownTitle": "Unknown measurements",
+    "unknownEmpty": "Nothing missing.",
+    "measure": {
+      "lengthFt": "Length",
+      "widthFt": "Width",
+      "ceilingHeightFt": "Ceiling height"
+    }
+  },
+  "saveError": {
+    "offline": "You are offline. Your answers are kept on this device and will save when you reconnect. Reference {{reference}}.",
+    "auth": "Your session expired. Sign in again to save. Reference {{reference}}.",
+    "locked": "This estimate is locked and cannot be changed. Reference {{reference}}.",
+    "notFound": "We could not find this estimate. Reference {{reference}}.",
+    "invalidSnapshot": "The ballpark range is incomplete, so it was not saved. Reference {{reference}}.",
+    "validation": "Some answers could not be saved as entered. Nothing was lost. Reference {{reference}}.",
+    "server": "Saving failed on our side. Your answers are still here — try again. Reference {{reference}}."
+  },
+  "assumptionsReview": {
+    "title": "Review assumptions",
+    "hint": "Everything the range rests on. Change anything that is wrong before we calculate.",
+    "edit": "Edit",
+    "empty": "Nothing to review yet.",
+    "unknownValue": "Unknown",
+    "continue": "Calculate range",
+    "disclaimer": "Photos are weak clues, never measurements. Anything still unknown widens the range.",
+    "source": {
+      "contractor": "Contractor",
+      "photo": "Photo",
+      "assumed": "Assumed",
+      "unknown": "Unknown"
+    }
+  },
+  "resolved": {
+    "title": "You've already answered the key questions for this estimate",
+    "body": "Nothing important is unresolved right now. Your saved answers, project measurements and current scope already cover what the Ballpark needs.",
+    "back": "Back to project",
+    "reviewAll": "Review all answers anyway"
+  },
+  "q.scopeClarifier.prompt": "What work are we doing here?",
+  "q.scopeClarifier.hint": "Describe the job in a sentence — we'll build the right questions from it.",
+  "q.fixtureCount.prompt": "How many plumbing fixtures?",
+  "q.fixtureCount.hint": "Count sinks, toilets, tubs and showers being set.",
+  "q.pipeRunLf.prompt": "How much new pipe run, in feet?",
+  "q.pipeRunLf.hint": "Total supply and waste run you expect to install.",
+  "q.pipeMaterial.prompt": "What pipe material are we working with?",
+  "options.pipe.pex": "PEX",
+  "options.pipe.copper": "Copper",
+  "options.pipe.castIron": "Cast iron / galvanized",
+  "q.plumbingAccess.prompt": "How accessible is the rough-in?",
+  "options.plumbingAccess.open": "Open walls",
+  "options.plumbingAccess.concealed": "Concealed / finished",
+  "options.plumbingAccess.slab": "Under slab"
+}

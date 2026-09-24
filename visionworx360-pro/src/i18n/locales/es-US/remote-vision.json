@@ -1,0 +1,349 @@
+{
+  "tab": "Presupuesto con Fotos o Video",
+  "title": "Presupuesto con Fotos o Video",
+  "subtitle": "Fotos, video, renders y tus propias notas — un presupuesto preliminar sin visita a la obra.",
+  "disclaimer": "Todavía sin IA: las detecciones vienen de reglas fijas de palabras clave sobre lo que escribes o dices. Cada supuesto se muestra y se puede editar.",
+  "cta": {
+    "start": "Presupuesto con Fotos o Video",
+    "description": "Sube fotos y renders, describe la remodelación y obtén rangos en minutos."
+  },
+  "steps": {
+    "capture": "Capturar",
+    "review": "Revisar partidas",
+    "estimate": "Presupuesto",
+    "scope": "Aprobar y guardar"
+  },
+  "project": {
+    "title": "Proyecto",
+    "placeholder": "Elige un proyecto",
+    "none": "Crea un proyecto primero, o continúa sin vincular uno.",
+    "unlinked": "Sesión sin vincular"
+  },
+  "media": {
+    "title": "Fotos y renders",
+    "before": "Fotos de antes",
+    "after": "Renders de después (opcional)",
+    "plan": "Plano existente (opcional)",
+    "add": "Agregar archivos",
+    "empty": "Aún no hay archivos.",
+    "remove": "Quitar",
+    "count": "{{count}} archivo(s)",
+    "hint": "Las fotos se guardan en este proyecto y están disponibles en cualquier dispositivo.",
+    "saving": "Guardando fotos…",
+    "saved": "Guardado en el proyecto",
+    "error": "Algunas fotos no se pudieron guardar. Inténtalo de nuevo.",
+    "needsProject": "Selecciona un proyecto primero para guardar las fotos.",
+    "loading": "Cargando fotos guardadas…",
+    "savedBadge": "Guardado",
+    "pendingBadge": "Sin guardar"
+  },
+  "describe": {
+    "title": "Describe la remodelación",
+    "hint": "Habla como se lo dirías al cliente. Ejemplo: “Quitar la pared entre la cocina y el comedor, instalar una viga LVL, reemplazar todos los gabinetes…”",
+    "placeholder": "Describe el trabajo…",
+    "record": "Iniciar grabación",
+    "stop": "Detener grabación",
+    "unsupported": "El reconocimiento de voz no está disponible en este navegador — escribe la descripción.",
+    "analyze": "Analizar"
+  },
+  "detected": {
+    "title": "Lo que encontramos",
+    "empty": "Aún no se detecta nada — agrega más detalle a la descripción.",
+    "confidence": "Confianza {{value}}%",
+    "buckets": {
+      "rooms": "Habitaciones",
+      "materials": "Materiales",
+      "cabinets": "Gabinetes",
+      "flooring": "Pisos",
+      "lighting": "Iluminación",
+      "windows": "Ventanas",
+      "doors": "Puertas",
+      "appliances": "Electrodomésticos",
+      "fixtures": "Accesorios",
+      "structuralChanges": "Cambios estructurales",
+      "mechanicalChanges": "Cambios mecánicos"
+    }
+  },
+  "assumptions": {
+    "title": "Supuestos",
+    "hint": "Completamos lo que no se dijo. Cambia lo que no sea correcto.",
+    "auto": "Supuesto",
+    "confirmed": "Confirmado",
+    "empty": "No se necesitan supuestos.",
+    "topic": {
+      "cabinet_grade": "Los gabinetes parecen ser",
+      "flooring_type": "El piso parece ser",
+      "countertop_material": "Las encimeras parecen ser",
+      "paint_grade": "Grado de pintura",
+      "lighting_package": "Paquete de iluminación",
+      "appliance_grade": "Los electrodomésticos parecen ser",
+      "structural_engineering": "Ingeniería estructural"
+    },
+    "option": {
+      "builder_grade": "Grado básico",
+      "mid_grade": "Grado medio",
+      "premium": "Premium",
+      "unknown": "Desconocido",
+      "lvp": "Vinil de lujo (LVP)",
+      "hardwood": "Madera",
+      "tile": "Loseta",
+      "laminate": "Laminado",
+      "quartz": "Cuarzo",
+      "granite": "Granito",
+      "required": "Requerida",
+      "not_required": "No requerida"
+    }
+  },
+  "levels": {
+    "title": "Niveles de presupuesto",
+    "economy": "Económico",
+    "mid_range": "Intermedio",
+    "premium": "Premium",
+    "range": "Rango de costo estimado",
+    "labor": "Mano de obra estimada",
+    "laborValue": "{{hours}} horas",
+    "duration": "Duración estimada",
+    "durationValue": "{{days}} día(s)",
+    "confidence": "Confianza",
+    "drivers": "Qué determina este precio",
+    "basedOn": "Según tus supuestos",
+    "select": "Usar este nivel",
+    "selected": "Seleccionado",
+    "empty": "Describe la remodelación para ver los niveles.",
+    "pricingBlocked": "Precio sin resolver — requiere revisión",
+    "unpricedTitle_one": "1 partida sin precio todavía",
+    "unpricedTitle_other": "{{count}} partidas sin precio todavía",
+    "unpricedHint": "No se incluyen en el rango de arriba. Agrega una medición o una asignación en el estimado detallado.",
+    "unpricedReason": {
+      "no_mapping": "ningún ensamble del catálogo coincide con este trabajo todavía",
+      "missing_assembly": "el ensamble del catálogo asignado no está disponible",
+      "unit_incompatible": "el tamaño indicado no coincide con la unidad de venta del ensamble",
+      "no-quantity": "no hay cantidad ni medición confirmada para cotizar",
+      "no-trade": "el oficio de este trabajo aún no está determinado",
+      "fee-basis": "se cotiza como tarifa o permiso, no como trabajo de producción",
+      "unknown": "requiere revisión antes de poder cotizarse"
+    },
+    "allowanceTitle_one": "1 elemento calculado con una provisión estándar",
+    "allowanceTitle_other": "{{count}} elementos calculados con una provisión estándar",
+    "allowanceReason": "sin medida indicada — calculado con una provisión estándar",
+    "allowanceHint": "Están incluidos en el rango aproximado usando una provisión estimada. Confirme el tamaño real para el presupuesto detallado.",
+    "allowanceBadge": "Tamaño supuesto",
+    "allowanceBasis": {
+      "standard_cabinet": "gabinete estándar de 36\" de ancho × 84\" de alto",
+      "cabinet_run": "tramo de gabinetes estándar de 84\" de alto",
+      "standard": "asignación estándar para este trabajo"
+    },
+    "allowanceDetail": "se asume {{quantity}} {{unit}} — {{basis}}"
+  },
+  "questions": {
+    "title": "Algunas preguntas",
+    "hint": "Solo lo que todavía falta.",
+    "none": "No falta nada.",
+    "placeholder": "Tu respuesta",
+    "save": "Guardar respuestas",
+    "prompt": {
+      "cabinet_manufacturer": "¿Fabricante o línea de gabinetes?",
+      "countertop_material": "¿Material de encimera?",
+      "flooring_type": "¿Material del piso?",
+      "electrical_panel": "¿El panel eléctrico es adecuado?",
+      "plumbing_location": "¿La plomería existente permanece en su lugar?",
+      "paint_grade": "¿Grado de pintura?",
+      "structural_engineering": "¿Hay un ingeniero estructural involucrado?",
+      "window_count": "¿Cuántas ventanas se reemplazarán?"
+    }
+  },
+  "scope": {
+    "title": "Alcance de trabajo",
+    "hint": "Generado desde tu descripción y supuestos. Edítalo solo si quieres.",
+    "edit": "Editar redacción",
+    "save": "Guardar redacción",
+    "cancel": "Cancelar",
+    "regenerate": "Regenerar",
+    "approve": "Aprobar alcance",
+    "approved": "Aprobado",
+    "proposal": "Vista previa de propuesta",
+    "saveHint": "Al aprobar se guardan el alcance de trabajo, tu descripción y las medidas en el proyecto.",
+    "needsProject": "Selecciona un proyecto arriba para que al aprobar se guarde el alcance en él.",
+    "saving": "Guardando…"
+  },
+  "proposal": {
+    "title": "Alcance de trabajo de la propuesta",
+    "subtitle": "Exactamente lo que ve el cliente.",
+    "notApproved": "Aprueba el alcance para generar la propuesta."
+  },
+  "actions": {
+    "next": "Continuar",
+    "back": "Atrás",
+    "reset": "Empezar de nuevo"
+  },
+  "toast": {
+    "analyzed": "Análisis completo",
+    "approved": "Alcance aprobado",
+    "saved": "Redacción guardada",
+    "answers": "Respuestas guardadas",
+    "reset": "Sesión borrada",
+    "committed": "Alcance aprobado y guardado en el proyecto",
+    "commitFailed": "No se pudo guardar en el proyecto. Inténtalo de nuevo."
+  },
+  "video": {
+    "title": "Video de recorrido pregrabado",
+    "hint": "Sube un recorrido que ya grabaste con tu teléfono — no tiene que haberse grabado en VisionWorx360.",
+    "add": "Subir video",
+    "empty": "Aún no hay video.",
+    "remove": "Quitar",
+    "noProject": "Elige un proyecto arriba para guardar el video con el proyecto.",
+    "frames": "{{count}} cuadro(s) analizados",
+    "frameAlt": "Cuadro {{index}} de {{name}}",
+    "limits": "MP4, MOV o WebM · hasta {{maxMb}} MB y {{maxMinutes}} minutos.",
+    "evidence": "El video es evidencia, no medidas. Agrega las dimensiones en Agregar detalles del proyecto.",
+    "state": {
+      "local": "En este dispositivo",
+      "uploading": "Subiendo…",
+      "uploaded": "Guardado en el proyecto",
+      "error": "Falló"
+    },
+    "errors": {
+      "unsupported_type": "Ese tipo de archivo no es compatible. Usa MP4, MOV o WebM.",
+      "too_large": "Ese video pesa más de {{maxMb}} MB. Recórtalo o divídelo en clips más cortos.",
+      "too_long": "Ese video dura más de {{maxMinutes}} minutos. Divídelo en clips más cortos.",
+      "upload": "Falló la subida. Revisa tu conexión e inténtalo de nuevo."
+    }
+  },
+  "details": {
+    "title": "Agregar detalles del proyecto",
+    "hint": "Agrega lo que el material no muestra. Puedes guardar y volver después.",
+    "saved": "Se guarda automáticamente en este dispositivo.",
+    "voice": {
+      "title": "Grabar detalles",
+      "record": "Iniciar grabación",
+      "stop": "Detener grabación",
+      "transcript": "Transcripción",
+      "placeholder": "Tus notas habladas aparecen aquí — edítalas libremente.",
+      "unsupported": "El reconocimiento de voz no está disponible en este navegador — escribe tus notas."
+    },
+    "notes": {
+      "title": "Notas escritas",
+      "placeholder": "Notas, instrucciones, lo que dijo el cliente…"
+    },
+    "dimensions": {
+      "title": "Medidas",
+      "hint": "Opcional. Solo lo que realmente mediste.",
+      "room": "Habitación o área",
+      "roomPlaceholder": "ej. Garaje",
+      "lengthFt": "Largo (pies)",
+      "widthFt": "Ancho (pies)",
+      "ceilingHeightFt": "Altura de techo (pies)",
+      "add": "Agregar medidas",
+      "remove": "Quitar medidas"
+    }
+  },
+  "ledger": {
+    "title": "En qué se basa este presupuesto",
+    "hint": "Tus palabras y medidas son hechos. Las fotos y el video son solo observaciones.",
+    "empty": "Aún no hay datos.",
+    "confirmed": "Confirmado por ti",
+    "observed": "Observado",
+    "kind": {
+      "description": "Descripción",
+      "voice_note": "Nota de voz",
+      "typed_note": "Nota escrita",
+      "measurement": "Medida",
+      "photo": "Foto",
+      "video": "Video"
+    }
+  },
+  "interpreted": {
+    "title": "Alcance interpretado de tu información",
+    "hint": "Solo se cotiza lo que pediste. Revísalo antes del estimado aproximado.",
+    "included": "Incluido",
+    "incidental": "Supuesto / necesario para completar el trabajo",
+    "observations": "No incluido — observaciones",
+    "exclusions": "Excluiste",
+    "dimensions": "Medidas que indicaste",
+    "clarifications": "Necesita una aclaración rápida",
+    "sanity": "Verificación de sensatez",
+    "blocked": "La cotización está en pausa hasta resolver esto.",
+    "why": "¿Por qué esta cantidad?",
+    "requiredBy": "Requerido por: {{item}}",
+    "remove": "Quitar",
+    "restore": "Restaurar",
+    "removed": "Quitado ({{count}})",
+    "empty": "Aún no hay interpretación — agrega una descripción o nota de voz.",
+    "sources": {
+      "spoken_measurement": "Medida dictada",
+      "typed_measurement": "Medida escrita",
+      "drawing": "Plano",
+      "component_arithmetic": "Aritmética de componentes",
+      "derived_from_scope": "Derivado del alcance indicado",
+      "photo_inference": "Inferencia de foto",
+      "assembly_default": "Valor predeterminado",
+      "contractor_override": "Tu ajuste"
+    }
+  },
+  "measurements": {
+    "title": "Medidas",
+    "hint": "Dígalas, escríbalas o suba un plano. Las convertimos en una lista para revisar.",
+    "tabs": {
+      "speak": "Hablar",
+      "type": "Escribir",
+      "plan": "Plano"
+    },
+    "speak": {
+      "record": "Decir medidas",
+      "transcript": "Lo que escuchamos",
+      "placeholder": "ej. La recámara es 12 por 14 con techo de 8 pies. El tramo de mostrador mide 12 pies.",
+      "add": "Agregar estas medidas"
+    },
+    "type": {
+      "title": "Escribir medidas",
+      "placeholder": "Una por línea o todo junto: Baño 5 por 9. Tocador 60 in. Pared 7' 10\".",
+      "add": "Agregar estas medidas"
+    },
+    "plan": {
+      "hint": "Suba una foto o PDF de un croquis, plano o hoja de medidas. Leemos las dimensiones impresas.",
+      "upload": "Subir plano u hoja de medidas",
+      "reading": "Leyendo el plano…",
+      "reviewNote": "Las lecturas del plano son sugerencias hasta que usted las confirme. Nada del plano cotiza por sí solo.",
+      "errors": {
+        "extraction_failed": "No pudimos leer ese plano. Pruebe con una foto más clara o escriba las medidas.",
+        "extraction_unavailable": "La lectura de planos no está disponible ahora — escriba las medidas.",
+        "extraction_blocked": "La lectura de planos no está disponible en esta cuenta ahora.",
+        "rate_limited": "Demasiadas solicitudes. Intente en un momento.",
+        "plan_unreadable": "No pudimos abrir ese archivo.",
+        "plan_too_large": "Ese archivo es muy grande. Pruebe con una foto de la página.",
+        "no_measurements": "No se pudo leer ninguna dimensión en esa página.",
+        "file_too_large": "Ese archivo es muy grande.",
+        "unsupported_type": "Suba un PDF o una foto (JPG, PNG, WEBP).",
+        "upload_failed": "La subida no terminó. Intente de nuevo."
+      }
+    },
+    "source": {
+      "spoken": "Dictado",
+      "typed": "Escrito",
+      "plan": "Plano",
+      "manual": "Ingresado"
+    },
+    "status": {
+      "candidate": "Por revisar",
+      "ambiguous": "Verificar",
+      "confirmed": "Confirmada"
+    },
+    "list": {
+      "title": "Medidas capturadas",
+      "empty": "Aún no hay medidas.",
+      "label": "Qué es",
+      "value": "Medida",
+      "confirm": "Confirmar",
+      "remove": "Quitar"
+    }
+  },
+  "technical": {
+    "toggle": "Ver detalles técnicos",
+    "hint": "Cómo se calculó esto: solo información de estado y auditoría. Aquí no se necesita nada de su parte."
+  },
+  "draftPreview": {
+    "title": "Vista previa preliminar — aún no guardada",
+    "body": "Estos números provienen del borrador de este recorrido. El estimado guardado en la pestaña Estimado del proyecto es el precio autoritativo.",
+    "link": "Abrir el estimado guardado"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "app": {
+    "name": "VisionWorx360 Pro",
+    "tagline": "Voice-first estimating for contractors."
+  },
+  "actions": {
+    "back": "Back",
+    "backHome": "← Back to home",
+    "goHome": "Go home",
+    "tryAgain": "Try again",
+    "cancel": "Cancel",
+    "save": "Save",
+    "confirm": "Confirm",
+    "close": "Close",
+    "signOut": "Sign out"
+  },
+  "language": {
+    "label": "Language",
+    "switcherLabel": "Change language",
+    "english": "English",
+    "spanish": "Español",
+    "changed": "Language changed to {{language}}."
+  },
+  "status": {
+    "loading": "Loading"
+  },
+  "notice": {
+    "success": "Success",
+    "warning": "Warning",
+    "danger": "Error",
+    "information": "Information"
+  },
+  "measurement": {
+    "placeholder": "e.g. 12 ft or 8' 6\"",
+    "formats": "Feet and/or inches: 8 ft · 30 in · 8' 6\" · 7.5",
+    "invalid": "Enter a length like 8 ft, 30 in, or 8' 6\".",
+    "reading": "= {{value}}"
+  }
+}

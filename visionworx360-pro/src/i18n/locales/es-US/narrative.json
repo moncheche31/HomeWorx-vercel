@@ -1,0 +1,168 @@
+{
+  "tab": "Alcance de trabajo",
+  "title": "Alcance de trabajo",
+  "subtitle": "Resumen en lenguaje sencillo. Los cálculos ocurren en segundo plano.",
+  "empty": {
+    "title": "Aún no hay alcance",
+    "body": "Inicia un recorrido y describe el trabajo en voz alta. Nosotros escribimos el alcance."
+  },
+  "approved": "Aprobado el {{date}}",
+  "pendingChanges": "El alcance cambió desde que lo aprobaste.",
+  "actions": {
+    "approve": "Aprobar alcance",
+    "approved": "Aprobado",
+    "edit": "Editar redacción",
+    "questions": "Responder preguntas",
+    "questionsNew": "Responder {{count}} preguntas nuevas",
+    "questionsReview": "Revisar / corregir respuestas",
+    "questionsCount": "Responder preguntas ({{count}})",
+    "regenerate": "Regenerar",
+    "estimate": "Crear presupuesto",
+    "advanced": "Editor avanzado de alcance",
+    "simple": "Volver al alcance de trabajo",
+    "save": "Guardar redacción",
+    "cancel": "Cancelar",
+    "proposal": "Propuesta",
+    "advancedHint": "Crea secciones, partidas y plantillas de alcance detallado.",
+    "editDescription": "Editar descripción del proyecto",
+    "editScope": "Editar alcance de trabajo",
+    "approveUpdated": "Aprobar alcance actualizado",
+    "viewEstimate": "Ver presupuesto",
+    "moreOptions": "Más opciones",
+    "rooms": "Habitaciones y áreas",
+    "notes": "Notas del proyecto",
+    "backToScope": "Volver al alcance de trabajo",
+    "history": "Historial de decisiones"
+  },
+  "editor": {
+    "title": "Editar redacción",
+    "hint": "Escríbelo como se lo dirías al cliente. Al regenerar se reemplazan tus cambios."
+  },
+  "questions": {
+    "title": "Algunas preguntas",
+    "hint": "Responde solo lo que falta. Omite lo que no sepas.",
+    "newTitle": "{{count}} preguntas nuevas",
+    "reviewTitle": "Revise sus respuestas",
+    "reviewHint": "Todo está respondido. Cambie lo que ya no coincida con el trabajo.",
+    "answeredTitle": "Respondido anteriormente",
+    "none": "El alcance tiene suficiente información para continuar — no hay más preguntas.",
+    "placeholder": "Tu respuesta",
+    "skip": "Omitir",
+    "save": "Guardar respuestas",
+    "prompt": {
+      "decision": "¿Qué decidió el cliente sobre {{subject}}?",
+      "garage_door_disposition": "¿Las puertas del garaje se quedan, se quitan y se cierran con estructura, o se reemplazan por una ventana?",
+      "bath_fixture_type": "¿El baño nuevo es solo ducha o tina con ducha?",
+      "hvac_strategy": "¿Va a extender el sistema de calefacción existente al espacio nuevo o agregar una unidad aparte?",
+      "opening_disposition": "¿Las ventanas existentes se reutilizan, se reemplazan o se reubican?",
+      "structural_wall": "¿Es una pared de carga? Si lo es, habrá que incluir una viga o cabezal estructural.",
+      "electrical_service": "¿Los circuitos nuevos van del panel existente, de un subpanel nuevo o de una mejora de servicio?",
+      "interior_door_style": "¿La puerta nueva de la recámara debe coincidir con las puertas interiores existentes?",
+      "bath_exhaust_venting": "¿El extractor del baño ventila por la pared o por el techo?",
+      "flooring_selection": "¿Qué piso quiere en el espacio terminado?",
+      "finish_level": "¿Qué nivel de acabado cotizamos: básico, estándar o premium?"
+    },
+    "options": {
+      "garage_door_disposition": {
+        "keep": "Se quedan",
+        "remove_infill": "Se quitan y se cierran",
+        "replace_with_window": "Se reemplazan por ventana"
+      },
+      "bath_fixture_type": {
+        "shower_only": "Solo ducha",
+        "tub_shower": "Tina con ducha",
+        "no_bath": "Sin baño"
+      },
+      "hvac_strategy": {
+        "extend_existing": "Extender el sistema existente",
+        "mini_split": "Mini-split",
+        "separate_system": "Sistema aparte"
+      },
+      "opening_disposition": {
+        "reuse": "Se reutilizan",
+        "replace": "Se reemplazan",
+        "relocate": "Se reubican"
+      },
+      "structural_wall": {
+        "load_bearing": "De carga",
+        "non_load_bearing": "No es de carga",
+        "unknown": "Aún no se sabe"
+      },
+      "electrical_service": {
+        "existing_panel": "Panel existente",
+        "subpanel": "Subpanel nuevo",
+        "service_upgrade": "Mejora de servicio",
+        "unknown": "Aún no se sabe"
+      },
+      "interior_door_style": {
+        "yes": "Sí, que coincidan",
+        "no": "No, estilo nuevo"
+      },
+      "bath_exhaust_venting": {
+        "wall": "Por la pared",
+        "roof": "Por el techo",
+        "soffit": "Por el alero"
+      },
+      "flooring_selection": {
+        "hardwood": "Madera",
+        "lvp": "Vinilo de lujo (LVP)",
+        "tile": "Azulejo",
+        "carpet": "Alfombra"
+      },
+      "finish_level": {
+        "builder": "Básico",
+        "standard": "Estándar",
+        "premium": "Premium"
+      }
+    }
+  },
+  "proposal": {
+    "title": "Alcance de trabajo de la propuesta",
+    "subtitle": "Exactamente lo que ve el cliente. Sin terminología técnica.",
+    "notApproved": "Aprueba el alcance para generar la propuesta.",
+    "picker": "Elige un proyecto",
+    "empty": "Aún no hay proyectos."
+  },
+  "toast": {
+    "approved": "Alcance aprobado",
+    "regenerated": "Alcance regenerado",
+    "saved": "Redacción guardada",
+    "answers": "Respuestas guardadas",
+    "scopeUpdated": "Alcance actualizado ({{count}} cambios)",
+    "validationBlocked": "Resuelva los elementos marcados antes de aprobar."
+  },
+  "capturedDescription": {
+    "title": "Descripción del Proyecto Capturada",
+    "hint": "Tal como la capturó el contratista.",
+    "noStructured": "Todavía no se han creado partidas de alcance estructurado."
+  },
+  "approvedBanner": {
+    "title": "Alcance aprobado",
+    "body": "Este alcance de trabajo está aprobado y vigente.",
+    "bodyDated": "Aprobado el {{date}} — este alcance de trabajo está vigente."
+  },
+  "review": {
+    "title": "Revisar cambios de alcance",
+    "subtitle": "Tu redacción cambió el trabajo. Confirma qué debe cambiar en el alcance: nada se aplica hasta que lo confirmes.",
+    "added": "Agregado al alcance",
+    "changed": "Modificado",
+    "removed": "Quitado del alcance",
+    "needsPricing": "Requiere precio",
+    "removeHint": "Se excluirá, no se elimina",
+    "apply": "Aplicar {{count}} cambios",
+    "cancel": "Dejar el alcance igual",
+    "removedNote": "Las eliminaciones confirmadas se excluyen del estimado y se conservan en el historial. No se borra nada."
+  },
+  "needsApproval": "Requiere aprobación",
+  "history": {
+    "title": "Historial de decisiones",
+    "summary": "Preguntas adicionales revisadas: {{accepted}} aceptadas, {{removed}} eliminadas.",
+    "empty": "Aún no hay aclaraciones ni decisiones de revisión.",
+    "decisions": "Decisiones de la revisión del estimado",
+    "clarifications": "Respuestas de aclaración",
+    "status": {
+      "accepted": "Aceptado",
+      "removed": "Eliminado"
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "states": {
+    "idle": {
+      "text": "Toca para hablar",
+      "aria": "Comenzar a describir el proyecto"
+    },
+    "listening": {
+      "text": "Escuchando…",
+      "aria": "Escuchando — toca para detener"
+    },
+    "paused": {
+      "text": "En pausa",
+      "aria": "En pausa — toca para continuar"
+    },
+    "processing": {
+      "text": "Procesando…",
+      "aria": "Procesando tu grabación"
+    },
+    "complete": {
+      "text": "Listo",
+      "aria": "Descripción del proyecto completada"
+    },
+    "permission_denied": {
+      "text": "Micrófono bloqueado",
+      "aria": "Permiso de micrófono denegado — abrir ajustes"
+    },
+    "error": {
+      "text": "Intentar de nuevo",
+      "aria": "Falló la descripción del proyecto — intenta de nuevo"
+    },
+    "disabled": {
+      "text": "No disponible",
+      "aria": "Descripción del proyecto no disponible"
+    }
+  },
+  "capture": {
+    "title": "Describe Tu Proyecto",
+    "subtitle": "Describe el trabajo con tus propias palabras. VisionWorx360 Pro crea el alcance de trabajo y el presupuesto.",
+    "disclaimer": "Revisa y confirma cada partida antes de agregarla al presupuesto.",
+    "project": {
+      "title": "Proyecto",
+      "placeholder": "Elige un proyecto",
+      "none": "Crea un proyecto primero para capturar el alcance."
+    },
+    "controls": {
+      "start": "Iniciar grabación",
+      "pause": "Pausar",
+      "resume": "Continuar",
+      "stop": "Detener",
+      "review": "Revisar partidas"
+    },
+    "transcript": {
+      "title": "Transcripción",
+      "placeholder": "Habla o escribe lo que ves en la obra…",
+      "hint": "Puedes editar la transcripción cuando quieras. Se guarda en este dispositivo para continuar después."
+    },
+    "offline": {
+      "unsupportedTitle": "Reconocimiento de voz no disponible",
+      "unsupportedBody": "Este navegador no puede escuchar ahora. Escribe o pega el recorrido abajo — todo lo demás funciona igual.",
+      "deniedTitle": "Micrófono bloqueado",
+      "deniedBody": "Permite el acceso al micrófono en los ajustes del navegador y vuelve a grabar. Tu transcripción está guardada.",
+      "errorTitle": "Grabación interrumpida",
+      "errorBody": "Se guardó la transcripción parcial. Edítala abajo o vuelve a grabar."
+    },
+    "review": {
+      "select": "Incluir esta partida",
+      "titlePlaceholder": "Título de la partida",
+      "kbMatch": "Coincidencia de la Base de Conocimiento",
+      "customItem": "Partida personalizada",
+      "manualEntry": "Agregada manualmente",
+      "assembly": "Ensamble sugerido",
+      "quantity": "Cantidad",
+      "unit": "Unidad",
+      "room": "Habitación",
+      "noRoom": "Sin habitación",
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "merge": "Unir con la siguiente",
+      "split": "Dividir",
+      "addCustom": "Agregar partida personalizada",
+      "back": "Volver a grabar",
+      "confirm": "Agregar {{count}} al alcance",
+      "confirming": "Agregando…",
+      "empty": "Aún no se detectaron partidas. Graba o escribe el recorrido y revisa de nuevo.",
+      "progress": "{{reviewed}} de {{total}} revisadas",
+      "progressLabel": "Progreso de revisión",
+      "selected": "{{count}} seleccionadas"
+    },
+    "toast": {
+      "committed": "{{count}} partidas agregadas",
+      "failed": "No se pudieron agregar. Inténtalo de nuevo."
+    },
+    "save": {
+      "title": "Guarda tu trabajo",
+      "unsaved": "Cambios sin guardar",
+      "saving": "Guardando…",
+      "saved": "Guardado",
+      "finish": "Guardar y Volver al Proyecto",
+      "finishNoProject": "Elige un proyecto para guardar",
+      "leaveWarning": "Tienes cambios sin guardar. ¿Salir de esta página?",
+      "toast": "Descripción del proyecto guardada",
+      "error": "No se pudo guardar en el proyecto. Inténtalo de nuevo.",
+      "errorTitle": "No se guardó",
+      "errorBody": "No pudimos guardar la descripción del proyecto en el servidor. Tu texto sigue aquí — revisa tu conexión e inténtalo de nuevo."
+    }
+  },
+  "recorder": {
+    "start": "Iniciar grabación",
+    "stop": "Detener grabación",
+    "requesting": "Permitir micrófono…",
+    "stopping": "Finalizando…",
+    "transcribing": "Transcribiendo…",
+    "recording": "Grabando",
+    "audioActivity": "Actividad de audio del micrófono",
+    "success": "Transcripción agregada",
+    "successHint": "La grabación se agregó a la transcripción.",
+    "retryTranscription": "Reintentar transcripción",
+    "recordAgain": "Grabar de nuevo",
+    "listening": "Grabando — habla normalmente.",
+    "paused": "En pausa",
+    "requestingHint": "Esperando permiso del micrófono…",
+    "transcribingHint": "Convirtiendo tu grabación en texto…",
+    "errors": {
+      "permission_denied": {
+        "title": "Micrófono bloqueado",
+        "body": "Permite el acceso al micrófono para este sitio y vuelve a grabar. Lo que escribiste se conserva."
+      },
+      "no_microphone": {
+        "title": "No se encontró micrófono",
+        "body": "Conecta o activa un micrófono e inténtalo de nuevo. También puedes escribir la nota."
+      },
+      "insecure_context": {
+        "title": "Grabación no disponible aquí",
+        "body": "Esta página debe abrirse con una conexión segura (https) para grabar. Escribe la nota."
+      },
+      "unsupported": {
+        "title": "Grabación no compatible",
+        "body": "Este navegador no puede grabar audio. Escribe la nota — todo lo demás funciona igual."
+      },
+      "empty": {
+        "title": "No se grabó nada",
+        "body": "No escuchamos nada. Vuelve a grabar o escribe la nota."
+      },
+      "no_audio": {
+        "title": "No se detectó audio",
+        "body": "El micrófono no detectó voz. Revisa el micrófono seleccionado y vuelve a grabar."
+      },
+      "network_failed": {
+        "title": "Conexión interrumpida",
+        "body": "La grabación se conserva. Revisa la conexión y reintenta la transcripción."
+      },
+      "transcription_unavailable": {
+        "title": "Transcripción no disponible",
+        "body": "La grabación se conserva. Reintenta pronto o vuelve a grabar."
+      },
+      "unsupported_audio": {
+        "title": "Formato de audio no compatible",
+        "body": "Este navegador produjo una grabación ilegible. Si continúa, vuelve a grabar con otro navegador."
+      },
+      "audio_too_large": {
+        "title": "Grabación demasiado larga",
+        "body": "Graba una nota más corta y continúa con otra grabación."
+      },
+      "transcription_failed": {
+        "title": "No se pudo transcribir",
+        "body": "La grabación no se convirtió en texto. Inténtalo de nuevo o escribe la nota. No se perdió nada."
+      },
+      "recorder_failed": {
+        "title": "Falló la grabación",
+        "body": "El micrófono se detuvo inesperadamente. Toca grabar para intentarlo de nuevo o escribe la nota."
+      }
+    }
+  }
+}

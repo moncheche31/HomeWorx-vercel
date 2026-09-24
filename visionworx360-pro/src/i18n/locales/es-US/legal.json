@@ -1,0 +1,93 @@
+{
+  "versionLabel": "Versión del documento {{version}}",
+  "contactNote": "¿Tiene preguntas sobre este documento? Use la página de Soporte y comentarios dentro de la aplicación y le responderemos por correo electrónico.",
+  "terms": {
+    "title": "Términos del servicio",
+    "summary": "Estos términos cubren el uso de VisionWorx360 Pro Edición Contratista y sus herramientas de alcance, estimación y propuestas.",
+    "sections": [
+      {
+        "heading": "1. El servicio",
+        "body": "VisionWorx360 Pro es un servicio de software que ayuda a los contratistas a capturar el alcance del proyecto, crear estimaciones y generar propuestas para clientes. Es una herramienta de productividad. No brinda asesoría de construcción, ingeniería, contabilidad, impuestos ni asesoría legal."
+      },
+      {
+        "heading": "2. Su cuenta",
+        "body": "Usted es responsable de la exactitud de la información de su cuenta, de mantener seguras sus credenciales y de toda la actividad realizada bajo su cuenta. Debe estar autorizado para actuar en nombre del negocio que registra."
+      },
+      {
+        "heading": "3. Las estimaciones y propuestas son suyas",
+        "body": "Usted es dueño del contenido de proyectos, clientes y estimaciones que crea. Cualquier cifra que produzca la aplicación —incluidos rangos preliminares, cantidades sugeridas, rendimientos y datos de costo de muestra— es una ayuda de cálculo basada en la información que usted proporciona. Usted es el único responsable de revisar, ajustar y aprobar cada número antes de entregarlo a un cliente."
+      },
+      {
+        "heading": "4. Datos de muestra y de referencia",
+        "body": "La base de conocimiento incluye ensamblajes, rendimientos y precios de muestra con fines ilustrativos. Son valores de referencia, no datos de costo licenciados para su mercado. Reemplácelos con sus propios costos verificados antes de cotizar trabajo."
+      },
+      {
+        "heading": "5. Suscripción y facturación",
+        "body": "Los planes de pago, los períodos de prueba y las condiciones de renovación se muestran en la aplicación antes de suscribirse. Las suscripciones se renuevan automáticamente hasta que se cancelen. Puede cancelar en cualquier momento desde la página de facturación; el acceso continúa hasta el final del período pagado."
+      },
+      {
+        "heading": "6. Uso aceptable",
+        "body": "No use el servicio para almacenar contenido ilegal, infringir derechos de terceros, intentar vulnerar la seguridad de la plataforma o los datos de otros negocios, ni para revender el servicio sin un acuerdo por escrito."
+      },
+      {
+        "heading": "7. Disponibilidad",
+        "body": "Trabajamos para mantener el servicio disponible y sus datos seguros, pero el servicio se ofrece según disponibilidad. El mantenimiento planificado, las fallas de terceros y factores fuera de nuestro control pueden interrumpir el acceso."
+      },
+      {
+        "heading": "8. Limitación de responsabilidad",
+        "body": "En la medida máxima permitida por la ley, nuestra responsabilidad total derivada del servicio se limita a los montos que usted pagó por el servicio en los doce meses previos al reclamo. No somos responsables por pérdida de ganancias, licitaciones perdidas, trabajos mal cotizados u otras pérdidas indirectas."
+      },
+      {
+        "heading": "9. Terminación",
+        "body": "Puede dejar de usar el servicio en cualquier momento. Podemos suspender o finalizar el acceso por falta de pago o por incumplimiento grave o reiterado de estos términos. Puede exportar o solicitar una copia de sus datos antes del cierre de su cuenta."
+      },
+      {
+        "heading": "10. Cambios a estos términos",
+        "body": "Podemos actualizar estos términos. Los cambios importantes se publican con una nueva versión del documento y el uso continuado después de la fecha de vigencia significa que acepta la versión actualizada."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "summary": "Esta política explica qué información recopila VisionWorx360 Pro, por qué se recopila y cómo se protege.",
+    "sections": [
+      {
+        "heading": "1. Información que recopilamos",
+        "body": "Información de la cuenta (nombre, correo, datos del negocio), el contenido de proyectos que usted crea (clientes, propiedades, proyectos, alcance, fotos, mediciones, estimaciones y propuestas) e información técnica necesaria para operar el servicio, como marcas de tiempo, referencias de error e información básica del dispositivo o navegador."
+      },
+      {
+        "heading": "2. Cómo la usamos",
+        "body": "Para operar su espacio de trabajo, mantener sus datos separados de otros negocios, procesar pagos de suscripción, brindar el soporte que solicite y diagnosticar errores para mejorar la confiabilidad."
+      },
+      {
+        "heading": "3. Información de sus clientes",
+        "body": "Usted controla la información de clientes que ingresa. Es responsable de tener el derecho de almacenarla y de lo que envía a sus clientes. La procesamos en su nombre para operar el servicio y no la vendemos."
+      },
+      {
+        "heading": "4. Proveedores de servicio",
+        "body": "Usamos proveedores confiables para alojamiento, base de datos, almacenamiento de archivos, autenticación y procesamiento de pagos. Los datos de tarjetas son manejados por el procesador de pagos y nunca los almacenamos."
+      },
+      {
+        "heading": "5. Protección de datos",
+        "body": "Los datos se transmiten mediante conexiones cifradas y se almacenan con reglas de acceso por negocio, de modo que un negocio no puede leer los registros de otro. El acceso a datos de producción se limita a lo necesario para operar y dar soporte al servicio."
+      },
+      {
+        "heading": "6. Conservación",
+        "body": "Conservamos los datos de su espacio de trabajo mientras su cuenta esté activa. Tras el cierre, los datos se conservan solo el tiempo necesario por motivos legales, contables y de respaldo, y luego se eliminan."
+      },
+      {
+        "heading": "7. Sus opciones",
+        "body": "Puede revisar y editar los datos de su cuenta en la aplicación, solicitar una exportación o eliminación de sus datos y elegir su idioma y preferencias de notificación."
+      },
+      {
+        "heading": "8. Reportes de error y comentarios",
+        "body": "Cuando reporta un problema recopilamos la referencia del error, la página en la que estaba, la versión de la aplicación y su mensaje opcional. Evitamos recopilar contraseñas, tokens o el contenido privado de sus registros de clientes en estos reportes."
+      },
+      {
+        "heading": "9. Cambios a esta política",
+        "body": "Las actualizaciones se publican con una nueva versión del documento indicada al inicio de esta página."
+      }
+    ]
+  },
+  "effectiveLabel": "Vigente desde {{date}} · Versión del documento {{version}}"
+}

@@ -1,0 +1,17 @@
+{
+  "landing": {
+    "title": "VisionWorx360 Pro",
+    "srTitle": "VisionWorx360 Pro",
+    "description": "Build estimates, organize projects, and prepare professional proposals in one workspace.",
+    "viewDesignSystem": "View design system",
+    "systemStatus": "System status",
+    "envBadge": "{{env}} · v{{version}}"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "The page you were looking for doesn't exist or has been moved.",
+    "return": "Return to landing page",
+    "docTitle": "Page not found · VisionWorx360 Pro"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "states": {
+    "idle": {
+      "text": "Tap to speak",
+      "aria": "Start describing the project"
+    },
+    "listening": {
+      "text": "Listening…",
+      "aria": "Listening — tap to stop"
+    },
+    "paused": {
+      "text": "Paused",
+      "aria": "Paused — tap to resume"
+    },
+    "processing": {
+      "text": "Processing…",
+      "aria": "Processing your recording"
+    },
+    "complete": {
+      "text": "Complete",
+      "aria": "Project description complete"
+    },
+    "permission_denied": {
+      "text": "Microphone blocked",
+      "aria": "Microphone permission denied — open settings"
+    },
+    "error": {
+      "text": "Try again",
+      "aria": "Project description failed — try again"
+    },
+    "disabled": {
+      "text": "Unavailable",
+      "aria": "Project description unavailable"
+    }
+  },
+  "capture": {
+    "title": "Describe Your Project",
+    "subtitle": "Describe the work in your own words. VisionWorx360 Pro builds the scope of work and estimate.",
+    "disclaimer": "Review and confirm each item before it enters the estimate.",
+    "project": {
+      "title": "Project",
+      "placeholder": "Choose a project",
+      "none": "Create a project first to capture scope."
+    },
+    "controls": {
+      "start": "Start recording",
+      "pause": "Pause",
+      "resume": "Resume",
+      "stop": "Stop",
+      "review": "Review scope items"
+    },
+    "transcript": {
+      "title": "Transcript",
+      "placeholder": "Speak, or type what you see on site…",
+      "hint": "You can edit the transcript at any time. It is saved on this device so you can resume later."
+    },
+    "offline": {
+      "unsupportedTitle": "Speech recognition unavailable",
+      "unsupportedBody": "This browser can't listen right now. Type or paste the walkthrough below — everything else works the same.",
+      "deniedTitle": "Microphone blocked",
+      "deniedBody": "Allow microphone access in your browser settings, then start recording again. Your transcript is saved.",
+      "errorTitle": "Recording interrupted",
+      "errorBody": "The partial transcript was saved. Edit it below or start recording again."
+    },
+    "review": {
+      "select": "Include this item",
+      "titlePlaceholder": "Scope item title",
+      "kbMatch": "Knowledge Base match",
+      "customItem": "Custom item",
+      "manualEntry": "Added manually",
+      "assembly": "Suggested assembly",
+      "quantity": "Quantity",
+      "unit": "Unit",
+      "room": "Room",
+      "noRoom": "No room",
+      "approve": "Approve",
+      "reject": "Reject",
+      "merge": "Merge with next",
+      "split": "Split",
+      "addCustom": "Add custom item",
+      "back": "Back to recording",
+      "confirm": "Add {{count}} to scope",
+      "confirming": "Adding…",
+      "empty": "No scope items detected yet. Record or type a walkthrough, then review again.",
+      "progress": "{{reviewed}} of {{total}} reviewed",
+      "progressLabel": "Review progress",
+      "selected": "{{count}} selected"
+    },
+    "toast": {
+      "committed": "{{count}} scope items added",
+      "failed": "Could not add these items. Please try again."
+    },
+    "save": {
+      "title": "Save your work",
+      "unsaved": "Unsaved changes",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "finish": "Save & Return to Project",
+      "finishNoProject": "Choose a project to save",
+      "leaveWarning": "You have unsaved changes. Leave this page?",
+      "toast": "Project description saved",
+      "error": "Could not save to the project. Please try again.",
+      "errorTitle": "Not saved",
+      "errorBody": "We couldn't save this project description to the server. Your text is still here — check your connection and try again."
+    }
+  },
+  "recorder": {
+    "start": "Start recording",
+    "stop": "Stop recording",
+    "requesting": "Allow microphone…",
+    "stopping": "Finishing…",
+    "transcribing": "Transcribing…",
+    "recording": "Recording",
+    "audioActivity": "Microphone audio activity",
+    "success": "Transcription added",
+    "successHint": "Your recording was added to the transcript.",
+    "retryTranscription": "Retry transcription",
+    "recordAgain": "Record again",
+    "listening": "Recording — speak normally.",
+    "paused": "Paused",
+    "requestingHint": "Waiting for microphone permission…",
+    "transcribingHint": "Turning your recording into text…",
+    "errors": {
+      "permission_denied": {
+        "title": "Microphone blocked",
+        "body": "Allow microphone access for this site, then tap record again. Anything you typed is kept."
+      },
+      "no_microphone": {
+        "title": "No microphone found",
+        "body": "Connect or enable a microphone, then try again. You can type the note instead."
+      },
+      "insecure_context": {
+        "title": "Recording not available here",
+        "body": "This page must be opened over a secure (https) connection to record. Type the note instead."
+      },
+      "unsupported": {
+        "title": "Recording not supported",
+        "body": "This browser can't record audio. Type the note instead — everything else works the same."
+      },
+      "empty": {
+        "title": "Nothing recorded",
+        "body": "We didn't hear anything. Tap record and speak again, or type the note."
+      },
+      "no_audio": {
+        "title": "No audio detected",
+        "body": "The microphone did not detect speech. Check the selected microphone and record again."
+      },
+      "network_failed": {
+        "title": "Connection interrupted",
+        "body": "The recording is kept. Check your connection, then retry transcription."
+      },
+      "transcription_unavailable": {
+        "title": "Transcription unavailable",
+        "body": "The recording is kept. Retry shortly or record again."
+      },
+      "unsupported_audio": {
+        "title": "Audio format not supported",
+        "body": "This browser produced an unreadable recording. Record again using another browser if it continues."
+      },
+      "audio_too_large": {
+        "title": "Recording too long",
+        "body": "Record a shorter note, then continue with another recording."
+      },
+      "transcription_failed": {
+        "title": "Could not transcribe",
+        "body": "The recording didn't come back as text. Try again, or type the note. Nothing you wrote was lost."
+      },
+      "recorder_failed": {
+        "title": "Recording failed",
+        "body": "The microphone stopped unexpectedly. Tap record to try again, or type the note."
+      }
+    }
+  }
+}

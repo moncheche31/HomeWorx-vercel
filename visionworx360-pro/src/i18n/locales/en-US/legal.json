@@ -1,0 +1,93 @@
+{
+  "versionLabel": "Document version {{version}}",
+  "contactNote": "Questions about this document? Use the in-app Support & Feedback page and we will respond by email.",
+  "terms": {
+    "title": "Terms of Service",
+    "summary": "These terms cover your use of VisionWorx360 Pro Contractor Edition, the estimating, scope and proposal tools provided in this application.",
+    "sections": [
+      {
+        "heading": "1. The service",
+        "body": "VisionWorx360 Pro is a software service that helps contractors capture project scope, build estimates and produce customer-facing proposals. It is a productivity tool. It does not provide construction, engineering, accounting, tax or legal advice."
+      },
+      {
+        "heading": "2. Your account",
+        "body": "You are responsible for the accuracy of the information in your account, for keeping your sign-in credentials secure, and for all activity that happens under your account. You must be authorized to act for the business you register."
+      },
+      {
+        "heading": "3. Estimates and proposals are yours",
+        "body": "You own the project, customer and estimate content you create. Any figure the application produces — including ballpark ranges, suggested quantities, production rates and sample cost data — is a calculation aid based on the information you supply. You are solely responsible for reviewing, adjusting and approving every number before you give it to a customer."
+      },
+      {
+        "heading": "4. Sample and reference data",
+        "body": "The knowledge base ships with illustrative sample assemblies, production rates and pricing. These are reference values, not licensed cost data for your market. Replace them with your own verified costs before quoting work."
+      },
+      {
+        "heading": "5. Subscription and billing",
+        "body": "Paid plans, trial periods and renewal terms are shown in the application before you subscribe. Subscriptions renew automatically for the stated interval until cancelled. You can cancel at any time from the billing page; access continues to the end of the paid period."
+      },
+      {
+        "heading": "6. Acceptable use",
+        "body": "Do not use the service to store unlawful content, to infringe someone else's rights, to attempt to breach the security of the platform or other tenants' data, or to resell the service without a written agreement."
+      },
+      {
+        "heading": "7. Availability",
+        "body": "We work to keep the service available and your data safe, but the service is provided on an as-available basis. Planned maintenance, third-party outages and factors outside our control can interrupt access."
+      },
+      {
+        "heading": "8. Limitation of liability",
+        "body": "To the maximum extent permitted by law, our aggregate liability arising out of the service is limited to the amounts you paid for the service in the twelve months before the claim. We are not liable for lost profits, lost bids, mispriced work or other indirect or consequential losses."
+      },
+      {
+        "heading": "9. Termination",
+        "body": "You may stop using the service at any time. We may suspend or end access for non-payment or for a serious or repeated breach of these terms. You may export or request a copy of your data before your account is closed."
+      },
+      {
+        "heading": "10. Changes to these terms",
+        "body": "We may update these terms. Material changes are published with a new document version, and continued use after the effective date means you accept the updated version."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "summary": "This policy explains what information VisionWorx360 Pro collects, why it is collected, and how it is protected.",
+    "sections": [
+      {
+        "heading": "1. Information we collect",
+        "body": "Account information (name, email, business details), the project content you create (customers, properties, projects, scope, photos, measurements, estimates and proposals), and technical information needed to run the service such as timestamps, error references and basic device or browser information."
+      },
+      {
+        "heading": "2. How we use it",
+        "body": "To operate your workspace, to keep your data separated from other businesses, to process subscription payments, to provide support you request, and to diagnose errors and improve reliability."
+      },
+      {
+        "heading": "3. Your customers' information",
+        "body": "You control the customer information you enter. You are responsible for having the right to store it and for what you send to your customers. We process it on your behalf to run the service, and we do not sell it."
+      },
+      {
+        "heading": "4. Service providers",
+        "body": "We use trusted providers for hosting, database, file storage, authentication and payment processing. Payment card details are handled by the payment processor and are never stored by us."
+      },
+      {
+        "heading": "5. Data protection",
+        "body": "Data is transmitted over encrypted connections and stored with tenant-level access rules so one business cannot read another business's records. Access to production data is limited to what is needed to operate and support the service."
+      },
+      {
+        "heading": "6. Retention",
+        "body": "We keep your workspace data while your account is active. After closure, data is retained only as long as needed for legal, accounting and backup purposes and is then deleted."
+      },
+      {
+        "heading": "7. Your choices",
+        "body": "You can review and edit your account details in the application, request an export or deletion of your data, and choose your language and notification preferences."
+      },
+      {
+        "heading": "8. Error reports and feedback",
+        "body": "When you report a problem we collect the error reference, the page you were on, the application version and your optional message. We avoid collecting passwords, tokens or the private content of your customer records in these reports."
+      },
+      {
+        "heading": "9. Changes to this policy",
+        "body": "Updates are published with a new document version shown at the top of this page."
+      }
+    ]
+  },
+  "effectiveLabel": "Effective {{date}} · Document version {{version}}"
+}

@@ -1,0 +1,9 @@
+{
+  "levels": {
+    "verified": { "label": "Verified", "explanation": "Confirmed by the contractor." },
+    "high": { "label": "High confidence", "explanation": "Strong evidence supports this value." },
+    "medium": { "label": "Medium confidence", "explanation": "Reasonable estimate — review recommended." },
+    "low": { "label": "Low confidence", "explanation": "Limited evidence — verify before sending." },
+    "needs_confirmation": { "label": "Needs confirmation", "explanation": "Please confirm this value before continuing." }
+  }
+}

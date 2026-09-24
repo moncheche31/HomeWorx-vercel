@@ -1,0 +1,422 @@
+{
+  "welcome": {
+    "greeting": "Bienvenido de vuelta, {{name}}",
+    "greetingNew": "Bienvenido, {{name}}",
+    "subtitle": "Esto es lo que está pasando hoy en tu espacio de trabajo.",
+    "onboarding": {
+      "title": "Bienvenido a VisionWorx360 Pro",
+      "description": "Terminemos de configurar tu cuenta. Agrega los datos de tu empresa para que tus estimaciones y propuestas se vean profesionales — o hazlo más tarde.",
+      "primaryCta": "Configura tu empresa",
+      "skipCta": "Omitir por ahora"
+    }
+  },
+  "nav": {
+    "primary": "Navegación principal",
+    "mobile": "Navegación móvil",
+    "dashboard": "Panel",
+    "projects": "Proyectos",
+    "estimates": "Estimaciones",
+    "renderings": "Renders",
+    "proposals": "Propuestas",
+    "customers": "Clientes",
+    "calendar": "Calendario",
+    "files": "Archivos",
+    "reports": "Reportes",
+    "settings": "Ajustes",
+    "walkthrough": "Recorrido en la Propiedad",
+    "capture": "Describe Tu Proyecto",
+    "profile": "Perfil",
+    "organization": "Organización",
+    "comingSoon": "Próximamente",
+    "knowledgeBase": "Base de conocimiento",
+    "properties": "Propiedades",
+    "costBook": "Libro de costos",
+    "terminology": "Memoria de correcciones"
+  },
+  "header": {
+    "notifications": "Notificaciones",
+    "openMenu": "Abrir menú de cuenta",
+    "changeLanguage": "Cambiar idioma",
+    "userMenu": "Cuenta",
+    "signOut": "Cerrar sesión",
+    "signedInAs": "Sesión iniciada como"
+  },
+  "cards": {
+    "recentProjects": {
+      "title": "Proyectos recientes",
+      "description": "Proyectos en los que has trabajado últimamente.",
+      "empty": "Aún no hay proyectos — crea uno para comenzar."
+    },
+    "recentEstimates": {
+      "title": "Estimaciones recientes",
+      "description": "Las estimaciones más recientes de tu espacio de trabajo.",
+      "empty": "Todavía no has creado estimaciones.",
+      "ballpark": "Aproximado",
+      "expected": "Estimado {{value}}",
+      "updated": "Actualizado {{date}}"
+    },
+    "voiceCapture": {
+      "title": "Describe Tu Proyecto",
+      "description": "Describe el trabajo con tus propias palabras. VisionWorx360 Pro crea el alcance de trabajo y el presupuesto.",
+      "cta": "Describe Tu Proyecto"
+    },
+    "quickActions": {
+      "title": "Acciones rápidas",
+      "createEstimate": "Crear estimación",
+      "importFile": "Importar un archivo",
+      "inviteTeammate": "Invitar compañero",
+      "viewProjects": "Ver proyectos",
+      "viewCustomers": "Clientes y propiedades"
+    },
+    "companyProfile": {
+      "title": "Completa el perfil de la empresa",
+      "description": "Añade tu logo y número de licencia para propuestas más pulidas.",
+      "cta": "Actualizar perfil"
+    },
+    "subscription": {
+      "title": "Suscripción",
+      "devPlaceholder": "No disponible",
+      "devDescription": "La facturación y los planes aún no están habilitados para este espacio de trabajo."
+    },
+    "activity": {
+      "title": "Actividad",
+      "description": "Eventos recientes en tu espacio de trabajo.",
+      "empty": "La actividad aparecerá aquí cuando tu equipo se ponga manos a la obra.",
+      "unknownProject": "Proyecto sin nombre"
+    },
+    "createEstimate": {
+      "title": "Crear Nuevo Presupuesto",
+      "description": "Comienza un nuevo presupuesto con un recorrido en la propiedad, fotos o una descripción del proyecto.",
+      "cta": "Crear Nuevo Presupuesto",
+      "chooser": {
+        "title": "Crear Nuevo Presupuesto",
+        "description": "Elige cómo quieres empezar.",
+        "close": "Cerrar",
+        "options": {
+          "onsite": {
+            "title": "Recorrido en la Propiedad",
+            "description": "Recorre la propiedad y describe el trabajo mientras avanzas."
+          },
+          "photos": {
+            "title": "Fotos o Video",
+            "description": "Sube fotos o un video de recorrido pregrabado, luego agrega tus notas y medidas."
+          },
+          "describe": {
+            "title": "Describe Tu Proyecto",
+            "description": "Describe el proyecto por voz o texto para generar un presupuesto preliminar."
+          }
+        }
+      }
+    }
+  },
+  "comingSoon": {
+    "eyebrow": "Próximamente",
+    "backToDashboard": "Volver al panel",
+    "projects": "Esta área aún no está disponible.",
+    "estimates": "Esta área aún no está disponible.",
+    "renderings": "Esta área aún no está disponible.",
+    "proposals": "Esta área aún no está disponible.",
+    "customers": "Esta área aún no está disponible.",
+    "calendar": "Esta área aún no está disponible.",
+    "files": "Esta área aún no está disponible.",
+    "reports": "Esta área aún no está disponible.",
+    "settings": "Esta área aún no está disponible.",
+    "capture": "Esta área aún no está disponible."
+  },
+  "notifications": {
+    "title": "Notificaciones",
+    "empty": "Estás al día.",
+    "emptyHint": "Las novedades de tu espacio de trabajo aparecerán aquí.",
+    "markAllRead": "Marcar todo como leído",
+    "unreadBadge": "{{count}} sin leer"
+  },
+  "profile": {
+    "title": "Tu perfil",
+    "description": "Actualiza cómo apareces en VisionWorx360 Pro.",
+    "fields": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "displayName": "Nombre para mostrar",
+      "phone": "Teléfono",
+      "email": "Correo electrónico",
+      "language": "Idioma preferido",
+      "timezone": "Zona horaria",
+      "measurement": "Medidas",
+      "role": "Rol",
+      "accountEmail": "Correo de la cuenta (inicio de sesión)"
+    },
+    "roles": {
+      "owner": "Propietario",
+      "administrator": "Administrador",
+      "estimator": "Estimador",
+      "sales": "Ventas",
+      "office": "Oficina",
+      "read_only": "Solo lectura"
+    },
+    "notifications": {
+      "title": "Preferencias de notificación",
+      "email": "Correo",
+      "push": "Push",
+      "sms": "SMS"
+    },
+    "edit": {
+      "edit": "Editar perfil",
+      "save": "Guardar cambios",
+      "saving": "Guardando…",
+      "cancel": "Cancelar",
+      "savedToast": "Perfil guardado.",
+      "emailLocked": "Gestionado por tu cuenta de acceso. Cámbialo abajo.",
+      "roleLocked": "Definido por el propietario de la organización."
+    },
+    "accountEmail": {
+      "title": "Correo de la cuenta (inicio de sesión)",
+      "description": "Es la dirección con la que inicias sesión. Es distinta del correo de contacto de la empresa que ven los clientes en las propuestas.",
+      "change": "Cambiar correo de la cuenta",
+      "companyLink": "Editar correo de contacto de la empresa",
+      "newLabel": "Nuevo correo de la cuenta",
+      "verificationNote": "Se requiere verificación: enviamos un enlace de confirmación a la nueva dirección.",
+      "submit": "Enviar confirmación",
+      "sending": "Enviando…",
+      "sentToast": "Correo de confirmación enviado.",
+      "pending": "Revisa {{email}} para ver el enlace de confirmación. Tu correo de acceso cambia solo después de confirmarlo.",
+      "invalid": "Introduce una dirección de correo válida.",
+      "unchanged": "Ese ya es el correo de tu cuenta.",
+      "errors": {
+        "invalid_email": "Esa dirección de correo no es válida.",
+        "user_already_exists": "Ese correo ya está en uso por otra cuenta.",
+        "rate_limited": "Demasiados intentos. Espera un momento e inténtalo de nuevo.",
+        "network_error": "Problema de red. Revisa tu conexión e inténtalo de nuevo.",
+        "unknown": "No pudimos iniciar el cambio de correo. Inténtalo de nuevo."
+      }
+    }
+  },
+  "organization": {
+    "title": "Organización",
+    "description": "Información de negocio utilizada en estimaciones y propuestas.",
+    "fields": {
+      "organizationName": "Nombre de la organización",
+      "businessName": "Nombre comercial (DBA)",
+      "logo": "Logo",
+      "address": "Dirección",
+      "phone": "Teléfono",
+      "email": "Correo de contacto de la empresa",
+      "website": "Sitio web",
+      "licenseNumber": "Número de licencia",
+      "taxRate": "Tasa de impuesto",
+      "currency": "Moneda",
+      "measurementSystem": "Sistema de medidas",
+      "timezone": "Zona horaria",
+      "language": "Idioma",
+      "brandAccentColor": "Color de marca",
+      "networkId": "ID de Red de Contratistas"
+    },
+    "logoEmpty": "Aún no hay logo cargado",
+    "logoHint": "Sube un PNG o SVG cuadrado (máx. 2 MB).",
+    "emptyState": {
+      "title": "No hay empresa configurada",
+      "description": "Agrega los datos de tu negocio para que las estimaciones y propuestas se vean profesionales.",
+      "cta": "Completa el perfil de la empresa"
+    },
+    "setup": {
+      "title": "Configuración de la empresa",
+      "description": "Cuéntanos sobre tu negocio. Puedes omitir esto y terminarlo más tarde.",
+      "heading": "Datos de la empresa",
+      "optionalHint": "Solo el nombre de la empresa es obligatorio — el resto es opcional.",
+      "startButton": "Configurar empresa",
+      "save": "Guardar empresa",
+      "saving": "Guardando…",
+      "skip": "Omitir por ahora",
+      "successToast": "Perfil de empresa guardado.",
+      "duplicateInFlight": "Ya se está guardando — un momento.",
+      "fields": {
+        "companyName": "Nombre de la empresa",
+        "dba": "DBA / nombre comercial (opcional)",
+        "licenseState": "Estado de la licencia (opcional)",
+        "licenseNumber": "Número de licencia (opcional)",
+        "primaryTrade": "Oficio principal",
+        "primaryTradePlaceholder": "Selecciona un oficio…",
+        "phone": "Teléfono",
+        "email": "Correo de contacto de la empresa",
+        "website": "Sitio web (opcional)",
+        "addressLine1": "Dirección del negocio",
+        "addressLine2": "Dirección línea 2 (opcional)",
+        "city": "Ciudad",
+        "region": "Estado",
+        "postalCode": "Código postal",
+        "country": "País",
+        "taxRate": "Tasa de impuesto (%)",
+        "timezone": "Zona horaria",
+        "language": "Idioma preferido",
+        "measurementSystem": "Sistema de medidas",
+        "currency": "Moneda",
+        "emailHint": "Correo de contacto visible para el cliente que se usa en las propuestas. No es tu correo de acceso."
+      },
+      "measurement": {
+        "imperial": "Imperial (pies / pulgadas)",
+        "metric": "Métrico (m / cm)"
+      },
+      "trades": {
+        "general_contractor": "Contratista general",
+        "remodeling": "Remodelación",
+        "handyman": "Reparaciones generales",
+        "carpentry": "Carpintería",
+        "roofing": "Techado",
+        "plumbing": "Plomería",
+        "electrical": "Electricidad",
+        "hvac": "HVAC (climatización)",
+        "painting": "Pintura",
+        "flooring": "Pisos",
+        "tile": "Azulejos",
+        "masonry": "Mampostería",
+        "landscaping": "Jardinería",
+        "other": "Otro"
+      }
+    },
+    "edit": {
+      "edit": "Editar perfil de empresa",
+      "title": "Editar perfil de empresa",
+      "cancel": "Cancelar",
+      "brandLocked": "Se define junto con tu logotipo y marca.",
+      "networkLocked": "Asignado por VisionWorx360 — no editable."
+    },
+    "logo": {
+      "title": "Logotipo de la empresa",
+      "description": "Se usa como marca de la empresa en las propuestas y vistas previas del contratista.",
+      "upload": "Subir logotipo",
+      "replace": "Reemplazar logotipo",
+      "remove": "Quitar logotipo",
+      "empty": "Sin logotipo",
+      "previewAlt": "Vista previa del logotipo de la empresa",
+      "unavailable": "Vista previa no disponible",
+      "hint": "PNG, JPG o WebP. Hasta {{max}} MB.",
+      "savedToast": "Logotipo actualizado",
+      "removedToast": "Logotipo eliminado",
+      "errors": {
+        "type": "Use una imagen PNG, JPG o WebP.",
+        "size": "La imagen debe pesar {{max}} MB o menos.",
+        "upload": "No se pudo guardar el logotipo. Inténtelo de nuevo."
+      }
+    }
+  },
+  "identity": {
+    "userFallback": "Usuario",
+    "initialsFallback": "?"
+  },
+  "empty": {
+    "noProjects": "Aún no hay proyectos",
+    "noEstimates": "Aún no hay estimaciones",
+    "noActivity": "Todavía nada por aquí",
+    "noNotifications": "Sin notificaciones",
+    "noLogo": "Sin logo"
+  },
+  "meta": {
+    "dashboard": "Panel — VisionWorx360 Pro",
+    "profile": "Perfil — VisionWorx360 Pro",
+    "organization": "Organización — VisionWorx360 Pro"
+  },
+  "businessProfile": {
+    "title": "Perfil del Negocio",
+    "description": "Personalice las categorías y recomendaciones según su oficio.",
+    "primaryLabel": "Tipo de negocio principal",
+    "secondaryLabel": "Tipos de negocio secundarios",
+    "secondaryHelper": "Opcional — seleccione todos los que apliquen.",
+    "specialtiesLabel": "Especialidades de servicio",
+    "specialtiesHelper": "Opcional — elija las categorías o tipos de proyecto en los que se enfoca.",
+    "preferredScaleLabel": "Escala de proyecto preferida",
+    "none": "Ninguno",
+    "save": "Guardar perfil",
+    "saved": "Perfil del negocio guardado.",
+    "skip": "Omitir por ahora",
+    "readOnly": "Solo propietarios y administradores pueden editar el perfil.",
+    "primaryPlaceholder": "Elija un tipo de negocio principal…",
+    "searchPlaceholder": "Buscar…",
+    "selectedCount": "{{count}} seleccionado(s)",
+    "primaryTypes": {
+      "GENERAL_REMODELING": "Remodelación General",
+      "HANDYMAN": "Servicios de Handyman",
+      "GENERAL_CONTRACTOR": "Contratista General",
+      "KITCHEN_BATH": "Cocina y Baño",
+      "PAINTING": "Pintura",
+      "ROOFING": "Techado",
+      "EXTERIOR_CONTRACTOR": "Contratista Exterior",
+      "DECKS_OUTDOOR_LIVING": "Terrazas y Vida al Aire Libre",
+      "ELECTRICAL": "Eléctrico",
+      "PLUMBING": "Plomería",
+      "HVAC": "HVAC",
+      "FLOORING": "Pisos",
+      "WINDOWS_DOORS": "Ventanas y Puertas",
+      "MASONRY": "Albañilería",
+      "RESTORATION": "Restauración",
+      "ACCESSIBILITY_AGING_IN_PLACE": "Accesibilidad / Envejecer en Casa",
+      "NEW_CONSTRUCTION": "Construcción Nueva",
+      "DESIGN_BUILD": "Diseño y Construcción",
+      "PROPERTY_MAINTENANCE": "Mantenimiento de Propiedades",
+      "OTHER": "Otro"
+    },
+    "saving": "Guardando…",
+    "toastSaved": "Perfil de empresa guardado.",
+    "scalePlaceholder": "Elige una escala preferida…"
+  },
+  "personalizePrompt": {
+    "title": "Personalice su espacio de trabajo",
+    "body": "Cuéntenos sobre su negocio para que las categorías y recomendaciones se ajusten a su oficio.",
+    "cta": "Configurar perfil",
+    "dismiss": "Ahora no"
+  },
+  "workspaceState": {
+    "authLoading": "Verificando tu sesión…",
+    "loading": "Cargando el espacio de trabajo…",
+    "errorTitle": "No pudimos cargar tu espacio de trabajo.",
+    "errorDescription": "No se pudo cargar tu espacio de trabajo, por lo que aún no podemos mostrar tus proyectos. Inténtalo de nuevo o cierra sesión y vuelve a entrar.",
+    "retry": "Reintentar",
+    "signOut": "Cerrar sesión",
+    "setupTitle": "Termina de configurar tu espacio de trabajo",
+    "setupDescription": "Agrega los datos de tu empresa para empezar a crear proyectos.",
+    "setupAction": "Configurar mi empresa"
+  },
+  "createEstimate": {
+    "wizard": {
+      "progress": "Paso {{current}} de {{total}}",
+      "back": "Atrás",
+      "continue": "Continuar",
+      "working": "Guardando…",
+      "errors": {
+        "projectCreate": "No pudimos guardarlo. Inténtalo de nuevo."
+      },
+      "steps": {
+        "client": {
+          "question": "¿Trabajas con un cliente nuevo o con un cliente existente?",
+          "newClient": "Cliente nuevo",
+          "existingClient": "Cliente existente",
+          "newHint": "Agrega su nombre, teléfono y correo para comenzar.",
+          "searchLabel": "Buscar clientes",
+          "searchPlaceholder": "Busca por nombre, empresa o teléfono",
+          "noResults": "No hay clientes que coincidan."
+        },
+        "property": {
+          "question": "¿En cuál propiedad vas a trabajar?",
+          "forClient": "Trabajando con {{name}}",
+          "add": "Agregar propiedad nueva",
+          "empty": "Este cliente aún no tiene propiedades."
+        },
+        "project": {
+          "question": "¿Qué vas a presupuestar hoy?",
+          "nameLabel": "Describe el trabajo",
+          "namePlaceholder": "Remodelación del baño principal",
+          "notesLabel": "Detalles adicionales (opcional)",
+          "notesPlaceholder": "Algo importante antes de empezar.",
+          "history": "Entendido. Este cliente ya tiene historial de proyectos en esta propiedad. Tomaré en cuenta las preferencias guardadas y la información de proyectos anteriores mientras armamos este presupuesto. Puedes revisar o cambiar cualquier cosa en el camino."
+        },
+        "method": {
+          "question": "¿Cómo quieres armar el presupuesto?",
+          "ready": "Listo para presupuestar {{name}}."
+        }
+      }
+    }
+  },
+  "resolution": {
+    "loading": "Cargando tu espacio de trabajo…",
+    "failed": "No pudimos cargar tu espacio de trabajo. Tu sesión sigue activa: inténtalo de nuevo.",
+    "retry": "Reintentar"
+  }
+}

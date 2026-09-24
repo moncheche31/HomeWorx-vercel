@@ -1,0 +1,29 @@
+{
+  "docTitle": "Estado del sistema · VisionWorx360 Pro",
+  "title": "Estado del sistema",
+  "description": "Información pública en tiempo real de esta instalación.",
+  "rows": {
+    "application": "Aplicación",
+    "version": "Versión",
+    "environment": "Entorno",
+    "frontend": "Interfaz",
+    "backend": "Servidor",
+    "network": "Red",
+    "build": "Compilación"
+  },
+  "values": {
+    "operational": "Operativo",
+    "connected": "Conectado",
+    "notConfigured": "Sin configurar",
+    "unavailable": "No disponible"
+  },
+  "network": {
+    "online": "En línea",
+    "offline": "Sin conexión",
+    "reconnecting": "Reconectando…",
+    "unknown": "Desconocido"
+  },
+  "offline": {
+    "banner": "Estás sin conexión. Algunas acciones no están disponibles hasta que te reconectes."
+  }
+}

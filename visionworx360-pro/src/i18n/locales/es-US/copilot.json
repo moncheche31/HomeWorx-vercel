@@ -1,0 +1,88 @@
+{
+  "tab": "Revisión del Presupuesto",
+  "title": "Revisión del Presupuesto",
+  "subtitle": "Detecte trabajo omitido, costos ocultos y oportunidades de mejora rentables.",
+  "customerSubtitle": "Exactamente lo que leerá su cliente. Sin terminología interna.",
+  "pendingCount": "{{count}} por revisar",
+  "savings": "Aproximadamente {{pct}}% menos",
+  "typicalRange": "Normalmente ${{low}}–${{high}}",
+  "empty": {
+    "title": "Aún no hay nada que revisar",
+    "body": "Haga un presupuesto en la propiedad o con fotos y la revisión se ejecutará automáticamente."
+  },
+  "customerEmpty": {
+    "title": "Aún no hay nada aceptado",
+    "body": "Acepte recomendaciones en modo Contratista y aparecerán aquí en lenguaje de cliente."
+  },
+  "mode": {
+    "label": "Modo de presentación",
+    "contractor": "Contratista",
+    "customer": "Vista de cliente"
+  },
+  "sections": {
+    "standard_items": {
+      "title": "Elementos estándar agregados automáticamente",
+      "lead": "Agregué estos elementos de construcción comúnmente requeridos.",
+      "customerTitle": "Incluido para proteger su casa",
+      "customerLead": "El cuidado estándar que incluimos en cada proyecto."
+    },
+    "missing_scope": {
+      "title": "Posible alcance faltante",
+      "lead": "Trabajo que este tipo de proyecto suele requerir. Solo sugerencias.",
+      "customerTitle": "Trabajo adicional incluido",
+      "customerLead": "Detalles que hacen que el resultado quede completo."
+    },
+    "upsell": {
+      "title": "Oportunidades de mejora",
+      "lead": "Los clientes eligen estas mejoras con frecuencia.",
+      "customerTitle": "Opciones que puede considerar",
+      "customerLead": "Opciones populares que puede agregar cuando quiera."
+    },
+    "value_engineering": {
+      "title": "Ingeniería de valor",
+      "lead": "Alternativas de menor costo para una propuesta Bueno / Mejor / Premium.",
+      "customerTitle": "Alternativas más accesibles",
+      "customerLead": "Excelentes resultados a un precio más accesible."
+    }
+  },
+  "confidence": {
+    "high": {
+      "label": "Alta confianza",
+      "explanation": "Casi siempre requerido en este tipo de trabajo."
+    },
+    "medium": {
+      "label": "Recomendado con frecuencia",
+      "explanation": "Comúnmente necesario — confirme si aplica."
+    },
+    "optional": {
+      "label": "Mejora opcional",
+      "explanation": "Preferencia del cliente, no obligatorio."
+    },
+    "contractor_decision": {
+      "label": "Su decisión",
+      "explanation": "Especificación desconocida — usted decide qué aplica."
+    }
+  },
+  "actions": {
+    "accept": "Aceptar",
+    "accepted": "Aceptado",
+    "remove": "Quitar",
+    "ignore": "Ignorar",
+    "acceptAll": "Aceptar todo en esta sección",
+    "finish": "Terminar revisión",
+    "open": "Revisión del Presupuesto"
+  },
+  "toast": {
+    "acceptedAll": "Sección aceptada",
+    "reviewed": "Revisión terminada — {{count}} aceptados",
+    "noChanges": "Sin cambios: el rango del estimado permanece igual.",
+    "recalculated": "{{count}} concepto(s) agregados al alcance — rango del estimado actualizado.",
+    "scopeOnly": "{{count}} concepto(s) agregados al alcance. Cree un estimado para cotizarlos.",
+    "factsOnly": "Decisiones guardadas. Nada de lo que cambió afecta el precio.",
+    "failed": "No pudimos terminar la revisión. Intente de nuevo."
+  },
+  "page": {
+    "picker": "Elija un proyecto",
+    "empty": "Aún no hay proyectos."
+  }
+}

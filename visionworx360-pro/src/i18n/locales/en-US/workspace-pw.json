@@ -1,0 +1,175 @@
+{
+  "tabs": {
+    "overview": "Overview",
+    "rooms": "Rooms",
+    "photos": "Photos",
+    "documents": "Documents",
+    "activity": "Activity"
+  },
+  "rooms": {
+    "title": "Rooms",
+    "add": "Add room",
+    "edit": "Edit room",
+    "empty": "No rooms yet",
+    "emptyDescription": "Add rooms so you can organize notes and photos by space.",
+    "name": "Name",
+    "roomType": "Type",
+    "floorLevel": "Floor / level",
+    "description": "Description",
+    "openRoom": "Open room",
+    "archived": "Archived",
+    "showArchived": "Show archived",
+    "toasts": {
+      "created": "Room added",
+      "updated": "Room updated",
+      "archived": "Room archived",
+      "restored": "Room restored"
+    },
+    "types": {
+      "kitchen": "Kitchen",
+      "bathroom": "Bathroom",
+      "bedroom": "Bedroom",
+      "living_room": "Living room",
+      "dining_room": "Dining room",
+      "basement": "Basement",
+      "garage": "Garage",
+      "exterior": "Exterior",
+      "roof": "Roof",
+      "addition": "Addition",
+      "whole_house": "Whole house",
+      "other": "Other"
+    }
+  },
+  "notes": {
+    "title": "Notes",
+    "add": "Add note",
+    "edit": "Edit note",
+    "empty": "No notes yet",
+    "emptyDescription": "Capture decisions, field observations, and follow-ups.",
+    "body": "Note",
+    "noteType": "Type",
+    "isInternal": "Internal only",
+    "types": {
+      "general": "General",
+      "field": "Field",
+      "followup": "Follow-up",
+      "decision": "Decision",
+      "issue": "Issue",
+      "project_description": "Project description"
+    },
+    "toasts": {
+      "created": "Note saved",
+      "updated": "Note updated",
+      "archived": "Note archived"
+    }
+  },
+  "photos": {
+    "title": "Photos",
+    "add": "Add photos",
+    "empty": "No photos yet",
+    "emptyDescription": "Upload site photos to document conditions and progress.",
+    "caption": "Caption",
+    "altText": "Alt text",
+    "photoType": "Type",
+    "assignRoom": "Room",
+    "unassigned": "Unassigned",
+    "uploading": "Uploading…",
+    "uploadFailed": "Upload failed",
+    "types": {
+      "existing": "Existing",
+      "design": "Design",
+      "rendering": "Rendering",
+      "progress": "Progress",
+      "completed": "Completed",
+      "damage": "Damage",
+      "inspiration": "Inspiration",
+      "other": "Other"
+    },
+    "toasts": {
+      "uploaded": "{{count}} photo(s) uploaded",
+      "archived": "Photo archived"
+    },
+    "chooseFiles": "Choose photos",
+    "takePhoto": "Take photo",
+    "noFilesSelected": "No photos selected yet"
+  },
+  "documents": {
+    "title": "Documents",
+    "add": "Add document",
+    "empty": "No documents yet",
+    "emptyDescription": "Attach contracts, permits, plans, and inspections.",
+    "description": "Description",
+    "documentType": "Type",
+    "download": "Download",
+    "uploadFailed": "Upload failed",
+    "types": {
+      "pdf": "PDF",
+      "plan": "Plan",
+      "contract": "Contract",
+      "permit": "Permit",
+      "inspection": "Inspection",
+      "survey": "Survey",
+      "specification": "Specification",
+      "image": "Image",
+      "other": "Other"
+    },
+    "toasts": {
+      "uploaded": "Document uploaded",
+      "archived": "Document archived"
+    }
+  },
+  "activity": {
+    "title": "Activity",
+    "empty": "No activity yet",
+    "emptyDescription": "Actions taken on this project will appear here.",
+    "types": {
+      "created": "created",
+      "updated": "updated",
+      "status_changed": "changed status of",
+      "archived": "archived",
+      "restored": "restored",
+      "uploaded": "uploaded",
+      "reordered": "reordered"
+    },
+    "entities": {
+      "project": "project",
+      "room": "room",
+      "note": "note",
+      "photo": "photo",
+      "document": "document"
+    },
+    "unknownActor": "System"
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Archive",
+    "restore": "Restore",
+    "close": "Close"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "fileTooLarge": "File too large",
+    "unsupportedType": "File type not supported"
+  },
+  "nav": {
+    "backToProject": "Back to project",
+    "backToProjects": "Back to projects"
+  },
+  "cover": {
+    "set": "Set as project cover",
+    "remove": "Remove project cover",
+    "current": "Project cover",
+    "badge": "PROJECT COVER",
+    "isCover": "Project cover (selected)",
+    "noPhoto": "No project photo",
+    "toastUpdated": "Cover updated",
+    "toastRemoved": "Cover removed",
+    "imageUnavailable": "Image unavailable"
+  },
+  "analysis": {
+    "title": "Photo analysis",
+    "description": "See what the app recognized in these photos, tag objects, and review corroborated scope.",
+    "open": "View photo analysis"
+  }
+}

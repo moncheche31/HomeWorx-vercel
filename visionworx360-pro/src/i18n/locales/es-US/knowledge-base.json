@@ -1,0 +1,141 @@
+{
+  "nav": {
+    "label": "Base de conocimiento"
+  },
+  "page": {
+    "title": "Base de conocimiento",
+    "subtitle": "Partidas de trabajo, rendimientos y plantillas precargadas que puede ajustar a su empresa.",
+    "version": "Biblioteca v{{version}}",
+    "count_one": "{{count}} partida",
+    "count_other": "{{count}} partidas"
+  },
+  "tabs": {
+    "library": "Biblioteca",
+    "favorites": "Favoritos",
+    "mine": "Mis partidas",
+    "templates": "Plantillas",
+    "serviceTasks": "Tareas"
+  },
+  "search": {
+    "placeholder": "Buscar partidas, oficios o palabras clave",
+    "trade": "Oficio",
+    "category": "Categoría",
+    "all": "Todas",
+    "showDisabled": "Mostrar desactivadas",
+    "empty": "Ninguna partida coincide con su búsqueda.",
+    "emptyFavorites": "Aún no ha marcado partidas como favoritas.",
+    "emptyMine": "Aún no ha creado partidas propias."
+  },
+  "badge": {
+    "customized": "Personalizada",
+    "custom": "Propia",
+    "disabled": "Desactivada",
+    "library": "Biblioteca"
+  },
+  "fields": {
+    "unit": "Unidad",
+    "productionRate": "Rendimiento",
+    "laborHours": "Horas de mano de obra",
+    "crewSize": "Tamaño de cuadrilla",
+    "skillLevel": "Nivel de habilidad",
+    "materialAllowance": "Asignación de materiales",
+    "wasteFactor": "Factor de desperdicio",
+    "equipment": "Equipo",
+    "markup": "Margen sugerido %",
+    "overhead": "Gastos generales %",
+    "profit": "Utilidad %",
+    "duration": "Duración (hrs)",
+    "measurement": "Cómo medir",
+    "scopeDescription": "Descripción del alcance",
+    "clientDescription": "Descripción para el cliente",
+    "internalNotes": "Notas internas",
+    "safetyNotes": "Notas de seguridad",
+    "codeReference": "Referencia de código",
+    "inspectionNotes": "Notas de inspección",
+    "dependencies": "Dependencias típicas",
+    "keywords": "Palabras clave"
+  },
+  "detail": {
+    "title": "Partida de trabajo",
+    "editHint": "Sus cambios se guardan como una personalización de su empresa. La partida original nunca se modifica.",
+    "resetHint": "Restablecer devuelve los valores originales de la biblioteca.",
+    "usage": "Usada {{count}} veces"
+  },
+  "actions": {
+    "edit": "Editar",
+    "save": "Guardar cambios",
+    "cancel": "Cancelar",
+    "duplicate": "Duplicar",
+    "disable": "Desactivar",
+    "enable": "Activar",
+    "archive": "Archivar",
+    "restore": "Restaurar",
+    "favorite": "Agregar a favoritos",
+    "unfavorite": "Quitar de favoritos",
+    "newItem": "Nueva partida",
+    "create": "Crear partida",
+    "applyTemplate": "Aplicar plantilla",
+    "browseLibrary": "Ver biblioteca"
+  },
+  "create": {
+    "title": "Nueva partida",
+    "description": "Cree una partida propia de su empresa. Convive con la biblioteca y puede editarse libremente.",
+    "workItem": "Nombre de la partida",
+    "trade": "Oficio",
+    "category": "Categoría",
+    "unit": "Unidad de medida",
+    "scope": "Descripción del alcance",
+    "keywords": "Palabras clave (separadas por comas)"
+  },
+  "templates": {
+    "title": "Plantillas de ensamblajes",
+    "subtitle": "Puntos de partida multioficio que insertan secciones y partidas completas.",
+    "items_one": "{{count}} partida",
+    "items_other": "{{count}} partidas",
+    "system": "Estándar",
+    "apply": "Agregar al proyecto",
+    "applied": "Se agregaron {{sections}} secciones y {{items}} partidas",
+    "empty": "Todavía no hay plantillas disponibles."
+  },
+  "toast": {
+    "saved": "Partida actualizada",
+    "duplicated": "Copia creada",
+    "created": "Partida creada",
+    "stateUpdated": "Partida actualizada",
+    "error": "Algo salió mal. Inténtelo de nuevo."
+  },
+  "serviceTasks": {
+    "title": "Tareas de servicio",
+    "subtitle": "Busque trabajos comunes de mantenimiento en lenguaje natural. Las tareas marcadas como precio pendiente no tienen tarifa interna validada — ingrese su propio número en lugar de adivinar.",
+    "searchPlaceholder": "Buscar tareas: inodoro, GFCI, resane, pasamanos…",
+    "allCategories": "Todas",
+    "priced": "Con precio",
+    "pricingNeeded": "Precio pendiente",
+    "empty": "Ninguna tarea coincide con esa búsqueda.",
+    "categories": {
+      "plumbing": "Plomería",
+      "electrical": "Electricidad",
+      "drywall": "Tablaroca",
+      "paint": "Pintura",
+      "flooring": "Pisos",
+      "cabinets": "Gabinetes",
+      "doors_windows_trim": "Puertas, ventanas y molduras",
+      "deck_fence": "Terrazas y cercas",
+      "exterior": "Exterior",
+      "bath_accessories": "Accesorios de baño",
+      "shelving_storage": "Repisas y almacenaje",
+      "mounting": "Montaje",
+      "weatherproofing": "Sellado e impermeabilización",
+      "carpentry": "Carpintería",
+      "general": "General"
+    },
+    "units": {
+      "each": "cada uno",
+      "linear_foot": "por pie lineal",
+      "square_foot": "por pie cuadrado",
+      "hour": "por hora",
+      "day": "por día",
+      "allowance": "asignación"
+    }
+  }
+}

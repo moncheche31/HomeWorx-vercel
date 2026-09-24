@@ -1,0 +1,95 @@
+{
+  "nav": { "label": "Motor de conocimiento" },
+  "page": {
+    "title": "Motor de conocimiento",
+    "subtitle": "El cerebro compartido del contratista. Determinista, versionado y bilingüe — todos los módulos leen de aquí.",
+    "version": "Conocimiento v{{version}}",
+    "effective": "Vigente desde {{date}}",
+    "entries_one": "{{count}} entrada de conocimiento",
+    "entries_other": "{{count}} entradas de conocimiento",
+    "deterministic": "Determinista — sin IA, sin red",
+    "internal": "Herramienta interna de inspección"
+  },
+  "search": {
+    "label": "Pruebe el motor",
+    "placeholder": "Escriba el alcance, p. ej. \"quitar muro\" o \"instalar gabinetes\"",
+    "run": "Inspeccionar",
+    "clear": "Limpiar",
+    "resultsFor": "Resultados para \"{{text}}\"",
+    "noMatch": "Ningún conocimiento coincide con ese texto. El motor prefiere callar antes que adivinar."
+  },
+  "filters": {
+    "all": "Todas las entradas",
+    "projectTypes": "Tipos de proyecto",
+    "activities": "Actividades",
+    "trade": "Oficio"
+  },
+  "entry": {
+    "kind": { "project_type": "Tipo de proyecto", "activity": "Actividad" },
+    "triggers": "Términos disparadores",
+    "synonyms": "Sinónimos",
+    "trades": "Oficios",
+    "dependencies": "Depende de",
+    "source": {
+      "platform_seed": "Biblioteca de la plataforma",
+      "organization_override": "Su empresa",
+      "provider": "Proveedor externo"
+    }
+  },
+  "sections": {
+    "required": "Partidas requeridas",
+    "recommended": "Partidas recomendadas",
+    "standard": "Adiciones estándar",
+    "omissions": "Omisiones frecuentes",
+    "upgrades": "Oportunidades de mejora",
+    "valueEngineering": "Ingeniería de valor",
+    "sequencing": "Secuencia de trabajo",
+    "safety": "Seguridad",
+    "code": "Recordatorios de código",
+    "permits": "Permisos",
+    "inspections": "Inspecciones",
+    "customerValue": "Lenguaje de valor para el cliente"
+  },
+  "confidence": {
+    "high": { "label": "Alta", "explanation": "Casi siempre aplica a este trabajo." },
+    "medium": { "label": "Media", "explanation": "Aplica con frecuencia — vale la pena revisarlo." },
+    "optional": { "label": "Opcional", "explanation": "Una mejora que el cliente podría querer." },
+    "contractor_decision_required": {
+      "label": "Usted decide",
+      "explanation": "Depende del trabajo, la jurisdicción o los estándares de su empresa."
+    }
+  },
+  "impact": {
+    "lower": "Menor costo",
+    "similar": "Costo similar",
+    "higher": "Mayor costo",
+    "category": {
+      "durability": "Durabilidad",
+      "aesthetics": "Apariencia",
+      "efficiency": "Eficiencia",
+      "comfort": "Confort",
+      "maintenance": "Mantenimiento",
+      "resale": "Valor de reventa",
+      "safety": "Seguridad"
+    }
+  },
+  "ve": { "swap": "{{from}} → {{to}}", "tradeoff": "Compromiso", "customer": "Texto para el cliente" },
+  "view": { "contractor": "Vista del contratista", "customer": "Vista del cliente" },
+  "empty": {
+    "title": "Todavía no hay nada que inspeccionar",
+    "body": "Elija un tipo de proyecto o escriba texto de alcance para ver lo que sabe el motor."
+  },
+  "extensions": {
+    "title": "Puntos de extensión futuros",
+    "body": "Ninguno está activo en esta versión. El motor responde solo desde el catálogo precargado.",
+    "ai": "Razonamiento con IA",
+    "vision": "Visión por computadora",
+    "history": "Estimados históricos",
+    "regional": "Referencias regionales",
+    "codes": "Base de datos de códigos",
+    "permits": "Base de datos de permisos",
+    "supplier": "Catálogos de proveedores",
+    "manufacturer": "Datos de fabricantes",
+    "learning": "Aprendizaje propio del contratista"
+  }
+}

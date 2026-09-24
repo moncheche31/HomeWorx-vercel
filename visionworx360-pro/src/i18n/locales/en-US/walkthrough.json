@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "title": "Onsite Estimate",
+    "subtitle": "Select a project, pick a room, speak, answer a few questions, approve."
+  },
+  "cta": {
+    "start": "Onsite Walkthrough",
+    "resume": "Resume Onsite Walkthrough",
+    "description": "Walk the property while VisionWorx360 Pro builds your estimate."
+  },
+  "progress": {
+    "counter": "Step {{current}} of {{total}}",
+    "label": "Walkthrough progress"
+  },
+  "steps": {
+    "project": {
+      "title": "Choose a project",
+      "hint": "Pick the job you are walking right now."
+    },
+    "room": {
+      "title": "Choose a room",
+      "hint": "Where are you standing?"
+    },
+    "capture": {
+      "title": "Describe the work",
+      "hint": "Talk naturally. You can pause any time."
+    },
+    "questions": {
+      "title": "A few questions",
+      "hint": "Only what we could not determine."
+    },
+    "review": {
+      "title": "Review detected work",
+      "hint": "Approve what is right, edit what is not."
+    },
+    "summary": {
+      "title": "Room complete",
+      "hint": "Continue to another room or finish."
+    },
+    "intake": {
+      "title": "Capture this project",
+      "hint": "Video, photos, description and rough sizes — before any questions."
+    }
+  },
+  "common": {
+    "loading": "Loading…",
+    "loadFailed": "We couldn't load this. Try again.",
+    "back": "Back",
+    "next": "Continue",
+    "exit": "Exit walkthrough",
+    "advancedEdit": "Advanced Edit",
+    "resumeBanner": "You have an unfinished walkthrough.",
+    "resumeAction": "Resume",
+    "discard": "Start over"
+  },
+  "project": {
+    "searchPlaceholder": "Search projects",
+    "empty": "No projects yet. Create one to start the walkthrough.",
+    "create": "Create project",
+    "selected": "Selected"
+  },
+  "room": {
+    "empty": "No rooms yet. Add the first location.",
+    "create": "Add room or location"
+  },
+  "capture": {
+    "status": {
+      "idle": "Ready",
+      "recording": "Recording",
+      "paused": "Paused"
+    },
+    "detected": "{{count}} detected",
+    "unresolved": "{{count}} questions",
+    "savedLocally": "Saved on this device",
+    "changeRoom": "Change room",
+    "transcript": "Transcript",
+    "transcriptPlaceholder": "Speak, or type what you see on site…",
+    "unsupportedTitle": "Speech recognition unavailable",
+    "unsupportedBody": "This browser can't listen right now. Type the walkthrough below — everything else works the same.",
+    "language": {
+      "legend": "Capture language",
+      "english": "English",
+      "spanish": "Spanish"
+    },
+    "controls": {
+      "start": "Start recording",
+      "pause": "Pause",
+      "resume": "Resume",
+      "finishRoom": "Finish room",
+      "photo": "Add photo",
+      "undo": "Undo last"
+    }
+  },
+  "questions": {
+    "progress": "{{answered}} of {{total}} answered",
+    "progressLabel": "Question progress",
+    "allDone": "No open questions.",
+    "continue": "Continue to review",
+    "reviewNow": "Review items now",
+    "skip": "Skip",
+    "notSure": "Not sure",
+    "later": "Review later",
+    "save": "Save",
+    "prompts": {
+      "quantity": "How many?",
+      "size": "What size?",
+      "room": "Which room?",
+      "action": "Remove and replace, or install new?",
+      "laborScope": "Labor only, or labor and materials?",
+      "allowance": "Is this product an allowance?",
+      "match": "Which match is correct?"
+    },
+    "placeholders": {
+      "quantity": "Enter a number",
+      "size": "Enter the size",
+      "room": "Room name",
+      "action": "Describe the work",
+      "laborScope": "Describe the scope",
+      "allowance": "Allowance amount",
+      "match": "Describe the item"
+    },
+    "options": {
+      "action": {
+        "replace": "Remove and replace",
+        "install": "Install new",
+        "remove": "Remove only",
+        "repair": "Repair"
+      },
+      "laborScope": {
+        "labor_only": "Labor only",
+        "labor_materials": "Labor and materials"
+      },
+      "allowance": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  },
+  "review": {
+    "approveAllHigh": "Approve all high confidence",
+    "reviewUncertain": "Review uncertain ({{count}})",
+    "approve": "Approve",
+    "edit": "Edit details",
+    "delete": "Delete",
+    "markNeedsReview": "Mark needs review",
+    "addApproved": "Add {{count}} approved to scope",
+    "adding": "Adding…",
+    "empty": "No work detected yet. Go back and describe the room.",
+    "noRoom": "No room",
+    "fields": {
+      "title": "Item",
+      "quantity": "Quantity",
+      "unit": "Unit",
+      "room": "Room",
+      "none": "None"
+    }
+  },
+  "summary": {
+    "added": "{{count}} scope items added",
+    "hint": "They are in the project scope and estimate now.",
+    "itemCount": "{{count}} items",
+    "anotherRoom": "Walk another room",
+    "finish": "Finish and view project",
+    "advancedEdit": "Open Advanced Edit"
+  },
+  "toast": {
+    "committed": "{{count}} scope items added",
+    "failed": "Could not add these items. Please try again."
+  },
+  "intake": {
+    "title": "Capture this project",
+    "freshProject": "New project — nothing captured yet. Start by showing or telling us the job.",
+    "video": {
+      "title": "Walkthrough video",
+      "record": "Record live walkthrough",
+      "upload": "Upload existing video"
+    },
+    "describe": {
+      "title": "Speak or type the project description",
+      "hint": "Tap record and walk the job talking normally, or type it below.",
+      "record": "Speak / record description",
+      "stop": "Stop recording",
+      "transcribing": "Transcribing…",
+      "heard": "What we heard",
+      "placeholder": "Describe the work: rooms, what is being replaced, finishes, anything unusual.",
+      "unsupportedTitle": "Voice capture is not available on this device",
+      "unsupportedBody": "Type the project description instead — everything else works the same.",
+      "micBlockedTitle": "Microphone blocked",
+      "micBlockedBody": "Allow microphone access for this site, then tap record again. Your typed text is kept.",
+      "errorTitle": "We couldn't transcribe that",
+      "errorBody": "Try recording again, or type the description. Nothing you already wrote was lost."
+    },
+    "measure": {
+      "title": "Rough dimensions",
+      "length": "Length (ft)",
+      "width": "Width (ft)",
+      "height": "Height (ft)",
+      "add": "Add to description"
+    },
+    "photos": "Add photos",
+    "save": "Save description",
+    "saving": "Saving…",
+    "saved": "Description saved to this project.",
+    "saveFailed": "We couldn't save that. Your text is still here — try again.",
+    "analyze": "Analyze walkthrough"
+  }
+}

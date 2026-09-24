@@ -1,0 +1,180 @@
+{
+  "docTitle": "Sistema de diseño · VisionWorx360 Pro",
+  "eyebrow": "Sistema de diseño",
+  "title": "Componentes de VisionWorx360 Pro",
+  "description": "Lenguaje visual compartido, tokens semánticos y componentes reutilizables — diseñados primero para móviles y para contratistas en el campo.",
+  "backHome": "← Inicio",
+  "sections": {
+    "brand": {
+      "title": "Marca",
+      "description": "El logotipo completo se usa con moderación. La interfaz de la app usa la identidad compacta.",
+      "fullLogo": "Logotipo completo — VisionWorx360",
+      "compact": "Identidad compacta (en la app)",
+      "ecosystem": "Referencia del ecosistema — HomeWorx360",
+      "ecosystemNote": "Se muestra solo como demostración de intercambio de tokens. Esta app usa la identidad de VisionWorx360.",
+      "swap": "Los mismos componentes — token de acento de HomeWorx360",
+      "accentButton": "Botón de acento",
+      "swapNote": "solo intercambio — ningún componente se reconstruyó."
+    },
+    "typography": { "title": "Tipografía" },
+    "colors": {
+      "title": "Colores",
+      "groups": {
+        "surfaces": "Superficies",
+        "brand": "Marca",
+        "status": "Estado",
+        "confidence": "Confianza"
+      },
+      "swatches": {
+        "background": "Fondo",
+        "surface": "Superficie",
+        "surfaceMuted": "Superficie tenue",
+        "surfaceElevated": "Superficie elevada",
+        "primary": "Primario (azul marino)",
+        "accent": "Acento (dorado)",
+        "secondary": "Secundario",
+        "border": "Borde",
+        "success": "Éxito",
+        "warning": "Advertencia",
+        "danger": "Peligro",
+        "information": "Información",
+        "verified": "Verificado",
+        "high": "Alta",
+        "medium": "Media",
+        "low": "Baja",
+        "needsConfirmation": "Requiere confirmación"
+      }
+    },
+    "spacing": { "title": "Escala de espaciado" },
+    "buttons": {
+      "title": "Botones",
+      "primary": "Primario",
+      "secondary": "Secundario",
+      "destructive": "Destructivo",
+      "outline": "Contorno",
+      "ghost": "Fantasma",
+      "record": "Grabar",
+      "disabled": "Deshabilitado"
+    },
+    "forms": {
+      "title": "Controles de formulario",
+      "jobName": "Nombre del trabajo",
+      "jobPlaceholder": "Remodelación de cocina",
+      "helper": "Aquí va el texto de ayuda.",
+      "notes": "Notas",
+      "notesPlaceholder": "Describe el alcance…",
+      "trade": "Oficio",
+      "choose": "Elige un oficio",
+      "plumbing": "Plomería",
+      "electrical": "Eléctrico",
+      "framing": "Estructura",
+      "search": "Buscar",
+      "searchPlaceholder": "Buscar trabajos…",
+      "includeTax": "Incluir impuestos",
+      "offlineMode": "Modo sin conexión",
+      "priority": "Prioridad",
+      "low": "Baja",
+      "normal": "Normal",
+      "high": "Alta",
+      "filterChips": "Filtros",
+      "chips": { "open": "Abierto", "inReview": "En revisión", "approved": "Aprobado" }
+    },
+    "cards": {
+      "title": "Tarjetas e insignias",
+      "estimateNumber": "Estimación #1024",
+      "estimateDesc": "Residencia Alvarez · Remodelación de cocina",
+      "draft": "Borrador",
+      "confidenceSignals": "Indicadores de confianza"
+    },
+    "alerts": {
+      "title": "Alertas y avisos",
+      "successTitle": "Estimación enviada",
+      "successDesc": "El cliente la recibirá en breve.",
+      "warningTitle": "Faltan medidas",
+      "warningDesc": "Dos cuartos no tienen dimensiones.",
+      "dangerTitle": "Falló la sincronización",
+      "dangerDesc": "Vuelve a intentar cuando tengas conexión.",
+      "infoTitle": "Consejo de campo",
+      "infoDesc": "Habla con naturalidad — pausa para revisar."
+    },
+    "overlays": {
+      "title": "Notificaciones, diálogos y paneles",
+      "showToast": "Mostrar notificación",
+      "toastTitle": "Guardado localmente",
+      "toastDesc": "Se sincronizará al conectarte.",
+      "openDialog": "Abrir diálogo",
+      "dialogTitle": "Confirmar cierre de sesión",
+      "dialogDesc": "Los cambios sin sincronizar permanecerán en este dispositivo.",
+      "openDrawer": "Abrir panel inferior",
+      "drawerTitle": "Detalles del cuarto",
+      "drawerDesc": "Ajusta las dimensiones y los acabados.",
+      "drawerBody": "Contenido del panel."
+    },
+    "tabs": {
+      "title": "Pestañas, progreso y esqueletos",
+      "scope": "Alcance",
+      "pricing": "Precios",
+      "review": "Revisión",
+      "scopeBody": "Contenido del alcance.",
+      "pricingBody": "Contenido de precios.",
+      "reviewBody": "Contenido de revisión.",
+      "fetching": "Cargando datos"
+    },
+    "feedback": {
+      "title": "Estados de retroalimentación",
+      "emptyTitle": "Aún no hay estimaciones",
+      "emptyDesc": "Inicia un recorrido nuevo para capturar tu primer alcance.",
+      "newWalkthrough": "Nuevo recorrido",
+      "retryDesc": "No pudimos cargar la lista de propiedades.",
+      "retrying": "Reintentando…",
+      "syncedTitle": "Todo sincronizado",
+      "fullPagePreview": "Error de página completa (vista previa)",
+      "fullPageTitle": "Esta página no cargó",
+      "fullPageDesc": "Intenta de nuevo en un momento."
+    },
+    "voice": {
+      "title": "Botón de acción por voz",
+      "description": "Solo estados visuales — el micrófono, la transcripción y el almacenamiento están fuera del alcance de esta fase."
+    },
+    "confidence": { "title": "Insignias de confianza" },
+    "data": {
+      "title": "Presentación de datos",
+      "total": "Total",
+      "margin": "Margen",
+      "area": "Área",
+      "areaUnit": "pies²",
+      "walkthrough": "Recorrido"
+    },
+    "rows": {
+      "title": "Filas de lista",
+      "alvarez": { "name": "Residencia Alvarez", "meta": "3 cuartos · Cocina" },
+      "nguyen": { "name": "Remodelación Nguyen", "meta": "5 cuartos · Casa completa" },
+      "baker": { "name": "Ampliación Baker", "meta": "1 cuarto · Solario" }
+    },
+    "nav": {
+      "title": "Estructuras de navegación",
+      "description": "El escritorio usa una barra lateral fija; el móvil usa una barra superior compacta con una barra de pestañas inferior.",
+      "desktopHeader": "Encabezado de escritorio",
+      "estimates": "Estimaciones",
+      "settings": "Ajustes"
+    },
+    "localization": {
+      "title": "Localización",
+      "description": "Base bilingüe — inglés y español de EE. UU. Cambia el idioma para ver cómo se actualiza cada componente.",
+      "standard": "Selector estándar",
+      "compact": "Selector compacto",
+      "currentLanguage": "Idioma actual",
+      "formatting": "Formato según el idioma",
+      "currency": "Moneda",
+      "number": "Número",
+      "percent": "Porcentaje",
+      "date": "Fecha",
+      "time": "Hora",
+      "measurement": "Medida",
+      "longLabel": "Ejemplo de etiqueta larga en español",
+      "longLabelSample": "Confirmar la instalación completa del calentador de agua sin tanque",
+      "voiceStates": "Estados de voz localizados",
+      "confidenceStates": "Estados de confianza localizados"
+    }
+  }
+}

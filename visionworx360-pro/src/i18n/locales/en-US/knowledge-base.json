@@ -1,0 +1,141 @@
+{
+  "nav": {
+    "label": "Knowledge Base"
+  },
+  "page": {
+    "title": "Knowledge Base",
+    "subtitle": "Pre-loaded work items, production rates and templates you can tune for your company.",
+    "version": "Library v{{version}}",
+    "count_one": "{{count}} work item",
+    "count_other": "{{count}} work items"
+  },
+  "tabs": {
+    "library": "Library",
+    "favorites": "Favorites",
+    "mine": "My items",
+    "templates": "Templates",
+    "serviceTasks": "Service tasks"
+  },
+  "search": {
+    "placeholder": "Search work items, trades or keywords",
+    "trade": "Trade",
+    "category": "Category",
+    "all": "All",
+    "showDisabled": "Show disabled",
+    "empty": "No work items match your search.",
+    "emptyFavorites": "You haven't starred any work items yet.",
+    "emptyMine": "You haven't created any custom work items yet."
+  },
+  "badge": {
+    "customized": "Customized",
+    "custom": "Custom",
+    "disabled": "Disabled",
+    "library": "Library"
+  },
+  "fields": {
+    "unit": "Unit",
+    "productionRate": "Production rate",
+    "laborHours": "Labor hours",
+    "crewSize": "Crew size",
+    "skillLevel": "Skill level",
+    "materialAllowance": "Material allowance",
+    "wasteFactor": "Waste factor",
+    "equipment": "Equipment",
+    "markup": "Suggested markup %",
+    "overhead": "Overhead %",
+    "profit": "Profit %",
+    "duration": "Duration (hrs)",
+    "measurement": "How to measure",
+    "scopeDescription": "Scope description",
+    "clientDescription": "Client-facing description",
+    "internalNotes": "Internal notes",
+    "safetyNotes": "Safety notes",
+    "codeReference": "Code reference",
+    "inspectionNotes": "Inspection notes",
+    "dependencies": "Typical dependencies",
+    "keywords": "Keywords"
+  },
+  "detail": {
+    "title": "Work item",
+    "editHint": "Your changes are saved as a company override. The master library item is never modified.",
+    "resetHint": "Reset restores the original library values.",
+    "usage": "Used {{count}} times"
+  },
+  "actions": {
+    "edit": "Edit",
+    "save": "Save changes",
+    "cancel": "Cancel",
+    "duplicate": "Duplicate",
+    "disable": "Disable",
+    "enable": "Enable",
+    "archive": "Archive",
+    "restore": "Restore",
+    "favorite": "Add to favorites",
+    "unfavorite": "Remove from favorites",
+    "newItem": "New work item",
+    "create": "Create work item",
+    "applyTemplate": "Apply template",
+    "browseLibrary": "Browse library"
+  },
+  "create": {
+    "title": "New work item",
+    "description": "Create a company-owned work item. It lives alongside the library and can be edited freely.",
+    "workItem": "Work item name",
+    "trade": "Trade",
+    "category": "Category",
+    "unit": "Unit of measure",
+    "scope": "Default scope description",
+    "keywords": "Keywords (comma separated)"
+  },
+  "templates": {
+    "title": "Assembly templates",
+    "subtitle": "Multi-trade starting points that insert a full set of scope sections and items.",
+    "items_one": "{{count}} item",
+    "items_other": "{{count}} items",
+    "system": "Standard",
+    "apply": "Add to project",
+    "applied": "Added {{sections}} sections and {{items}} items",
+    "empty": "No templates available yet."
+  },
+  "toast": {
+    "saved": "Work item updated",
+    "duplicated": "Copy created",
+    "created": "Work item created",
+    "stateUpdated": "Work item updated",
+    "error": "Something went wrong. Please try again."
+  },
+  "serviceTasks": {
+    "title": "Service tasks",
+    "subtitle": "Search common handyman and small-service work in plain English. Tasks marked pricing needed have no validated internal rate — enter your own number instead of guessing.",
+    "searchPlaceholder": "Search tasks: toilet, GFCI, drywall patch, handrail…",
+    "allCategories": "All",
+    "priced": "Priced",
+    "pricingNeeded": "Pricing needed",
+    "empty": "No tasks match that search yet.",
+    "categories": {
+      "plumbing": "Plumbing",
+      "electrical": "Electrical",
+      "drywall": "Drywall",
+      "paint": "Paint",
+      "flooring": "Flooring",
+      "cabinets": "Cabinets",
+      "doors_windows_trim": "Doors, windows & trim",
+      "deck_fence": "Decks & fences",
+      "exterior": "Exterior",
+      "bath_accessories": "Bath accessories",
+      "shelving_storage": "Shelving & storage",
+      "mounting": "Mounting",
+      "weatherproofing": "Weatherproofing",
+      "carpentry": "Carpentry",
+      "general": "General"
+    },
+    "units": {
+      "each": "each",
+      "linear_foot": "per linear foot",
+      "square_foot": "per square foot",
+      "hour": "per hour",
+      "day": "per day",
+      "allowance": "allowance"
+    }
+  }
+}

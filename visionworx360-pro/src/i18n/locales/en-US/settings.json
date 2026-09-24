@@ -1,0 +1,79 @@
+{
+  "title": "Settings",
+  "description": "Personal preferences for how VisionWorx360 Pro looks and feels on your device.",
+  "display": {
+    "title": "Accessibility & Display",
+    "description": "Make text easier to read and controls easier to tap. These settings follow your account.",
+    "quickToggle": {
+      "label": "Larger Text",
+      "hint": "Quick switch between Standard and Large text."
+    },
+    "textSize": {
+      "label": "Text Size",
+      "options": {
+        "standard": {
+          "label": "Standard",
+          "description": "Default text size."
+        },
+        "large": {
+          "label": "Large",
+          "description": "About 15% larger text across the app."
+        },
+        "xlarge": {
+          "label": "Extra Large",
+          "description": "About 30% larger text for maximum readability."
+        }
+      }
+    },
+    "density": {
+      "label": "Display Density",
+      "options": {
+        "compact": {
+          "label": "Compact",
+          "description": "More information on screen. Touch targets stay at least 44 pixels."
+        },
+        "comfortable": {
+          "label": "Comfortable",
+          "description": "Balanced spacing. Recommended for most users."
+        },
+        "spacious": {
+          "label": "Spacious",
+          "description": "Larger rows, buttons, and menus for gloves or bright sunlight."
+        }
+      }
+    },
+    "deviceTextSize": {
+      "label": "Use Device Text Size",
+      "hint": "Follow your phone or browser text size setting in addition to the choice above."
+    },
+    "preview": {
+      "title": "Preview",
+      "body": "This is how body text, helper text, and buttons will look with your current settings.",
+      "action": "Sample button"
+    },
+    "persistence": {
+      "server": "Saved to your account. These settings follow you on every device.",
+      "local": "Saved on this device. Sign in to sync across devices."
+    },
+    "reset": "Reset to defaults"
+  },
+  "materialPricing": {
+    "title": "Live material pricing",
+    "description": "Optionally pull material costs from a real-time pricing API instead of the hand-maintained catalog. Keys are stored securely on the server and never shown again.",
+    "apiKey": "API key",
+    "keyPlaceholder": "Paste your API key",
+    "keyStored": "A key is stored — paste a new one to replace it",
+    "configured": "Configured",
+    "notConfigured": "Not configured",
+    "saveKey": "Save key",
+    "testConnection": "Test connection",
+    "remove": "Remove",
+    "saved": "API key saved.",
+    "removed": "Provider removed.",
+    "verifyOk": "Connection verified.",
+    "verifyFailed": "Connection test failed.",
+    "lastVerifyOk": "Last verified {{when}} — OK",
+    "lastVerifyFailed": "Last verified {{when}} — failed: {{reason}}",
+    "fallbackNote": "If no provider is configured, or a live lookup fails, material costs fall back to the catalog automatically. Estimates are never blocked by pricing lookups."
+  }
+}

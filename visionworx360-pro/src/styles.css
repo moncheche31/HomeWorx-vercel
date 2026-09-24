@@ -1,0 +1,498 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * VisionWorx360 Pro — Design System
+ *
+ * Shared foundation across the VisionWorx360 / HomeWorx360 ecosystem:
+ * deep navy primary, near-white surfaces, restrained rounded geometry.
+ *
+ * Product accent is theme-swappable at the CSS variable layer:
+ *   --accent-brand      -> gold for VisionWorx360, green for HomeWorx360
+ * All components consume --accent so HomeWorx360 can later swap
+ * --accent-brand without rebuilding the component library.
+ *
+ * All colors MUST use oklch format.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-brand: var(--accent-brand);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-information: var(--information);
+  --color-information-foreground: var(--information-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-focus-ring: var(--focus-ring);
+  --color-disabled: var(--disabled);
+  --color-disabled-foreground: var(--disabled-foreground);
+
+  --color-confidence-verified: var(--confidence-verified);
+  --color-confidence-high: var(--confidence-high);
+  --color-confidence-medium: var(--confidence-medium);
+  --color-confidence-low: var(--confidence-low);
+  --color-confidence-needs-confirmation: var(--confidence-needs-confirmation);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand primitives — VisionWorx360 identity */
+  --brand-navy: oklch(0.24 0.09 262);
+  --brand-navy-strong: oklch(0.18 0.08 262);
+  --brand-navy-soft: oklch(0.35 0.09 262);
+  --brand-gold: oklch(0.76 0.13 82);
+  --brand-gold-strong: oklch(0.68 0.14 78);
+  --brand-green: oklch(0.68 0.16 152); /* HomeWorx360 reference only */
+
+  /* Surfaces */
+  --background: oklch(0.99 0.003 250);
+  --surface: oklch(1 0 0);
+  --surface-muted: oklch(0.968 0.007 247.896);
+  --surface-elevated: oklch(1 0 0);
+
+  /* Foreground */
+  --foreground: oklch(0.18 0.06 262);
+  --foreground-muted: oklch(0.45 0.03 258);
+
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface-elevated);
+  --popover-foreground: var(--foreground);
+
+  /* Primary = deep navy */
+  --primary: var(--brand-navy);
+  --primary-foreground: oklch(0.985 0.003 247);
+
+  /* Secondary = soft navy-tinted neutral */
+  --secondary: oklch(0.95 0.01 250);
+  --secondary-foreground: var(--brand-navy);
+
+  /* Accent = product accent (gold for VisionWorx, swap to green for HomeWorx) */
+  --accent-brand: var(--brand-gold);
+  --accent: var(--accent-brand);
+  --accent-foreground: var(--brand-navy);
+
+  --muted: oklch(0.96 0.008 250);
+  --muted-foreground: var(--foreground-muted);
+
+  /* Status */
+  --success: oklch(0.62 0.14 152);
+  --success-foreground: oklch(0.99 0.003 250);
+  --warning: oklch(0.78 0.14 78);
+  --warning-foreground: oklch(0.2 0.06 60);
+  --danger: oklch(0.55 0.22 27);
+  --danger-foreground: oklch(0.99 0.003 250);
+  --information: oklch(0.55 0.14 245);
+  --information-foreground: oklch(0.99 0.003 250);
+
+  --destructive: var(--danger);
+  --destructive-foreground: var(--danger-foreground);
+
+  --border: oklch(0.9 0.015 250);
+  --input: oklch(0.9 0.015 250);
+  --ring: var(--brand-navy);
+  --focus-ring: var(--brand-navy);
+  --disabled: oklch(0.93 0.008 250);
+  --disabled-foreground: oklch(0.6 0.02 250);
+
+  /* Confidence signals — non-color affordances required in component */
+  --confidence-verified: oklch(0.55 0.15 152);
+  --confidence-high: oklch(0.58 0.13 175);
+  --confidence-medium: oklch(0.7 0.14 82);
+  --confidence-low: oklch(0.66 0.17 45);
+  --confidence-needs-confirmation: oklch(0.55 0.22 27);
+
+  --chart-1: var(--brand-navy);
+  --chart-2: var(--brand-gold);
+  --chart-3: oklch(0.55 0.14 245);
+  --chart-4: oklch(0.62 0.14 152);
+  --chart-5: oklch(0.6 0.15 305);
+
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--brand-navy);
+  --sidebar-primary-foreground: oklch(0.985 0.003 247);
+  --sidebar-accent: oklch(0.96 0.008 250);
+  --sidebar-accent-foreground: var(--brand-navy);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+/* HomeWorx360 ecosystem theme (reference only — apply .theme-homeworx to a subtree) */
+.theme-homeworx {
+  --accent-brand: var(--brand-green);
+  --accent: var(--accent-brand);
+  --accent-foreground: oklch(0.99 0.003 250);
+}
+
+.dark {
+  --background: oklch(0.15 0.04 262);
+  --surface: oklch(0.19 0.05 262);
+  --surface-muted: oklch(0.23 0.05 262);
+  --surface-elevated: oklch(0.22 0.05 262);
+  --foreground: oklch(0.985 0.003 247);
+  --foreground-muted: oklch(0.75 0.02 250);
+
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface-elevated);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.985 0.003 247);
+  --primary-foreground: var(--brand-navy);
+  --secondary: oklch(0.28 0.05 260);
+  --secondary-foreground: oklch(0.985 0.003 247);
+
+  --accent-brand: var(--brand-gold);
+  --accent: var(--accent-brand);
+  --accent-foreground: var(--brand-navy);
+
+  --muted: oklch(0.26 0.04 260);
+  --muted-foreground: oklch(0.75 0.03 256);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.75 0.05 250);
+  --focus-ring: var(--brand-gold);
+  --disabled: oklch(0.3 0.03 260);
+  --disabled-foreground: oklch(0.6 0.02 260);
+
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: oklch(0.985 0.003 247);
+  --sidebar-primary-foreground: var(--brand-navy);
+  --sidebar-accent: oklch(0.28 0.05 260);
+  --sidebar-accent-foreground: oklch(0.985 0.003 247);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.75 0.05 250);
+}
+
+/*
+ * Accessibility & Display — user-controlled text scale and density tokens.
+ *
+ * Text scale multiplies the root font size, so every rem-based utility
+ * (headings, body, labels, menus, controls) scales together.
+ * Density drives control heights, gaps, and card padding.
+ * Components must read these tokens instead of hardcoding sizes.
+ */
+:root {
+  --text-scale: 1;
+  --control-min-h: 3rem;
+  --control-min-h-sm: 2.75rem;
+  --density-gap: 0.75rem;
+  --density-card-pad: 1.25rem;
+}
+
+:root[data-text-size="large"] {
+  --text-scale: 1.15;
+}
+:root[data-text-size="xlarge"] {
+  --text-scale: 1.3;
+}
+
+:root[data-density="compact"] {
+  --control-min-h: 2.75rem;
+  --control-min-h-sm: 2.5rem;
+  --density-gap: 0.5rem;
+  --density-card-pad: 1rem;
+}
+:root[data-density="spacious"] {
+  --control-min-h: 3.5rem;
+  --control-min-h-sm: 3rem;
+  --density-gap: 1.25rem;
+  --density-card-pad: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --control-min-h: 2.5rem;
+    --control-min-h-sm: 2.25rem;
+  }
+  :root[data-density="compact"] {
+    --control-min-h: 2.25rem;
+    --control-min-h-sm: 2rem;
+  }
+  :root[data-density="spacious"] {
+    --control-min-h: 3rem;
+    --control-min-h-sm: 2.75rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  /*
+   * Percentage keeps the browser/device font-size setting in play
+   * (iOS Larger Text, desktop browser zoom/font settings).
+   * data-device-text="off" opts out with a fixed 16px base.
+   */
+  html {
+    -webkit-text-size-adjust: 100%;
+    font-size: calc(100% * var(--text-scale, 1));
+  }
+
+  html[data-device-text="off"] {
+    font-size: calc(16px * var(--text-scale, 1));
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility safe-top {
+  padding-top: max(env(safe-area-inset-top), 0.5rem);
+}
+@utility safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+@utility safe-x {
+  padding-left: max(env(safe-area-inset-left), 1rem);
+  padding-right: max(env(safe-area-inset-right), 1rem);
+}
+
+/*
+ * Module 014 — Proposal presentation themes.
+ *
+ * Each theme is a token set consumed by the proposal components. Components
+ * never hardcode colors: they read --proposal-* only.
+ */
+.proposal-doc {
+  --proposal-surface: var(--color-card);
+  --proposal-surface-alt: var(--color-surface-muted);
+  --proposal-ink: var(--color-foreground);
+  --proposal-ink-muted: var(--color-foreground-muted);
+  --proposal-accent: var(--color-accent-brand);
+  --proposal-on-accent: var(--color-primary-foreground);
+  --proposal-cover: var(--color-primary);
+  --proposal-on-cover: var(--color-primary-foreground);
+  --proposal-rule: var(--color-border);
+  --proposal-radius: var(--radius-lg);
+  --proposal-heading-tracking: -0.01em;
+  --proposal-heading-transform: none;
+  --proposal-heading-weight: 600;
+
+  background-color: var(--proposal-surface);
+  color: var(--proposal-ink);
+}
+
+.proposal-theme-classic {
+  --proposal-radius: var(--radius-sm);
+  --proposal-heading-tracking: 0;
+  --proposal-surface-alt: color-mix(in oklab, var(--color-primary) 5%, var(--color-card));
+}
+
+.proposal-theme-modern {
+  --proposal-radius: var(--radius-2xl);
+  --proposal-heading-tracking: -0.02em;
+  --proposal-cover: var(--color-primary);
+}
+
+.proposal-theme-luxury {
+  --proposal-radius: var(--radius-md);
+  --proposal-heading-transform: uppercase;
+  --proposal-heading-tracking: 0.08em;
+  --proposal-heading-weight: 500;
+  --proposal-cover: oklch(0.19 0.02 260);
+  --proposal-surface-alt: color-mix(in oklab, var(--color-accent-brand) 10%, var(--color-card));
+}
+
+.proposal-theme-minimal {
+  --proposal-radius: var(--radius-sm);
+  --proposal-accent: var(--color-foreground);
+  --proposal-cover: var(--color-card);
+  --proposal-on-cover: var(--color-foreground);
+  --proposal-surface-alt: var(--color-card);
+  --proposal-rule: color-mix(in oklab, var(--color-border) 60%, transparent);
+}
+
+.proposal-heading {
+  letter-spacing: var(--proposal-heading-tracking);
+  text-transform: var(--proposal-heading-transform);
+  font-weight: var(--proposal-heading-weight);
+}
+
+.proposal-surface {
+  background-color: var(--proposal-surface);
+}
+.proposal-surface-alt {
+  background-color: var(--proposal-surface-alt);
+}
+.proposal-cover-surface {
+  background-color: var(--proposal-cover);
+  color: var(--proposal-on-cover);
+}
+.proposal-accent-text {
+  color: var(--proposal-accent);
+}
+.proposal-accent-surface {
+  background-color: var(--proposal-accent);
+  color: var(--proposal-on-accent);
+}
+.proposal-muted-text {
+  color: var(--proposal-ink-muted);
+}
+.proposal-rule {
+  border-color: var(--proposal-rule);
+}
+.proposal-card {
+  background-color: var(--proposal-surface);
+  border: 1px solid var(--proposal-rule);
+  border-radius: var(--proposal-radius);
+}
+
+@media print {
+  /* US Letter with comfortable, printer-safe margins. */
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+  }
+  /* App chrome, navigation and controls never reach paper. */
+  .proposal-no-print,
+  header[data-app-chrome],
+  nav[data-app-chrome],
+  aside[data-app-chrome] {
+    display: none !important;
+  }
+  .proposal-doc {
+    box-shadow: none !important;
+  }
+  .proposal-print-sheet {
+    max-width: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+  .proposal-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Keep a heading with the content it introduces. */
+  .proposal-heading,
+  h1,
+  h2,
+  h3 {
+    break-after: avoid-page;
+    page-break-after: avoid;
+    break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+    break-inside: avoid;
+  }
+  .proposal-page-break {
+    break-after: page;
+    page-break-after: always;
+  }
+  /* An empty optional section must not push a blank page. */
+  .proposal-section:empty,
+  .proposal-page-break:last-child {
+    display: none !important;
+    break-after: auto;
+    page-break-after: auto;
+  }
+}
+
+
+/* Density-aware helpers for surfaces that opt in explicitly. */
+@utility density-gap {
+  gap: var(--density-gap);
+}
+@utility density-pad {
+  padding: var(--density-card-pad);
+}
+@utility touch-target {
+  min-height: var(--control-min-h);
+  min-width: var(--control-min-h);
+}

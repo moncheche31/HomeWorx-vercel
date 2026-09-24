@@ -1,0 +1,422 @@
+{
+  "welcome": {
+    "greeting": "Welcome back, {{name}}",
+    "greetingNew": "Welcome, {{name}}",
+    "subtitle": "Here's what's happening in your workspace today.",
+    "onboarding": {
+      "title": "Welcome to VisionWorx360 Pro",
+      "description": "Let's finish setting things up. Add your company details so your estimates and proposals look polished — or skip and do it later.",
+      "primaryCta": "Set up your company",
+      "skipCta": "Skip for now"
+    }
+  },
+  "nav": {
+    "primary": "Primary navigation",
+    "mobile": "Mobile navigation",
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "estimates": "Estimates",
+    "renderings": "Renderings",
+    "proposals": "Proposals",
+    "customers": "Clients",
+    "calendar": "Calendar",
+    "files": "Files",
+    "reports": "Reports",
+    "settings": "Settings",
+    "walkthrough": "Onsite Walkthrough",
+    "capture": "Describe Your Project",
+    "profile": "Profile",
+    "organization": "Organization",
+    "comingSoon": "Coming soon",
+    "knowledgeBase": "Knowledge Base",
+    "properties": "Properties",
+    "costBook": "Cost Book",
+    "terminology": "Correction Memory"
+  },
+  "header": {
+    "notifications": "Notifications",
+    "openMenu": "Open account menu",
+    "changeLanguage": "Change language",
+    "userMenu": "Account",
+    "signOut": "Sign out",
+    "signedInAs": "Signed in as"
+  },
+  "cards": {
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Projects you've touched lately.",
+      "empty": "No projects yet — create one to get started."
+    },
+    "recentEstimates": {
+      "title": "Recent estimates",
+      "description": "The latest estimates across your workspace.",
+      "empty": "You haven't created any estimates yet.",
+      "ballpark": "Ballpark",
+      "expected": "Expected {{value}}",
+      "updated": "Updated {{date}}"
+    },
+    "voiceCapture": {
+      "title": "Describe Your Project",
+      "description": "Describe the work in your own words. VisionWorx360 Pro builds the scope of work and estimate.",
+      "cta": "Describe Your Project"
+    },
+    "quickActions": {
+      "title": "Quick actions",
+      "createEstimate": "Create estimate",
+      "importFile": "Import a file",
+      "inviteTeammate": "Invite teammate",
+      "viewProjects": "View Projects",
+      "viewCustomers": "Customers & Properties"
+    },
+    "companyProfile": {
+      "title": "Complete your company profile",
+      "description": "Add your logo and license number so proposals look polished.",
+      "cta": "Update profile"
+    },
+    "subscription": {
+      "title": "Subscription",
+      "devPlaceholder": "Unavailable",
+      "devDescription": "Billing and plans are not yet enabled for this workspace."
+    },
+    "activity": {
+      "title": "Activity",
+      "description": "Recent events across your workspace.",
+      "empty": "Activity will show up here as your team gets to work.",
+      "unknownProject": "Untitled project"
+    },
+    "createEstimate": {
+      "title": "Create New Estimate",
+      "description": "Start a new estimate with an onsite walkthrough, photos, or a project description.",
+      "cta": "Create New Estimate",
+      "chooser": {
+        "title": "Create New Estimate",
+        "description": "Choose how you want to start.",
+        "close": "Close",
+        "options": {
+          "onsite": {
+            "title": "Onsite Walkthrough",
+            "description": "Walk through the property and describe the work as you go."
+          },
+          "photos": {
+            "title": "Photos or Video",
+            "description": "Upload photos or a prerecorded walkthrough video, then add your notes and measurements."
+          },
+          "describe": {
+            "title": "Describe Your Project",
+            "description": "Describe the project by voice or text to generate a preliminary estimate."
+          }
+        }
+      }
+    }
+  },
+  "comingSoon": {
+    "eyebrow": "Coming soon",
+    "backToDashboard": "Back to dashboard",
+    "projects": "This area is not available yet.",
+    "estimates": "This area is not available yet.",
+    "renderings": "This area is not available yet.",
+    "proposals": "This area is not available yet.",
+    "customers": "This area is not available yet.",
+    "calendar": "This area is not available yet.",
+    "files": "This area is not available yet.",
+    "reports": "This area is not available yet.",
+    "settings": "This area is not available yet.",
+    "capture": "This area is not available yet."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "You're all caught up.",
+    "emptyHint": "New updates from your workspace will appear here.",
+    "markAllRead": "Mark all as read",
+    "unreadBadge": "{{count}} unread"
+  },
+  "profile": {
+    "title": "Your profile",
+    "description": "Update how you appear across VisionWorx360 Pro.",
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "displayName": "Display name",
+      "phone": "Phone",
+      "email": "Email",
+      "language": "Preferred language",
+      "timezone": "Time zone",
+      "measurement": "Measurement",
+      "role": "Role",
+      "accountEmail": "Account (login) email"
+    },
+    "roles": {
+      "owner": "Owner",
+      "administrator": "Administrator",
+      "estimator": "Estimator",
+      "sales": "Sales",
+      "office": "Office",
+      "read_only": "Read-only"
+    },
+    "notifications": {
+      "title": "Notification preferences",
+      "email": "Email",
+      "push": "Push",
+      "sms": "SMS"
+    },
+    "edit": {
+      "edit": "Edit profile",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "cancel": "Cancel",
+      "savedToast": "Profile saved.",
+      "emailLocked": "Managed by your sign-in account. Change it below.",
+      "roleLocked": "Set by your organization owner."
+    },
+    "accountEmail": {
+      "title": "Account (login) email",
+      "description": "This is the address you sign in with. It is separate from the company contact email shown to customers on proposals.",
+      "change": "Change account email",
+      "companyLink": "Edit company contact email",
+      "newLabel": "New account email",
+      "verificationNote": "Verification is required: we email a confirmation link to the new address.",
+      "submit": "Send confirmation",
+      "sending": "Sending…",
+      "sentToast": "Confirmation email sent.",
+      "pending": "Check {{email}} for a confirmation link. Your login email changes only after you confirm it.",
+      "invalid": "Enter a valid email address.",
+      "unchanged": "That is already your account email.",
+      "errors": {
+        "invalid_email": "That email address is not valid.",
+        "user_already_exists": "That email is already in use by another account.",
+        "rate_limited": "Too many attempts. Please wait a moment and try again.",
+        "network_error": "Network problem. Check your connection and try again.",
+        "unknown": "We could not start the email change. Please try again."
+      }
+    }
+  },
+  "organization": {
+    "title": "Organization",
+    "description": "Business information used across estimates and proposals.",
+    "fields": {
+      "organizationName": "Organization name",
+      "businessName": "Business (DBA) name",
+      "logo": "Logo",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Company contact email",
+      "website": "Website",
+      "licenseNumber": "License number",
+      "taxRate": "Tax rate",
+      "currency": "Currency",
+      "measurementSystem": "Measurement system",
+      "timezone": "Time zone",
+      "language": "Language",
+      "brandAccentColor": "Brand accent color",
+      "networkId": "Contractor Network ID"
+    },
+    "logoEmpty": "No logo uploaded yet",
+    "logoHint": "Upload a square PNG or SVG (max 2 MB).",
+    "emptyState": {
+      "title": "No company set up",
+      "description": "Add your business details so estimates and proposals look polished.",
+      "cta": "Complete company profile"
+    },
+    "setup": {
+      "title": "Company setup",
+      "description": "Tell us about your business. You can skip this and finish later.",
+      "heading": "Company details",
+      "optionalHint": "Only Company name is required — everything else is optional.",
+      "startButton": "Set up company",
+      "save": "Save company",
+      "saving": "Saving…",
+      "skip": "Skip for now",
+      "successToast": "Company profile saved.",
+      "duplicateInFlight": "Already saving — please wait.",
+      "fields": {
+        "companyName": "Company name",
+        "dba": "DBA / trade name (optional)",
+        "licenseState": "License state (optional)",
+        "licenseNumber": "License number (optional)",
+        "primaryTrade": "Primary trade",
+        "primaryTradePlaceholder": "Select a trade…",
+        "phone": "Phone",
+        "email": "Company contact email",
+        "website": "Website (optional)",
+        "addressLine1": "Business address",
+        "addressLine2": "Address line 2 (optional)",
+        "city": "City",
+        "region": "State",
+        "postalCode": "ZIP code",
+        "country": "Country",
+        "taxRate": "Tax rate (%)",
+        "timezone": "Time zone",
+        "language": "Preferred language",
+        "measurementSystem": "Measurement system",
+        "currency": "Currency",
+        "emailHint": "Customer-facing contact email used on proposals. Not your login email."
+      },
+      "measurement": {
+        "imperial": "Imperial (ft / in)",
+        "metric": "Metric (m / cm)"
+      },
+      "trades": {
+        "general_contractor": "General Contractor",
+        "remodeling": "Remodeling",
+        "handyman": "Handyman",
+        "carpentry": "Carpentry",
+        "roofing": "Roofing",
+        "plumbing": "Plumbing",
+        "electrical": "Electrical",
+        "hvac": "HVAC",
+        "painting": "Painting",
+        "flooring": "Flooring",
+        "tile": "Tile",
+        "masonry": "Masonry",
+        "landscaping": "Landscaping",
+        "other": "Other"
+      }
+    },
+    "edit": {
+      "edit": "Edit company profile",
+      "title": "Edit company profile",
+      "cancel": "Cancel",
+      "brandLocked": "Set with your logo and branding assets.",
+      "networkLocked": "Assigned by VisionWorx360 — not editable."
+    },
+    "logo": {
+      "title": "Company logo",
+      "description": "Used as the company brand on contractor proposals and previews.",
+      "upload": "Upload logo",
+      "replace": "Replace logo",
+      "remove": "Remove logo",
+      "empty": "No logo",
+      "previewAlt": "Company logo preview",
+      "unavailable": "Preview unavailable",
+      "hint": "PNG, JPG or WebP. Up to {{max}} MB.",
+      "savedToast": "Company logo updated",
+      "removedToast": "Company logo removed",
+      "errors": {
+        "type": "Use a PNG, JPG or WebP image.",
+        "size": "Image must be {{max}} MB or smaller.",
+        "upload": "Could not save the logo. Please try again."
+      }
+    }
+  },
+  "identity": {
+    "userFallback": "User",
+    "initialsFallback": "?"
+  },
+  "empty": {
+    "noProjects": "No projects yet",
+    "noEstimates": "No estimates yet",
+    "noActivity": "Nothing here yet",
+    "noNotifications": "No notifications",
+    "noLogo": "No logo"
+  },
+  "meta": {
+    "dashboard": "Dashboard — VisionWorx360 Pro",
+    "profile": "Profile — VisionWorx360 Pro",
+    "organization": "Organization — VisionWorx360 Pro"
+  },
+  "businessProfile": {
+    "title": "Business Profile",
+    "description": "Tailor project categories and recommendations to your trade.",
+    "primaryLabel": "Primary business type",
+    "secondaryLabel": "Secondary business types",
+    "secondaryHelper": "Optional — select all that apply.",
+    "specialtiesLabel": "Service specialties",
+    "specialtiesHelper": "Optional — choose the categories or specific project types you focus on.",
+    "preferredScaleLabel": "Preferred project scale",
+    "none": "None",
+    "save": "Save profile",
+    "saved": "Business profile saved.",
+    "skip": "Skip for now",
+    "readOnly": "Only owners and administrators can edit the business profile.",
+    "primaryPlaceholder": "Choose a primary business type…",
+    "searchPlaceholder": "Search…",
+    "selectedCount": "{{count}} selected",
+    "primaryTypes": {
+      "GENERAL_REMODELING": "General Remodeling",
+      "HANDYMAN": "Handyman",
+      "GENERAL_CONTRACTOR": "General Contractor",
+      "KITCHEN_BATH": "Kitchen & Bath",
+      "PAINTING": "Painting",
+      "ROOFING": "Roofing",
+      "EXTERIOR_CONTRACTOR": "Exterior Contractor",
+      "DECKS_OUTDOOR_LIVING": "Decks & Outdoor Living",
+      "ELECTRICAL": "Electrical",
+      "PLUMBING": "Plumbing",
+      "HVAC": "HVAC",
+      "FLOORING": "Flooring",
+      "WINDOWS_DOORS": "Windows & Doors",
+      "MASONRY": "Masonry",
+      "RESTORATION": "Restoration",
+      "ACCESSIBILITY_AGING_IN_PLACE": "Accessibility / Aging in Place",
+      "NEW_CONSTRUCTION": "New Construction",
+      "DESIGN_BUILD": "Design-Build",
+      "PROPERTY_MAINTENANCE": "Property Maintenance",
+      "OTHER": "Other"
+    },
+    "saving": "Saving…",
+    "toastSaved": "Business profile saved.",
+    "scalePlaceholder": "Choose a preferred scale…"
+  },
+  "personalizePrompt": {
+    "title": "Personalize your workspace",
+    "body": "Tell us about your business so project categories and recommendations match your trade.",
+    "cta": "Set up business profile",
+    "dismiss": "Not now"
+  },
+  "workspaceState": {
+    "authLoading": "Checking your session…",
+    "loading": "Loading workspace…",
+    "errorTitle": "We couldn’t load your workspace.",
+    "errorDescription": "Your workspace couldn’t be loaded, so your projects can’t be shown yet. Try again, or sign out and sign back in.",
+    "retry": "Try again",
+    "signOut": "Sign out",
+    "setupTitle": "Finish setting up your workspace",
+    "setupDescription": "Add your company details to start creating projects.",
+    "setupAction": "Set up your company"
+  },
+  "createEstimate": {
+    "wizard": {
+      "progress": "Step {{current}} of {{total}}",
+      "back": "Back",
+      "continue": "Continue",
+      "working": "Saving…",
+      "errors": {
+        "projectCreate": "We couldn't save that. Please try again."
+      },
+      "steps": {
+        "client": {
+          "question": "Are you working with a new client or an existing client?",
+          "newClient": "New Client",
+          "existingClient": "Existing Client",
+          "newHint": "Add their name, phone, and email to get started.",
+          "searchLabel": "Search clients",
+          "searchPlaceholder": "Search by name, company, or phone",
+          "noResults": "No matching clients."
+        },
+        "property": {
+          "question": "Which property are you working at?",
+          "forClient": "Working with {{name}}",
+          "add": "Add New Property",
+          "empty": "No properties yet for this client."
+        },
+        "project": {
+          "question": "What are you estimating today?",
+          "nameLabel": "Describe the work",
+          "namePlaceholder": "Main Bathroom Remodel",
+          "notesLabel": "Extra details (optional)",
+          "notesPlaceholder": "Anything worth noting before you start.",
+          "history": "Got it. This client has previous project history at this property. I'll keep saved preferences and prior project information in mind as we build this estimate. You can review or change anything along the way."
+        },
+        "method": {
+          "question": "How would you like to build the estimate?",
+          "ready": "Ready to estimate {{name}}."
+        }
+      }
+    }
+  },
+  "resolution": {
+    "loading": "Loading your workspace…",
+    "failed": "We couldn't load your workspace. Your session is still valid — try again.",
+    "retry": "Try again"
+  }
+}

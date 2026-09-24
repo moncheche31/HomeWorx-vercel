@@ -1,0 +1,36 @@
+{
+  "title": "Soporte y comentarios",
+  "description": "Reporte un problema, haga una pregunta o díganos qué mejoraría la aplicación.",
+  "form": {
+    "title": "Enviar un mensaje",
+    "category": "¿De qué se trata?",
+    "message": "Descripción (opcional)",
+    "messagePlaceholder": "¿Qué ocurrió y qué intentaba hacer?",
+    "contactPreference": "¿Cómo debemos responder?",
+    "contactValue": "Correo o teléfono",
+    "submit": "Enviar a soporte",
+    "referenceAttached": "Se adjuntará la referencia de error {{reference}} a este reporte.",
+    "privacyNote": "Adjuntamos la página en la que estaba, la versión de la aplicación y la referencia del error. Nunca enviamos contraseñas, tokens de sesión ni los registros privados de sus clientes.",
+    "directContact": "También puede comunicarse con soporte en {{contact}}."
+  },
+  "category": {
+    "problem": "Reportar un problema",
+    "question": "Hacer una pregunta",
+    "feedback": "Enviar comentarios"
+  },
+  "contact": {
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "none": "No necesito respuesta"
+  },
+  "sent": {
+    "title": "Gracias, lo recibimos",
+    "body": "Su referencia es {{reference}}. Consérvela para dar seguimiento."
+  },
+  "errors": {
+    "submit": "No pudimos enviar ese reporte. Inténtelo de nuevo."
+  },
+  "actions": {
+    "report": "Reportar un problema"
+  }
+}

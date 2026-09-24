@@ -1,0 +1,48 @@
+{
+  "title": "Facturación y suscripción",
+  "description": "Su plan, estado de prueba y datos de pago.",
+  "plan": {
+    "name": "VisionWorx360 Pro — Edición Contratista",
+    "summary": "Espacio completo para contratistas: clientes, propiedades, proyectos, captura de alcance, estimaciones preliminares y detalladas, y propuestas para el cliente.",
+    "pricingNote": "El precio y el intervalo de facturación se configuran en su proveedor de pagos y se muestran al finalizar la compra."
+  },
+  "status": {
+    "none": "Sin suscripción",
+    "trialing": "Prueba gratuita",
+    "active": "Activa",
+    "past_due": "Pago pendiente",
+    "canceled": "Cancelada",
+    "incomplete": "Esperando pago",
+    "incomplete_expired": "Pago expirado",
+    "unpaid": "Sin pagar",
+    "paused": "En pausa"
+  },
+  "fields": {
+    "trial": "Prueba",
+    "trialLength": "Prueba gratuita de {{days}} días disponible",
+    "renews": "Se renueva el"
+  },
+  "actions": {
+    "startTrial": "Iniciar prueba gratuita",
+    "changePlan": "Actualizar suscripción",
+    "manage": "Administrar facturación"
+  },
+  "notices": {
+    "cancelling": "Su suscripción terminará al final del período actual.",
+    "pastDue": "No pudimos procesar su último pago. Actualice su método de pago para mantener el acceso."
+  },
+  "notConfigured": {
+    "title": "Los pagos aún no están conectados",
+    "body": "Las suscripciones están desactivadas hasta que se configuren el proveedor de pagos y el precio del plan para este espacio de trabajo. En este estado no se cobra nada ni se inicia ninguna prueba."
+  },
+  "errors": {
+    "notConfigured": "Los pagos aún no están configurados para este espacio de trabajo.",
+    "noCustomer": "Todavía no existe una cuenta de facturación. Inicie una suscripción primero.",
+    "generic": "No pudimos abrir la facturación. Inténtelo de nuevo."
+  },
+  "noAccess": {
+    "title": "Acceso no disponible",
+    "description": "Su organización no tiene una suscripción o prueba activa de Contractor Edition. Inicie una prueba o actualice la facturación para restaurar el acceso.",
+    "action": "Ir a facturación"
+  }
+}

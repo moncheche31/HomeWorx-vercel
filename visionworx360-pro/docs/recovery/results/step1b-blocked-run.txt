@@ -1,0 +1,3 @@
+BLOCKED run (no DB env): tests=35 passed=0 failed=35 skipped=0
+Error: BLOCKED: real database boundary not configured (missing VW_IT_POSTGREST_URL, VW_IT_JWT_SECRET, VW_IT_PG_URL). Run visionworx-regression/harness/run.sh. This suite never skips silently.
+Full existing suite + new suite, NO database configured: files=245 tests=3023 passed=2984 failed=35 skipped=4 (all 35 failures = new suite, BLOCKED; 4 skipped = pre-existing twoProjectsOneProperty)

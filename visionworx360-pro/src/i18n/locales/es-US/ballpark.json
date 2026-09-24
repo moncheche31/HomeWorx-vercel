@@ -1,0 +1,797 @@
+{
+  "meta": {
+    "title": "Estimado rápido",
+    "subtitle": "Una entrevista corta por voz. Sin plano ni medir cada pared."
+  },
+  "schema": {
+    "quickBallpark": "Estimado rápido",
+    "photoBallpark": "Estimado aproximado con fotos",
+    "descriptionBallpark": "Estimado aproximado por descripción"
+  },
+  "chooser": {
+    "title": "¿Cómo quiere estimar este trabajo?",
+    "quick": "Estimado rápido",
+    "quickHint": "Una docena de preguntas habladas. Obtenga un rango preliminar en minutos.",
+    "detailed": "Recorrido detallado",
+    "detailedHint": "Recorra cuarto por cuarto, describa el trabajo y apruebe cada partida.",
+    "quickCta": "Iniciar estimado rápido",
+    "detailedCta": "Iniciar recorrido detallado"
+  },
+  "progress": {
+    "counter": "Pregunta {{current}} de {{total}}"
+  },
+  "persistence": {
+    "saving": "Guardando…",
+    "saved": "Guardado",
+    "offline": "Borrador sin conexión",
+    "error": "No se pudo guardar el progreso. Su borrador sin conexión se conserva."
+  },
+  "draft": {
+    "preview": "Vista previa del borrador — sin guardar",
+    "continue": "Continuar refinamiento",
+    "discard": "Descartar borrador"
+  },
+  "voice": {
+    "start": "Mantenga para hablar",
+    "stop": "Detener",
+    "listening": "Escuchando…",
+    "transcript": "Lo que escuchamos",
+    "transcriptHint": "Edítelo si lo escuchamos mal.",
+    "unsupported": "La voz no está disponible en este navegador. Escriba su respuesta.",
+    "notUnderstood": "No pudimos entender esa respuesta. Repítala o escríbala.",
+    "cannotRead": {
+      "dimension": "No pudimos leer una medida. Pruebe \"18 pies\", \"18 ft\" o \"18 por 16\".",
+      "count": "No pudimos leer un número. Pruebe \"2\" o \"dos puertas\".",
+      "choice": "Esa respuesta no coincide con ninguna opción. Toque una opción o dígalo de otra forma.",
+      "text": "Escriba o diga una descripción breve."
+    }
+  },
+  "actions": {
+    "next": "Siguiente",
+    "back": "Atrás",
+    "unknown": "Aún no lo sé",
+    "skip": "Omitir",
+    "finish": "Ver rango preliminar",
+    "recalculate": "Recalcular",
+    "save": "Guardar",
+    "exit": "Salir"
+  },
+  "q": {
+    "lengthFt": {
+      "prompt": "¿Qué tan largo es el espacio?",
+      "hint": "Puede decir «dieciséis por dieciocho» y llenamos ambos."
+    },
+    "widthFt": {
+      "prompt": "¿Qué tan ancho es?",
+      "hint": "Ancho total, de pared a pared."
+    },
+    "ceilingHeightFt": {
+      "prompt": "¿Qué altura tiene el techo?",
+      "hint": "Altura del techo terminado."
+    },
+    "useOfSpace": {
+      "prompt": "¿En qué se va a convertir el espacio?",
+      "hint": "Cuarto de huéspedes, oficina, estudio…"
+    },
+    "bathroom": {
+      "prompt": "¿Habrá baño?"
+    },
+    "closet": {
+      "prompt": "¿Habrá clóset o almacenamiento?"
+    },
+    "partitions": {
+      "prompt": "¿Cuántas paredes interiores nuevas?",
+      "hint": "Una idea aproximada basta: le mostramos la estimación que usamos."
+    },
+    "partitionLfKnown": {
+      "prompt": "Si conoce los pies lineales de pared, dígalos",
+      "hint": "Déjelo vacío para usar nuestra estimación."
+    },
+    "raisedFloor": {
+      "prompt": "¿Hay que levantar el piso con estructura?",
+      "hint": "Común sobre una losa inclinada de garaje."
+    },
+    "insulationWalls": {
+      "prompt": "¿Aislar las paredes exteriores?"
+    },
+    "insulationCeiling": {
+      "prompt": "¿Aislar el techo?"
+    },
+    "insulationFloor": {
+      "prompt": "¿Aislar el piso?"
+    },
+    "drywall": {
+      "prompt": "¿Cuánta tablaroca?"
+    },
+    "flooringQuality": {
+      "prompt": "¿Qué nivel de piso?"
+    },
+    "plumbing": {
+      "prompt": "¿Qué tanto se mueve la plomería?",
+      "hint": "Distancia al drenaje existente más cercano."
+    },
+    "electrical": {
+      "prompt": "¿Cuánto trabajo eléctrico?"
+    },
+    "newDoors": {
+      "prompt": "¿Cuántas puertas nuevas?"
+    },
+    "newWindows": {
+      "prompt": "¿Cuántas ventanas nuevas?"
+    },
+    "finishLevel": {
+      "prompt": "¿Qué nivel de acabados?"
+    },
+    "roomType": {
+      "prompt": "¿Qué tipo de espacio es?"
+    },
+    "sizeClass": {
+      "prompt": "¿Aproximadamente de qué tamaño es?",
+      "hint": "Solo una categoría de tamaño; le mostramos la superficie que asumimos."
+    },
+    "scopeType": {
+      "prompt": "¿Qué tipo de trabajo es?"
+    },
+    "layoutChange": {
+      "prompt": "¿Hay cambio importante de distribución?",
+      "hint": "Mover paredes, puertas o la función del cuarto."
+    },
+    "plumbingRelocation": {
+      "prompt": "¿Hay que mover plomería?"
+    },
+    "wallRemoval": {
+      "prompt": "¿Se va a quitar alguna pared?",
+      "hint": "Las paredes de carga cambian mucho el precio."
+    },
+    "cabinets": {
+      "prompt": "Gabinetes: ¿reemplazar, renovar frentes o conservar?"
+    },
+    "optionalDimension": {
+      "hint": "Opcional. Si lo omite usamos la asignación por categoría de tamaño."
+    },
+    "plantingStockSize": {
+      "prompt": "¿Qué tamaño tiene la planta?",
+      "hint": "Tamaño de contenedor o encostalado."
+    },
+    "plantingAccess": {
+      "prompt": "¿Cómo llega el equipo al área de siembra?",
+      "hint": "El acceso con maquinaria cambia mucho la mano de obra."
+    },
+    "soilConditions": {
+      "prompt": "¿Cómo es el suelo?"
+    },
+    "proximityRisk": {
+      "prompt": "¿El trabajo está cerca de una estructura, cimiento o servicio enterrado?",
+      "hint": "Puede requerir localización y excavación a mano."
+    },
+    "spoilsDisposal": {
+      "prompt": "¿Hay que retirar tierra o escombro?"
+    },
+    "beamSpanFt": {
+      "prompt": "¿Cuál es el claro libre?",
+      "hint": "Medido entre apoyos."
+    },
+    "bearingCondition": {
+      "prompt": "¿Está confirmada la trayectoria de carga hasta el cimiento?"
+    },
+    "temporaryShoring": {
+      "prompt": "¿Se necesita apuntalamiento temporal?"
+    },
+    "beamFinishMethod": {
+      "prompt": "¿Cómo se debe acabar la viga y los postes?"
+    },
+    "demoExtent": {
+      "prompt": "¿Cuánta demolición hay?"
+    },
+    "patchScope": {
+      "prompt": "¿Cuánto resane de tablaroca hay?"
+    },
+    "builtInLengthFt": {
+      "prompt": "¿Qué largo tiene el trabajo empotrado?",
+      "hint": "Pies lineales terminados."
+    },
+    "builtInMaterial": {
+      "prompt": "¿Para pintar o para barnizar?"
+    },
+    "cabinetRunFt": {
+      "prompt": "¿Qué largo tiene el tramo de gabinetes?",
+      "hint": "Pies lineales totales."
+    },
+    "counterMaterial": {
+      "prompt": "¿Qué material de cubierta?"
+    },
+    "bathFixtureScope": {
+      "prompt": "¿Los muebles se quedan en su lugar o se mueven?"
+    },
+    "showerWaterproofing": {
+      "prompt": "¿El área húmeda necesita impermeabilización?"
+    },
+    "ventilation": {
+      "prompt": "¿Se incluye ventilación de extracción nueva?"
+    }
+  },
+  "options": {
+    "yes": "Sí",
+    "no": "No",
+    "unsure": "No estoy seguro",
+    "none": "Ninguna",
+    "light": "Poca",
+    "moderate": "Moderada",
+    "extensive": "Extensa",
+    "shoring": {
+      "allowance": "Incluir una provisión"
+    },
+    "beamFinish": {
+      "drywall": "Tabla roca, pintada",
+      "paintGrade": "Forro para pintar",
+      "stainGrade": "Madera para barnizar",
+      "exposed": "Dejar expuesta",
+      "allowance": "Desconocido — incluir provisión"
+    },
+    "bath": {
+      "none": "Sin baño",
+      "half": "Medio baño",
+      "full": "Baño completo"
+    },
+    "closet": {
+      "none": "Ninguno",
+      "small": "Pequeño",
+      "standard": "Estándar",
+      "large": "Grande"
+    },
+    "drywall": {
+      "wallsAndCeiling": "Paredes y techo",
+      "wallsOnly": "Solo paredes",
+      "none": "Ninguna"
+    },
+    "quality": {
+      "basic": "Básico",
+      "mid": "Intermedio",
+      "standard": "Estándar",
+      "premium": "Premium",
+      "noFlooring": "Conservar el existente"
+    },
+    "plumbing": {
+      "none": "Ninguna",
+      "nearby": "Cercana",
+      "moderate": "Moderada",
+      "major": "Mayor"
+    },
+    "electrical": {
+      "basic": "Extensión básica",
+      "moderate": "Circuitos nuevos",
+      "panel": "Panel o subpanel"
+    },
+    "unclear": "No se distingue",
+    "roomType": {
+      "kitchen": "Cocina",
+      "bathroom": "Baño",
+      "bedroom": "Recámara",
+      "living": "Sala",
+      "garage": "Garaje",
+      "basement": "Sótano",
+      "other": "Otro"
+    },
+    "sizeClass": {
+      "small": "Pequeño",
+      "medium": "Mediano",
+      "large": "Grande",
+      "xlarge": "Muy grande"
+    },
+    "scopeType": {
+      "cosmetic": "Renovación cosmética",
+      "full": "Remodelación completa",
+      "conversion": "Conversión o ampliación"
+    },
+    "cabinets": {
+      "none": "Conservar",
+      "reface": "Renovar frentes",
+      "replace": "Reemplazar"
+    },
+    "plantingStock": {
+      "small": "Pequeña (hasta 5 gal)",
+      "medium": "Mediana (15 gal)",
+      "large": "Grande (caja o encostalada)"
+    },
+    "access": {
+      "machine": "Acceso con máquina",
+      "limited": "Acceso limitado",
+      "hand": "Solo a mano"
+    },
+    "soil": {
+      "loam": "Suelo normal",
+      "clay": "Arcilla pesada",
+      "rocky": "Rocoso"
+    },
+    "bearing": {
+      "verified": "Verificada",
+      "assumed": "Asumida",
+      "unknown": "Desconocida"
+    },
+    "builtIn": {
+      "paintGrade": "Para pintar",
+      "stainGrade": "Para barnizar"
+    },
+    "counter": {
+      "laminate": "Laminado",
+      "quartz": "Cuarzo",
+      "granite": "Granito"
+    },
+    "bathFixture": {
+      "sameLocation": "Mismo lugar",
+      "relocated": "Reubicados"
+    }
+  },
+  "assumption": {
+    "dimensions": "Medidas generales",
+    "ceilingHeight": "Altura del techo",
+    "floorArea": "Área de piso",
+    "perimeter": "Perímetro",
+    "wallArea": "Área de paredes",
+    "partitions": "Paredes interiores nuevas",
+    "bathroom": "Baño",
+    "closet": "Clóset",
+    "openings": "Puertas y ventanas",
+    "finishLevel": "Nivel de acabados"
+  },
+  "item": {
+    "partitionWall": "Paredes divisorias nuevas",
+    "raisedFloor": "Piso con estructura",
+    "insulationWalls": "Aislamiento en paredes",
+    "insulationCeiling": "Aislamiento en techo",
+    "insulationFloor": "Aislamiento en piso",
+    "drywall": "Instalación y acabado de tablaroca",
+    "paint": "Pintura",
+    "flooring": "Piso",
+    "trim": "Zoclo y molduras",
+    "doors": "Puertas interiores",
+    "windows": "Ventanas",
+    "electrical": "Eléctrico",
+    "plumbing": "Plomería",
+    "bathFixtures": "Muebles de baño",
+    "closetShelving": "Repisas de clóset"
+  },
+  "group": {
+    "framing": "Estructura",
+    "insulation": "Aislamiento",
+    "drywall": "Tablaroca",
+    "finishes": "Acabados",
+    "openings": "Puertas y ventanas",
+    "systems": "Instalaciones",
+    "other": "Otros"
+  },
+  "result": {
+    "title": "Rango preliminar",
+    "low": "Bajo",
+    "expected": "Recomendado",
+    "high": "Alto",
+    "confidence": "Confianza",
+    "confidenceLevel": {
+      "high": "Alta",
+      "medium": "Media",
+      "low": "Baja"
+    },
+    "assumptions": "Supuestos que usamos",
+    "unknowns": "Aún desconocido",
+    "unknownsHint": "Esto amplía el rango un {{pct}}%.",
+    "quantities": "Cantidades preliminares",
+    "source": {
+      "answered": "Usted nos dijo",
+      "assumed": "Supuesto",
+      "derived": "Calculado"
+    },
+    "preliminary": "Este es un rango preliminar, no un precio fijo.",
+    "widenSummary": "El rango se amplía {{total}}% en total, incluyendo {{source}}% por lo que esta ruta no puede verificar.",
+    "previewTitle": "Vista previa refinada — aún no aplicada",
+    "previewNote": "Su rango guardado actual es {{low}}–{{high}}. Esta vista previa lo reemplaza solo cuando toca \"Usar este estimado\".",
+    "savedTitle": "Rango guardado actual",
+    "positionGroupLabel": "Elija en qué punto del rango vende este trabajo",
+    "positionHint": "El mismo alcance y la misma configuración de precios: solo cambia la posición de venta dentro del rango preliminar.",
+    "selectedBadge": "Seleccionado",
+    "unpriced": "Sin precio",
+    "invalidTitle": "Cotización incompleta — no es un precio de $0",
+    "invalidBody": "Este proyecto tiene alcance real, pero todavía no se pudo poner precio a nada, así que no se muestra ningún rango. Resuelva los puntos siguientes (por lo general falta una medida o una tarea sin coincidencia) y vuelva a calcular.",
+    "invalidUnresolved": "{{count}} partida(s) sin precio."
+  },
+
+  "warning": {
+    "sampleData": "Los precios son datos de muestra ilustrativos, no tarifas de mercado. Reemplácelos con sus costos antes de cotizar.",
+    "noDimensions": "Sin largo y ancho no podemos calcular cantidades.",
+    "noLines": "Aún no hay trabajo con precio: responda algunas preguntas más.",
+    "assumedFootprint": "El tamaño del cuarto es una asignación, no una medida. Agregue dimensiones para cerrar el rango.",
+    "photoInference": "Los datos de fotos se limitan a lo que una persona confirmó en las imágenes.",
+    "inferredFootprint": "El tamaño del cuarto se infirió de referencias en las fotos, no se midió."
+  },
+  "after": {
+    "use": "Usar este estimado",
+    "refine": "Ajustar supuestos",
+    "continue": "Continuar al recorrido detallado",
+    "later": "Agregar plano o medidas exactas después",
+    "laterHint": "Sus respuestas quedan en el proyecto. Las medidas exactas reemplazarán los supuestos sin reiniciar."
+  },
+  "toast": {
+    "saved": "Estimado guardado en el proyecto.",
+    "applied": "Medidas del estimado guardadas. Puede ajustarlas cuando quiera.",
+    "failed": "No pudimos guardar. Intente de nuevo.",
+    "noChanges": "Sin cambios: tu estimado no cambió"
+  },
+  "empty": {
+    "noProject": "Primero elija un proyecto."
+  },
+  "intake": {
+    "title": "¿Cómo va a estimar este trabajo?",
+    "subtitle": "Las tres rutas usan el mismo motor y muestran los mismos supuestos.",
+    "onsite": {
+      "title": "Recorrido en sitio",
+      "hint": "Está en la propiedad: preguntas habladas, medidas aproximadas y lo que puede ver.",
+      "cta": "Empezar en sitio"
+    },
+    "photos": {
+      "title": "Estimado con fotos",
+      "hint": "Estimados remotos cuando tiene fotos pero pocas medidas.",
+      "cta": "Usar fotos",
+      "help": "Sirve para cualquier caso con fotos: imágenes del cliente, un expediente de seguro o un paquete inmobiliario."
+    },
+    "description": {
+      "title": "Describa su proyecto",
+      "hint": "Solo voz o texto. No se necesitan fotos ni medidas.",
+      "cta": "Describirlo"
+    }
+  },
+  "photos": {
+    "title": "Agregar fotos",
+    "hint": "Agregue las que tenga. Las fotos dan contexto; solo registramos lo que usted confirma.",
+    "add": "Agregar fotos",
+    "alt": "Foto cargada {{name}}",
+    "remove": "Quitar foto",
+    "noMeasurements": "Nunca sacamos medidas de una foto. Todo lo dimensional viene de usted o de una asignación declarada.",
+    "continue": "Continuar a las preguntas",
+    "continueWithout": "Continuar sin fotos",
+    "kindLabel": "¿Qué es esta imagen?",
+    "previewLost": "Volver a añadir",
+    "kind": {
+      "room_photo": "Habitación completa / área general",
+      "sketch_plan": "Croquis / plano",
+      "rendering": "Render / inspiración",
+      "detail_photo": "Detalle / primer plano",
+      "unknown": "No estoy seguro",
+      "exterior": "Exterior",
+      "damage_photo": "Condición existente / área con problema"
+    },
+    "moveUp": "Subir foto",
+    "moveDown": "Bajar foto"
+  },
+  "describe": {
+    "title": "Describa su proyecto",
+    "hint": "Diga o escriba lo que quiere hacer. Después vienen unas preguntas cortas.",
+    "placeholder": "Ejemplo: convertir el garaje doble en un estudio con baño completo…",
+    "continue": "Continuar a las preguntas"
+  },
+  "obs": {
+    "cabinetsPresent": "¿Hay gabinetes en la foto?",
+    "plumbingFixturesVisible": "¿Se ven muebles de plomería?",
+    "flooringToReplace": "¿Se va a reemplazar el piso?",
+    "wallsFinished": "¿Las paredes ya están terminadas?",
+    "ceilingFinished": "¿El techo ya está terminado?",
+    "visibleDamage": "¿Se ve daño o manchas de agua?",
+    "windowsInView": "¿Se ven ventanas?"
+  },
+  "ledger": {
+    "title": "En qué se basa este número",
+    "completeness": "Información disponible",
+    "completenessHint": "Cuánta información de alto impacto tenemos. No es una afirmación sobre precios de mercado.",
+    "measured": "Medidas que usted dio",
+    "known": "Datos que usted nos dijo",
+    "observed": "De las fotos (usted confirmó)",
+    "assumed": "Nuestros supuestos",
+    "unknown": "Aún desconocido",
+    "risks": "Riesgos de precio de alto impacto",
+    "editAssumptions": "Editar supuestos",
+    "category": {
+      "known": "Conocido",
+      "measured": "Medido",
+      "observed": "Observado",
+      "assumed": "Supuesto",
+      "unknown": "Desconocido",
+      "risk": "Riesgo",
+      "inferred": "Inferido"
+    },
+    "impact": {
+      "high": "Alto impacto",
+      "medium": "Impacto medio",
+      "low": "Bajo impacto"
+    },
+    "inferred": "Inferido de fotos"
+  },
+  "risk": {
+    "plumbingRelocation": "Mover plomería",
+    "plumbingRelocationNote": "Los desagües y la ventilación pueden cambiar el precio al abrir piso o pared.",
+    "structural": "Trabajo estructural",
+    "structuralNote": "Quitar una pared puede requerir viga, carta de ingeniero y permiso.",
+    "concealedConditions": "Condiciones ocultas",
+    "concealedConditionsNote": "En esta ruta no se ha verificado nada detrás de los acabados.",
+    "electricalService": "Servicio eléctrico",
+    "electricalServiceNote": "Subir el panel o el servicio es un costo grande y aparte.",
+    "permits": "Permisos y código",
+    "permitsNote": "Los permisos, inspecciones y requisitos de código varían por jurisdicción.",
+    "selections": "Selección de materiales",
+    "selectionsNote": "Los acabados elegidos pueden mover bastante el total.",
+    "access": "Acceso al sitio",
+    "accessNote": "Estacionamiento, escaleras, elevadores y horarios afectan la mano de obra.",
+    "assumedFootprint": "Tamaño supuesto",
+    "assumedFootprintNote": "Aún no hay medidas verificadas; la superficie viene de la categoría de tamaño que eligió.",
+    "inferredFootprint": "Tamaño del cuarto inferido de fotos",
+    "inferredFootprintNote": "Las dimensiones se escalaron con objetos estándar en las fotos. Medir en sitio puede cambiar el precio."
+  },
+  "disclaimer": {
+    "counselReview": "Texto de plantilla. Su asesor legal debe revisar el aviso final antes del lanzamiento.",
+    "preliminary": {
+      "title": "Estimado preliminar — no es una cotización",
+      "body": "Este es un rango preliminar basado en la información disponible hasta ahora. No es una propuesta, un contrato ni un precio garantizado. El precio final depende de:"
+    },
+    "rendering": {
+      "title": "Las imágenes son conceptuales",
+      "body": "Cualquier imagen mostrada con este rango es conceptual. No representa medidas verificadas, productos reales ni el resultado final, y el precio sigue siendo preliminar."
+    },
+    "factor": {
+      "siteVisit": "Una visita al sitio",
+      "measurements": "Medidas verificadas",
+      "contractorReview": "Revisión del contratista",
+      "selections": "Selección final de materiales",
+      "permits": "Permisos y requisitos de código",
+      "structural": "Condiciones estructurales",
+      "concealed": "Condiciones ocultas",
+      "utilities": "Servicios y capacidad instalada",
+      "access": "Acceso al sitio",
+      "market": "Precios de mercado actuales"
+    }
+  },
+  "history": {
+    "title": "Historial de ajustes",
+    "changed": "{{count}} dato actualizado",
+    "changed_other": "{{count}} datos actualizados",
+    "kind": {
+      "answers": "Respuestas actualizadas",
+      "measurements": "Medidas agregadas",
+      "observations": "Observaciones de fotos actualizadas",
+      "selections": "Selecciones actualizadas",
+      "sketch": "Croquis agregado"
+    }
+  },
+  "scale": {
+    "title": "Estima el cuarto con lo que se ve",
+    "hint": "Elige un objeto en la foto y dinos cuántos caben a lo ancho. Los objetos estándar sirven como regla.",
+    "pickReference": "Elige un objeto de referencia",
+    "spans": "{{count}} a lo ancho",
+    "approx": "aprox. {{feet}} pies",
+    "more": "Agregar uno",
+    "less": "Quitar uno",
+    "clear": "Borrar",
+    "disclaimer": "Son aproximaciones basadas en tamaños estándar, no medidas.",
+    "showAdvanced": "Calibración avanzada (opcional)",
+    "hideAdvanced": "Ocultar calibración avanzada",
+    "allowCrossAxis": "La perspectiva de esta foto permite usar este objeto en la otra dirección",
+    "spansAxis": {
+      "horizontal": "{{count}} a lo ancho",
+      "vertical": "{{count}} de alto"
+    },
+    "axisGuide": {
+      "roomLengthFt": "Cuente sobre el piso, de izquierda a derecha por la pared más larga. Solo objetos a nivel del piso.",
+      "roomWidthFt": "Cuente sobre el piso, de pared a pared por el lado más corto. Solo objetos a nivel del piso.",
+      "ceilingHeightFt": "Cuente hacia arriba, del piso al techo. Solo alturas: aquí sí sirve la altura de una puerta.",
+      "cabinetRunLf": "Cuente a lo largo del frente de los gabinetes, de izquierda a derecha."
+    }
+  },
+  "scaleRef": {
+    "dishwasher": "Lavavajillas (24 pulg)",
+    "range": "Estufa (30 pulg)",
+    "refrigerator": "Refrigerador (30–36 pulg)",
+    "overRangeMicrowave": "Microondas sobre estufa (30 pulg)",
+    "baseCabinetDepth": "Profundidad de gabinete bajo (24 pulg)",
+    "baseCabinetWidth": "Ancho de gabinete bajo (12–36 pulg)",
+    "counterHeight": "Altura de encimera (36 pulg)",
+    "wallCabinetHeight": "Altura de gabinete alto (30–42 pulg)",
+    "backsplashGap": "Espacio de salpicadero (18 pulg)",
+    "bathtub": "Tina estándar (60 pulg)",
+    "toilet": "Inodoro (28 pulg)",
+    "vanity": "Mueble de lavabo (24–60 pulg)",
+    "showerBase": "Base de ducha (32–60 pulg)",
+    "interiorDoorWidth": "Ancho de puerta interior (32 pulg)",
+    "doorHeight": "Altura de puerta (80 pulg)",
+    "windowWidth": "Ancho de ventana (24–72 pulg)",
+    "outletHeight": "Altura de tomacorriente (15 pulg)",
+    "switchHeight": "Altura de apagador (48 pulg)",
+    "floorPlank": "Tabla de piso (36–60 pulg)",
+    "tile12": "Loseta de 12 pulg",
+    "tile24": "Loseta de 24 pulg",
+    "ceilingTile": "Placa de techo (24 pulg)"
+  },
+  "inference": {
+    "title": "Resumen de inferencia por fotos",
+    "roomType": "Tipo de cuarto",
+    "unknownRoomType": "Aún sin identificar",
+    "confidence": "Confianza",
+    "detectedReferences": "Referencias de escala usadas",
+    "confirm": "Se ve bien",
+    "adjust": "Ajustar",
+    "save": "Guardar",
+    "continue": "Continuar",
+    "disclaimer": "Solo preliminar. Los tamaños son aproximados con objetos estándar y deben verificarse midiendo en sitio.",
+    "source": {
+      "inferred": "Inferido",
+      "assumed": "Supuesto",
+      "user_entered": "Ingresado por ti",
+      "confirmed": "Confirmado"
+    },
+    "target": {
+      "roomLengthFt": "Largo del cuarto",
+      "roomWidthFt": "Ancho del cuarto",
+      "ceilingHeightFt": "Altura de techo",
+      "cabinetRunLf": "Tramo de gabinetes",
+      "floorAreaSf": "Área de piso",
+      "perimeterLf": "Perímetro",
+      "wallAreaSf": "Área de muros",
+      "backsplashAreaSf": "Área de salpicadero"
+    },
+    "basis": {
+      "sizeClass": "Del margen por tamaño de cuarto",
+      "standardCeiling": "Margen de techo estándar de 8 pies",
+      "lengthTimesWidth": "Largo × ancho",
+      "perimeter": "2 × (largo + ancho)",
+      "perimeterTimesHeight": "Perímetro × altura de techo",
+      "backsplash": "Tramo de gabinetes × 18 pulg",
+      "userEntered": "Valor ingresado por ti"
+    },
+    "rejectedTitle": "No utilizado, y por qué",
+    "group": {
+      "known": "Conocido",
+      "inferred": "Inferido de las fotos",
+      "assumed": "Margen supuesto"
+    },
+    "rejected": {
+      "unknownReference": "Ese objeto de referencia no está en nuestro catálogo.",
+      "invalidSpans": "Necesitamos una cantidad mayor que cero.",
+      "elevationCrossAxis": "Una altura desde el piso (una puerta, un interruptor, una encimera) no indica el ancho ni el largo de una habitación. Use un objeto a nivel del piso.",
+      "axisMismatch": "Ese objeto mide en la otra dirección. Elija uno del mismo eje o confirme la perspectiva en Avanzado.",
+      "notAPhotograph": "La calibración por objetos solo funciona en una foto real, no en un croquis o render.",
+      "cabinetsNotConfirmed": "Confirme que hay gabinetes antes de dimensionar su tramo.",
+      "implausibleResult": "Ese resultado queda fuera de un tamaño de habitación plausible, así que lo descartamos."
+    },
+    "warning": {
+      "elevationCrossAxis": "Se usó una referencia vertical sobre el piso. Esos valores se rechazaron y la confianza queda en baja.",
+      "sketchNoObjectScale": "Se omitió la calibración por objetos porque estas imágenes son un croquis o render.",
+      "implausibleDimension": "Una dimensión calculada quedó fuera de rango plausible y se reemplazó por un margen documentado.",
+      "tinyFloorArea": "Esta superficie es demasiado pequeña para el tipo de habitación. Algo no cuadra: confirme las dimensiones antes de usar este rango.",
+      "doorHeightCalibration": "El largo y el ancho resultaron cercanos a la altura estándar de una puerta, lo que suele indicar que se usó una referencia vertical sobre el piso. La confianza es baja."
+    }
+  },
+  "confidence": {
+    "high": "Alta",
+    "medium": "Media",
+    "low": "Baja"
+  },
+  "analysis": {
+    "title": "Lo que podemos decir de estas imágenes",
+    "note": {
+      "noVisionProvider": "No hay ningún servicio de análisis de imágenes conectado, así que nada se leyó de los píxeles. Usamos el tipo de imagen que usted indica, sus respuestas y márgenes documentados por tamaño; nunca dimensiones inventadas.",
+      "noPhotos": "Aún no hay imágenes. Puede continuar: el rango saldrá de sus respuestas y de clases de tamaño generales.",
+      "sketch": "Esto parece un croquis o plano, así que la calibración por objetos queda desactivada. Indíquenos las dimensiones generales si el dibujo las muestra.",
+      "rendering": "Un render es una imagen de diseño, no una medición. Usaremos clases de tamaño generales en lugar de escala por objetos.",
+      "detail": "Parecen fotos de detalle. Sirven para materiales y daños, pero no establecen el tamaño del espacio.",
+      "unknownKind": "No pudimos determinar qué son estas imágenes. Indica el tipo para tratarlas correctamente.",
+      "unresolved": "Faltan datos básicos de alto impacto, así que el rango sigue amplio hasta que los respondas.",
+      "exterior": "Son tomas exteriores — dicen poco sobre acabados interiores o tamaños de habitación.",
+      "damage": "Las tomas de condición existente señalan problemas; no miden la habitación."
+    },
+    "summaryTitle": "Resumen del análisis de fotos",
+    "photoCount": "{{count}} imagen",
+    "photoCount_plural": "{{count}} imágenes",
+    "confidenceValue": "{{value}}% de certeza",
+    "fromImages": "de {{count}} imagen",
+    "fromImages_plural": "de {{count}} imágenes",
+    "correct": "Corregir",
+    "continue": "Continuar a las preguntas",
+    "nothingYet": "Todavía no hay nada que resumir: responde algunas preguntas y esto se completa.",
+    "unknownValue": "Sin establecer",
+    "questionsAhead": "Queda {{count}} pregunta que vale la pena hacer.",
+    "questionsAhead_plural": "Quedan {{count}} preguntas que valen la pena.",
+    "scopeTitle": "Categorías de trabajo probables",
+    "condition": {
+      "unfinished": "Condición existente: sin terminar",
+      "finished": "Condición existente: terminada",
+      "damage": "Condición existente: daño visible",
+      "unknown": "Condición existente: sin establecer"
+    },
+    "source": {
+      "photo_inferred": "Inferido de las fotos",
+      "sketch_inferred": "Del croquis",
+      "user_confirmed": "Tú lo confirmaste",
+      "user_selected": "Tú lo seleccionaste"
+    },
+    "fact": {
+      "photoKind": "Qué son estas imágenes",
+      "roomType": "Tipo de espacio o proyecto",
+      "sizeClass": "Clase de tamaño",
+      "floorAreaSf": "Área de piso aproximada",
+      "scopeType": "Alcance del trabajo",
+      "finishLevel": "Nivel de acabado"
+    },
+    "basis": {
+      "kindSelected": "Según el tipo de imagen que elegiste",
+      "answered": "Según tu respuesta",
+      "dimensions": "Largo por ancho",
+      "sizeAllowance": "Asignación documentada por clase de tamaño, no una medición",
+      "confirmedInPhoto": "Confirmaste que es visible"
+    },
+    "scope": {
+      "finishes": "Acabados",
+      "paint": "Pintura",
+      "demolition": "Demolición",
+      "framing": "Estructura",
+      "electrical": "Eléctrico",
+      "insulation": "Aislamiento",
+      "mechanical": "Mecánico",
+      "plumbing": "Plomería",
+      "cabinetry": "Gabinetes",
+      "flooring": "Pisos",
+      "repairs": "Reparaciones"
+    },
+    "confirmedTitle": "Observaciones confirmadas",
+    "confirmedEmpty": "Aún no hay nada confirmado.",
+    "uncertainTitle": "Incierto",
+    "uncertainEmpty": "No queda nada pendiente.",
+    "knownTitle": "Medidas conocidas",
+    "knownEmpty": "Aún no hay medidas.",
+    "unknownTitle": "Medidas desconocidas",
+    "unknownEmpty": "No falta nada.",
+    "measure": {
+      "lengthFt": "Largo",
+      "widthFt": "Ancho",
+      "ceilingHeightFt": "Altura de techo"
+    }
+  },
+  "saveError": {
+    "offline": "Está sin conexión. Sus respuestas se guardan en este dispositivo y se enviarán al reconectarse. Referencia {{reference}}.",
+    "auth": "Su sesión expiró. Inicie sesión de nuevo para guardar. Referencia {{reference}}.",
+    "locked": "Este estimado está bloqueado y no se puede cambiar. Referencia {{reference}}.",
+    "notFound": "No encontramos este estimado. Referencia {{reference}}.",
+    "invalidSnapshot": "El rango preliminar está incompleto, no se guardó. Referencia {{reference}}.",
+    "validation": "Algunas respuestas no se pudieron guardar tal como se escribieron. No se perdió nada. Referencia {{reference}}.",
+    "server": "La guardada falló de nuestro lado. Sus respuestas siguen aquí; intente de nuevo. Referencia {{reference}}."
+  },
+  "assumptionsReview": {
+    "title": "Revisar supuestos",
+    "hint": "Todo en lo que se basa el rango. Cambia lo que no sea correcto antes de calcular.",
+    "edit": "Editar",
+    "empty": "Aún no hay nada que revisar.",
+    "unknownValue": "Desconocido",
+    "continue": "Calcular rango",
+    "disclaimer": "Las fotos son pistas débiles, nunca medidas. Lo que siga desconocido amplía el rango.",
+    "source": {
+      "contractor": "Contratista",
+      "photo": "Foto",
+      "assumed": "Supuesto",
+      "unknown": "Desconocido"
+    }
+  },
+  "resolved": {
+    "title": "Ya respondiste las preguntas clave de este estimado",
+    "body": "No queda nada importante sin resolver. Tus respuestas guardadas, las medidas del proyecto y el alcance actual ya cubren lo que necesita el estimado preliminar.",
+    "back": "Volver al proyecto",
+    "reviewAll": "Revisar todas las respuestas de todos modos"
+  },
+  "q.scopeClarifier.prompt": "¿Qué trabajo vamos a hacer aquí?",
+  "q.scopeClarifier.hint": "Describe el trabajo en una frase — generaremos las preguntas correctas.",
+  "q.fixtureCount.prompt": "¿Cuántos artefactos de plomería?",
+  "q.fixtureCount.hint": "Cuenta lavabos, inodoros, tinas y duchas por instalar.",
+  "q.pipeRunLf.prompt": "¿Cuántos pies de tubería nueva?",
+  "q.pipeRunLf.hint": "Total de tubería de suministro y desagüe a instalar.",
+  "q.pipeMaterial.prompt": "¿Con qué material de tubería trabajamos?",
+  "options.pipe.pex": "PEX",
+  "options.pipe.copper": "Cobre",
+  "options.pipe.castIron": "Hierro fundido / galvanizado",
+  "q.plumbingAccess.prompt": "¿Qué tan accesible es la instalación?",
+  "options.plumbingAccess.open": "Paredes abiertas",
+  "options.plumbingAccess.concealed": "Oculta / terminada",
+  "options.plumbingAccess.slab": "Bajo losa"
+}

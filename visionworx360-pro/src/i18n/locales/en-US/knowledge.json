@@ -1,0 +1,95 @@
+{
+  "nav": { "label": "Knowledge Engine" },
+  "page": {
+    "title": "Knowledge Engine",
+    "subtitle": "The shared contractor brain. Deterministic, versioned and bilingual — every module reads from here.",
+    "version": "Knowledge v{{version}}",
+    "effective": "Effective {{date}}",
+    "entries_one": "{{count}} knowledge entry",
+    "entries_other": "{{count}} knowledge entries",
+    "deterministic": "Deterministic — no AI, no network",
+    "internal": "Internal inspection tool"
+  },
+  "search": {
+    "label": "Test the engine",
+    "placeholder": "Type scope text, e.g. \"remove wall\" or \"install cabinets\"",
+    "run": "Inspect",
+    "clear": "Clear",
+    "resultsFor": "Results for \"{{text}}\"",
+    "noMatch": "No knowledge matched that text. The engine stays silent rather than guessing."
+  },
+  "filters": {
+    "all": "All entries",
+    "projectTypes": "Project types",
+    "activities": "Activities",
+    "trade": "Trade"
+  },
+  "entry": {
+    "kind": { "project_type": "Project type", "activity": "Activity" },
+    "triggers": "Trigger terms",
+    "synonyms": "Synonyms",
+    "trades": "Trades",
+    "dependencies": "Depends on",
+    "source": {
+      "platform_seed": "Platform library",
+      "organization_override": "Your company",
+      "provider": "External provider"
+    }
+  },
+  "sections": {
+    "required": "Required items",
+    "recommended": "Recommended items",
+    "standard": "Standard additions",
+    "omissions": "Commonly missed",
+    "upgrades": "Upgrade opportunities",
+    "valueEngineering": "Value engineering",
+    "sequencing": "Sequencing",
+    "safety": "Safety",
+    "code": "Code reminders",
+    "permits": "Permits",
+    "inspections": "Inspections",
+    "customerValue": "Customer value language"
+  },
+  "confidence": {
+    "high": { "label": "High", "explanation": "Nearly always applies to this work." },
+    "medium": { "label": "Medium", "explanation": "Frequently applies — worth a look." },
+    "optional": { "label": "Optional", "explanation": "An upgrade the customer may want." },
+    "contractor_decision_required": {
+      "label": "Your call",
+      "explanation": "Depends on the job, the jurisdiction or your company standards."
+    }
+  },
+  "impact": {
+    "lower": "Lower cost",
+    "similar": "Similar cost",
+    "higher": "Higher cost",
+    "category": {
+      "durability": "Durability",
+      "aesthetics": "Appearance",
+      "efficiency": "Efficiency",
+      "comfort": "Comfort",
+      "maintenance": "Maintenance",
+      "resale": "Resale value",
+      "safety": "Safety"
+    }
+  },
+  "ve": { "swap": "{{from}} → {{to}}", "tradeoff": "Trade-off", "customer": "Customer wording" },
+  "view": { "contractor": "Contractor view", "customer": "Customer view" },
+  "empty": {
+    "title": "Nothing to inspect yet",
+    "body": "Pick a project type or type scope text to see what the engine knows."
+  },
+  "extensions": {
+    "title": "Future extension points",
+    "body": "None of these are active in this version. The engine answers only from the seeded catalog.",
+    "ai": "AI reasoning",
+    "vision": "Computer vision",
+    "history": "Historical estimates",
+    "regional": "Regional benchmarks",
+    "codes": "Building code database",
+    "permits": "Permit database",
+    "supplier": "Supplier catalogs",
+    "manufacturer": "Manufacturer data",
+    "learning": "Contractor-specific learning"
+  }
+}

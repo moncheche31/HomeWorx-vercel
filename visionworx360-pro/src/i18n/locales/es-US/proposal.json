@@ -1,0 +1,270 @@
+{
+  "title": "Propuesta",
+  "subtitle": "Una presentación premium lista para el cliente.",
+  "open": "Abrir propuesta",
+  "preview": "Vista previa de propuesta",
+  "empty": {
+    "title": "Aún no hay nada que presentar",
+    "body": "Aprueba el Alcance de trabajo y esta propuesta se completa sola."
+  },
+  "awaitingApproval": "El Alcance de trabajo aún no está aprobado. Apruébalo para completar esta propuesta.",
+  "toolbar": {
+    "theme": "Estilo",
+    "mode": "Vista",
+    "settings": "Ajustes de propuesta",
+    "print": "Imprimir / Guardar PDF",
+    "share": "Compartir",
+    "copied": "Enlace copiado",
+    "back": "Volver al proyecto",
+    "template": "Plantilla actual",
+    "preview": "Vista previa / Imprimir / Guardar PDF",
+    "previewProposal": "Vista previa",
+    "printProposal": "Imprimir propuesta",
+    "savePdf": "Guardar como PDF",
+    "sendToClient": "Enviar al cliente"
+  },
+  "mode": {
+    "customer": "Vista del cliente",
+    "contractor": "Vista previa del contratista"
+  },
+  "theme": {
+    "classic": "Clásico",
+    "modern": "Moderno",
+    "luxury": "Lujo",
+    "minimal": "Minimalista"
+  },
+  "cover": {
+    "preparedFor": "Preparado para",
+    "preparedBy": "Preparado por",
+    "proposalNumber": "Propuesta",
+    "date": "Fecha",
+    "license": "Licencia",
+    "property": "Propiedad"
+  },
+  "sections": {
+    "vision": "La visión de su proyecto",
+    "scope": "Alcance de trabajo",
+    "gallery": "Antes y después",
+    "investment": "Su inversión",
+    "upgrades": "Mejoras opcionales",
+    "schedule": "Cómo se realiza el proyecto",
+    "warranty": "Nuestra garantía",
+    "acceptance": "Listos para comenzar",
+    "terms": "Términos de la estimación"
+  },
+  "investment": {
+    "recommended": "Recomendado",
+    "includes": "Incluye",
+    "pending": "El precio se está finalizando.",
+    "note": "El precio final se confirma antes de comenzar cualquier trabajo.",
+    "select": "Elegir esta opción",
+    "selected": "Seleccionado"
+  },
+  "pricing": {
+    "ballparkTitle": "Rango de estimación Ballpark",
+    "ballparkBody": "Este rango preliminar usa la estimación Ballpark guardada. El trabajo detallado conservado en esta estimación no se incluye en el precio activo mostrado aquí.",
+    "incompleteTitle": "El precio detallado está incompleto",
+    "incompleteBody": "Este total detallado parcial no es un precio final para el cliente. Complete el precio del alcance actual antes de aceptar o imprimir esta propuesta.",
+    "ballparkReference": "Referencia Ballpark original: {{low}} – {{expected}} – {{high}}"
+  },
+  "upgrades": {
+    "note": "Opcional — puede agregarlas en cualquier momento.",
+    "priceHint": "Rango típico"
+  },
+  "acceptance": {
+    "namePlaceholder": "Escriba su nombre completo",
+    "accept": "Aceptar propuesta",
+    "accepted": "Aceptada por {{name}} el {{date}}",
+    "reset": "Deshacer aceptación"
+  },
+  "settings": {
+    "title": "Ajustes de propuesta",
+    "levels": "Opciones de inversión a mostrar",
+    "sections": "Secciones a incluir",
+    "warranty": "Redacción de la garantía",
+    "vision": "Redacción de la visión",
+    "reset": "Restablecer",
+    "close": "Listo",
+    "template": "Plantilla de propuesta",
+    "brandName": "Nombre de marca de la propuesta",
+    "brandNamePlaceholder": "p. ej. VisionWorx 360 Design Studio",
+    "brandTagline": "Lema de la marca",
+    "brandHint": "Déjelo en blanco para usar el nombre de su organización. Solo afecta la propuesta de este proyecto.",
+    "asIllustrated": "Proyecto según lo ilustrado",
+    "asIllustratedFinish": "Nivel de acabados ilustrado",
+    "asIllustratedAuto": "Automático (detectar del proyecto)",
+    "asIllustratedAmount": "Monto manual según lo ilustrado",
+    "asIllustratedHint": "Las propuestas para comprador/agente muestran el rango general más esta única cifra según lo ilustrado. Déjelo en blanco para derivarla de las señales de acabados del proyecto. Siempre se mantiene dentro del rango Mínimo–Máximo.",
+    "pricingDisclosure": "Precio que ve el cliente",
+    "pricingDisclosureAuto": "Seguir el estimado",
+    "pricingDisclosureHint": "Usted decide cuánto detalle de precio ve el cliente. Esto nunca cambia el estimado.",
+    "disclosure": {
+      "total_only": "Solo un total",
+      "category_subtotals": "Subtotales por categoría",
+      "labor_materials": "Mano de obra + materiales",
+      "labor_only": "Solo mano de obra"
+    }
+  },
+  "contractorOnly": "Solo vista previa del contratista — el cliente nunca ve este panel.",
+  "levels": {
+    "economy": "Económico",
+    "good": "Recomendado",
+    "premium": "Premium"
+  },
+  "terms": {
+    "reference": "Versión de términos {{version}}.",
+    "clause": {
+      "validity": {
+        "heading": "Vigencia",
+        "body": "Esta estimación es válida por {{days}} días desde la fecha indicada. Después de ese plazo, el precio y la disponibilidad pueden volver a cotizarse."
+      },
+      "basisOfEstimate": {
+        "heading": "Base de la estimación",
+        "body": "El alcance y el precio se basan en la información, medidas, fotos y selecciones conocidas al momento de preparar esta estimación."
+      },
+      "concealedConditions": {
+        "heading": "Condiciones ocultas o imprevistas",
+        "body": "Las condiciones que no son visibles ni razonablemente conocidas antes de iniciar el trabajo — como daños ocultos, pudrición, moho o trabajos existentes fuera de norma — pueden requerir una orden de cambio por escrito antes de continuar."
+      },
+      "permitsAndCode": {
+        "heading": "Permisos, código e ingeniería",
+        "body": "Los requisitos de permisos, el cumplimiento del código y cualquier revisión estructural o de ingeniería están sujetos a verificación final con la autoridad competente y pueden afectar el alcance, el calendario y el precio."
+      },
+      "selectionsAndAllowances": {
+        "heading": "Selecciones y asignaciones",
+        "body": "Cuando los materiales, accesorios o acabados se muestran como asignaciones o aún no se han elegido, el precio final se confirma una vez documentadas las selecciones."
+      },
+      "preliminaryVsFinal": {
+        "heading": "Estimación preliminar",
+        "body": "Este documento es una estimación preliminar, no una propuesta detallada final. El precio confirmado se define tras una visita al sitio, medidas verificadas y la revisión del contratista."
+      },
+      "acceptance": {
+        "heading": "Aceptación",
+        "body": "Escribir su nombre y aceptar indica su aprobación del alcance y el precio mostrados. El trabajo se programa después de la aceptación y de cualquier acuerdo o depósito requerido."
+      },
+      "changeOrders": {
+        "heading": "Órdenes de cambio",
+        "body": "Cualquier cambio en el alcance, los materiales, las selecciones o las condiciones del sitio descritos aquí se gestiona mediante una orden de cambio por escrito firmada por ambas partes antes de continuar con el trabajo afectado."
+      },
+      "exclusions": {
+        "heading": "Exclusiones",
+        "body": "Todo lo que no esté expresamente indicado en el alcance del trabajo queda excluido. Exclusiones comunes: remoción de materiales peligrosos, refuerzos estructurales no identificados aquí, restauración de jardines y reubicación de servicios, salvo indicación contraria."
+      },
+      "taxesAndFees": {
+        "heading": "Impuestos y cargos",
+        "body": "Los impuestos sobre ventas, los cargos por permisos, la disposición de desechos y las inspecciones de terceros se muestran por separado cuando se conocen y se agregan en la facturación cuando no."
+      }
+    }
+  },
+  "template": {
+    "current": "Plantilla actual:",
+    "internalBadge": "Solo para uso interno — no lo presente a un comprador como propuesta final de construcción ni como precio garantizado.",
+    "contractor": {
+      "label": "Propuesta para contratista / propietario",
+      "description": "La propuesta de construcción estándar: alcance, opciones de inversión, calendario, garantía y aceptación."
+    },
+    "buyer_transformation": {
+      "label": "Propuesta de transformación de la propiedad — para el comprador",
+      "description": "Paquete de visualización dirigido al comprador: condición existente, transformación conceptual y contexto preliminar de renovación."
+    },
+    "realtor_brief": {
+      "label": "Resumen de oportunidad de la propiedad — uso interno del agente",
+      "description": "Resumen interno para el agente: objeciones del comprador, oportunidades de transformación, contexto preliminar de costos y notas de posicionamiento."
+    }
+  },
+  "print": {
+    "error": "No se pudo abrir la propuesta para imprimir. Inténtalo de nuevo."
+  },
+  "asIllustrated": {
+    "rangeTitle": "Rango estimado aproximado",
+    "amount": "Según lo ilustrado: aproximadamente {{amount}}",
+    "note": "Basado en el concepto ilustrado en esta propuesta, asumiendo acabados estándar atractivos de constructor. Es una estimación de planificación, no un precio contractual — el precio final dependerá del alcance confirmado, las selecciones de materiales y acabados, las condiciones del sitio, los requisitos de ingeniería y otros detalles del proyecto.",
+    "assumed": "No se pudo confirmar el nivel de acabados con los datos del proyecto, por lo que esta cifra asume un paquete de acabados estándar de constructor, limpio y sin lujos ni personalización. Su contratista puede ajustarlo antes de presentarlo.",
+    "finish": {
+      "value": "Acabados económicos",
+      "standard": "Acabados estándar",
+      "premium": "Acabados premium"
+    }
+  },
+  "send": {
+    "title": "Enviar propuesta por correo",
+    "version": "Enviando versión {{version}}",
+    "recipient": "Correo del cliente",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "defaultMessage": "Hola {{name}}, aquí está la propuesta para {{project}}. Puede revisarla y solicitar cambios desde el enlace seguro.",
+    "action": "Crear enlace seguro",
+    "ready": "Enlace seguro listo para {{email}}.",
+    "done": "Versión enviada guardada",
+    "link": "Enlace del cliente",
+    "copy": "Copiar enlace",
+    "copied": "Enlace copiado",
+    "openMail": "Abrir en su correo",
+    "emailNotConfigured": "El envío automático de correo aún no está configurado en este espacio, así que el enlace se abre en su propia aplicación de correo. El enlace es real, seguro y revocable.",
+    "error": {
+      "recipient": "Ingrese un correo válido del cliente.",
+      "project": "Este proyecto todavía no tiene propuesta para enviar.",
+      "save": "No se pudo guardar la versión de la propuesta. No se envió nada.",
+      "network": "Sin conexión. La propuesta no se envió.",
+      "copy": "No se pudo copiar el enlace. Cópielo manualmente."
+    }
+  },
+  "client": {
+    "title": "Acceso y solicitudes del cliente",
+    "pending": "{{count}} pendientes",
+    "version": "Versión {{version}}",
+    "views": "{{count}} vistas",
+    "revoke": "Revocar acceso",
+    "noRequests": "Aún no hay solicitudes del cliente.",
+    "note": "Nota interna (opcional)",
+    "apply": "Aplicar en una nueva revisión",
+    "applyHint": "Aplicar registra su decisión y no modifica ninguna versión ya enviada. Actualice la propuesta y envíe una nueva versión.",
+    "decline": "Rechazar",
+    "markReviewing": "Marcar en revisión",
+    "status": {
+      "active": "Activo",
+      "revoked": "Revocado"
+    },
+    "kind": {
+      "change_request": "Solicitud de cambio",
+      "question": "Pregunta"
+    },
+    "request": {
+      "requested": "Solicitado",
+      "reviewing": "En revisión",
+      "applied": "Aplicado",
+      "declined": "Rechazado"
+    }
+  },
+  "portal": {
+    "version": "Propuesta versión {{version}}",
+    "requestChanges": "Solicitar cambios",
+    "requestHint": "Indique a su contratista qué desea cambiar. Su contratista revisa cada solicitud antes de actualizar algo.",
+    "message": "¿Qué desea cambiar?",
+    "messagePlaceholder": "Por ejemplo: ¿podemos cotizar una ducha acrílica en lugar de azulejo?",
+    "messageRequired": "Describa el cambio que desea.",
+    "options": "Opciones en esta propuesta",
+    "yourName": "Su nombre",
+    "yourEmail": "Su correo",
+    "submit": "Enviar solicitud",
+    "submitted": "Solicitud enviada",
+    "submittedBody": "Su contratista fue notificado y le responderá con una propuesta revisada si acepta el cambio.",
+    "submitError": "No se pudo enviar la solicitud. Inténtelo de nuevo.",
+    "close": "Cerrar",
+    "readOnlyNote": "Esta es una copia de solo lectura de la propuesta que envió su contratista. Solo su contratista puede cambiar el alcance y los precios.",
+    "notFound": "Este enlace de propuesta no es válido.",
+    "revoked": "Su contratista desactivó este enlace de propuesta.",
+    "expired": "Este enlace de propuesta ha vencido.",
+    "contactContractor": "Comuníquese con su contratista para obtener un enlace actualizado."
+  },
+  "pricingDetail": {
+    "title": "Detalle de precio",
+    "laborSell": "Mano de obra",
+    "materialSell": "Materiales",
+    "otherSell": "Otros trabajos",
+    "handlingSell": "Manejo de materiales del propietario",
+    "total": "Total",
+    "ownerSuppliedNotice": "Este precio cubre solo la mano de obra. El propietario suministra todos los materiales.",
+    "excludedMaterials": "Materiales excluidos de este precio (los pone el propietario): {{amount}}"
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "title": "Proposal",
+  "subtitle": "A premium, customer-ready presentation of your project.",
+  "open": "Open Proposal",
+  "preview": "Preview Proposal",
+  "empty": {
+    "title": "Nothing to present yet",
+    "body": "Approve the Scope of Work and this proposal fills itself in."
+  },
+  "awaitingApproval": "The Scope of Work isn't approved yet. Approve it to complete this proposal.",
+  "toolbar": {
+    "theme": "Theme",
+    "mode": "View",
+    "settings": "Proposal settings",
+    "print": "Print / Save PDF",
+    "share": "Share",
+    "copied": "Link copied",
+    "back": "Back to project",
+    "template": "Current template",
+    "preview": "Preview / Print / Save PDF",
+    "previewProposal": "Preview",
+    "printProposal": "Print Proposal",
+    "savePdf": "Save as PDF",
+    "sendToClient": "Send to Client"
+  },
+  "mode": {
+    "customer": "Customer view",
+    "contractor": "Contractor preview"
+  },
+  "theme": {
+    "classic": "Classic",
+    "modern": "Modern",
+    "luxury": "Luxury",
+    "minimal": "Minimal"
+  },
+  "cover": {
+    "preparedFor": "Prepared for",
+    "preparedBy": "Prepared by",
+    "proposalNumber": "Proposal",
+    "date": "Date",
+    "license": "License",
+    "property": "Property"
+  },
+  "sections": {
+    "vision": "Your Project Vision",
+    "scope": "Scope of Work",
+    "gallery": "Before & After",
+    "investment": "Your Investment",
+    "upgrades": "Optional Upgrades",
+    "schedule": "How the Project Runs",
+    "warranty": "Our Warranty",
+    "acceptance": "Ready to Move Forward",
+    "terms": "Estimate terms"
+  },
+  "investment": {
+    "recommended": "Recommended",
+    "includes": "Includes",
+    "pending": "Pricing is being finalized.",
+    "note": "Final pricing is confirmed before any work begins.",
+    "select": "Choose this option",
+    "selected": "Selected"
+  },
+  "pricing": {
+    "ballparkTitle": "Ballpark estimate range",
+    "ballparkBody": "This preliminary range uses the saved Ballpark estimate. Detailed work retained on this estimate is not included in the active price shown here.",
+    "incompleteTitle": "Detailed pricing is incomplete",
+    "incompleteBody": "This partial detailed total is not a final customer price. Complete pricing for the current scope before accepting or printing this proposal.",
+    "ballparkReference": "Original Ballpark reference: {{low}} – {{expected}} – {{high}}"
+  },
+  "upgrades": {
+    "note": "Optional — add any of these at any time.",
+    "priceHint": "Typical range"
+  },
+  "acceptance": {
+    "namePlaceholder": "Type your full name",
+    "accept": "Accept Proposal",
+    "accepted": "Accepted by {{name}} on {{date}}",
+    "reset": "Undo acceptance"
+  },
+  "settings": {
+    "title": "Proposal settings",
+    "levels": "Investment options to show",
+    "sections": "Sections to include",
+    "warranty": "Warranty wording",
+    "vision": "Project vision wording",
+    "reset": "Reset to default",
+    "close": "Done",
+    "template": "Proposal template",
+    "brandName": "Proposal brand name",
+    "brandNamePlaceholder": "e.g. VisionWorx 360 Design Studio",
+    "brandTagline": "Brand tagline",
+    "brandHint": "Leave blank to use your organization name. Only affects this project's proposal.",
+    "asIllustrated": "Project as Illustrated",
+    "asIllustratedFinish": "Illustrated finish level",
+    "asIllustratedAuto": "Auto (detect from project)",
+    "asIllustratedAmount": "As Illustrated amount override",
+    "asIllustratedHint": "Buyer/realtor proposals show the overall range plus this single As Illustrated figure. Leave blank to derive it from the project's finish signals. It is always kept inside the Low–High range.",
+    "pricingDisclosure": "Pricing shown to the client",
+    "pricingDisclosureAuto": "Follow the estimate",
+    "pricingDisclosureHint": "You decide how much pricing detail the client sees. This never changes the estimate.",
+    "disclosure": {
+      "total_only": "One total only",
+      "category_subtotals": "Category subtotals",
+      "labor_materials": "Labor + materials",
+      "labor_only": "Labor only"
+    }
+  },
+  "contractorOnly": "Contractor preview only — the customer never sees this panel.",
+  "levels": {
+    "economy": "Economy",
+    "good": "Good",
+    "premium": "Premium"
+  },
+  "terms": {
+    "reference": "Terms version {{version}}.",
+    "clause": {
+      "validity": {
+        "heading": "Validity",
+        "body": "This estimate is valid for {{days}} days from the date shown. After that, pricing and availability may be re-quoted."
+      },
+      "basisOfEstimate": {
+        "heading": "Basis of estimate",
+        "body": "Scope and pricing are based on the information, measurements, photos and selections known at the time this estimate was prepared."
+      },
+      "concealedConditions": {
+        "heading": "Concealed or unforeseen conditions",
+        "body": "Conditions that are not visible or reasonably knowable before work begins — such as hidden damage, rot, mold, or non-conforming existing work — may require a written change order before that work proceeds."
+      },
+      "permitsAndCode": {
+        "heading": "Permits, code and engineering",
+        "body": "Permit requirements, code compliance and any engineering or structural review are subject to final verification with the authority having jurisdiction and may affect scope, schedule and price."
+      },
+      "selectionsAndAllowances": {
+        "heading": "Selections and allowances",
+        "body": "Where materials, fixtures or finishes are shown as allowances or are not yet selected, final pricing is confirmed once documented selections are made."
+      },
+      "preliminaryVsFinal": {
+        "heading": "Preliminary estimate",
+        "body": "This document is a preliminary estimate, not a final detailed proposal. A confirmed price follows a site visit, verified measurements and contractor review."
+      },
+      "acceptance": {
+        "heading": "Acceptance",
+        "body": "Typing your name and accepting indicates your approval of the scope and price shown. Work is scheduled after acceptance and any required agreement or deposit."
+      },
+      "changeOrders": {
+        "heading": "Change orders",
+        "body": "Any change to the scope, materials, selections or site conditions described here is handled through a written change order signed by both parties before the affected work proceeds."
+      },
+      "exclusions": {
+        "heading": "Exclusions",
+        "body": "Anything not expressly listed in the scope of work is excluded. Common exclusions include hazardous material abatement, structural upgrades not identified here, landscaping restoration and utility relocation unless stated otherwise."
+      },
+      "taxesAndFees": {
+        "heading": "Taxes and fees",
+        "body": "Applicable sales tax, permit fees, disposal fees and third-party inspection fees are shown separately where known and are added at invoicing where they are not."
+      }
+    }
+  },
+  "template": {
+    "current": "Current template:",
+    "internalBadge": "Internal use only — do not present to a buyer as a final construction proposal or guaranteed price.",
+    "contractor": {
+      "label": "Contractor / Homeowner Proposal",
+      "description": "The standard construction proposal: scope, investment options, schedule, warranty and acceptance."
+    },
+    "buyer_transformation": {
+      "label": "Property Transformation Proposal — Buyer Facing",
+      "description": "Aspirational, buyer-facing visualization package: existing condition, conceptual transformation and preliminary renovation context."
+    },
+    "realtor_brief": {
+      "label": "Property Opportunity Brief — Realtor Internal",
+      "description": "Internal agent brief: buyer objections, transformation opportunities, preliminary cost context and positioning notes."
+    }
+  },
+  "print": {
+    "error": "Unable to open proposal for printing. Please try again."
+  },
+  "asIllustrated": {
+    "rangeTitle": "Estimated Ballpark Range",
+    "amount": "As Illustrated: approximately {{amount}}",
+    "note": "Based on the project concept illustrated in this proposal, assuming attractive builder-grade standard finishes. This is a planning estimate, not a contract price — final pricing will depend on confirmed scope, material and finish selections, site conditions, engineering requirements, and other project-specific details.",
+    "assumed": "Finish level could not be confirmed from the project data, so this figure assumes a clean, builder-grade standard finish package — not a luxury or custom package. Your contractor can refine it before presenting.",
+    "finish": {
+      "value": "Value finishes",
+      "standard": "Standard finishes",
+      "premium": "Premium finishes"
+    }
+  },
+  "send": {
+    "title": "Email proposal to client",
+    "version": "Sending version {{version}}",
+    "recipient": "Client email",
+    "subject": "Subject",
+    "message": "Message",
+    "defaultMessage": "Hi {{name}}, here is the proposal for {{project}}. You can review everything and request changes from the secure link below.",
+    "action": "Create secure link",
+    "ready": "Secure link ready for {{email}}.",
+    "done": "Sent version saved",
+    "link": "Client link",
+    "copy": "Copy link",
+    "copied": "Link copied",
+    "openMail": "Open in email app",
+    "emailNotConfigured": "Automatic email delivery is not set up for this workspace yet, so the link opens in your own email app. The link itself is live, secure and revocable.",
+    "error": {
+      "recipient": "Enter a valid client email address.",
+      "project": "This project has no proposal to send yet.",
+      "save": "The proposal version could not be saved. Nothing was sent.",
+      "network": "No connection. The proposal was not sent.",
+      "copy": "Could not copy the link. Select and copy it manually."
+    }
+  },
+  "client": {
+    "title": "Client access & requests",
+    "pending": "{{count}} pending",
+    "version": "Version {{version}}",
+    "views": "{{count}} views",
+    "revoke": "Revoke access",
+    "noRequests": "No client requests yet.",
+    "note": "Note to file (optional)",
+    "apply": "Apply to new revision",
+    "applyHint": "Applying records your decision and leaves every sent version untouched. Update the proposal, then send a new version.",
+    "decline": "Decline",
+    "markReviewing": "Mark as reviewing",
+    "status": {
+      "active": "Active",
+      "revoked": "Revoked"
+    },
+    "kind": {
+      "change_request": "Change request",
+      "question": "Question"
+    },
+    "request": {
+      "requested": "Requested",
+      "reviewing": "Reviewing",
+      "applied": "Applied",
+      "declined": "Declined"
+    }
+  },
+  "portal": {
+    "version": "Proposal version {{version}}",
+    "requestChanges": "Request changes",
+    "requestHint": "Tell your contractor what you would like to change. Your contractor reviews every request before anything is updated.",
+    "message": "What would you like to change?",
+    "messagePlaceholder": "For example: can we price an acrylic surround instead of the tile shower?",
+    "messageRequired": "Please describe the change you would like.",
+    "options": "Options in this proposal",
+    "yourName": "Your name",
+    "yourEmail": "Your email",
+    "submit": "Send request",
+    "submitted": "Request sent",
+    "submittedBody": "Your contractor has been notified and will follow up with a revised proposal if the change is accepted.",
+    "submitError": "The request could not be sent. Please try again.",
+    "close": "Close",
+    "readOnlyNote": "This is a read-only copy of the proposal your contractor sent. Pricing and scope can only be changed by your contractor.",
+    "notFound": "This proposal link is not valid.",
+    "revoked": "This proposal link has been turned off by your contractor.",
+    "expired": "This proposal link has expired.",
+    "contactContractor": "Please contact your contractor for an updated link."
+  },
+  "pricingDetail": {
+    "title": "Pricing detail",
+    "laborSell": "Labor",
+    "materialSell": "Materials",
+    "otherSell": "Other work",
+    "handlingSell": "Handling owner-supplied materials",
+    "total": "Total",
+    "ownerSuppliedNotice": "This price covers labor only. All materials are supplied by the owner.",
+    "excludedMaterials": "Materials excluded from this price (owner supplied): {{amount}}"
+  }
+}

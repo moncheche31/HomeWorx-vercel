@@ -1,0 +1,46 @@
+{
+  "referenceLabel": "ID de referencia",
+  "referenceShort": "Referencia",
+  "boundary": {
+    "title": "Algo salió mal",
+    "description": "Ocurrió un error inesperado. Puedes intentar de nuevo o volver a la página principal."
+  },
+  "route": {
+    "title": "Esta página no cargó",
+    "description": "Algo salió mal de nuestro lado. Puedes actualizar la página o volver al inicio."
+  },
+  "configuration": {
+    "title": "Se requiere configuración",
+    "descriptionWithKeys": "La aplicación no tiene la configuración requerida: {{keys}}. Comunícate con tu administrador.",
+    "descriptionGeneric": "La aplicación no está configurada correctamente. Comunícate con tu administrador.",
+    "componentTitle": "Se requiere configuración",
+    "componentDescription": "Falta configuración necesaria en la aplicación. Comunícate con tu administrador."
+  },
+  "permissionDenied": {
+    "title": "Permiso necesario",
+    "description": "No tienes acceso a esta función. Solicita el permiso a tu administrador."
+  },
+  "retry": {
+    "title": "Algo salió mal",
+    "description": "No pudimos completar esa solicitud. Por favor intenta de nuevo.",
+    "action": "Intentar de nuevo"
+  },
+  "inline": {
+    "invalidJob": "Ingresa un número de trabajo válido."
+  },
+  "categories": {
+    "configuration_error": "La aplicación no está configurada correctamente.",
+    "unauthorized": "Debes iniciar sesión para continuar.",
+    "forbidden": "No tienes permiso para realizar esta acción.",
+    "not_found": "No pudimos encontrar lo que buscabas.",
+    "validation_error": "Parte de la información proporcionada no es válida.",
+    "conflict": "Esta acción entra en conflicto con el estado actual.",
+    "rate_limited": "Demasiadas solicitudes. Espera un momento e intenta de nuevo.",
+    "offline": "Estás sin conexión. Reconéctate para continuar.",
+    "timeout": "La solicitud tardó demasiado. Intenta de nuevo.",
+    "service_unavailable": "El servicio no está disponible temporalmente.",
+    "unknown": "Algo salió mal. Por favor intenta de nuevo.",
+    "permission_denied": "No tienes permiso para realizar esta acción.",
+    "retry_failed": "Intentamos varias veces pero no pudimos completar esa solicitud."
+  }
+}

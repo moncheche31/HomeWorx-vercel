@@ -1,0 +1,349 @@
+{
+  "tab": "Estimate from Photos or Video",
+  "title": "Estimate from Photos or Video",
+  "subtitle": "Photos, video, renderings and your own notes — a preliminary estimate without a site visit.",
+  "disclaimer": "No AI yet: detections come from fixed keyword rules over what you write or say. Every assumption is shown and editable.",
+  "cta": {
+    "start": "Estimate from Photos or Video",
+    "description": "Upload photos and renderings, describe the renovation, get ranges in minutes."
+  },
+  "steps": {
+    "capture": "Capture",
+    "review": "Review Items",
+    "estimate": "Estimate",
+    "scope": "Approve & Save"
+  },
+  "project": {
+    "title": "Project",
+    "placeholder": "Choose a project",
+    "none": "Create a project first, or continue without linking one.",
+    "unlinked": "Unlinked session"
+  },
+  "media": {
+    "title": "Photos and renderings",
+    "before": "Before photos",
+    "after": "After renderings (optional)",
+    "plan": "Existing floor plan (optional)",
+    "add": "Add files",
+    "empty": "No files yet.",
+    "remove": "Remove",
+    "count": "{{count}} file(s)",
+    "hint": "Photos are saved to this project and stay available on every device.",
+    "saving": "Saving photos…",
+    "saved": "Saved to project",
+    "error": "Some photos could not be saved. Try again.",
+    "needsProject": "Select a project first so photos are saved to it.",
+    "loading": "Loading saved photos…",
+    "savedBadge": "Saved",
+    "pendingBadge": "Not saved"
+  },
+  "describe": {
+    "title": "Describe the renovation",
+    "hint": "Talk the way you would to the homeowner. Example: “Remove the wall between the kitchen and dining room, install an LVL beam, replace all cabinets…”",
+    "placeholder": "Describe the work…",
+    "record": "Start recording",
+    "stop": "Stop recording",
+    "unsupported": "Speech recognition isn't available in this browser — type the description instead.",
+    "analyze": "Analyze"
+  },
+  "detected": {
+    "title": "What we found",
+    "empty": "Nothing detected yet — add more detail to the description.",
+    "confidence": "Confidence {{value}}%",
+    "buckets": {
+      "rooms": "Rooms",
+      "materials": "Materials",
+      "cabinets": "Cabinets",
+      "flooring": "Flooring",
+      "lighting": "Lighting",
+      "windows": "Windows",
+      "doors": "Doors",
+      "appliances": "Appliances",
+      "fixtures": "Fixtures",
+      "structuralChanges": "Structural changes",
+      "mechanicalChanges": "Mechanical changes"
+    }
+  },
+  "assumptions": {
+    "title": "Assumptions",
+    "hint": "We filled in what wasn't said. Change anything that's wrong.",
+    "auto": "Assumed",
+    "confirmed": "Confirmed",
+    "empty": "No assumptions needed.",
+    "topic": {
+      "cabinet_grade": "Cabinets appear to be",
+      "flooring_type": "Flooring appears to be",
+      "countertop_material": "Countertops appear to be",
+      "paint_grade": "Paint grade",
+      "lighting_package": "Lighting package",
+      "appliance_grade": "Appliances appear to be",
+      "structural_engineering": "Structural engineering"
+    },
+    "option": {
+      "builder_grade": "Builder grade",
+      "mid_grade": "Mid grade",
+      "premium": "Premium",
+      "unknown": "Unknown",
+      "lvp": "Luxury vinyl plank",
+      "hardwood": "Hardwood",
+      "tile": "Tile",
+      "laminate": "Laminate",
+      "quartz": "Quartz",
+      "granite": "Granite",
+      "required": "Required",
+      "not_required": "Not required"
+    }
+  },
+  "levels": {
+    "title": "Estimate levels",
+    "economy": "Economy",
+    "mid_range": "Mid range",
+    "premium": "Premium",
+    "range": "Estimated cost range",
+    "labor": "Estimated labor",
+    "laborValue": "{{hours}} hours",
+    "duration": "Estimated duration",
+    "durationValue": "{{days}} day(s)",
+    "confidence": "Confidence",
+    "drivers": "What drives this price",
+    "basedOn": "Based on your assumptions",
+    "select": "Use this level",
+    "selected": "Selected",
+    "empty": "Describe the renovation to see estimate levels.",
+    "pricingBlocked": "Pricing unresolved — needs review",
+    "unpricedTitle_one": "1 item not priced yet",
+    "unpricedTitle_other": "{{count}} items not priced yet",
+    "unpricedHint": "These are excluded from the range above. Add a measurement or an allowance in the detailed estimate.",
+    "unpricedReason": {
+      "no_mapping": "no catalog assembly matches this work yet",
+      "missing_assembly": "the mapped catalog assembly is unavailable",
+      "unit_incompatible": "the stated size doesn't match how this assembly is sold",
+      "no-quantity": "no confirmed quantity or measurement to price against",
+      "no-trade": "the trade for this work isn't determined yet",
+      "fee-basis": "priced as a fee or permit, not production work",
+      "unknown": "needs review before it can be priced"
+    },
+    "allowanceTitle_one": "1 item priced from a standard allowance",
+    "allowanceTitle_other": "{{count}} items priced from a standard allowance",
+    "allowanceReason": "no size stated — priced from a standard allowance",
+    "allowanceHint": "These are included in the ballpark range using an estimated allowance. Confirm the actual size for the detailed estimate.",
+    "allowanceBadge": "Assumed size",
+    "allowanceBasis": {
+      "standard_cabinet": "standard 36\" wide × 84\" tall cabinet",
+      "cabinet_run": "standard 84\" tall cabinet run",
+      "standard": "standard allowance for this work"
+    },
+    "allowanceDetail": "assumed {{quantity}} {{unit}} — {{basis}}"
+  },
+  "questions": {
+    "title": "A few questions",
+    "hint": "Only what's still missing.",
+    "none": "Nothing missing.",
+    "placeholder": "Your answer",
+    "save": "Save answers",
+    "prompt": {
+      "cabinet_manufacturer": "Cabinet manufacturer or line?",
+      "countertop_material": "Countertop material?",
+      "flooring_type": "Flooring material?",
+      "electrical_panel": "Is the electrical panel adequate?",
+      "plumbing_location": "Is existing plumbing staying in place?",
+      "paint_grade": "Paint grade?",
+      "structural_engineering": "Is a structural engineer engaged?",
+      "window_count": "How many windows are being replaced?"
+    }
+  },
+  "scope": {
+    "title": "Scope of Work",
+    "hint": "Generated from your description and assumptions. Edit only if you want to.",
+    "edit": "Edit wording",
+    "save": "Save wording",
+    "cancel": "Cancel",
+    "regenerate": "Regenerate",
+    "approve": "Approve Scope",
+    "approved": "Approved",
+    "proposal": "Preview Proposal",
+    "saveHint": "Approving saves this scope of work, your description and measurements to the project.",
+    "needsProject": "Select a project above so approving saves this scope of work to it.",
+    "saving": "Saving…"
+  },
+  "proposal": {
+    "title": "Proposal Scope of Work",
+    "subtitle": "Exactly what the customer sees.",
+    "notApproved": "Approve the scope to generate the proposal."
+  },
+  "actions": {
+    "next": "Continue",
+    "back": "Back",
+    "reset": "Start over"
+  },
+  "toast": {
+    "analyzed": "Analysis complete",
+    "approved": "Scope approved",
+    "saved": "Wording saved",
+    "answers": "Answers saved",
+    "reset": "Session cleared",
+    "committed": "Scope approved and saved to the project",
+    "commitFailed": "Could not save to the project. Try again."
+  },
+  "video": {
+    "title": "Prerecorded walkthrough video",
+    "hint": "Upload a walkthrough you already recorded on your phone — it doesn't have to be recorded in VisionWorx360.",
+    "add": "Upload video",
+    "empty": "No video yet.",
+    "remove": "Remove",
+    "noProject": "Choose a project above to store the video with the project.",
+    "frames": "{{count}} frame(s) analyzed",
+    "frameAlt": "Frame {{index}} from {{name}}",
+    "limits": "MP4, MOV or WebM · up to {{maxMb}} MB and {{maxMinutes}} minutes.",
+    "evidence": "Video is evidence, not measurements. Add dimensions yourself in Add project details.",
+    "state": {
+      "local": "On this device",
+      "uploading": "Uploading…",
+      "uploaded": "Saved to project",
+      "error": "Failed"
+    },
+    "errors": {
+      "unsupported_type": "That file type isn't supported. Use MP4, MOV or WebM.",
+      "too_large": "That video is larger than {{maxMb}} MB. Trim it or split it into shorter clips.",
+      "too_long": "That video is longer than {{maxMinutes}} minutes. Split it into shorter clips.",
+      "upload": "Upload failed. Check your connection and try again."
+    }
+  },
+  "details": {
+    "title": "Add project details",
+    "hint": "Add anything the media doesn't show. You can save and come back later.",
+    "saved": "Saved automatically on this device.",
+    "voice": {
+      "title": "Record details",
+      "record": "Start recording",
+      "stop": "Stop recording",
+      "transcript": "Transcript",
+      "placeholder": "Your spoken notes appear here — edit freely.",
+      "unsupported": "Speech recognition isn't available in this browser — type your notes instead."
+    },
+    "notes": {
+      "title": "Typed notes",
+      "placeholder": "Notes, instructions, anything the customer said…"
+    },
+    "dimensions": {
+      "title": "Measurements",
+      "hint": "Optional. Only what you actually measured.",
+      "room": "Room or area",
+      "roomPlaceholder": "e.g. Garage",
+      "lengthFt": "Length (ft)",
+      "widthFt": "Width (ft)",
+      "ceilingHeightFt": "Ceiling height (ft)",
+      "add": "Add measurements",
+      "remove": "Remove measurements"
+    }
+  },
+  "ledger": {
+    "title": "What this estimate is based on",
+    "hint": "Your own words and measurements are facts. Photos and video are observations only.",
+    "empty": "No inputs yet.",
+    "confirmed": "You confirmed",
+    "observed": "Observed",
+    "kind": {
+      "description": "Description",
+      "voice_note": "Voice note",
+      "typed_note": "Typed note",
+      "measurement": "Measurement",
+      "photo": "Photo",
+      "video": "Video"
+    }
+  },
+  "interpreted": {
+    "title": "Scope interpreted from your input",
+    "hint": "Only what you asked for is priced. Review it before the ballpark.",
+    "included": "Included",
+    "incidental": "Assumed / required to complete the work",
+    "observations": "Not included — observations",
+    "exclusions": "You excluded",
+    "dimensions": "Measurements you stated",
+    "clarifications": "Needs a quick clarification",
+    "sanity": "Sanity check",
+    "blocked": "Pricing is paused until these are resolved.",
+    "why": "Why this quantity?",
+    "requiredBy": "Required by: {{item}}",
+    "remove": "Remove",
+    "restore": "Restore",
+    "removed": "Removed ({{count}})",
+    "empty": "Nothing interpreted yet — add a description or voice note.",
+    "sources": {
+      "spoken_measurement": "Spoken measurement",
+      "typed_measurement": "Typed measurement",
+      "drawing": "Drawing",
+      "component_arithmetic": "Component arithmetic",
+      "derived_from_scope": "Derived from stated scope",
+      "photo_inference": "Photo inference",
+      "assembly_default": "Assembly default",
+      "contractor_override": "Your override"
+    }
+  },
+  "measurements": {
+    "title": "Measurements",
+    "hint": "Speak them, type them, or upload a plan. We'll turn them into a list you can check.",
+    "tabs": {
+      "speak": "Speak",
+      "type": "Type",
+      "plan": "Plan"
+    },
+    "speak": {
+      "record": "Speak measurements",
+      "transcript": "What we heard",
+      "placeholder": "e.g. Bedroom is 12 by 14 with 8 foot ceiling. The counter run is 12 feet.",
+      "add": "Add these measurements"
+    },
+    "type": {
+      "title": "Type measurements",
+      "placeholder": "One per line or all in a paragraph: Bathroom 5 by 9. Vanity 60 in. Back wall 7' 10\".",
+      "add": "Add these measurements"
+    },
+    "plan": {
+      "hint": "Upload a photo or PDF of a sketch, floor plan, or measurement sheet. We read the dimensions printed on it.",
+      "upload": "Upload plan or measurement sheet",
+      "reading": "Reading the plan…",
+      "reviewNote": "Plan readings are suggestions until you confirm them. Nothing from a plan prices the job on its own.",
+      "errors": {
+        "extraction_failed": "We couldn't read that plan. Try a clearer photo, or type the measurements.",
+        "extraction_unavailable": "Plan reading isn't available right now — type the measurements instead.",
+        "extraction_blocked": "Plan reading is unavailable on this workspace right now.",
+        "rate_limited": "Too many requests just now. Try again in a moment.",
+        "plan_unreadable": "We couldn't open that file.",
+        "plan_too_large": "That file is too large to read. Try a photo of the page.",
+        "no_measurements": "No dimensions were legible on that page.",
+        "file_too_large": "That file is too large.",
+        "unsupported_type": "Upload a PDF or a photo (JPG, PNG, WEBP).",
+        "upload_failed": "The upload didn't finish. Try again."
+      }
+    },
+    "source": {
+      "spoken": "Spoken",
+      "typed": "Typed",
+      "plan": "Plan",
+      "manual": "Entered"
+    },
+    "status": {
+      "candidate": "Needs review",
+      "ambiguous": "Check this",
+      "confirmed": "Confirmed"
+    },
+    "list": {
+      "title": "Measurements we captured",
+      "empty": "No measurements yet.",
+      "label": "What it is",
+      "value": "Measurement",
+      "confirm": "Confirm",
+      "remove": "Remove"
+    }
+  },
+  "technical": {
+    "toggle": "Show technical details",
+    "hint": "How this was calculated — status and audit information only. Nothing here needs your input."
+  },
+  "draftPreview": {
+    "title": "Preliminary preview — not saved yet",
+    "body": "These numbers come from the draft replay of this walkthrough. The saved estimate on the project's Estimate tab is the authoritative price.",
+    "link": "Open the saved estimate"
+  }
+}

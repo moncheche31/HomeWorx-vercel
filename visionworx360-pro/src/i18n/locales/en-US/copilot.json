@@ -1,0 +1,88 @@
+{
+  "tab": "Estimate Review",
+  "title": "Estimate Review",
+  "subtitle": "Check for missed work, hidden costs, and profitable upgrade opportunities.",
+  "customerSubtitle": "Exactly what your customer will read. No internal terminology.",
+  "pendingCount": "{{count}} to review",
+  "savings": "About {{pct}}% less",
+  "typicalRange": "Typically ${{low}}–${{high}}",
+  "empty": {
+    "title": "Nothing to review yet",
+    "body": "Capture an onsite estimate or an estimate from photos and the review will run automatically."
+  },
+  "customerEmpty": {
+    "title": "Nothing accepted yet",
+    "body": "Accept recommendations in Contractor mode and they appear here in customer language."
+  },
+  "mode": {
+    "label": "Presentation mode",
+    "contractor": "Contractor",
+    "customer": "Customer view"
+  },
+  "sections": {
+    "standard_items": {
+      "title": "Automatically added standard items",
+      "lead": "I added these commonly required construction items.",
+      "customerTitle": "Included to protect your home",
+      "customerLead": "Standard care we build into every project."
+    },
+    "missing_scope": {
+      "title": "Possible missing scope",
+      "lead": "Work that this type of job usually needs. Suggestions only.",
+      "customerTitle": "Additional work included",
+      "customerLead": "Details that make the finished result complete."
+    },
+    "upsell": {
+      "title": "Upgrade opportunities",
+      "lead": "Customers frequently choose these upgrades.",
+      "customerTitle": "Options you may want to consider",
+      "customerLead": "Popular choices you can add at any time."
+    },
+    "value_engineering": {
+      "title": "Value engineering",
+      "lead": "Lower-cost alternatives for a Good / Better / Best proposal.",
+      "customerTitle": "Budget-friendly alternatives",
+      "customerLead": "Excellent results at a friendlier price."
+    }
+  },
+  "confidence": {
+    "high": {
+      "label": "High confidence",
+      "explanation": "Almost always required on this type of job."
+    },
+    "medium": {
+      "label": "Often recommended",
+      "explanation": "Commonly needed — confirm it applies here."
+    },
+    "optional": {
+      "label": "Optional upgrade",
+      "explanation": "Customer preference, not required."
+    },
+    "contractor_decision": {
+      "label": "Your decision",
+      "explanation": "Specification unknown — you decide what fits this job."
+    }
+  },
+  "actions": {
+    "accept": "Accept",
+    "accepted": "Accepted",
+    "remove": "Remove",
+    "ignore": "Ignore",
+    "acceptAll": "Accept all in this section",
+    "finish": "Finish review",
+    "open": "Estimate Review"
+  },
+  "toast": {
+    "acceptedAll": "Section accepted",
+    "reviewed": "Review finished — {{count}} accepted",
+    "noChanges": "No changes — your estimate range stays the same.",
+    "recalculated": "{{count}} item(s) added to the scope — estimate range updated.",
+    "scopeOnly": "{{count}} item(s) added to the scope. Create an estimate to price them.",
+    "factsOnly": "Decisions saved. Nothing you changed affects the price.",
+    "failed": "We could not finish the review. Please try again."
+  },
+  "page": {
+    "picker": "Choose a project",
+    "empty": "No projects yet."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "levels": {
+    "verified": { "label": "Verificado", "explanation": "Confirmado por el contratista." },
+    "high": { "label": "Confianza alta", "explanation": "Hay evidencia sólida que respalda este valor." },
+    "medium": { "label": "Confianza media", "explanation": "Estimación razonable — se recomienda revisar." },
+    "low": { "label": "Confianza baja", "explanation": "Evidencia limitada — verifica antes de enviar." },
+    "needs_confirmation": { "label": "Requiere confirmación", "explanation": "Por favor confirma este valor antes de continuar." }
+  }
+}
